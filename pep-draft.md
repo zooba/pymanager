@@ -487,6 +487,32 @@ an entirely separate repository - it's only an alias, and only for the case
 where a user has installed PyManager from the Windows Store.
 
 
+Interaction with venv
+---------------------
+
+An activated virtual environment, as implemented by the standard library
+``venv`` module, will modify the user's ``PATH`` environment variable to ensure
+that the venv launcher will take precedence over other executables. As a result,
+when a venv has been activated, PyManager can only be launched by its aliases
+other than ``python``.
+
+This means that virtual environments will behave correctly with no additional
+support from PyManager.
+
+Based on experience with the ``py.exe`` launcher, where it was found that users
+expected ``py`` to launch an active virtual environment, we would argue that
+PyManager as proposed only behaves correctly _because_ it uses ``python`` as the
+main alias. This choice allows other aliases to explicitly ignore an active
+environment, because the preferred alias will use it as intended.
+
+Were we to change the decision to use ``python`` as the primary alias, we would
+have to design and implement interaction modes that enable PyManager to find and
+use virtual environments, including those that are not created or managed by
+PyManager itself. This is a significant expansion of scope, and carries
+significant risk, as the current proposal is entirely constrained to PyManager
+being aware of and responsible for all of its installs.
+
+
 Specification
 =============
 
@@ -568,37 +594,231 @@ However, a number of intended options are discussed in other sections.
 Index Schema
 ------------
 
+The index file is made available either online or locally, and provides
+PyManager with all the information needed to find, select, install, and manage
+any Python runtime.
+
+The index is stored as JSON. The main top level key is ``versions``, which
+contains a list of objects. Each version object has its own schema version, and
+there is no overall file schema version. Future changes may add additional
+top-level keys to provide functionality that cannot be safely integrated into
+an existing one.
+
+A second top-level key ``next`` contains an optional URL to another index. This
+may be used if PyManager cannot find a suitable package in the included
+versions. The intent is to allow for older indexes to be archived and only
+accessed when required, reducing the size of the initial download without
+cutting off users from older versions.
+
+The initial schema is shown below.
+
+```
+SCHEMA = {
+    "versions": [
+        {
+            # Should be 1.
+            "schema": int,
+
+            # Unique ID used for install detection/side-by-side.
+            # Must be valid as a filename.
+            "id": str,
+
+            # Name to display in the UI
+            "displayName": str,
+
+            # Version used to sort packages. Also determines prerelease status.
+            # Should follow Python's format, but is only compared among releases
+            # with the same Company.
+            "sort-version": Version,
+
+            # Company field, used for filtering and displayed as the publisher.
+            "company": str,
+
+            # Default tag, mainly for UI purposes.
+            # It should also be specified in 'install-for' and 'run-for'.
+            "tag": str,
+
+            # List of tags to install this package for. This does not have to be
+            # unique across all installs; the first match will be selected.
+            "install-for": [str],
+
+            # List of tags to run this package for. Does not have to be unique
+            # across all installs; the first match will be selected. The target
+            # is the executable path relative to the root of the archive.
+            "run-for": [{"tag": str, "target": str}, ...],
+
+            # List of global CLI aliases to create for this package. Does not
+            # have to be unique across all installs; the first match will be
+            # created.
+            "alias": [{"name": str, "target": str, "windowed": int}, ...],
+
+            # List of shortcuts to create for this package. Additional keys on
+            # each instance are allowed based on the value of 'kind'.
+            # At present, no values of 'kind' are defined, and so this key
+            # should be empty or omitted.
+            # TODO: Define 'registry' kind to create PEP 514 compatible entries
+            "shortcuts": [{"kind": str, "name": str, "target": str}, ...]
+
+            # Default executable path, relative to the root of the archive
+            "executable": str,
+
+            # URL to download the package archive from
+            "url": str,
+
+            # Optional set of hashes to validate the download. Hashes are stored
+            # as hex digests. Any hash supported by hashlib without OpenSSL is
+            # permitted.
+            "hash": {
+                "<hash_name>": str,
+            }
+        }
+    ],
+
+    # URL to the next index file
+    "next": str,
+}
+```
+
+Inline Script Metadata
+----------------------
+
+PEP 723 introduced inline script metadata, a structured comment intended for
+third-party tools to interpret and then launch a Python script in the correct
+environment. An example taken from that PEP:
+
+```
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "requests<3",
+#   "rich",
+# ]
+# ///
+```
+
+PyManager has no integrated support for installing dependencies, and does not
+propose adding any. However, we can make use of the ``requires-python`` value
+when present (and not overridden on the command line) to select a suitable
+runtime for the script.
+
+While the example above uses a minimum version constraint, we expect the more
+valuable scenario to be when a specific runtime version is requested. This would
+result in a trivial ``python my-script.py`` being able to select the intended
+runtime automatically.
+
+Future work may include adding an additional subcommand to use built-in tools
+to create temporary virtual environments and install dependencies. This is not
+being proposed at this time.
+
 
 Shebang Processing
 ------------------
 
+For limited compatibility with scripts designed for sh-like shells, PyManager
+will check scripts for a shebang line. A shebang line specifying a Python
+command will be used (when not overridden on the command line) to select a
+suitable runtime for the script.
 
-Inline Script Metadata
-----------------------
+Unlike the support currently in the ``py.exe`` launcher, we propose to reduce
+this functionality to only support Python commands where the command matches
+a global alias listed for an install. (The existing launcher is able to run any
+executable, and attempts to extract version information from the command, rather
+than simple matching.)
+
+The specific patterns to be detected are left to the implementation.
 
 
 Backwards Compatibility
 =======================
 
-[Describe potential impact and severity on pre-existing code.]
+Unfortunately, due to the existing situation, there is no way to make any change
+to installation without requiring users to make changes to their systems. These
+are quite reasonably seen as compatibility breaks, although we have never
+promised compatibility between installers and certainly not between different
+major versions.
 
+Python versions prior to the first release of PyManager can be backfilled into
+the python.org index, either based on newly repackaged archives or using the
+almost equivalent packages from Nuget (the latter does not include Tcl/Tk,
+making them significantly incompatible for some users, but this is likely okay
+for especially old versions).
+
+Users who currently rely on the traditional installer will find themselves
+having to switch to a significantly different workflow. This will particularly
+impact those who have scripted downloads and installs. The deprecation period
+of two releases will allow time to transition, and the traditional installer
+will have additional output and warnings added to direct users to the newer
+options.
+
+Users currently using Store packages are already manually installing each
+version, as there is no predictable way to adopt new versions. One potentially
+significant change is that Python through PyManager will not launch with an
+app identity (TODO: link to MSFT docs), which may cause some OS functionality to
+fail. This functionality would already have failed under any other installer, so
+it is considered unlikely that users who rely on it will be broken by surprise.
+If necessary, newer OS APIs may allow us to enable an app identity for new
+releases, although this would be a change to CPython itself and not to the
+installer.
+
+Users currently using Nuget packages will also have to change to a new workflow.
+Further investigation is required to determine how best to support this, as it
+is possible that the PyManager MSIX package may not be installable on all
+continuous integration systems. No differences are anticipated between a package
+installed by PyManager compared to one installed by Nuget.
+
+Users using the embeddable distro may have to change to a new method for
+discovering the URL to the packages, though the recommendation would be to use
+PyManager to discover and install. No differences are anticipated due to the
+change of installer, and the embeddable distro package would be identical to
+today.
 
 Security Implications
 =====================
 
-[How could a malicious user take advantage of this new feature?]
+TODO (but in short, no worse than the traditional installer's default settings)
 
 
 How to Teach This
 =================
 
-[How to teach users, new and experienced, how to apply the PEP to their work.]
+As covered earlier, a central goal of this proposal is that "type 'python' in
+your terminal" will be sufficient instruction for the most basic cases. Thanks
+to the redirector added by Microsoft, following this instruction will at least
+result in something useful happening, and with PyManager we can ensure that
+"something useful" means that the user is running the latest version.
+
+To explain what is actually happening, we propose the following as introductory
+text:
+
+Python is managed using an installer tool, known as PyManager. After this tool
+is installed, you can run ``python`` to launch the interpreter, and it will
+choose the best version already installed, available online, or referenced by
+the script you are launching (if any). If you have a preference for a particular
+version, you can specify it with ``python -V:<version>`` followed by the rest of
+your command.
+
+To install a version of Python without running any command, use ``python install
+<version>``. You can see all of your installs with ``python list`` and remove
+them with ``python uninstall <version>``. Add ``-?`` to any of these commands to
+see all the options that are available.
+
+Because each version of Python will be shared by all your projects, we recommend
+using virtual environments. This will usually be created for a particular Python
+version by running ``python -V:<version> -m venv .venv``, and activated with
+``.venv\Scripts\Activate``. Now, rather than the install manager, ``python``
+will always launch your virtual environment, and any packages you install are
+only available while this environment is active. To get access to the manager
+again, you can ``deactivate`` the environment, or use ``py-manage <command>``.
 
 
 Reference Implementation
 ========================
 
-[Link to any existing implementation and details about its state, e.g. proof-of-concept.]
+The reference implementation is available at https://github.com/zooba/pymanager/
+with a precompiled MSIX package under the Releases at
+https://github.com/zooba/pymanager/releases. This sample includes a bundled
+index, rather than a hosted one, and references a range of existing Nuget
+packages to allow install testing.
 
 
 Rejected Ideas
