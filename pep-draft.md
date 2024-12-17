@@ -171,10 +171,10 @@ standard library, development headers and import libraries, and pip. It does
 not execute any code at install time, and users must locate the package
 themselves in order to launch the ``python.exe`` contained within.
 
-Embeddable Distro
------------------
+Embeddable Package
+------------------
 
-The embeddable distro for CPython is produced and published as part of our
+The embeddable package for CPython is produced and published as part of our
 normal release process. It is published to python.org alongside the
 traditional installer. The contents are identical, however, the layout is
 changed to store all binaries at the top level, with the standard library
@@ -186,6 +186,34 @@ This package does not include pip, as the intention is for it to be embedded
 into a broader application. Other libraries should be installed at build time,
 but after distribution, the runtime is meant as an internal implementation
 detail of the app it is part of.
+
+Alternate Distributions
+-----------------------
+
+While outside of our purview as the core team, alternate distributions of Python
+for Windows often use a project, workflow or environment-centric model for
+installation of the runtime. By this, we mean that the tool is installed first,
+and is used to create a working space that includes a runtime, as well as other
+dependencies. Examples of these tools include conda and uv.
+
+Two observations are worth making about these tools. Firstly, they are often
+praised for being low impact, in that they usually don't install additional
+entry points or files for the runtime, making the install fast and also isolated
+to a single project. Secondly, their users often appreciate the ease of
+selecting a particular version of a runtime, or alternatively, not having to
+select at all because existing specifications (or constraints) can choose for
+them.
+
+These tools tend to meet many of the second set of expectations described above,
+usually combining multiple tasks in a single command to reduce the cognitive
+overhead of learning how to use and combine multiple commands.
+
+It's also worth pointing out that the core team does not view these alternate
+distributions as competitors to any upstream distribution. They are a
+fundamental piece of how the open source ecosystem is intended to work. Our own
+distributions are a convenience for those who choose to use them, as not all
+scenarios are well served by a workflow tool or even a pre-built package.
+
 
 Challenges
 ----------
@@ -339,7 +367,8 @@ Install subcommand
 ------------------
 
 ```
-python install [--force] [--upgrade] [--source <URL>] [--target <DIR>] [tag ...]
+python install [-s|--source <URL>] [-f|--force] [-u|--upgrade] [tag ...]
+python install [-s|--source <URL>] [-t|--target <DIR>] [tag ...]
 ```
 
 This subcommand will install one or more runtimes onto the current machine.
@@ -377,7 +406,7 @@ Uninstall subcommand
 --------------------
 
 ```
-python uninstall [--yes] [--purge] [tag ...]
+python uninstall [-y|--yes] [--purge] [tag ...]
 ```
 
 This subcommand will uninstall one or more runtimes on the current machine. Tags
@@ -393,12 +422,12 @@ List subcommand
 ---------------
 
 ```
-python list [--format <FMT>] [-1] [tag ...]
+python list [-f|--format <FMT>] [-1|--one] [tag ...]
 ```
 
 This subcommand will list any or all installs matching the specified tags. If
-no tags are provided, lists all installs. If ``-1`` is provided, only lists the
-first result.
+no tags are provided, lists all installs. If ``--one`` is provided, only lists
+the first result.
 
 The default format is user-friendly. Other formats will include machine-readable
 and single string formats (e.g. ``--format=prefix`` simply prints ``sys.prefix``
@@ -967,16 +996,133 @@ pre-cached package without affecting an existing install. This approach,
 however, does not provide a usable ``python.exe`` on first install, which is the
 main reason we would want to consider it (see the previous rejected idea).
 
+
+Use a built-in module rather than subcommands
+---------------------------------------------
+
+Two alternatives to using commands like ``python list`` or ``python install``
+that have been proposed are to use either dedicated modules, invoked like
+``python -m list`` and ``python -m install``, or a single dedicated module
+invoked like ``python -m manage list``. This idea is rejected on the basis that
+it attempts to reuse existing semantics for a scenario that cannot be reliably
+implemented by those semantics, and so will require a special case that is
+harder to explain, understand, and maintain.
+
+The main reason this idea is rejected is due to the interaction of two otherwise
+desirable semantics: first, that the default ``python`` command should launch
+the latest available runtime as if it were launched directly; and second, that
+the behaviour of ``-m`` should not be treated as a special case in some
+circumstances. If the first part was dropped, we would freely modify the command
+to behave as users expect - nobody would be raising compatibility concerns at
+all if we were agreed to completely break compatibility. However, if the second
+constraint were dropped, users would bear the burden of the ensuring confusion.
+(We aren't proposing dropping either - this is a rejected idea, after all - but
+it helps to illustrate what the options are.)
+
+First, since one of the subcommands is intended to install your first runtime,
+we cannot treat ``python -m [manage] install`` as if it is running through the
+default runtime - there isn't one! It inherently requires special case handling
+in order to read the command and execute it through a different program.
+
+Additionally, Python allows other options to precede or mingle with the ``-m``,
+which would have to be supported by this special case.
+
+Finally, the semantics of the ``-m`` option include searching the initial
+``sys.path`` for matching module names. This is a considerably more broad search
+than a bare name. ``python -m install`` would gladly execute ``install.py``,
+``install.pyc``, ``install.pyd``, ``install\\__init__.py``, and others after
+searching a number of directories found by inspecting the file system, the
+environment, the registry, as well as any transitively included paths found in
+those. Compared to ``python install``, which would _only_ look for a file called
+precisely ``install`` in the current working directory, the ``-m`` behaviour is
+far more likely to be already relied upon by real scenarios. (For example,
+Django projects typically have a ``manage.py`` script, meaning that ``python -m
+manage`` would always behave incorrectly by some measure.)
+
+Changing ``python -m install`` to *not* behave like ``-m``, but instead to
+execute an internal command, is vastly more likely to break users than changing
+``python install``. As such, this idea is rejected.
+
+
+Use a new command-line option rather than subcommands
+-----------------------------------------------------
+
+A reasonable alternative to subcommands is to specify their names with leading
+punctuation, like an option rather than a subcommand. For example, this may look
+like ``python /install ...`` rather than ``python install``, or ``python
+--list``. Because some of these are currently errors for a normal CPython
+interpreter, they could be added without any backwards compatibility concern.
+
+Notably, however, the typical Windows format of a leading slash is not an error
+in CPython. Windows users therefore cannot directly transfer existing knowledge
+and must learn a new way to specify options. As we are proposing a Windows
+specific tool, this is a terrible start. Additionally, those users familiar with
+Unix-style command lines will recognise the misuse of options as commands.
+
+We desire to create a clean interface, and starting with a design that includes
+obvious warts or learning challenges is counter to that goal. Modern tools
+universally use subcommands for these purposes, and so the idea to use something
+different is rejected.
+
+
 Improving the current traditional installer instead
 ---------------------------------------------------
 
-**TODO**
+Rather than creating a new install mechanism, we could invest in maintaining the
+current installer. At this stage, however, our current installer is based
+entirely on retired technology. Windows is no longer developing the Windows
+Installer service, and Wix are no longer improving the version of their toolset
+that we use. Migrating to a newer Wix Toolset is a significant amount of work,
+and ultimately still leaves us tied to old technologies.
+
+As mentioned earlier, the most beneficial functionality provided by Windows
+Installer is not used for CPython, and generally has caused more issues than it
+has ever solved (for example, accidental downgrades due to automatically
+collected file version information).
+
+The implementation of the Burn bundle, which is our primary source of installer
+logic, is in C++ and integrated into a framework that few core developers are
+familiar with. This makes maintenance challenging, and is not a good long term
+position to take. Migrating desired features such as registration-free installs
+into the Burn bundle is not possible (without writing the end-to-end
+reimplementation and integrating it as an afterthought).
+
+Our view is that maintaining the current traditional installer is at least as
+much effort as implementing a new installer, and would not provide meaningful
+benefits for the core team or for our users. As such, this idea is rejected.
 
 
 Delete the Store package completely
 -----------------------------------
 
-**TODO**
+Removing the Store packages would reduce the number of options users face when
+choosing a Python runtime. By all measures apart from reliability and security,
+the traditional installer is entirely sufficient as a substitute. The effort to
+migrate parts of the ecosystem to more secure settings (such as not relying on
+DLL hijacking) has largely occurred, but some packages remain that still only
+work with less secure configurations, and moving all users back to these
+configurations would ensure that users of these packages would not face the
+issues they face today.
+
+However, the majority of users of the Store packages appear to have no
+complaints. Anecdotally, they are often fully satisfied by the Store install,
+and particularly appreciate the ease and reliability of installation. (And on a
+personal note, this author has been using Store packages exclusively since
+Python 3.8 with no blocking issues.)
+
+The greatest number of issues have been caused by misconfigured ``PATH``
+variables and the default ``python.exe`` redirector installed by Microsoft. In
+other words, entirely unrelated to our own package (though sometimes related to
+unresolvable issues in our traditional installer). For the sake of the high
+number of successful installs through this path, we consider the burden of
+diagnosing and assisting impacted users to be worthwhile, and consider the idea
+to simply drop the Store package rejected.
+
+That said, when PyManager is published to the Store, we would plan to delist all
+existing runtimes on the Store to ensure users find the manager. This only
+impacts new installs, and anyone who has previously installed a particular
+version (even on another machine, if they were logged in) will be able to
+continue to use and install those versions.
 
 
 Rely on WinGet or equivalents
@@ -994,10 +1140,33 @@ need to investigate using our binary packages directly.
 Currently, none of these install tools are officially supported by CPython, and
 so we have no obligation to make them work.
 
+
 Just publish the plain ZIP file
 -------------------------------
 
-**TODO**
+Publishing the plain ZIP file is part of the plan, however, it will not be
+visibly listed (for example, on the python.org downloads pages, though they will
+be visible in the FTP view). An alternative would be to publish and list these
+packages, and expect users to download and manually extract and configure them.
+
+Given the desirable workflows we see, we believe that most users do not want to
+configure a Python install at all. Not only do they not want to choose the
+install location, they do not want to choose a version, or even have to search
+for a download provider or instructions. However, they do want to be able to
+find an install later, launch, update or remove it, or list all known installs.
+
+It is also worth recognising that there will be more ZIP files than are
+currently listed on the Download pages, and so the list of files will become
+longer. Choosing the correct download is already challenging for users (those
+who bypass the primary "Download" button and view the list of all available
+versions and then files), and we have no desire to make it more challenging.
+
+The index protocol and download list will be available for tools that wish to
+use it, or for users who are willing to navigate JSON in order to find the URL.
+While these are not supported uses, there is no reason to prevent them. The
+``--target`` option on the install command provides a download and extract
+operation.
+
 
 Only publish PyManager to one place
 -----------------------------------
