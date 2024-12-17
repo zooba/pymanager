@@ -21,9 +21,10 @@ Installation of the python.org Python distribution on Windows is complex.
 There are three main approaches with roughly equivalent levels of user
 experience, and yet all of these suffer from different limitations, including
 failing to satisfy modern usage scenarios. This PEP proposes a design for
-a single install workflow tool that satisfies all the needs of the existing
-installers, while avoiding most of their limitations, and provides the core
-team with a long-term plan for releasing pre-built distributions.
+a single Windows install workflow tool that satisfies all the needs of the
+existing installers for the platform, while avoiding most of their limitations,
+and provides the core team with the ability to manage releases for many years
+to come.
 
 
 Background
