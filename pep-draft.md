@@ -298,6 +298,9 @@ The user visible name will be "Python Install Manager", published by the
 Python Software Foundation. After publishing, we will request that Microsoft
 adjust their ``python.exe`` stub to open to this new app.
 
+Primary User Scenario
+---------------------
+
 Our primary scenario to address is the user who has a clean Windows install,
 who types ``python`` at the terminal, expecting to start an interactive
 session. We choose this scenario because it requires the least amount of prior
@@ -343,12 +346,20 @@ Python interpreter. Unless overridden, this will be the highest version,
 non-prerelease, non-experimental runtime.
 
 As with the ``py.exe`` launcher, the first argument may be used to specify a
-preferred version, either as an option starting with ``-3`` or ``-V:``.
+preferred version, either as an option starting with ``-V:`` or ``-3``.
 The value following ``-V:`` is a ``Company\\Tag`` pair, as defined in PEP 514,
 where either part may be omitted. If no slash is found, the text is assumed to
 be a tag belonging to ``PythonCore``, that is, official distributions from the
 upstream project. An option beginning with ``-3``, such as ``-3.13-arm64`` is
 also interpreted as a tag belonging to ``PythonCore``.
+
+As a reminder, PEP 514 updates the generic identification for Python runtimes
+from a basic ``x.y`` version to allow for distributors to specify their own
+"Company". This can be any text, but is ideally easy to type, and unique enough
+to avoid collisions. Anywhere we use "tag" as a placeholder in this PEP, a
+``Company\\Tag`` pair is permitted unless a separate field for company is
+available. The Company for python.org releases is ``PythonCore``, for
+compatibility with the registry keys used by earlier releases.
 
 > In this document, all command line options will be shown with one or two
 > hyphens. In implementation, all options will support one or two hyphens or a
@@ -360,7 +371,8 @@ else they will be passed to a Python runtime as a filename. (See Backwards
 Compatibility.)
 
 Subcommands are shown here under the ``python`` command. Alternate names are
-discussed in Specification.
+discussed in Specification. Alternatives to adding subcommands are discussed in
+Rejected Ideas.
 
 
 Install subcommand
@@ -559,16 +571,15 @@ create a console.
 
 The following aliases are created:
 
-* ``PyManager.exe`` - the full name should be an alias, for disambiguation in
-  any context.
 * ``python.exe`` - the command expected by most users
-* ``pyx.exe`` - in testing, a shorter name was found to be useful
+* ``PyManager.exe`` - the full name should be available as an alias, so that it
+  can be accessed when ``python`` is overridden (e.g. virtual environments)
 * ``PywManager.exe`` - same executable without forcing a console
 * ``pythonw.exe`` - same executable without forcing a console
 
 The windowed versions are only able to launch existing installs, and will simply
 fail if no suitable install is found. The explicit management commands will
-work, allowing silent installs.
+work, allowing silent installs to be triggered by other applications.
 
 The use of ``python.exe`` as a global alias, despite this command being more
 functional than a typical runtime, is essential for the smooth flow of a user
@@ -576,11 +587,16 @@ coming to Python with limited information about how to use it. Advanced users
 are able to disable this alias if desired, though would more likely prefer to
 simply avoid it by using the other entry points described in later sections.
 
+Further discussion about the decision to use ``python.exe`` as a global alias
+can be found in the Rejected Ideas section.
+
+
 Start Menu Shortcuts
 --------------------
 
 A Start Menu shortcut will be added to launch PyManager documentation in the
 user's default web browser. No applications are added to the Start Menu.
+
 
 Environment Variables
 ---------------------
@@ -603,11 +619,12 @@ all install into a single directory, or a directory shared by multiple runtimes.
 However, a future development may include a command for PyManager to generate
 its own entry points based on metadata in installed packages.
 
+
 Configuration
 -------------
 
-PyManager may be configured using a hierarchy of JSON-based configuration files.
-Command line options always override configuration file options. Configuration
+PyManager is configured using a hierarchy of JSON-based configuration files.
+Command-line options always override configuration file options. Configuration
 files in user editable locations may be disabled by a configuration or
 command-line option.
 
@@ -620,6 +637,12 @@ In ascending order of priority, these will be located:
 
 The specific behaviour of each configuration option is left to implementation.
 However, a number of intended options are discussed in other sections.
+
+App package configuration is provided to allow PyManager to be embedded in other
+applications or packages. For example, an alternative distribution may want to
+include PyManager but have it locate installs from their own index. The app
+package configuration allows reusing our build and overriding the default
+settings.
 
 Admin-only configuration is provided to allow administrators to manage systems
 under their control using existing tools, such as group policy or registry
@@ -677,6 +700,12 @@ SCHEMA = {
             # with the same Company.
             "sort-version": Version,
 
+            # Specifies platforms to consider this package for.
+            # Initially, 'win32' is the only supported value. Others may be
+            # defined in the future. This condition is evaluated silently, and
+            # is not intended to replace platform requests in "install-for".
+            "platform": [str],
+
             # Company field, used for filtering and displayed as the publisher.
             "company": str,
 
@@ -702,7 +731,7 @@ SCHEMA = {
             # each instance are allowed based on the value of 'kind'.
             # At present, no values of 'kind' are defined, and so this key
             # should be empty or omitted.
-            # TODO: Define 'registry' kind to create PEP 514 compatible entries
+            # TODO: Define 'registry' kind to create PEP 514 entries
             "shortcuts": [{"kind": str, "name": str, "target": str}, ...]
 
             # Default executable path, relative to the root of the archive
@@ -720,10 +749,11 @@ SCHEMA = {
         }
     ],
 
-    # URL to the next index file
+    # Full or partial URL to the next index file
     "next": str,
 }
 ```
+
 
 Inline Script Metadata
 ----------------------
@@ -777,7 +807,19 @@ The specific patterns to be detected are left to the implementation.
 Backwards Compatibility
 =======================
 
-Unfortunately, due to the existing situation, there is no way to make any change
+Without doubt, enabling some subcommands on the default ``python.exe`` alias has
+compatibility implications, specifically in that a small number of unusual
+filenames will not be executable as scripts without additional arguments or
+path qualification. These conditions are considered to be very rare compared to
+alternative designs (see Rejected Ideas), to have acceptable workarounds, and to
+only affect users who have knowingly changed their Python command by installing
+the PyManager app from the Windows Store. Users who use the generated aliases or
+virtual environments are entirely unimpacted. The anticipated benefit is that
+the ``python`` command will remain useful and relevant (see the Primary User
+Scenario above), whereas any alternative would result in the ``python`` command
+behaving inconsistently and likely becoming generally discouraged.
+
+Due to the existing installer situation, there is no way to make any change
 to installation without requiring users to make changes to their systems. These
 are quite reasonably seen as compatibility breaks, although we have never
 promised compatibility between installers and certainly not between different
