@@ -371,13 +371,17 @@ class UninstallCommand(BaseCommand):
 #    HELP_LINE = "Launch a script in a dedicated environment"
 
 
-class HelpCommand(BaseCommand):
-    CMD = "help"
-    HELP_LINE = "Open online documentation for the requested topics"
-
-    # TODO: Help command
-    #def execute(self):
-    #    pass
+# TODO: Not sure this is such a useful command?
+#class HelpCommand(BaseCommand):
+#    CMD = "help"
+#    HELP_LINE = "Open online documentation for the requested topics"
+#
+#    def execute(self):
+#        import os
+#        if self.args:
+#            os.startfile(f"https://docs.python.org/3/search.html?q={'%20'.join(self.args)}")
+#            return
+#        print("TODO: Open help page for PyManager")
 
 
 def find_command(args, root):

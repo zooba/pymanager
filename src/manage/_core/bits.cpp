@@ -159,15 +159,44 @@ PyObject *bits_serialize_job(PyObject *, PyObject *args, PyObject *kwargs) {
 }
 
 
-// (conn, name, url, path) -> job
+static HRESULT _job_setcredentials(IBackgroundCopyJob *job, wchar_t *username, wchar_t *password) {
+    IBackgroundCopyJob2 *job2 = NULL;
+    HRESULT hr;
+    BG_AUTH_CREDENTIALS creds = {
+        .Target = BG_AUTH_TARGET_SERVER,
+        .Scheme = BG_AUTH_SCHEME_BASIC,
+        .Credentials = {
+            .Basic = {
+                .UserName = username,
+                .Password = username ? password : NULL
+            }
+        }
+    };
+
+    if (!username && !password) {
+        return S_OK;
+    }
+
+    if (FAILED(hr = job->QueryInterface(__uuidof(IBackgroundCopyJob2), (void **)&job2))) {
+        return hr;
+    }
+    hr = job2->SetCredentials(&creds);
+    job2->Release();
+    return hr;
+}
+
+// (conn, name, url, path, [username], [password]) -> job
 PyObject *bits_begin(PyObject *, PyObject *args, PyObject *kwargs) {
-    static const char * keywords[] = {"conn", "name", "url", "path", NULL};
+    static const char * keywords[] = {"conn", "name", "url", "path", "username", "password", NULL};
     IBackgroundCopyManager *bcm = NULL;
     wchar_t *name = NULL;
     wchar_t *url = NULL;
     wchar_t *path = NULL;
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O&O&O&O&:bits_begin", keywords,
-        from_capsule<IBackgroundCopyManager>, &bcm, as_utf16, &name, as_utf16, &url, as_utf16, &path
+    wchar_t *username = NULL;
+    wchar_t *password = NULL;
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O&O&O&O&|O&O&:bits_begin", keywords,
+        from_capsule<IBackgroundCopyManager>, &bcm, as_utf16, &name, as_utf16, &url, as_utf16, &path,
+        as_utf16, &username, as_utf16, &password
     )) {
         return NULL;
     }
@@ -177,6 +206,7 @@ PyObject *bits_begin(PyObject *, PyObject *args, PyObject *kwargs) {
     IBackgroundCopyJob* job = NULL;
     HRESULT hr;
     if (SUCCEEDED(hr = bcm->CreateJob(name, BG_JOB_TYPE_DOWNLOAD, &jobId, &job))
+        && SUCCEEDED(hr = _job_setcredentials(job, username, password))
         && SUCCEEDED(hr = job->AddFile(url, path))
         && SUCCEEDED(hr = job->SetPriority(BG_JOB_PRIORITY_FOREGROUND))
         && SUCCEEDED(hr = job->Resume())

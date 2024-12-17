@@ -22,7 +22,7 @@ try:
 except ImportError:
     pass
 else:
-    def _bits_urlretrieve(url, outfile, on_progress):
+    def _bits_urlretrieve(url, outfile, on_progress, on_auth_request):
         LOGGER.debug("_bits_urlretrieve: %s", sanitise_url(url))
         coinitialize()
         bits = bits_connect()
@@ -49,7 +49,11 @@ else:
             if not job:
                 LOGGER.debug("Starting new BITS job: %s -> %s", sanitise_url(url), outfile)
                 ensure_tree(outfile)
-                job = bits_begin(bits, PurePath(outfile).name, url, outfile)
+                if on_auth_request:
+                    user, passw = on_auth_request(url)
+                else:
+                    user, passw = None, None
+                job = bits_begin(bits, PurePath(outfile).name, url, outfile, user, passw)
                 LOGGER.debug("Writing %s", jobfile)
                 jobfile.write_bytes(bits_serialize_job(bits, job))
 
@@ -75,7 +79,7 @@ try:
 except ImportError:
     pass
 else:
-    def _winhttp_urlopen(url, method, headers, on_progress=None, on_auth_request=None):
+    def _winhttp_urlopen(url, method, headers, on_progress, on_auth_request):
         headers = {k.lower(): v for k, v in headers.items()}
         accepts = headers.pop("accepts", "application/*;text/*")
         header_str = "\r\n".join(f"{k}: {v}" for k, v in headers.items())
@@ -190,7 +194,7 @@ def _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress=No
         LOGGER.debug("urlretrieve: complete")
 
 
-def urlretrieve(url, outfile, method="GET", headers={}, chunksize=32 * 1024, on_progress=None):
+def urlretrieve(url, outfile, method="GET", headers={}, chunksize=32 * 1024, on_progress=None, on_auth_request=None):
     if url.casefold().startswith("file://".casefold()):
         with open(file_url_to_path(url), "rb") as r:
             with open(outfile, "wb") as f:
@@ -205,7 +209,7 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=32 * 1024, on_
             LOGGER.debug("BITS download unavailable - using fallback")
         else:
             if method.casefold() == "GET".casefold():
-                return _bits_urlretrieve(url, outfile, on_progress=on_progress)
+                return _bits_urlretrieve(url, outfile, on_progress=on_progress, on_auth_request=on_auth_request)
 
     if ENABLE_WINHTTP:
         try:
@@ -213,16 +217,20 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=32 * 1024, on_
         except NameError:
             LOGGER.debug("WinHTTP download unavailable - using fallback")
         else:
-            return _winhttp_urlretrieve(url, outfile, method, headers, chunksize, on_progress)
+            return _winhttp_urlretrieve(url, outfile, method, headers, chunksize, on_progress, on_auth_request)
 
-    return _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress)
+    return _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress, on_auth_request)
 
 
 def sanitise_url(url):
     from urllib.parse import urlparse, urlunparse
     p = urlparse(url)
-    netloc = p[1].rpartition("@")[2]
-    # TODO: Allow environment variables in user/pass section
+    userpass, _, netloc = p[1].rpartition("@")
+    if userpass:
+        user, _, passw = userpass.partition(":")
+        # URLs like https://__token__:%TOKEN%@netloc/ are permitted
+        if passw and passw.startswith("%") and passw.endswith("%"):
+            return url
     return urlunparse((*p[:1], netloc, *p[2:]))
 
 

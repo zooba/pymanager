@@ -236,6 +236,20 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
     wchar_t *accepts = NULL;
     PyObject *on_progress = NULL;
     PyObject *on_cred_request = NULL;
+
+    PyObject *result = NULL;
+    URL_COMPONENTS url_parts = { sizeof(URL_COMPONENTS) };
+    HINTERNET hSession = NULL;
+    HINTERNET hConnection = NULL;
+    HINTERNET hRequest = NULL;
+    DWORD opt = 0;
+    LPCWSTR *accepts_array;
+
+    DWORD status_code = 0;
+    uint64_t content_length;
+    PyObject *chunks = NULL;
+    uint64_t content_read = 0;
+
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O&O&O&O&|OO:winhttp_urlopen", keywords,
         as_utf16, &url, as_utf16, &method, as_utf16, &headers, as_utf16, &accepts, &on_progress, &on_cred_request)) {
         return NULL;
@@ -248,12 +262,7 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
         on_cred_request = NULL;
     }
 
-    PyObject *result = NULL;
-    URL_COMPONENTS url_parts = { sizeof(URL_COMPONENTS) };
-    HINTERNET hSession = NULL;
-    HINTERNET hConnection = NULL;
-    HINTERNET hRequest = NULL;
-    LPCWSTR *accepts_array = (LPCWSTR*)split_to_array(accepts, L';');
+    accepts_array = (LPCWSTR*)split_to_array(accepts, L';');
     if (!accepts_array) {
         goto exit;
     }
@@ -291,7 +300,7 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
     );
     CHECK_WINHTTP(hRequest);
 
-    DWORD opt = WINHTTP_DECOMPRESSION_FLAG_ALL;
+    opt = WINHTTP_DECOMPRESSION_FLAG_ALL;
     CHECK_WINHTTP(WinHttpSetOption(
         hRequest,
         WINHTTP_OPTION_DECOMPRESSION,
@@ -310,7 +319,6 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
         ));
     }
 
-    DWORD status_code = 0;
     while (!status_code) {
         CHECK_WINHTTP(WinHttpSendRequest(hRequest, headers, -1, NULL, 0, 0, NULL));
         CHECK_WINHTTP(WinHttpReceiveResponse(hRequest, NULL));
@@ -336,7 +344,6 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
         }
     }
 
-    uint64_t content_length;
     if (!read_header(hRequest, WINHTTP_QUERY_CONTENT_LENGTH, &content_length)) {
         PyErr_Clear();
         content_length = 0;
@@ -349,8 +356,7 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
         Py_CLEAR(result);
     }
 
-    PyObject *chunks = PyList_New(0);
-    uint64_t content_read = 0;
+    chunks = PyList_New(0);
     while (true) {
         DWORD data_len, data_read;
         if (!WinHttpQueryDataAvailable(hRequest, &data_len)) {
