@@ -1,0 +1,16 @@
+/bin/
+/build/
+/dist/
+/download/
+/env*/
+/python-manager/
+/pythons/
+
+*.exe
+*.pyc
+*.pyd
+*.pdb
+*.so
+*.dylib
+*.msix
+__pycache__
