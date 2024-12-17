@@ -30,7 +30,7 @@
         <rescap:Capability Name="unvirtualizedResources" />
     </Capabilities>
     <Applications>
-        <Application Id="pymanage.exe"
+        <Application Id="PyManager.exe"
                      Executable="py-manage.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true">
@@ -43,14 +43,12 @@
                 <uap5:Extension Category="windows.appExecutionAlias">
                     <uap5:AppExecutionAlias desktop4:Subsystem="console">
                         <uap5:ExecutionAlias Alias="python.exe" />
-                        <uap5:ExecutionAlias Alias="python3.exe" />
-                        <uap5:ExecutionAlias Alias="pyx.exe" />
-                        <uap5:ExecutionAlias Alias="py-manage.exe" />
+                        <uap5:ExecutionAlias Alias="PyManager.exe" />
                     </uap5:AppExecutionAlias>
                 </uap5:Extension>
             </Extensions>
         </Application>
-        <Application Id="pywmanage.exe"
+        <Application Id="PywManager.exe"
                      Executable="pyw-manage.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true">
@@ -64,8 +62,7 @@
                 <uap5:Extension Category="windows.appExecutionAlias">
                     <uap5:AppExecutionAlias desktop4:Subsystem="windows">
                         <uap5:ExecutionAlias Alias="pythonw.exe" />
-                        <uap5:ExecutionAlias Alias="pythonw3.exe" />
-                        <uap5:ExecutionAlias Alias="pyw-manage.exe" />
+                        <uap5:ExecutionAlias Alias="PywManager.exe" />
                     </uap5:AppExecutionAlias>
                 </uap5:Extension>
             </Extensions>
