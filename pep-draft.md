@@ -984,8 +984,6 @@ https://github.com/zooba/pymanager/releases. This sample includes a bundled
 index, rather than a hosted one, and references a range of existing Nuget
 packages to allow install testing.
 
-(Except it's not there yet.)
-
 Rejected Ideas
 ==============
 
