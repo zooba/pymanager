@@ -31,7 +31,7 @@ Background
 ==========
 
 There are a large range of needs users may have that lead to them wanting
-to install a Python runtime. Many, likely most, are interesting in running
+to install a Python runtime. Many, likely most, are interested in running
 (perhaps writing) short scripts, such as those that perform a simple task,
 or help teach someone a concept. Some users are looking for a specific version
 to integrate with existing code or another application. Some are after a full
