@@ -38,7 +38,7 @@ PACKAGE = Package('python-manager',
         PyFile('src/manage/__init__.py'),
         PyFile('src/manage/__main__.py'),
         # Default index feed, mainly for testing right now
-        File('index.json'),
+        File('index*.json'),
         DllPackage('_core',
             PyFile('*.py'),
             IncludeFile('*.h'),

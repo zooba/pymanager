@@ -1,0 +1,7268 @@
+{
+  "versions": [
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a3",
+      "sort-version": "3.14.0a3",
+      "company": "PythonCore",
+      "tag": "3.14",
+      "install-for": [
+        "3.14.0a3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a3/python.3.14.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a2",
+      "sort-version": "3.14.0a2",
+      "company": "PythonCore",
+      "tag": "3.14",
+      "install-for": [
+        "3.14.0a2"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a2/python.3.14.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a1",
+      "sort-version": "3.14.0a1",
+      "company": "PythonCore",
+      "tag": "3.14",
+      "install-for": [
+        "3.14.0a1"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a1/python.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.1",
+      "sort-version": "3.13.1",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.1",
+        "3.13"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.1/python.3.13.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0",
+      "sort-version": "3.13.0",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0",
+        "3.13"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0/python.3.13.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc3",
+      "sort-version": "3.13.0rc3",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0rc3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc3/python.3.13.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc2",
+      "sort-version": "3.13.0rc2",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0rc2"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc2/python.3.13.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc1",
+      "sort-version": "3.13.0rc1",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0rc1"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc1/python.3.13.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b4",
+      "sort-version": "3.13.0b4",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0b4"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b4",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b4/python.3.13.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b3",
+      "sort-version": "3.13.0b3",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0b3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b3/python.3.13.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b2",
+      "sort-version": "3.13.0b2",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0b2"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b2/python.3.13.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b1",
+      "sort-version": "3.13.0b1",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0b1"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b1/python.3.13.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a6",
+      "sort-version": "3.13.0a6",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0a6"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a6",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a6/python.3.13.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a5",
+      "sort-version": "3.13.0a5",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0a5"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a5",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a5/python.3.13.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a4",
+      "sort-version": "3.13.0a4",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0a4"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a4",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a4/python.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a3",
+      "sort-version": "3.13.0a3",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0a3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a3/python.3.13.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a2",
+      "sort-version": "3.13.0a2",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0a2"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a2/python.3.13.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a1",
+      "sort-version": "3.13.0a1",
+      "company": "PythonCore",
+      "tag": "3.13",
+      "install-for": [
+        "3.13.0a1"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a1/python.3.13.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.8",
+      "sort-version": "3.12.8",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.8",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.8",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.8/python.3.12.8.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.7",
+      "sort-version": "3.12.7",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.7",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.7",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.7/python.3.12.7.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.6",
+      "sort-version": "3.12.6",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.6",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.6",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.6/python.3.12.6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.5",
+      "sort-version": "3.12.5",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.5",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.5",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.5/python.3.12.5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.4",
+      "sort-version": "3.12.4",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.4",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.4",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.4/python.3.12.4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.3",
+      "sort-version": "3.12.3",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.3",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.3/python.3.12.3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.2",
+      "sort-version": "3.12.2",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.2",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.2/python.3.12.2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.1",
+      "sort-version": "3.12.1",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.1",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.1/python.3.12.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0",
+      "sort-version": "3.12.0",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0",
+        "3.12"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0/python.3.12.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc3",
+      "sort-version": "3.12.0rc3",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0rc3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-rc3/python.3.12.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc2",
+      "sort-version": "3.12.0rc2",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0rc2"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-rc2/python.3.12.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc1",
+      "sort-version": "3.12.0rc1",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0rc1"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-rc1/python.3.12.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b4",
+      "sort-version": "3.12.0b4",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0b4"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b4",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b4/python.3.12.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b3",
+      "sort-version": "3.12.0b3",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0b3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b3/python.3.12.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b2",
+      "sort-version": "3.12.0b2",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0b2"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b2/python.3.12.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b1",
+      "sort-version": "3.12.0b1",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0b1"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b1/python.3.12.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a7",
+      "sort-version": "3.12.0a7",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0a7"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a7",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a7/python.3.12.0-a7.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a6",
+      "sort-version": "3.12.0a6",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0a6"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a6",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a6/python.3.12.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a5",
+      "sort-version": "3.12.0a5",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0a5"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a5",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a5/python.3.12.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a4",
+      "sort-version": "3.12.0a4",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0a4"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a4",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a4/python.3.12.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a3",
+      "sort-version": "3.12.0a3",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0a3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a3",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a3/python.3.12.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a2",
+      "sort-version": "3.12.0a2",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0a2"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a2/python.3.12.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a1",
+      "sort-version": "3.12.0a1",
+      "company": "PythonCore",
+      "tag": "3.12",
+      "install-for": [
+        "3.12.0a1"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a1",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a1/python.3.12.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a3-32",
+      "sort-version": "3.14.0a3",
+      "company": "PythonCore",
+      "tag": "3.14-32",
+      "install-for": [
+        "3.14.0a3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a3/pythonx86.3.14.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a2-32",
+      "sort-version": "3.14.0a2",
+      "company": "PythonCore",
+      "tag": "3.14-32",
+      "install-for": [
+        "3.14.0a2-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a2/pythonx86.3.14.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a1-32",
+      "sort-version": "3.14.0a1",
+      "company": "PythonCore",
+      "tag": "3.14-32",
+      "install-for": [
+        "3.14.0a1-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a1/pythonx86.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.1-32",
+      "sort-version": "3.13.1",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.1-32",
+        "3.13-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.1/pythonx86.3.13.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0-32",
+      "sort-version": "3.13.0",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0-32",
+        "3.13-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0/pythonx86.3.13.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc3-32",
+      "sort-version": "3.13.0rc3",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0rc3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc3/pythonx86.3.13.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc2-32",
+      "sort-version": "3.13.0rc2",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0rc2-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc2/pythonx86.3.13.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc1-32",
+      "sort-version": "3.13.0rc1",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0rc1-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc1/pythonx86.3.13.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b4-32",
+      "sort-version": "3.13.0b4",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0b4-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b4 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b4/pythonx86.3.13.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b3-32",
+      "sort-version": "3.13.0b3",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0b3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b3/pythonx86.3.13.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b2-32",
+      "sort-version": "3.13.0b2",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0b2-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b2/pythonx86.3.13.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b1-32",
+      "sort-version": "3.13.0b1",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0b1-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b1/pythonx86.3.13.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a6-32",
+      "sort-version": "3.13.0a6",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0a6-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a6 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a6/pythonx86.3.13.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a5-32",
+      "sort-version": "3.13.0a5",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0a5-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a5 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a5/pythonx86.3.13.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a4-32",
+      "sort-version": "3.13.0a4",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0a4-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a4 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a4/pythonx86.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a3-32",
+      "sort-version": "3.13.0a3",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0a3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a3/pythonx86.3.13.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a2-32",
+      "sort-version": "3.13.0a2",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0a2-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a2/pythonx86.3.13.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a1-32",
+      "sort-version": "3.13.0a1",
+      "company": "PythonCore",
+      "tag": "3.13-32",
+      "install-for": [
+        "3.13.0a1-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a1/pythonx86.3.13.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.8-32",
+      "sort-version": "3.12.8",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.8-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.8 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.8/pythonx86.3.12.8.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.7-32",
+      "sort-version": "3.12.7",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.7-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.7 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.7/pythonx86.3.12.7.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.6-32",
+      "sort-version": "3.12.6",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.6-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.6 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.6/pythonx86.3.12.6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.5-32",
+      "sort-version": "3.12.5",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.5-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.5 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.5/pythonx86.3.12.5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.4-32",
+      "sort-version": "3.12.4",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.4-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.4 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.4/pythonx86.3.12.4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.3-32",
+      "sort-version": "3.12.3",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.3-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.3/pythonx86.3.12.3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.2-32",
+      "sort-version": "3.12.2",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.2-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.2/pythonx86.3.12.2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.1-32",
+      "sort-version": "3.12.1",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.1-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.1/pythonx86.3.12.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0-32",
+      "sort-version": "3.12.0",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0-32",
+        "3.12-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0/pythonx86.3.12.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc3-32",
+      "sort-version": "3.12.0rc3",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0rc3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-rc3/pythonx86.3.12.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc2-32",
+      "sort-version": "3.12.0rc2",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0rc2-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-rc2/pythonx86.3.12.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc1-32",
+      "sort-version": "3.12.0rc1",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0rc1-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-rc1/pythonx86.3.12.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b4-32",
+      "sort-version": "3.12.0b4",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0b4-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b4 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b4/pythonx86.3.12.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b3-32",
+      "sort-version": "3.12.0b3",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0b3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b3/pythonx86.3.12.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b2-32",
+      "sort-version": "3.12.0b2",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0b2-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b2/pythonx86.3.12.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b1-32",
+      "sort-version": "3.12.0b1",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0b1-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b1/pythonx86.3.12.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a7-32",
+      "sort-version": "3.12.0a7",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0a7-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a7 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a7/pythonx86.3.12.0-a7.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a6-32",
+      "sort-version": "3.12.0a6",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0a6-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a6 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a6/pythonx86.3.12.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a5-32",
+      "sort-version": "3.12.0a5",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0a5-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a5 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a5/pythonx86.3.12.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a4-32",
+      "sort-version": "3.12.0a4",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0a4-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a4 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a4/pythonx86.3.12.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a3-32",
+      "sort-version": "3.12.0a3",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0a3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a3 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a3/pythonx86.3.12.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a2-32",
+      "sort-version": "3.12.0a2",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0a2-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a2/pythonx86.3.12.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a1-32",
+      "sort-version": "3.12.0a1",
+      "company": "PythonCore",
+      "tag": "3.12-32",
+      "install-for": [
+        "3.12.0a1-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a1 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a1/pythonx86.3.12.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a3-arm64",
+      "sort-version": "3.14.0a3",
+      "company": "PythonCore",
+      "tag": "3.14-arm64",
+      "install-for": [
+        "3.14.0a3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a3/pythonarm64.3.14.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a2-arm64",
+      "sort-version": "3.14.0a2",
+      "company": "PythonCore",
+      "tag": "3.14-arm64",
+      "install-for": [
+        "3.14.0a2-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a2/pythonarm64.3.14.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a1-arm64",
+      "sort-version": "3.14.0a1",
+      "company": "PythonCore",
+      "tag": "3.14-arm64",
+      "install-for": [
+        "3.14.0a1-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a1/pythonarm64.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.1-arm64",
+      "sort-version": "3.13.1",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.1-arm64",
+        "3.13-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.1/pythonarm64.3.13.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0-arm64",
+      "sort-version": "3.13.0",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0-arm64",
+        "3.13-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0/pythonarm64.3.13.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc3-arm64",
+      "sort-version": "3.13.0rc3",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0rc3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc3/pythonarm64.3.13.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc2-arm64",
+      "sort-version": "3.13.0rc2",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0rc2-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc2/pythonarm64.3.13.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc1-arm64",
+      "sort-version": "3.13.0rc1",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0rc1-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc1/pythonarm64.3.13.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b4-arm64",
+      "sort-version": "3.13.0b4",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0b4-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b4 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b4/pythonarm64.3.13.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b3-arm64",
+      "sort-version": "3.13.0b3",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0b3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b3/pythonarm64.3.13.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b2-arm64",
+      "sort-version": "3.13.0b2",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0b2-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b2/pythonarm64.3.13.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b1-arm64",
+      "sort-version": "3.13.0b1",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0b1-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b1/pythonarm64.3.13.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a6-arm64",
+      "sort-version": "3.13.0a6",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0a6-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a6 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a6/pythonarm64.3.13.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a5-arm64",
+      "sort-version": "3.13.0a5",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0a5-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a5 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a5/pythonarm64.3.13.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a4-arm64",
+      "sort-version": "3.13.0a4",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0a4-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a4 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a4/pythonarm64.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a3-arm64",
+      "sort-version": "3.13.0a3",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0a3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a3/pythonarm64.3.13.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a2-arm64",
+      "sort-version": "3.13.0a2",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0a2-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a2/pythonarm64.3.13.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a1-arm64",
+      "sort-version": "3.13.0a1",
+      "company": "PythonCore",
+      "tag": "3.13-arm64",
+      "install-for": [
+        "3.13.0a1-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a1/pythonarm64.3.13.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.8-arm64",
+      "sort-version": "3.12.8",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.8-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.8 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.8/pythonarm64.3.12.8.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.7-arm64",
+      "sort-version": "3.12.7",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.7-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.7 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.7/pythonarm64.3.12.7.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.6-arm64",
+      "sort-version": "3.12.6",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.6-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.6 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.6/pythonarm64.3.12.6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.5-arm64",
+      "sort-version": "3.12.5",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.5-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.5 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.5/pythonarm64.3.12.5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.4-arm64",
+      "sort-version": "3.12.4",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.4-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.4 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.4/pythonarm64.3.12.4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.3-arm64",
+      "sort-version": "3.12.3",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.3-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.3/pythonarm64.3.12.3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.2-arm64",
+      "sort-version": "3.12.2",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.2-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.2/pythonarm64.3.12.2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.1-arm64",
+      "sort-version": "3.12.1",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.1-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.1/pythonarm64.3.12.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0-arm64",
+      "sort-version": "3.12.0",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0-arm64",
+        "3.12-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0/pythonarm64.3.12.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc3-arm64",
+      "sort-version": "3.12.0rc3",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0rc3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-rc3/pythonarm64.3.12.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc2-arm64",
+      "sort-version": "3.12.0rc2",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0rc2-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-rc2/pythonarm64.3.12.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0rc1-arm64",
+      "sort-version": "3.12.0rc1",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0rc1-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0rc1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-rc1/pythonarm64.3.12.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b4-arm64",
+      "sort-version": "3.12.0b4",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0b4-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b4 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b4/pythonarm64.3.12.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b3-arm64",
+      "sort-version": "3.12.0b3",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0b3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b3/pythonarm64.3.12.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b2-arm64",
+      "sort-version": "3.12.0b2",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0b2-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b2/pythonarm64.3.12.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0b1-arm64",
+      "sort-version": "3.12.0b1",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0b1-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0b1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b1/pythonarm64.3.12.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a7-arm64",
+      "sort-version": "3.12.0a7",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0a7-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a7 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a7/pythonarm64.3.12.0-a7.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a6-arm64",
+      "sort-version": "3.12.0a6",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0a6-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a6 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a6/pythonarm64.3.12.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a5-arm64",
+      "sort-version": "3.12.0a5",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0a5-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a5 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a5/pythonarm64.3.12.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a4-arm64",
+      "sort-version": "3.12.0a4",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0a4-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a4 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a4/pythonarm64.3.12.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a3-arm64",
+      "sort-version": "3.12.0a3",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0a3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a3 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a3/pythonarm64.3.12.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a2-arm64",
+      "sort-version": "3.12.0a2",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0a2-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a2/pythonarm64.3.12.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12.0a1-arm64",
+      "sort-version": "3.12.0a1",
+      "company": "PythonCore",
+      "tag": "3.12-arm64",
+      "install-for": [
+        "3.12.0a1-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.12.0a1 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a1/pythonarm64.3.12.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a3-t",
+      "sort-version": "3.14.0a3",
+      "company": "PythonCore",
+      "tag": "3.14t",
+      "install-for": [
+        "3.14.0a3t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a3 (free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a3/python-freethreaded.3.14.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a2-t",
+      "sort-version": "3.14.0a2",
+      "company": "PythonCore",
+      "tag": "3.14t",
+      "install-for": [
+        "3.14.0a2t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a2 (free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a2/python-freethreaded.3.14.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a1-t",
+      "sort-version": "3.14.0a1",
+      "company": "PythonCore",
+      "tag": "3.14t",
+      "install-for": [
+        "3.14.0a1t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a1 (free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a1/python-freethreaded.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.1-t",
+      "sort-version": "3.13.1",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.1t",
+        "3.13t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.1 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.1/python-freethreaded.3.13.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0-t",
+      "sort-version": "3.13.0",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0t",
+        "3.13t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0/python-freethreaded.3.13.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc3-t",
+      "sort-version": "3.13.0rc3",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0rc3t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc3 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc3/python-freethreaded.3.13.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc2-t",
+      "sort-version": "3.13.0rc2",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0rc2t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc2 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc2/python-freethreaded.3.13.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc1-t",
+      "sort-version": "3.13.0rc1",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0rc1t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc1 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc1/python-freethreaded.3.13.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b4-t",
+      "sort-version": "3.13.0b4",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0b4t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b4 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b4/python-freethreaded.3.13.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b3-t",
+      "sort-version": "3.13.0b3",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0b3t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b3 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b3/python-freethreaded.3.13.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b2-t",
+      "sort-version": "3.13.0b2",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0b2t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b2 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b2/python-freethreaded.3.13.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b1-t",
+      "sort-version": "3.13.0b1",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0b1t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b1 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b1/python-freethreaded.3.13.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a6-t",
+      "sort-version": "3.13.0a6",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0a6t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a6 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-a6/python-freethreaded.3.13.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a5-t",
+      "sort-version": "3.13.0a5",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0a5t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a5 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-a5/python-freethreaded.3.13.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a4-t",
+      "sort-version": "3.13.0a4",
+      "company": "PythonCore",
+      "tag": "3.13t",
+      "install-for": [
+        "3.13.0a4t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a4 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-a4/python-freethreaded.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a3-32-t",
+      "sort-version": "3.14.0a3",
+      "company": "PythonCore",
+      "tag": "3.14t-32",
+      "install-for": [
+        "3.14.0a3t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t-32",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a3 (32-bit, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a3/pythonx86-freethreaded.3.14.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a2-32-t",
+      "sort-version": "3.14.0a2",
+      "company": "PythonCore",
+      "tag": "3.14t-32",
+      "install-for": [
+        "3.14.0a2t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t-32",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a2 (32-bit, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a2/pythonx86-freethreaded.3.14.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a1-32-t",
+      "sort-version": "3.14.0a1",
+      "company": "PythonCore",
+      "tag": "3.14t-32",
+      "install-for": [
+        "3.14.0a1t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t-32",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a1 (32-bit, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a1/pythonx86-freethreaded.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.1-32-t",
+      "sort-version": "3.13.1",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.1t-32",
+        "3.13t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.1 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.1/pythonx86-freethreaded.3.13.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0-32-t",
+      "sort-version": "3.13.0",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0t-32",
+        "3.13t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0/pythonx86-freethreaded.3.13.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc3-32-t",
+      "sort-version": "3.13.0rc3",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0rc3t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc3 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc3/pythonx86-freethreaded.3.13.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc2-32-t",
+      "sort-version": "3.13.0rc2",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0rc2t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc2 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc2/pythonx86-freethreaded.3.13.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc1-32-t",
+      "sort-version": "3.13.0rc1",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0rc1t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc1 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc1/pythonx86-freethreaded.3.13.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b4-32-t",
+      "sort-version": "3.13.0b4",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0b4t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b4 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b4/pythonx86-freethreaded.3.13.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b3-32-t",
+      "sort-version": "3.13.0b3",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0b3t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b3 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b3/pythonx86-freethreaded.3.13.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b2-32-t",
+      "sort-version": "3.13.0b2",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0b2t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b2 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b2/pythonx86-freethreaded.3.13.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b1-32-t",
+      "sort-version": "3.13.0b1",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0b1t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b1 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b1/pythonx86-freethreaded.3.13.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a6-32-t",
+      "sort-version": "3.13.0a6",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0a6t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a6 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a6/pythonx86-freethreaded.3.13.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a5-32-t",
+      "sort-version": "3.13.0a5",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0a5t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a5 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a5/pythonx86-freethreaded.3.13.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a4-32-t",
+      "sort-version": "3.13.0a4",
+      "company": "PythonCore",
+      "tag": "3.13t-32",
+      "install-for": [
+        "3.13.0a4t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a4 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a4/pythonx86-freethreaded.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a3-arm64-t",
+      "sort-version": "3.14.0a3",
+      "company": "PythonCore",
+      "tag": "3.14t-arm64",
+      "install-for": [
+        "3.14.0a3t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a3 (ARM64, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a3/pythonarm64-freethreaded.3.14.0-a3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a2-arm64-t",
+      "sort-version": "3.14.0a2",
+      "company": "PythonCore",
+      "tag": "3.14t-arm64",
+      "install-for": [
+        "3.14.0a2t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a2 (ARM64, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a2/pythonarm64-freethreaded.3.14.0-a2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14.0a1-arm64-t",
+      "sort-version": "3.14.0a1",
+      "company": "PythonCore",
+      "tag": "3.14t-arm64",
+      "install-for": [
+        "3.14.0a1t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.14.0a1 (ARM64, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a1/pythonarm64-freethreaded.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.1-arm64-t",
+      "sort-version": "3.13.1",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.1t-arm64",
+        "3.13t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.1 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.1/pythonarm64-freethreaded.3.13.1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0-arm64-t",
+      "sort-version": "3.13.0",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0t-arm64",
+        "3.13t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0/pythonarm64-freethreaded.3.13.0.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc3-arm64-t",
+      "sort-version": "3.13.0rc3",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0rc3t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc3 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc3/pythonarm64-freethreaded.3.13.0-rc3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc2-arm64-t",
+      "sort-version": "3.13.0rc2",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0rc2t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc2 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc2/pythonarm64-freethreaded.3.13.0-rc2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0rc1-arm64-t",
+      "sort-version": "3.13.0rc1",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0rc1t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0rc1 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc1/pythonarm64-freethreaded.3.13.0-rc1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b4-arm64-t",
+      "sort-version": "3.13.0b4",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0b4t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b4 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b4/pythonarm64-freethreaded.3.13.0-b4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b3-arm64-t",
+      "sort-version": "3.13.0b3",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0b3t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b3 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b3/pythonarm64-freethreaded.3.13.0-b3.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b2-arm64-t",
+      "sort-version": "3.13.0b2",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0b2t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b2 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b2/pythonarm64-freethreaded.3.13.0-b2.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0b1-arm64-t",
+      "sort-version": "3.13.0b1",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0b1t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0b1 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b1/pythonarm64-freethreaded.3.13.0-b1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a6-arm64-t",
+      "sort-version": "3.13.0a6",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0a6t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a6 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-a6/pythonarm64-freethreaded.3.13.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a5-arm64-t",
+      "sort-version": "3.13.0a5",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0a5t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a5 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-a5/pythonarm64-freethreaded.3.13.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13.0a4-arm64-t",
+      "sort-version": "3.13.0a4",
+      "company": "PythonCore",
+      "tag": "3.13t-arm64",
+      "install-for": [
+        "3.13.0a4t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "displayName": "Python 3.13.0a4 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-a4/pythonarm64-freethreaded.3.13.0-a4.nupkg"
+    }
+  ],
+  "next": "index-legacy.json"
+}

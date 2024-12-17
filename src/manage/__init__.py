@@ -29,11 +29,32 @@ def main(args, root=None):
 def _find_one(tag, root):
     from ._core.commands import find_command
     from ._core.installs import get_install_to_run
+    from ._core.logging import LOGGER
 
-    cmd = find_command(["list"], root)
-    i = get_install_to_run(cmd.install_dir, tag)
-    if i:
-        return str(i["executable"])
+    try:
+        cmd = find_command(["list"], root)
+        i = get_install_to_run(cmd.install_dir, tag)
+        if i:
+            return str(i["executable"])
+    except Exception as ex:
+        LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
+        LOGGER.error("TRACEBACK:", exc_info=True)
+        raise
+
+
+def _find_tag_in_script(script, root):
+    from ._core.scripthelper import find_tag
+    from ._core.logging import LOGGER
+
+    try:
+        return find_tag(script, root)
+    except OSError:
+        LOGGER.debug("Failed to read tag", exc_info=True)
+        return None
+    except Exception as ex:
+        LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
+        LOGGER.error("TRACEBACK:", exc_info=True)
+        raise
 
 
 def _find_any(root):

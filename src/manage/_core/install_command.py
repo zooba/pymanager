@@ -229,6 +229,12 @@ def execute(cmd):
     if cmd.automatic:
         LOGGER.info("**********************************************************************")
 
+    if cmd.from_script:
+        from .scripthelper import find_tag
+        tag = find_tag(cmd.from_script, cmd.root)
+        if tag:
+            cmd.args.append(tag)
+
     for tag in cmd.args:
         if tag:
             tag = CompanyTag(tag)

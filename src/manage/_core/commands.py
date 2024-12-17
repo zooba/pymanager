@@ -95,8 +95,9 @@ CLI_SCHEMA = {
         "force": ("force", True),
         "dry-run": ("dry_run", True),
         # Set when the manager is doing an automatic install.
-        # Generally wouldn't be set by a manual invocation.
+        # Generally won't be set by manual invocation
         "automatic": ("automatic", True),
+        "from-script": ("from_script", _NEXT),
     },
 
     "uninstall": {
@@ -311,6 +312,7 @@ class InstallCommand(BaseCommand):
     force = False
     dry_run = False
     automatic = False
+    from_script = None
 
     def __init__(self, args, root=None):
         super().__init__(args, root)

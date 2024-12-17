@@ -69,6 +69,49 @@ readCompanyTagFromArgv(std::wstring arg, std::wstring &tag) {
 
 
 static int
+argsToSkip(const wchar_t *arg) {
+    int retval = 0;
+    for (const wchar_t *c = arg; *c; ++c) {
+        switch (*c) {
+        case L'c':
+        case L'm':
+            return -1;
+        case L'W':
+        case L'X':
+            retval = 1;
+        case L'-':
+            break;
+        default:
+            if (!isalnum(*c)) {
+                return 0;
+            }
+        }
+    }
+    return retval;
+}
+
+static void
+readScriptFromArgv(int argc, const wchar_t **argv, std::wstring &script) {
+    int skip = 0;
+    for (int i = 1; i < argc; ++i) {
+        if (skip > 0) {
+            --skip;
+            continue;
+        }
+        if (argv[i][0] == L'-') {
+            skip = argsToSkip(argv[i]);
+            if (skip < 0) {
+                break;
+            }
+            continue;
+        }
+        script = argv[i];
+        return;
+    }
+}
+
+
+static int
 runCommand(int argc, const wchar_t **argv)
 {
     PyStatus status;
@@ -123,12 +166,13 @@ init_fail:
 
 
 static int
-locateRuntime(const std::wstring &tag, std::wstring &executable) {
+locateRuntime(const std::wstring &tag, const std::wstring &script, std::wstring &executable) {
     PyStatus status;
     PyConfig config;
     int exitCode = 1;
     auto root_str = get_root();
     PyObject *manage = NULL;
+    PyObject *tag_obj = NULL;
     PyObject *r = NULL;
 
     PyConfig_InitIsolatedConfig(&config);
@@ -137,7 +181,16 @@ locateRuntime(const std::wstring &tag, std::wstring &executable) {
 
     manage = PyImport_ImportModule("manage");
     if (!manage) goto python_fail;
-    r = PyObject_CallMethod(manage, "_find_one", "uu", tag.c_str(), root_str.c_str());
+    if (tag.empty() && !script.empty()) {
+        r = PyObject_CallMethod(manage, "_find_tag_in_script", "uu", script.c_str(), root_str.c_str());
+        if (!r) goto python_fail;
+        tag_obj = r;
+        r = NULL;
+    } else {
+        tag_obj = PyUnicode_FromWideChar(tag.data(), tag.size());
+        if (!tag_obj) goto python_fail;
+    }
+    r = PyObject_CallMethod(manage, "_find_one", "Ou", tag_obj, root_str.c_str());
     if (r) {
         if (PyUnicode_Check(r)) {
             executable.resize(PyUnicode_GetLength(r));
@@ -161,6 +214,7 @@ locateRuntime(const std::wstring &tag, std::wstring &executable) {
         PyErr_Print();
     }
 python_fail:
+    Py_XDECREF(tag_obj);
     Py_XDECREF(r);
     Py_XDECREF(manage);
     return exitCode;
@@ -199,28 +253,36 @@ wmain(int argc, wchar_t **argv)
 
     int err = 0;
     DWORD exitCode;
-    std::wstring executable, tag;
+    std::wstring executable, tag, script;
     int skip_argc = 0;
 
     if (argc >= 2) {
         if (readCompanyTagFromArgv(argv[1], tag)) {
             skip_argc += 1;
+        } else {
+            readScriptFromArgv(argc, (const wchar_t **)argv, script);
         }
     }
 
-    err = locateRuntime(tag, executable);
+    err = locateRuntime(tag, script, executable);
     if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
-        const wchar_t *new_argv[] = { argv[0], NULL, NULL, NULL };
+        const wchar_t *new_argv[] = { argv[0], NULL, NULL, NULL, NULL };
         new_argv[1] = L"install";
         new_argv[2] = L"--automatic";
-        if (skip_argc) {
+        if (!tag.empty()) {
             new_argv[3] = tag.c_str();
+            err = runCommand(4, new_argv);
+        } else if (!script.empty()) {
+            new_argv[3] = L"--from-script";
+            new_argv[4] = script.c_str();
+            err = runCommand(5, new_argv);
+        } else {
+            err = runCommand(3, new_argv);
         }
-        err = runCommand(3 + skip_argc, new_argv);
         if (err) {
             return err;
         }
-        err = locateRuntime(tag, executable);
+        err = locateRuntime(tag, script, executable);
     }
 
     if (err) {
