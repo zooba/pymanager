@@ -3,13 +3,13 @@ PEP: TBD
 Title: A Python Installation Manager for Windows
 Author: Steve Dower
 PEP-Delegate: TBD
-Discussions-To: TBD
+Discussions-To: https://discuss.python.org/t/pre-pep-a-python-installation-manager-for-windows/74556
 Status: Draft
 Type: Standards Track
 Topic: Release
 Created: 12-12-2024
 Python-Version: N/A
-Post-History: TBD
+Post-History: 18-12-2024
 Resolution: TBD
 ```
 
