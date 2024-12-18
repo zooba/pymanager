@@ -114,18 +114,12 @@ readScriptFromArgv(int argc, const wchar_t **argv, std::wstring &script) {
 static int
 runCommand(int argc, const wchar_t **argv)
 {
-    PyStatus status;
-    PyConfig config;
     int exitCode = 1;
     auto root_str = get_root();
     PyObject *manage = NULL;
     PyObject *args = NULL;
     PyObject *root = NULL;
     PyObject *r = NULL;
-
-    PyConfig_InitIsolatedConfig(&config);
-    status = Py_InitializeFromConfig(&config);
-    if (PyStatus_Exception(status)) goto init_fail;
 
     manage = PyImport_ImportModule("manage");
     if (!manage) goto python_fail;
@@ -152,45 +146,19 @@ python_fail:
     Py_XDECREF(args);
     Py_XDECREF(manage);
     return exitCode;
-
-init_fail:
-    PyConfig_Clear(&config);
-    if (PyStatus_IsExit(status)) {
-        return status.exitcode;
-    }
-    assert(PyStatus_Exception(status));
-    Py_ExitStatusException(status);
-    /* Unreachable code */
-    return 0;
 }
 
 
 static int
 locateRuntime(const std::wstring &tag, const std::wstring &script, std::wstring &executable) {
-    PyStatus status;
-    PyConfig config;
     int exitCode = 1;
     auto root_str = get_root();
     PyObject *manage = NULL;
-    PyObject *tag_obj = NULL;
     PyObject *r = NULL;
-
-    PyConfig_InitIsolatedConfig(&config);
-    status = Py_InitializeFromConfig(&config);
-    if (PyStatus_Exception(status)) goto init_fail;
 
     manage = PyImport_ImportModule("manage");
     if (!manage) goto python_fail;
-    if (tag.empty() && !script.empty()) {
-        r = PyObject_CallMethod(manage, "_find_tag_in_script", "uu", script.c_str(), root_str.c_str());
-        if (!r) goto python_fail;
-        tag_obj = r;
-        r = NULL;
-    } else {
-        tag_obj = PyUnicode_FromWideChar(tag.data(), tag.size());
-        if (!tag_obj) goto python_fail;
-    }
-    r = PyObject_CallMethod(manage, "_find_one", "Ou", tag_obj, root_str.c_str());
+    r = PyObject_CallMethod(manage, "_find_one", "uuu", tag.c_str(), root_str.c_str(), script.c_str());
     if (r) {
         if (PyUnicode_Check(r)) {
             executable.resize(PyUnicode_GetLength(r));
@@ -214,20 +182,9 @@ locateRuntime(const std::wstring &tag, const std::wstring &script, std::wstring 
         PyErr_Print();
     }
 python_fail:
-    Py_XDECREF(tag_obj);
     Py_XDECREF(r);
     Py_XDECREF(manage);
     return exitCode;
-
-init_fail:
-    PyConfig_Clear(&config);
-    if (PyStatus_IsExit(status)) {
-        return status.exitcode;
-    }
-    assert(PyStatus_Exception(status));
-    Py_ExitStatusException(status);
-    /* Unreachable code */
-    return 0;
 }
 
 
@@ -240,6 +197,22 @@ wmain(int argc, wchar_t **argv)
             | LOAD_LIBRARY_SEARCH_APPLICATION_DIR)) {
         return HRESULT_FROM_WIN32(GetLastError());
     }
+
+    PyStatus status;
+    PyConfig config;
+    PyConfig_InitIsolatedConfig(&config);
+    status = Py_InitializeFromConfig(&config);
+    if (PyStatus_Exception(status)) {
+        PyConfig_Clear(&config);
+        if (PyStatus_IsExit(status)) {
+            return status.exitcode;
+        }
+        assert(PyStatus_Exception(status));
+        Py_ExitStatusException(status);
+        /* Unreachable code */
+        return -1;
+    }
+
 
     if (argc >= 2) {
         // Subcommands list is generated at sdist/build time and stored
@@ -280,7 +253,7 @@ wmain(int argc, wchar_t **argv)
             err = runCommand(3, new_argv);
         }
         if (err) {
-            return err;
+            goto error;
         }
         err = locateRuntime(tag, script, executable);
     }
@@ -302,6 +275,7 @@ wmain(int argc, wchar_t **argv)
     }
 
 error:
+    Py_Finalize();
     return err;
 }
 

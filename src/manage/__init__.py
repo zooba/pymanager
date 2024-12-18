@@ -26,31 +26,21 @@ def main(args, root=None):
     return 0
 
 
-def _find_one(tag, root):
+def _find_one(tag, root, script):
     from ._core.commands import find_command
-    from ._core.installs import get_install_to_run
     from ._core.logging import LOGGER
 
+    i = None
     try:
         cmd = find_command(["list"], root)
-        i = get_install_to_run(cmd.install_dir, tag)
+        if script:
+            from ._core.scripthelper import find_install_from_script
+            i = find_install_from_script(script, cmd)
+        if not i:
+            from ._core.installs import get_install_to_run
+            i = get_install_to_run(cmd.install_dir, tag)
         if i:
             return str(i["executable"])
-    except Exception as ex:
-        LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
-        LOGGER.error("TRACEBACK:", exc_info=True)
-        raise
-
-
-def _find_tag_in_script(script, root):
-    from ._core.scripthelper import find_tag
-    from ._core.logging import LOGGER
-
-    try:
-        return find_tag(script, root)
-    except OSError:
-        LOGGER.debug("Failed to read tag", exc_info=True)
-        return None
     except Exception as ex:
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
         LOGGER.error("TRACEBACK:", exc_info=True)
