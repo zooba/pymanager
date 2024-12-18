@@ -114,6 +114,12 @@ overall behaviour of the installer to determine precisely which MSI files
 should actually be installed. The process of copying files, updating the
 registry, and generating shortcuts is handled entirely by Windows Installer.
 
+As well as the intended uses, it is understood that many users will (attempt to)
+use the traditional installer for other scenarios, such as unregistered installs
+and automated CI system installs. While better alternatives are available, they
+are not as obvious, and the hope is that a future design would make these
+scenarios easier.
+
 Windows Store
 -------------
 
@@ -186,6 +192,14 @@ This package does not include pip, as the intention is for it to be embedded
 into a broader application. Other libraries should be installed at build time,
 but after distribution, the runtime is meant as an internal implementation
 detail of the app it is part of.
+
+As well as its intended use, some users attempt to use this package as a
+development kit rather than a runtime package. This is believed to be due to
+those users preferring to avoid "heavyweight" installers, and believing that
+this package is intended to be a "portable" install (extract and run), likely
+because it is the only ZIP file option listed on the python.org download pages
+(speaking to the importance of clarity and limiting options on those pages).
+It is hoped that a future installer design will avoid or limit this confusion.
 
 Alternate Distributions
 -----------------------
@@ -396,20 +410,22 @@ of no exact match, a prefix match will be used. In both cases, numbers in the
 tag are treated logically - that is, ``3.1`` is a prefix of ``3.1.2`` but not of
 ``3.10``.
 
+TODO: Install using version range rather than tag
+
 If a tag is already satisfied by an existing install, nothing will be installed.
 The user must pass an ``--upgrade`` or ``--force`` option to replace the
-existing install.
+existing install; the former will only replace it with a newer version, while
+the latter will remove and replace even with the same version.
 
 Calling the command without providing any tags will refresh all installs, such
-as regenerating metadata or shortcuts. Passing ``--upgrade`` with no tags will
-attempt to replace all installs with newer compatible versions, though as this
-may be destructive we reserve the right to disable this command and require tags
-be listed explicitly.
+as regenerating metadata or shortcuts. Passing ``--upgrade`` with no tags is an
+error.
 
 If a ``--target <DIR>`` option is passed with only a single tag, that runtime
 will be extracted to the specified directory without being registered as an
-install. This is intended to cover embedding cases, or downloading the files for
-incompatible platforms. Passing multiple tags with ``--target`` is an error.
+install (or generating aliases or shortcuts). This is intended to cover
+embedding cases, or downloading the files for incompatible platforms. Passing
+multiple tags with ``--target`` is an error.
 
 TODO: Some kind of --list or --search option?
 
@@ -446,8 +462,11 @@ and single string formats (e.g. ``--format=prefix`` simply prints ``sys.prefix``
 on a line by itself). The exact list of formats is left to implementation.
 
 
-Help subcommand
----------------
+(DROPPED) Help subcommand
+-------------------------
+
+> **Note: This idea is on its way to being dropped, but leaving the text in the
+> draft for now in case it triggers any better ideas.**
 
 ```
 python help <TOPIC>
@@ -529,6 +548,37 @@ an entirely separate repository - it's only an alias, and only for the case
 where a user has installed PyManager from the Windows Store.
 
 
+Interaction with py.exe
+-----------------------
+
+The ``py.exe`` launcher exists to provide some of the functionality that will be
+replicated by PyManager - specifically, the ability to launch an already
+installed runtime. Despite its long history, the launcher does not seem to have
+become the preferred method for most users, with many preferring the global
+modifications to the ``PATH`` environment variable, and others requesting
+additional commands ``python3.exe`` and ``python3.x.exe`` for alignment with
+POSIX (which does not include a ``py`` command in standard distros).
+
+When installing a runtime, PyManager will be able to generate a number of
+aliases and shortcuts as defined by the install specification. One such shortcut
+will be the registration details specified by PEP 514 and used by the ``py.exe``
+launcher to locate installs. As a result, a runtime installed with PyManager
+will be found and launched correctly by ``py.exe``.
+
+Because PyManager provides some equivalent functionality to ``py.exe``, it may
+be useful to provide ``py`` as an alias for PyManager. This allows users to
+continue to use a familiar command while also having direct access to the new
+functionality. Differences in shebang handling, configuration, and behaviour
+inside active virtual environments may require some transition, and users may
+prefer to retain the old ``py.exe``.
+
+Due to how the existing ``py.exe`` launcher configures itself, and how the MSIX
+package for PyManager is constrained, it is not possible for PyManager's ``py``
+alias to override the launcher. As a result, users who install the launcher will
+always find ``py`` resolving to the launcher. Ultimately, the only way to
+resolve this in favour of PyManager is to uninstall the launcher.
+
+
 Interaction with venv
 ---------------------
 
@@ -538,8 +588,11 @@ that the venv launcher will take precedence over other executables. As a result,
 when a venv has been activated, PyManager can only be launched by its aliases
 other than ``python``.
 
-This means that virtual environments will behave correctly with no additional
-support from PyManager.
+This means that virtual environments will behave as they do today with no
+additional support from PyManager. It is possible that users may come to prefer
+the richer PyManager interface over the limited venv interface, however, any
+changes to that would have to occur in the ``venv`` module and be associated
+with a CPython release. They are outside the scope of this PEP.
 
 Based on experience with the ``py.exe`` launcher, where it was found that users
 expected ``py`` to launch an active virtual environment, we would argue that
@@ -553,6 +606,27 @@ use virtual environments, including those that are not created or managed by
 PyManager itself. This is a significant expansion of scope, and carries
 significant risk, as the current proposal is entirely constrained to PyManager
 being aware of and responsible for all of its installs.
+
+
+Interaction with existing installs
+----------------------------------
+
+As proposed, PyManager is not aware of existing Python installs, or those
+installed by any other method. While it is technically possible to discover some
+of them (specifically, those that follow PEP 514), it is not possible to provide
+equivalent behaviour.
+
+As users of existing installs are already able to use them, and the only
+scenario where PyManager may interfere is when users have manually configured
+their ``PATH`` environment to deprioritise the existing install, we believe that
+no action is required here.
+
+As many past versions of CPython for which we still have installers or binaries
+available may be added to the official python.org feed, allowing users to
+migrate all past installs to PyManager if they wish.
+
+Future work may include commands or options to register existing installs with
+PyManager. None are proposed for the initial release.
 
 
 Specification
@@ -574,12 +648,15 @@ The following aliases are created:
 * ``python.exe`` - the command expected by most users
 * ``PyManager.exe`` - the full name should be available as an alias, so that it
   can be accessed when ``python`` is overridden (e.g. virtual environments)
+* ``py.exe`` - a short alias to mimic the existing launcher
 * ``PywManager.exe`` - same executable without forcing a console
 * ``pythonw.exe`` - same executable without forcing a console
+* ``pyw.exe`` - same executable without forcing a console
 
 The windowed versions are only able to launch existing installs, and will simply
 fail if no suitable install is found. The explicit management commands will
-work, allowing silent installs to be triggered by other applications.
+work, allowing silent installs to be triggered by other applications, but will
+not automatically install.
 
 The use of ``python.exe`` as a global alias, despite this command being more
 functional than a typical runtime, is essential for the smooth flow of a user
@@ -823,7 +900,9 @@ Due to the existing installer situation, there is no way to make any change
 to installation without requiring users to make changes to their systems. These
 are quite reasonably seen as compatibility breaks, although we have never
 promised compatibility between installers and certainly not between different
-major versions.
+major versions. Users have always been responsible for installing new major
+versions, and so there are no silent compatibility breaks here. Nothing changes
+for a user until they choose to make a change.
 
 Python versions prior to the first release of PyManager can be backfilled into
 the python.org index, either based on newly repackaged archives or using the
@@ -974,6 +1053,7 @@ text:
 
 **TODO: When/how to teach advanced deployment**
 
+**TODO: How to update platform-generic documentation (e.g. on package READMEs)**
 
 Reference Implementation
 ========================
