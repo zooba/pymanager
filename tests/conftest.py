@@ -67,3 +67,15 @@ def localserver():
                     p.kill()
                 p.wait(5)
 
+
+class FakeConfig:
+    def __init__(self, installs=[]):
+        self.installs = list(installs)
+
+    def get_installs(self):
+        return self.installs
+
+
+@pytest.fixture
+def fake_config():
+    return FakeConfig()

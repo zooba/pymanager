@@ -1,5 +1,7 @@
 import re
 
+from .logging import LOGGER
+
 
 class NewEncoding(Exception):
     pass
@@ -8,10 +10,11 @@ class NewEncoding(Exception):
 def _read_script(cmd, script, encoding):
     with open(script, "r", encoding=encoding, errors="replace") as f:
         first_line = next(f).rstrip()
-        shebang = re.match(r"#!\s*(\S+).*", first_line)
+        shebang = re.match(r"#!\s*(?:/usr/bin/env\s+)?(\S+).*", first_line)
         if shebang:
             from pathlib import PurePath
             full_cmd = shebang.group(1)
+            LOGGER.debug("Matching shebang: %s", full_cmd)
             sh_cmd = PurePath(full_cmd)
             # HACK: Assuming alias/executable suffix is '.exe' here
             # (But correctly assuming we can't use with_suffix() or .stem)
@@ -20,8 +23,13 @@ def _read_script(cmd, script, encoding):
             for i in cmd.get_installs():
                 for a in i["alias"]:
                     if sh_cmd.match(a["name"]):
+                        LOGGER.debug("Matched alias %s in %s", a["name"], i["id"])
                         return {**i, "executable": i["prefix"] / a["target"]}
+                if sh_cmd.full_match(PurePath(i["executable"]).name):
+                    LOGGER.debug("Matched executable name %s in %s", i["executable"], i["id"])
+                    return i
                 if sh_cmd.match(i["executable"]):
+                    LOGGER.debug("Matched executable %s in %s", i["executable"], i["id"])
                     return i
 
         coding = re.match(r"\s*#.*coding[=:]\s*([-\w.]+)", first_line)
