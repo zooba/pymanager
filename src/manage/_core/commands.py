@@ -1,4 +1,3 @@
-import json
 import logging
 import os
 import sys
@@ -218,7 +217,7 @@ class BaseCommand:
         self.root = Path(root or self.root or sys.prefix)
         try:
             config = load_config(self.root, self.config_file, CONFIG_SCHEMA)
-        except Exception as ex:
+        except Exception:
             LOGGER.warn("Failed to read configuration file from %s", self.config_file)
             raise
 
@@ -300,9 +299,9 @@ class BaseCommand:
             except LookupError:
                 pass
         if script:
-            from .scripthelper import find_install_from_script
+            from .scriptutils import find_install_from_script
             try:
-                return find_install_from_script(cmd, script)
+                return find_install_from_script(self, script)
             except LookupError:
                 pass
         installs = self.get_installs()

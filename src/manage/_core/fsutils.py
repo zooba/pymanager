@@ -6,7 +6,8 @@ from .logging import LOGGER
 
 
 def ensure_tree(path, overwrite_files=True):
-    path = Path(path)
+    if isinstance(path, (str, bytes)):
+        path = Path(path)
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
     except FileExistsError:
@@ -20,14 +21,15 @@ def ensure_tree(path, overwrite_files=True):
 
 
 def rmtree(path):
-    path = Path(path)
+    if isinstance(path, (str, bytes)):
+        path = Path(path)
     if not path.is_dir():
         if path.is_file():
             unlink(path)
         return
 
     for i in range(1000):
-        new_path = path.with_name(f"{path.name}.deleteme.{i}")
+        new_path = path.with_name(f"{path.name}.{i}.deleteme")
         if new_path.exists():
             continue
         try:
@@ -74,7 +76,8 @@ def rmtree(path):
 
 
 def unlink(path):
-    path = Path(path)
+    if isinstance(path, (str, bytes)):
+        path = Path(path)
     try:
         path.unlink()
         return
@@ -86,6 +89,10 @@ def unlink(path):
     for i in range(1000):
         try:
             path = path.rename(path.with_name(f"{path.name}.{i}.deleteme"))
+            try:
+                path.unlink()
+            except OSError:
+                pass
             break
         except OSError:
             pass

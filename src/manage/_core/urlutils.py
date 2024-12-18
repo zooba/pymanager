@@ -114,16 +114,18 @@ def _urllib_urlopen(url, method, headers, on_progress, on_auth_request):
         import urllib.error
         from urllib.request import Request, urlopen
     except ImportError as ex:
-        raise NotSupportedError("Unable to download from the internet") from ex
+        raise RuntimeError("Unable to download from the internet") from ex
+
+    if not on_progress:
+        on_progress = lambda *_: None
 
     LOGGER.debug("urlopen: %s %s", method, sanitise_url(url))
     req = Request(url, method=method, headers=headers)
     try:
-        if on_progress: on_progress(0)
+        on_progress(0)
         try:
             r = urlopen(req)
         except urllib.error.HTTPError as ex:
-            from base64 import b64encode
             if ex.status == 401 and on_auth_request:
                 req.headers["Authorization"] = _basic_auth_header(*on_auth_request(url))
                 r = urlopen(req)
@@ -131,7 +133,7 @@ def _urllib_urlopen(url, method, headers, on_progress, on_auth_request):
                 raise
         with r:
             data = r.read()
-        if on_progress: on_progress(100)
+        on_progress(100)
         return data
     finally:
         LOGGER.debug("urlopen: complete")
@@ -158,7 +160,10 @@ def _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress=No
         import urllib.error
         from urllib.request import Request, urlopen
     except ImportError as ex:
-        raise NotSupportedError("Unable to download from the internet") from ex
+        raise RuntimeError("Unable to download from the internet") from ex
+
+    if not on_progress:
+        on_progress = lambda *_: None
 
     outfile = Path(outfile)
     LOGGER.debug("urlretrieve: %s %s -> %s", method, sanitise_url(url), outfile)
@@ -166,8 +171,7 @@ def _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress=No
     unlink(outfile)
     req = Request(url, method=method, headers=headers)
     try:
-        if on_progress:
-            on_progress(0)
+        on_progress(0)
         try:
             r = urlopen(req)
         except urllib.error.HTTPError as ex:
@@ -186,10 +190,8 @@ def _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress=No
                 for chunk in iter(lambda: r.read(chunksize), b""):
                     f.write(chunk)
                     progress += len(chunk)
-                    if on_progress:
-                        on_progress((progress * 100) // total)
-        if on_progress:
-            on_progress(100)
+                    on_progress((progress * 100) // total)
+        on_progress(100)
     finally:
         LOGGER.debug("urlretrieve: complete")
 

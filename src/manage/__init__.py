@@ -1,5 +1,3 @@
-import sys
-
 from ._core.commands import find_command, load_default_config, show_help
 from ._core.exceptions import ArgumentError
 from ._core.logging import LOGGER

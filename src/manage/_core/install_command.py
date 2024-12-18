@@ -1,6 +1,5 @@
 import json
 import os
-import sys
 
 from pathlib import Path, PurePath
 
@@ -9,7 +8,6 @@ from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
 from .logging import LOGGER, ProgressPrinter
 from .tagutils import CompanyTag
-from .verutils import Version
 from .urlutils import (
     sanitise_url,
     urljoin,
@@ -109,6 +107,9 @@ Please retry the installation and download the file again.""")
 def extract_package(package, prefix, calculate_dest=Path, on_progress=None):
     import zipfile
 
+    if not on_progress:
+        on_progress = lambda *_: None
+
     if package.match("*.nupkg"):
         def _calc(prefix, filename, calculate_dest=calculate_dest):
             if not filename.startswith("tools/"):
@@ -124,7 +125,7 @@ def extract_package(package, prefix, calculate_dest=Path, on_progress=None):
         items = list(zf.infolist())
         total = len(items) if on_progress else 0
         for i, member in enumerate(items):
-            if on_progress: on_progress((i * 100) // total)
+            on_progress((i * 100) // total)
             dest = calculate_dest(prefix, member.filename)
             if not dest:
                 continue
@@ -139,10 +140,10 @@ def extract_package(package, prefix, calculate_dest=Path, on_progress=None):
             ensure_tree(dest)
             with open(dest, "wb") as f:
                 f.write(zf.read(member))
-    if on_progress: on_progress(100)
+    on_progress(100)
 
     if warn_out_of_prefix:
-        if on_progress: on_progress(None)
+        on_progress(None)
         LOGGER.warn("**********************************************************************")
         LOGGER.warn("Package attempted to extract outside of its prefix, but was prevented.")
         LOGGER.warn("THIS PACKAGE MAY BE MALICIOUS. Take care before using it, or uninstall")
@@ -151,7 +152,7 @@ def extract_package(package, prefix, calculate_dest=Path, on_progress=None):
         for dest in warn_out_of_prefix:
             LOGGER.debug("Attempted to create: %s", dest)
     if warn_overwrite:
-        if on_progress: on_progress(None)
+        on_progress(None)
         LOGGER.warn("**********************************************************************")
         LOGGER.warn("Package attempted to overwrite existing item, but was prevented.")
         LOGGER.warn("THIS PACKAGE MAY BE MALICIOUS OR CORRUPT. Take care before using it,")
@@ -235,16 +236,21 @@ def execute(cmd):
         LOGGER.info("**********************************************************************")
 
     if cmd.from_script:
-        from .scripthelper import find_install_from_script
-        tag = find_install_from_script(cmd, cmd.from_script)
-        if tag:
+        from .scriptutils import find_install_from_script
+        spec = find_install_from_script(cmd, cmd.from_script)
+        if spec:
             cmd.args.append(spec)
 
     # In-process cache to save repeat downloads
     download_cache = {}
 
     for spec in cmd.args:
-        if spec:
+        if not spec:
+            tag = None
+        elif spec.lstrip().startswith(("<", ">", "=")):
+            # TODO: Implement install from version range
+            raise NotImplementedError("Version ranges are not yet supported")
+        else:
             tag = CompanyTag(spec)
             LOGGER.info("Searching for Python matching %s", tag)
             if not cmd.force and installed:
@@ -252,8 +258,6 @@ def execute(cmd):
                 if already_installed:
                     LOGGER.info("%s is already installed", already_installed[0]["displayName"])
                     continue
-        else:
-            tag = None
 
         package, install = download_package(cmd, tag, download_cache)
 

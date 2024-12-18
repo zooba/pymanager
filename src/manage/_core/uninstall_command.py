@@ -1,9 +1,5 @@
-import os
-import sys
+from pathlib import PurePath
 
-from pathlib import Path, PurePath
-
-from .exceptions import ArgumentError
 from .fsutils import rmtree, unlink
 from .logging import LOGGER
 

@@ -1,8 +1,5 @@
 import json
-import os
 import sys
-
-from pathlib import Path
 
 from .exceptions import ArgumentError
 from .installs import get_installs
