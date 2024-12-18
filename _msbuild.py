@@ -29,6 +29,9 @@ METADATA = {
 PACKAGE = Package('python-manager',
     PyprojectTomlFile('pyproject.toml'),
     File('src/python/appxmanifest.xml'),
+    File('pymanager.json'),
+    # Default index feed, mainly for testing right now
+    File('index*.json'),
     Package(
         '_resources',
         File('src/python/_resources/*.png'),
@@ -37,8 +40,6 @@ PACKAGE = Package('python-manager',
         'manage',
         PyFile('src/manage/__init__.py'),
         PyFile('src/manage/__main__.py'),
-        # Default index feed, mainly for testing right now
-        File('index*.json'),
         DllPackage('_core',
             PyFile('*.py'),
             IncludeFile('*.h'),

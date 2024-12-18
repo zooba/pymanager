@@ -41,6 +41,18 @@ class CompanyTag:
         except LookupError:
             return default
 
+    def match_any(self, company, tags, exact_company=False, exact_tag=False):
+        if exact_company:
+            if not company or self._company != company.casefold():
+                return False
+        elif company and not company.casefold().startswith(self._company):
+            return False
+        if not tags:
+            return False
+        if exact_tag:
+            return any(self._sortkey == _sort_tag(t) for t in tags)
+        return any(self._sortkey.startswith(_sort_tag(t)) for t in tags)
+
     def match(self, pattern):
         if isinstance(pattern, str):
             other = type(self)(pattern)

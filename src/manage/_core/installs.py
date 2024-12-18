@@ -37,10 +37,9 @@ def _get_installs(install_dir):
             continue
 
 
-def get_installs(install_dir, default_tag=None):
+def get_installs(install_dir, default_tag):
     installs = sorted(_get_installs(install_dir), key=_make_sort_key)
     seen_alias = set()
-    seen_default = default_tag is None
     for i in installs:
         i_tag = CompanyTag.from_dict(i)
         aliases = i.setdefault("alias", ())
@@ -48,16 +47,16 @@ def get_installs(install_dir, default_tag=None):
             new_aliases = [a for a in aliases if a["name"].casefold() not in seen_alias]
             seen_alias.update(a["name"].casefold() for a in aliases)
             i["alias"] = new_aliases
-        if not seen_default and i_tag.match(default_tag):
-            seen_default = True
+        if default_tag and i_tag.match(default_tag):
+            default_tag = None
             i["default"] = True
     return installs
 
 
-def get_install_to_run(install_dir, tag):
+def get_install_to_run(install_dir, default_tag, tag):
     """Returns the first install matching 'tag'.
     """
-    installs = get_installs(install_dir)
+    installs = get_installs(install_dir, default_tag)
     if not installs:
         return
     if not tag:
@@ -73,3 +72,4 @@ def get_install_to_run(install_dir, tag):
         for t in i.get("run-for", ()):
             if CompanyTag(i["company"], t["tag"]).match(tag):
                 return {**i, "executable": i["prefix"] / t["target"]}
+    raise LookupError(tag)

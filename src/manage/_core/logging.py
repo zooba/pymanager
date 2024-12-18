@@ -1,10 +1,17 @@
 import logging
+import os
 import sys
 
 FILE = sys.stderr
 
 LOGGER = logging.getLogger("pymanager")
 LOGGER.addHandler(logging.StreamHandler(FILE))
+
+# Set log level from environment if requested, so that everything is logged
+# even if we don't make it far enough to load a config.
+if os.getenv("PYMANAGER_VERBOSE"):
+    LOGGER.setLevel(logging.DEBUG)
+
 
 class ProgressPrinter:
     def __init__(self, operation):

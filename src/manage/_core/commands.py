@@ -204,10 +204,14 @@ class BaseCommand:
             else:
                 self.args.append(a)
 
-        # Apply log_level from the command line first, so that config loading
-        # is logged if desired.
+        # Apply log_level from the environment or command line first, so that
+        # config loading is logged if desired.
+        if os.getenv("PYMANAGER_VERBOSE"):
+            self.log_level = logging.DEBUG
+
         LOGGER.setLevel(self.log_level)
 
+        LOGGER.debug("Processing arguments for %s", self.CMD)
         LOGGER.debug("Arguments: %r", self.args)
         LOGGER.debug("Options: %r", {a: getattr(self, a) for a in {a[0] for a in cmd_args.values()}})
 
@@ -248,14 +252,16 @@ class BaseCommand:
         # wasn't set on the command line.
         try:
             cmd_config = config[self.CMD]
-        except LookupError:
+        except (AttributeError, LookupError):
             pass
         else:
             arg_names = frozenset(a[0] for a in cmd_args.values())
             for k, v in cmd_config.items():
-                if k in arg_names and k not in self._set_args:
+                if k in arg_names and k not in _set_args:
                     setattr(self, k, v)
                     _set_args.add(k)
+
+        LOGGER.debug("Finished processing options for %s", self.CMD)
 
 
     def __init_subclass__(subcls):
@@ -265,12 +271,13 @@ class BaseCommand:
         raise NotImplementedError(f"'{type(self).__name__}' does not implement 'execute()'")
 
     def help(self):
-        print("Python Manager $VERSION")
+        print("Python intallation manager $VERSION")
         print("$COPYRIGHT")
         print()
         print("Subcommands:")
         for cmd in sorted(COMMANDS):
-            print("    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", "")))
+            if cmd[:1] != "_":
+                print("    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", "")))
         print()
         print("Global options:")
         print("    -v, --verbose    Increased output (log_level={})".format(logging.INFO))
@@ -280,6 +287,26 @@ class BaseCommand:
         print("    -y, --yes        Always confirm prompts (confirm=False)")
         print("    --config=PATH    Override configuration with JSON file")
         print()
+
+    def get_installs(self):
+        from .installs import get_installs
+        return get_installs(self.install_dir, self.default_tag)
+
+    def get_install_to_run(self, tag=None, script=None):
+        if tag:
+            from .installs import get_install_to_run
+            try:
+                return get_install_to_run(self.install_dir, self.default_tag, tag)
+            except LookupError:
+                pass
+        if script:
+            from .scripthelper import find_install_from_script
+            try:
+                return find_install_from_script(cmd, script)
+            except LookupError:
+                pass
+        installs = self.get_installs()
+        return installs[0] if installs else None
 
 
 class ListCommand(BaseCommand):
@@ -385,6 +412,16 @@ class UninstallCommand(BaseCommand):
 #            return
 #        print("TODO: Open help page for PyManager")
 
+
+class DefaultConfig(BaseCommand):
+    CMD = "__no_command"
+
+    def __init__(self, root):
+        super().__init__([], root)
+
+
+def load_default_config(root):
+    return DefaultConfig(root)
 
 def find_command(args, root):
     for a in args:

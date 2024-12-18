@@ -7,7 +7,6 @@ from pathlib import Path, PurePath
 from .exceptions import ArgumentError, HashMismatchError
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
-from .installs import get_installs
 from .logging import LOGGER, ProgressPrinter
 from .tagutils import CompanyTag
 from .verutils import Version
@@ -46,7 +45,7 @@ def _expand_versions_by_tag(versions):
                 yield {**v, "tag": t}
 
 
-def download_package(cmd, tag, urlopen=_urlopen, urlretrieve=_urlretrieve):
+def download_package(cmd, tag, cache, urlopen=_urlopen, urlretrieve=_urlretrieve):
     """Finds suitable package from index.json that looks like:
     {"versions": [
       {"id": ..., "company": ..., "tag": ..., "url": ..., "hash": {"sha256": hexdigest}},
@@ -60,8 +59,13 @@ def download_package(cmd, tag, urlopen=_urlopen, urlretrieve=_urlretrieve):
 
     while url:
         LOGGER.debug("Fetching: %s", url)
-        index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
-        LOGGER.debug("Received: %r", index)
+        try:
+            index = cache[url]
+            LOGGER.debug("Used cached: %r", index)
+        except LookupError:
+            index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
+            LOGGER.debug("Downloaded: %r", index)
+            cache[url] = index
 
         try:
             install = index.find_to_install(tag)
@@ -172,7 +176,7 @@ def _write_alias(cmd, alias, target):
 def update_all_shortcuts(cmd, path_warning=True):
     LOGGER.debug("Updating global shortcuts")
     written = set()
-    for i in get_installs(cmd.install_dir):
+    for i in cmd.get_installs():
         for a in i["alias"]:
             target = i["prefix"] / a["target"]
             if not target.is_file():
@@ -197,7 +201,7 @@ Directory: %s
 
 
 def print_cli_shortcuts(cmd, tags):
-    installs = get_installs(cmd.install_dir, cmd.default_tag)
+    installs = cmd.get_installs()
     for tag in tags:
         for i in installs:
             if CompanyTag.from_dict(i).match(tag):
@@ -221,31 +225,37 @@ def execute(cmd):
         installed = []
     else:
         target = None
-        installed = list(get_installs(cmd.install_dir))
+        installed = list(cmd.get_installs())
 
     if not cmd.args and not installed:
+        LOGGER.debug("No tags provided, installing first version in index")
         cmd.args = [""]
 
     if cmd.automatic:
         LOGGER.info("**********************************************************************")
 
     if cmd.from_script:
-        from .scripthelper import find_tag
-        tag = find_tag(cmd.from_script, cmd.root)
+        from .scripthelper import find_install_from_script
+        tag = find_install_from_script(cmd, cmd.from_script)
         if tag:
-            cmd.args.append(tag)
+            cmd.args.append(spec)
 
-    for tag in cmd.args:
-        if tag:
-            tag = CompanyTag(tag)
+    # In-process cache to save repeat downloads
+    download_cache = {}
+
+    for spec in cmd.args:
+        if spec:
+            tag = CompanyTag(spec)
             LOGGER.info("Searching for Python matching %s", tag)
             if not cmd.force and installed:
                 already_installed = [i for i in installed if CompanyTag.from_dict(i).match(tag)]
                 if already_installed:
                     LOGGER.info("%s is already installed", already_installed[0]["displayName"])
                     continue
+        else:
+            tag = None
 
-        package, install = download_package(cmd, tag)
+        package, install = download_package(cmd, tag, download_cache)
 
         dest = target or (cmd.install_dir / install["id"])
 

@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+import _winapi
 
 from pathlib import Path
 
@@ -28,21 +29,29 @@ def config_bool(v):
 
 def load_config(root, override_file, schema):
     cfg = {}
-    env_file = os.getenv(ENV_VAR)
+
+    global_file = Path(_winapi.GetModuleFileName(0)).parent / DEFAULT_CONFIG_NAME
+    try:
+        load_one_config(cfg, global_file, schema=schema)
+    except FileNotFoundError:
+        pass
+
     if override_file:
         load_one_config(cfg, override_file, schema=schema)
-    elif env_file:
+
+    env_file = os.getenv(ENV_VAR)
+    if env_file:
         load_one_config(cfg, env_file, schema=schema)
-    else:
-        file = root / DEFAULT_CONFIG_NAME
-        try:
-            load_one_config(cfg, file, schema=schema)
-        except FileNotFoundError:
-            pass
+
+    # TODO: Per-user file
+
+    # TODO: Locked settings from global file
+
     return cfg
 
 
 def load_one_config(cfg, file, schema):
+    LOGGER.debug("Load config from %s", file)
     with open(file, "r", encoding="utf-8") as f:
         cfg2 = json.load(f)
     cfg2["config_files"] = file
@@ -82,7 +91,7 @@ def resolve_config(cfg, source_path, key_so_far="", schema=None):
                 v = v.as_uri()
             from urllib.parse import urlparse
             p = urlparse(v)
-            if not p.scheme or not p.netloc or p.path.startswith(".."):
+            if not p.scheme or (p.scheme != 'file' and not p.netloc) or p.path.startswith(".."):
                 raise InvalidConfigurationError(source_path, key_so_far + k, v)
         cfg[k] = v
 

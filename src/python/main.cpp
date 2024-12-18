@@ -20,7 +20,11 @@
 #define ERROR_NO_MATCHING_INSTALL   0xA0000004
 #define ERROR_NO_INSTALLS           0xA0000005
 
-static std::wstring get_root() {
+static PyObject *manage_mod = NULL;
+
+static std::wstring
+get_root()
+{
     std::wstring path;
     try {
         const auto appData = winrt::Windows::Storage::ApplicationData::Current();
@@ -51,8 +55,18 @@ static std::wstring get_root() {
 }
 
 
+static bool
+is_env_var_set(const wchar_t *name)
+{
+    /* only looking for non-empty, which means at least one character
+       and the null terminator */
+    return GetEnvironmentVariableW(name, NULL, 0) >= 2;
+}
+
+
 static int
-readCompanyTagFromArgv(std::wstring arg, std::wstring &tag) {
+read_tag_from_argv(std::wstring arg, std::wstring &tag)
+{
     if (arg[0] != L'-' && arg[0] != L'/') {
         return 0;
     }
@@ -69,7 +83,8 @@ readCompanyTagFromArgv(std::wstring arg, std::wstring &tag) {
 
 
 static int
-argsToSkip(const wchar_t *arg) {
+args_to_skip(const wchar_t *arg)
+{
     int retval = 0;
     for (const wchar_t *c = arg; *c; ++c) {
         switch (*c) {
@@ -91,7 +106,8 @@ argsToSkip(const wchar_t *arg) {
 }
 
 static void
-readScriptFromArgv(int argc, const wchar_t **argv, std::wstring &script) {
+read_script_from_argv(int argc, const wchar_t **argv, std::wstring &script)
+{
     int skip = 0;
     for (int i = 1; i < argc; ++i) {
         if (skip > 0) {
@@ -99,7 +115,7 @@ readScriptFromArgv(int argc, const wchar_t **argv, std::wstring &script) {
             continue;
         }
         if (argv[i][0] == L'-') {
-            skip = argsToSkip(argv[i]);
+            skip = args_to_skip(argv[i]);
             if (skip < 0) {
                 break;
             }
@@ -112,84 +128,7 @@ readScriptFromArgv(int argc, const wchar_t **argv, std::wstring &script) {
 
 
 static int
-runCommand(int argc, const wchar_t **argv)
-{
-    int exitCode = 1;
-    auto root_str = get_root();
-    PyObject *manage = NULL;
-    PyObject *args = NULL;
-    PyObject *root = NULL;
-    PyObject *r = NULL;
-
-    manage = PyImport_ImportModule("manage");
-    if (!manage) goto python_fail;
-    args = PyList_New(0);
-    if (!args) goto python_fail;
-    for (int i = 0; i < argc; ++i) {
-        PyObject *s = PyUnicode_FromWideChar(argv[i], -1);
-        if (!s) goto python_fail;
-        if (PyList_Append(args, s) < 0) {
-            Py_DECREF(s);
-            goto python_fail;
-        }
-        Py_DECREF(s);
-    }
-    root = PyUnicode_FromWideChar(root_str.c_str(), -1);
-    if (!root) goto python_fail;
-    r = PyObject_CallMethod(manage, "main", "OO", args, root);
-    if (r) {
-        exitCode = PyLong_AsLong(r);
-    }
-python_fail:
-    Py_XDECREF(r);
-    Py_XDECREF(root);
-    Py_XDECREF(args);
-    Py_XDECREF(manage);
-    return exitCode;
-}
-
-
-static int
-locateRuntime(const std::wstring &tag, const std::wstring &script, std::wstring &executable) {
-    int exitCode = 1;
-    auto root_str = get_root();
-    PyObject *manage = NULL;
-    PyObject *r = NULL;
-
-    manage = PyImport_ImportModule("manage");
-    if (!manage) goto python_fail;
-    r = PyObject_CallMethod(manage, "_find_one", "uuu", tag.c_str(), root_str.c_str(), script.c_str());
-    if (r) {
-        if (PyUnicode_Check(r)) {
-            executable.resize(PyUnicode_GetLength(r));
-            executable.resize(PyUnicode_AsWideChar(r, executable.data(), executable.size()));
-            exitCode = 0;
-        } else {
-            Py_CLEAR(r);
-            r = PyObject_CallMethod(manage, "_find_any", "u", root_str.c_str());
-            if (r) {
-                if (PyObject_IsTrue(r)) {
-                    exitCode = ERROR_NO_MATCHING_INSTALL;
-                } else {
-                    exitCode = ERROR_NO_INSTALLS;
-                }
-                Py_DECREF(r);
-            } else {
-                PyErr_Print();
-            }
-        }
-    } else {
-        PyErr_Print();
-    }
-python_fail:
-    Py_XDECREF(r);
-    Py_XDECREF(manage);
-    return exitCode;
-}
-
-
-int
-wmain(int argc, wchar_t **argv)
+init_python()
 {
     // Ensure we are safely loading before triggering delay loaded DLL
     if (!SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_SYSTEM32
@@ -209,60 +148,172 @@ wmain(int argc, wchar_t **argv)
         }
         assert(PyStatus_Exception(status));
         Py_ExitStatusException(status);
-        /* Unreachable code */
+        // Unreachable
         return -1;
     }
 
+    // Ensure our main module is loadable
+    manage_mod = PyImport_ImportModule("manage");
+    if (!manage_mod) {
+        PyErr_Print();
+        return -1;
+    }
+    return 0;
+}
+
+
+static void
+close_python()
+{
+    assert(manage_mod);
+    Py_CLEAR(manage_mod);
+    Py_Finalize();
+}
+
+
+static int
+run_command(int argc, const wchar_t **argv)
+{
+    int exitCode = 1;
+    auto root_str = get_root();
+    PyObject *args = NULL;
+    PyObject *root = NULL;
+    PyObject *r = NULL;
+
+    args = PyList_New(0);
+    if (!args) goto python_fail;
+    for (int i = 0; i < argc; ++i) {
+        PyObject *s = PyUnicode_FromWideChar(argv[i], -1);
+        if (!s) goto python_fail;
+        if (PyList_Append(args, s) < 0) {
+            Py_DECREF(s);
+            goto python_fail;
+        }
+        Py_DECREF(s);
+    }
+    root = PyUnicode_FromWideChar(root_str.c_str(), -1);
+    if (!root) goto python_fail;
+    r = PyObject_CallMethod(manage_mod, "main", "OO", args, root);
+    if (r) {
+        exitCode = PyLong_AsLong(r);
+        goto done;
+    }
+python_fail:
+    PyErr_Print();
+done:
+    Py_XDECREF(r);
+    Py_XDECREF(root);
+    Py_XDECREF(args);
+    return exitCode;
+}
+
+
+static int
+auto_install_runtime(const wchar_t *argv0, const std::wstring &tag, const std::wstring &script)
+{
+    int err = 0;
+    const wchar_t *new_argv[] = { argv0, NULL, NULL, NULL, NULL };
+    new_argv[1] = L"install";
+    new_argv[2] = L"--automatic";
+    if (!tag.empty()) {
+        new_argv[3] = tag.c_str();
+        err = run_command(4, new_argv);
+    } else if (!script.empty()) {
+        new_argv[3] = L"--from-script";
+        new_argv[4] = script.c_str();
+        err = run_command(5, new_argv);
+    } else {
+        err = run_command(3, new_argv);
+    }
+    return err;
+}
+
+
+static int
+locate_runtime(const std::wstring &tag, const std::wstring &script, std::wstring &executable) {
+    int exitCode = 1;
+    auto root_str = get_root();
+    PyObject *r = NULL;
+
+    r = PyObject_CallMethod(manage_mod, "_find_one", "uuu", root_str.c_str(), tag.c_str(), script.c_str());
+    if (!r) {
+        // Errors should already have been printed
+        PyErr_Clear();
+        goto done;
+    } else if (!PyObject_IsTrue(r)) {
+        Py_CLEAR(r);
+        r = PyObject_CallMethod(manage_mod, "_find_any", "u", root_str.c_str());
+        if (r && PyObject_IsTrue(r)) {
+            exitCode = ERROR_NO_MATCHING_INSTALL;
+        } else {
+            PyErr_Clear();
+            exitCode = ERROR_NO_INSTALLS;
+        }
+    } else {
+        Py_ssize_t len = PyUnicode_GetLength(r);
+        if (len > 0) {
+            executable.resize((size_t)len);
+            len = PyUnicode_AsWideChar(r, executable.data(), len);
+            if (len > 0) {
+                executable.resize((size_t)len);
+                exitCode = 0;
+                goto done;
+            }
+        }
+        PyErr_Print();
+    }
+done:
+    Py_XDECREF(r);
+    return exitCode;
+}
+
+
+int
+wmain(int argc, wchar_t **argv)
+{
+    int err = 0;
+    DWORD exitCode;
+    std::wstring executable, tag, script;
+    int skip_argc = 0;
+
+    err = init_python();
+    if (err) {
+        return err;
+    }
 
     if (argc >= 2) {
         // Subcommands list is generated at sdist/build time and stored
         // in commands.g.h
         for (const wchar_t **cmd_name = subcommands; *cmd_name; ++cmd_name) {
             if (!wcscmp(argv[1], *cmd_name)) {
-                return runCommand(argc, (const wchar_t**)argv);
+                return run_command(argc, (const wchar_t**)argv);
             }
         }
     }
 
-    int err = 0;
-    DWORD exitCode;
-    std::wstring executable, tag, script;
-    int skip_argc = 0;
-
     if (argc >= 2) {
-        if (readCompanyTagFromArgv(argv[1], tag)) {
+        if (read_tag_from_argv(argv[1], tag)) {
             skip_argc += 1;
         } else {
-            readScriptFromArgv(argc, (const wchar_t **)argv, script);
+            read_script_from_argv(argc, (const wchar_t **)argv, script);
         }
     }
 
-    err = locateRuntime(tag, script, executable);
+    err = locate_runtime(tag, script, executable);
     if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
-        const wchar_t *new_argv[] = { argv[0], NULL, NULL, NULL, NULL };
-        new_argv[1] = L"install";
-        new_argv[2] = L"--automatic";
-        if (!tag.empty()) {
-            new_argv[3] = tag.c_str();
-            err = runCommand(4, new_argv);
-        } else if (!script.empty()) {
-            new_argv[3] = L"--from-script";
-            new_argv[4] = script.c_str();
-            err = runCommand(5, new_argv);
-        } else {
-            err = runCommand(3, new_argv);
+        err = auto_install_runtime(argv[0], tag, script);
+        if (!err) {
+            err = locate_runtime(tag, script, executable);
         }
-        if (err) {
-            goto error;
-        }
-        err = locateRuntime(tag, script, executable);
     }
 
     if (err) {
-        if (tag.empty()) {
-            fprintf(stderr, "FATAL ERROR: Finding default executable (0x%08X)\n", err);
-        } else {
+        if (!tag.empty()) {
             fprintf(stderr, "FATAL ERROR: Finding executable for %ls (0x%08X)\n", tag.c_str(), err);
+        } else if (!script.empty()) {
+            fprintf(stderr, "FATAL ERROR: Finding executable for %ls (0x%08X)\n", script.c_str(), err);
+        } else {
+            fprintf(stderr, "FATAL ERROR: Finding default executable (0x%08X)\n", err);
         }
         goto error;
     }
@@ -275,7 +326,7 @@ wmain(int argc, wchar_t **argv)
     }
 
 error:
-    Py_Finalize();
+    close_python();
     return err;
 }
 

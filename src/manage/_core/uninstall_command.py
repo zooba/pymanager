@@ -28,10 +28,9 @@ def ask_yn(*prompt):
 def execute(cmd):
     LOGGER.debug("BEGIN uninstall_command.execute: %r", cmd.args)
 
-    from .installs import get_installs
     from .install_command import update_all_shortcuts
 
-    installed = list(get_installs(cmd.install_dir))
+    installed = list(cmd.get_installs())
     if cmd.purge:
         if not cmd.confirm or ask_yn("Uninstall all runtimes?"):
             for i in installed:

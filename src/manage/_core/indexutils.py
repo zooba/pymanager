@@ -118,24 +118,22 @@ class Index:
         self.versions = sorted(validated["versions"], key=lambda v: v["sort-version"], reverse=True)
 
     def __repr__(self):
-        return "<Index(next={!r}, versions=[...{} entries])>".format(
+        return "<Index({!r}, next={!r}, versions=[...{} entries])>".format(
+            self.source_url,
             self.next_url,
             len(self.versions),
         )
 
     def find_to_install(self, tag, prefer_prerelease=False):
-        if not tag:
-            for i in self.versions:
+        for i in self.versions:
+            if not tag or tag.match_any(
+                company=i.get("company"),
+                exact_company=False,
+                tags=i.get("install-for"),
+                exact_tag=True,
+            ):
                 if prefer_prerelease or not i["sort-version"].is_prerelease:
                     return i
-        else:
-            c = tag.company.casefold()
-            for i in self.versions:
-                if c and not i.get("company", c).casefold().startswith(c):
-                    continue
-                if tag.tag in i.get("install-for", ()):
-                    if prefer_prerelease or not i["sort-version"].is_prerelease:
-                        return i
         if not prefer_prerelease:
             return self.find_to_install(tag, prefer_prerelease=True)
         raise LookupError(tag)
