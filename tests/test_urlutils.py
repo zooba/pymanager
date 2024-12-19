@@ -1,4 +1,6 @@
 import manage._core.urlutils as UU
+import time
+
 import pytest
 
 
@@ -124,3 +126,97 @@ def test_bits_urlretrieve_auth(localserver, tmp_path):
     UU._bits_urlretrieve(localserver + "/withauth", dest, None, creds.__getitem__)
     assert dest.is_file()
     assert dest.read_bytes() == b"Basic placeholder:placeholder"
+
+
+@pytest.fixture
+def inject_error():
+    from _core_test import bits_inject_error
+    try:
+        yield bits_inject_error
+    finally:
+        bits_inject_error(0, 0, 0, 0)
+
+
+def test_bits_errors(localserver, tmp_path, inject_error):
+    import uuid
+    from _core_test import (bits_connect, bits_begin, bits_cancel,
+        bits_find_job, bits_get_progress)
+
+    ERROR_MR_MID_NOT_FOUND = 0x8007013D
+
+    dest = tmp_path / "read.txt"
+    url = localserver + "/128kb"
+    conn = bits_connect()
+
+    # Should get our error code, chained to "message not found" error
+    inject_error(0xA0000001, 0, 0, 0)
+    with pytest.raises(OSError) as ex:
+        bits_find_job(conn, uuid.UUID(int=0).bytes_le)
+    assert "Retrieving error message" in str(ex.value)
+    assert ex.value.winerror & 0xFFFFFFFF == ERROR_MR_MID_NOT_FOUND
+    assert isinstance(ex.value.__context__, OSError)
+    assert ex.value.__context__.winerror & 0xFFFFFFFF == 0xA0000001
+
+    # Should get our error code, chained to our second error code
+    inject_error(0xA0000001, 0, 0xA0000002, 0)
+    with pytest.raises(OSError) as ex:
+        bits_find_job(conn, uuid.UUID(int=0).bytes_le)
+    assert ex.value.winerror & 0xFFFFFFFF == 0xA0000002
+    assert "Retrieving error message" in str(ex.value)
+    assert isinstance(ex.value.__context__, OSError)
+    assert ex.value.__context__.winerror & 0xFFFFFFFF == 0xA0000001
+
+    # Inject errors into get_progress.
+    # (No errors while we get started)
+    inject_error(0, 0, 0, 0)
+    job = bits_begin(conn, "PyManager Test", url, dest)
+    try:
+        progress = bits_get_progress(conn, job)
+
+        # This will be treated as the reason we couldn't read the error code
+        inject_error(1, 0xA0000001, 0, 0)
+        with pytest.raises(OSError) as ex:
+            bits_get_progress(conn, job)
+        # Original error is unspecified OSError
+        assert ex.value.__context__.winerror == None
+        # The cause is our error
+        assert ex.value.winerror & 0xFFFFFFFF == 0xA0000001
+    finally:
+        bits_cancel(conn, job)
+
+    # Inject errors into get_progress.
+    # (No errors while we get started)
+    inject_error(0, 0, 0, 0)
+    job = bits_begin(conn, "PyManager Test", localserver + "/always404", dest)
+    try:
+        # This will be treated as the reason we couldn't get text for the error
+        # code.
+        inject_error(0, 0, 0xA0000002, 0)
+        with pytest.raises(OSError) as ex:
+            for _ in range(100):
+                bits_get_progress(conn, job)
+                time.sleep(0.1)
+        # Original error is the 404
+        assert "404" in str(ex.value.__context__)
+        assert ex.value.__context__.winerror & 0xFFFFFFFF == 0x80190194
+        # The cause is our error
+        assert ex.value.winerror & 0xFFFFFFFF == 0xA0000002
+    finally:
+        bits_cancel(conn, job)
+
+
+    # Inject an error when adding credentials
+    inject_error(0, 0, 0, 0xA0000001)
+    # No credentials specified, so does not raise
+    try:
+        job = bits_begin(conn, "PyManager Test", url, dest)
+    finally:
+        bits_cancel(conn, job)
+    # Add credentials to cause injected error
+    with pytest.raises(OSError) as ex:
+        job = bits_begin(conn, "PyManager Test", url, dest, "x", "y")
+    # Original error is ours
+    assert ex.value.__context__.winerror & 0xFFFFFFFF == 0xA0000001
+    # The final error is the missing message
+    assert ex.value.winerror & 0xFFFFFFFF == ERROR_MR_MID_NOT_FOUND
+

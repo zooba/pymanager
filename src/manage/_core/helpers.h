@@ -29,3 +29,5 @@ static PyObject *make_capsule(T *p) {
 
 
 extern int as_utf16(PyObject *obj, wchar_t **address);
+
+extern void err_SetFromWindowsErrWithMessage(int error, const char *message, const wchar_t *os_message);
