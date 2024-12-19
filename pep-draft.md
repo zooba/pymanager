@@ -509,9 +509,8 @@ These will be available from the FTP pages, but will not be listed directly on
 regular download pages.
 
 Third-party tools that currently distribute their own builds of CPython will be
-welcome to use ours. Officially, they will only be supported when installing
-using PyManager, though there is no intent to prevent anyone from using our
-index directly unless genuine abuse is detected.
+welcome to use ours, though will be expected to be the initial point of contact
+for their users requiring support.
 
 
 Project ownership and development
@@ -1283,9 +1282,8 @@ versions and then files), and we have no desire to make it more challenging.
 
 The index protocol and download list will be available for tools that wish to
 use it, or for users who are willing to navigate JSON in order to find the URL.
-While these are not supported uses, there is no reason to prevent them. The
-``--target`` option on the install command provides a download and extract
-operation.
+The ``--target`` option on the install command also provides a trivial download
+and extract operation, allowing users to have the same experience as a ZIP file.
 
 
 Only publish PyManager to one place
