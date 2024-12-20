@@ -404,9 +404,28 @@ python install --refresh
 
 This subcommand will install one or more runtimes onto the current machine.
 The tags are ``Company\\Tag`` pairs (or just ``Tag`` if no slash is included),
-are are used for a PEP 514 compatible search of the index file.
+and are used to search the index file. Company names match as case-insensitive
+prefixes, preferring a full match over a prefix, and tags use case-insensitive,
+number-aware matches, with dotted numbers treated as versions. Tags must match
+one of the listed "install for" tags, and entries list multiple such tags to
+handle abbreviated requests.
 
-TODO: Install using version range rather than tag
+For example, the ``3.10.5`` entry would list all of ``3``, ``3.10`` and
+``3.10.5`` as tags to be installed for. A request for ``3.10`` would match one
+of these and so the entry is selected. Due to the number-aware matches, a
+request for ``03.0010`` would also match, and ``3.10.50`` would not.
+
+Tags may also be specified as a constraint, using ``>``, ``>=``, ``<``, ``<=``
+or ``!=`` followed by the ``Company\\Tag`` or ``Tag`` value. When matching a
+constraint only the primary tag metadata is used for comparisons. Since the
+comparisons are version-aware, constraints such as ``>3.10`` will select
+``3.11`` matches as a minimum, while ``>3.10.0`` may select ``3.10.1``.
+
+The behaviour of constraints against arbitrary tags is likely to be unintuitive
+in some circumstances. It is anticipated that constraints will mainly be used
+with upstream releases, which typically use version-shaped tags, and primarily
+for cases where other metadata such as ``Requires-Python`` are being handled.
+Users are expected to use shorter tags for convenience, rather than ranges.
 
 The default index file is hosted on python.org, and contains install information
 including package URLs and hashes for all installable versions. An alternate
@@ -464,9 +483,9 @@ List subcommand
 python list [-f|--format <FMT>] [-1|--one] [-u|--unmanaged] [tag ...]
 ```
 
-This subcommand will list any or all installs matching the specified tags. If
-no tags are provided, lists all installs. If ``--one`` is provided, only lists
-the first result.
+This subcommand will list any or all installs matching the specified tags or
+ranges. If no tags are provided, lists all installs. If ``--one`` is provided,
+only lists the first result.
 
 The default format is user-friendly. Other formats will include machine-readable
 and single string formats (e.g. ``--format=prefix`` simply prints ``sys.prefix``
