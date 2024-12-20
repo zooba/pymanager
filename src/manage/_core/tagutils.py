@@ -31,7 +31,7 @@ class CompanyTag:
         self._platform = 100
         if self.is_core:
             tag, _, plat = tag.partition("-")
-            self._platform = CORE_PLATFORM_SORTKEY.get(plat, 1)
+            self._platform = CORE_PLATFORM_SORTKEY.get(plat, self._platform)
         self._sortkey = _sort_tag(tag)
 
     @classmethod
@@ -62,7 +62,7 @@ class CompanyTag:
             return False
         if not self._sortkey.startswith(other._sortkey):
             return False
-        if self._platform != other._platform:
+        if self._platform < 100 and other._platform < 100 and self._platform != other._platform:
             return False
         return True
 
