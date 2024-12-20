@@ -116,13 +116,15 @@ PACKAGE = Package('python-manager',
 
 def get_commands():
     import ast
+    command_bases = {"BaseCommand"}
     commands = []
     with open("src/manage/_core/commands.py", "r", encoding="utf-8") as f:
         mod = ast.parse(f.read())
     for cls in filter(lambda c: isinstance(c, ast.ClassDef), mod.body):
         # Check if a subclass of BaseCommand
-        if not any(b.id == "BaseCommand" for b in cls.bases):
+        if not any(b.id in command_bases for b in cls.bases):
             continue
+        command_bases.add(cls.name)
         for a in filter(lambda s: isinstance(s, ast.Assign), cls.body):
             if not any(t.id == "CMD" for t in a.targets):
                 continue
@@ -131,7 +133,7 @@ def get_commands():
             except AttributeError:
                 commands.append(a.value.s)
             break
-    return commands
+    return [c for c in commands if c[:1] != "_"]
 
 
 def init_METADATA():
@@ -149,6 +151,13 @@ def init_PACKAGE(tag=None):
         return
 
     tmpdir = get_current_build_state().temp_dir
+
+    ver_py = tmpdir / "_version.py"
+    ver_code = f"__version__ = {METADATA['Version']!r}"
+    if ver_py.is_file() and ver_py.read_text("utf-8").strip() != ver_code:
+        with ver_py.open("w", encoding="utf-8") as f:
+            print(ver_code, file=f)
+    PACKAGE.find("manage/_core").members.append(PyFile(ver_py))
 
     cmds = get_commands()
     cmds_h = tmpdir / "commands.g.h"

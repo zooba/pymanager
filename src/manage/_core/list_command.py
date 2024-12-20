@@ -68,6 +68,17 @@ def format_bare_prefix(installs):
         print(i["prefix"])
 
 
+def format_legacy(installs, paths=False):
+    for i in installs:
+        if i["company"].casefold() != "PythonCore".casefold():
+            tag = f" -V:{i['company']}/{i['tag']}"
+        else:
+            tag = f" -V:{i['tag']}"
+        if i.get("default"):
+            tag = f"{tag} *"
+        print(tag.ljust(17), i["executable"] if paths else i["displayName"])
+
+
 FORMATTERS = {
     "table": format_table,
     "csv": format_csv,
@@ -75,6 +86,8 @@ FORMATTERS = {
     "jsonl": format_json_lines,
     "exe": format_bare_exe,
     "prefix": format_bare_prefix,
+    "legacy": format_legacy,
+    "legacy-paths": lambda i: format_legacy(i, paths=True),
 }
 
 

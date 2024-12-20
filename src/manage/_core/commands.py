@@ -183,6 +183,10 @@ class BaseCommand:
                 setattr(self, set_next, a)
                 _set_args.add(set_next)
                 set_next = None
+            elif not seen_cmd and a.lower() == self.CMD:
+                # Check once to handle legacy commands with - prefix
+                # Check again below to raise an error if the command was wrong
+                seen_cmd = True
             elif a.startswith(("-", "/")):
                 a, sep, v = a.partition(":")
                 if not sep:
@@ -273,23 +277,36 @@ class BaseCommand:
     def execute(self):
         raise NotImplementedError(f"'{type(self).__name__}' does not implement 'execute()'")
 
+    @classmethod
+    def help_text(self):
+        from .. import __version__
+        cmd_help = [
+            "    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", ""))
+            for cmd in sorted(COMMANDS)
+            if cmd[:1].isalpha()
+        ]
+        return fr"""
+Python intallation manager {__version__}
+Copyright (c) 2001-2024 Python Software Foundation. All Rights Reserved.
+
+Subcommands:
+{'\n'.join(cmd_help)}
+
+Global options:
+    -v, --verbose    Increased output (log_level={logging.INFO})
+    -vv              Further increased output (log_level={logging.DEBUG})
+    -q, --quiet      Less output (log_level={logging.WARN})
+    -qq              Even less output (log_level={logging.CRITICAL})
+    -y, --yes        Always confirm prompts (confirm=False)
+    --config=PATH    Override configuration with JSON file
+""".lstrip().replace("\r\n", "\n")
+
     def help(self):
-        print("Python intallation manager $VERSION")
-        print("$COPYRIGHT")
-        print()
-        print("Subcommands:")
-        for cmd in sorted(COMMANDS):
-            if cmd[:1] != "_":
-                print("    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", "")))
-        print()
-        print("Global options:")
-        print("    -v, --verbose    Increased output (log_level={})".format(logging.INFO))
-        print("    -vv              Further increased output (log_level={})".format(logging.DEBUG))
-        print("    -q, --quiet      Less output (log_level={})".format(logging.WARN))
-        print("    -qq              Even less output (log_level={})".format(logging.CRITICAL))
-        print("    -y, --yes        Always confirm prompts (confirm=False)")
-        print("    --config=PATH    Override configuration with JSON file")
-        print()
+        print(self.help_text())
+        try:
+            print(self.HELP_TEXT.lstrip())
+        except AttributeError:
+            pass
 
     def get_installs(self):
         from .installs import get_installs
@@ -315,6 +332,22 @@ class BaseCommand:
 class ListCommand(BaseCommand):
     CMD = "list"
     HELP_LINE = "Shows all installed Python runtimes"
+    HELP_TEXT = r"""
+List options:
+    -f, --format=<table,json,jsonl,exe,prefix>
+                     Specify output formatting (list.format=...)
+    -1, --one        Only display first result
+    <TAG>            Filter results (Company\Tag format)
+
+EXAMPLE: List all installed runtimes
+> python list
+
+EXAMPLE: Display executable of default runtime
+> python list --one -f=exe
+
+EXAMPLE: Show JSON details for each Python 3 runtime
+> python list -f=jsonl 3
+"""
 
     format = "table"
     one = False
@@ -323,24 +356,59 @@ class ListCommand(BaseCommand):
         from .list_command import execute
         execute(self)
 
-    def help(self):
-        super().help()
-        print("List options:")
-        print("    -f, --format=<table,json,jsonl,exe,prefix>")
-        print("                     Specify output formatting (list.format=...)")
-        print("    -1, --one        Only display first result")
-        print("    <TAG>            Filter results (Company\\Tag format)")
-        print()
+
+class ListLegacy0Command(ListCommand):
+    CMD = "-0"
+    format = "legacy"
+
+
+class ListLegacy0pCommand(ListCommand):
+    CMD = "-0p"
+    format = "legacy-paths"
+
+
+class ListLegacyCommand(ListCommand):
+    CMD = "--list"
+    format = "legacy"
+
+
+class ListPathsLegacyCommand(ListCommand):
+    CMD = "--list-paths"
+    format = "legacy-paths"
 
 
 class InstallCommand(BaseCommand):
     CMD = "install"
     HELP_LINE = "Download new Python runtimes"
+    HELP_TEXT = r"""
+Install options:
+    -s, --source=<URI>
+                     Specify index.json to use (install.source=...)
+    -t, --target=<PATH>
+                     Extract runtime to location instead of installing
+    -f, --force      Re-download and overwrite existing install
+    --dry-run        Choose runtime but do not install
+    --refresh        Update shortcuts and aliases for all installed versions.
+    <TAG> <TAG> ...  One or more tags to install (Company\Tag format)
+
+EXAMPLE: Install the latest Python 3 version
+> python install 3
+
+EXAMPLE: Extract Python 3.13 ARM64 to a directory
+> python install --target=.\runtime 3.13-arm64
+
+EXAMPLE: Clean reinstall of 3.13
+> python install --force 3.13
+
+EXAMPLE: Refresh and replace all shortcuts
+> python install --refresh
+"""
 
     source = None
     target = None
     force = False
     dry_run = False
+    refresh = False
     automatic = False
     from_script = None
 
@@ -360,28 +428,25 @@ class InstallCommand(BaseCommand):
                 print(ex)
                 raise
 
-
     def execute(self):
         from .install_command import execute
         execute(self)
-
-    def help(self):
-        super().help()
-        print("Install options:")
-        print("    -s, --source=<URI>")
-        print("                     Specify index.json to use (install.source=...)")
-        print("    -t, --target=<PATH>")
-        print("                     Extract runtime to location instead of installing")
-        print("    -f, --force      Re-download and overwrite existing install")
-        print("    --dry-run        Choose runtime but do not install")
-        print("    <TAG> <TAG> ...  One or more tags to install (Company\\Tag format)")
-        print("                     If omitted, only refreshes shortcuts for installed versions.")
-        print()
 
 
 class UninstallCommand(BaseCommand):
     CMD = "uninstall"
     HELP_LINE = "Remove runtimes from your machine"
+    HELP_TEXT = r"""
+Uninstall options:
+    --purge          Remove all runtimes, shortcuts, and cached files. Ignores tags.
+    <TAG> <TAG> ...  One or more runtimes to uninstall (Company\Tag format)
+
+EXAMPLE: Uninstall Python 3.12 32-bit
+> python uninstall 3.12-32
+
+EXAMPLE: Uninstall all runtimes without confirmation
+> python uninstall --yes --purge
+"""
 
     confirm = True
     purge = False
@@ -390,30 +455,34 @@ class UninstallCommand(BaseCommand):
         from .uninstall_command import execute
         execute(self)
 
-    def help(self):
-        super().help()
-        print("Uninstall options:")
-        print("    --purge          Remove all runtimes, shortcuts, and cached files. Ignores tags.")
-        print("    <TAG> <TAG> ...  One or more runtimes to uninstall (Company\\Tag format)")
-        print()
-
 
 #class RunCommand(BaseCommand):
 #    CMD = "run"
 #    HELP_LINE = "Launch a script in a dedicated environment"
 
 
-# TODO: Not sure this is such a useful command?
-#class HelpCommand(BaseCommand):
-#    CMD = "help"
-#    HELP_LINE = "Open online documentation for the requested topics"
-#
-#    def execute(self):
-#        import os
-#        if self.args:
-#            os.startfile(f"https://docs.python.org/3/search.html?q={'%20'.join(self.args)}")
-#            return
-#        print("TODO: Open help page for PyManager")
+class HelpCommand(BaseCommand):
+    CMD = "help"
+    HELP_LINE = "Show help for Python installation manager commands"
+    HELP_TEXT = r"""
+Help options:
+    <CMD> ...       One or more commands to show help for. If omitted, lists
+                    commands and global options only.
+"""
+
+    def execute(self):
+        print(BaseCommand.help_text())
+        for a in self.args:
+            try:
+                cls = COMMANDS[a.lower()]
+            except LookupError:
+                LOGGER.warn("Command %s is not known.", a)
+                continue
+            any_shown = True
+            try:
+                print(cls.HELP_TEXT.lstrip())
+            except AttributeError:
+                pass
 
 
 class DefaultConfig(BaseCommand):
@@ -425,6 +494,7 @@ class DefaultConfig(BaseCommand):
 
 def load_default_config(root):
     return DefaultConfig(root)
+
 
 def find_command(args, root):
     for a in args:

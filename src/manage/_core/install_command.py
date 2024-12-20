@@ -257,6 +257,11 @@ def execute(cmd):
         target = None
         installed = list(cmd.get_installs())
 
+    if cmd.refresh:
+        if cmd.args:
+            LOGGER.warn("Ignoring arguments; --refresh always refreshes all installs.")
+        update_all_shortcuts(cmd)
+
     if not cmd.args and not installed:
         LOGGER.debug("No tags provided, installing first version in index")
         cmd.args = [""]
@@ -316,6 +321,7 @@ def execute(cmd):
     print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
 
     if cmd.automatic:
+        LOGGER.info("To see all available commands, run 'python help'")
         LOGGER.info("**********************************************************************")
 
     LOGGER.debug("END install_command.execute")

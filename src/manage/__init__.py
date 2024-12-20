@@ -2,6 +2,11 @@ from ._core.commands import find_command, load_default_config, show_help
 from ._core.exceptions import ArgumentError
 from ._core.logging import LOGGER
 
+try:
+    from ._core._version import __version__
+except ImportError:
+    __version__ = "0.0"
+
 
 def _with_errno_result(fn):
     def _wrapped(*a, **kw):
@@ -48,9 +53,10 @@ def _find_one(root, tag, script):
     i = None
     cmd = load_default_config(root)
     i = cmd.get_install_to_run(tag, script)
-    if not i or "executable" not in i:
-        return None
-    return str(i["executable"])
+    if i and "executable" in i:
+        return str(i["executable"])
+    # TODO: Regular PEP 514 search
+    return None
 
 
 @_with_error_log
