@@ -1,5 +1,5 @@
 import pytest
-from manage._core.tagutils import CompanyTag
+from manage._core.tagutils import CompanyTag, TagRange
 
 @pytest.mark.parametrize("tag_str", [
     "3.13", "3.13-32", "3.13-arm64",
@@ -52,3 +52,44 @@ def test_tag_sort():
     random.shuffle(tags)
     actual = sorted(tags)
     assert actual == expected, actual
+
+
+def test_simple_tag_range():
+    assert TagRange(">=3.10").satisfied_by(CompanyTag("3.10"))
+    assert TagRange(">=3.10").satisfied_by(CompanyTag("3.10.1"))
+    assert TagRange(">=3.10").satisfied_by(CompanyTag("3.11"))
+    assert TagRange(">=3.10").satisfied_by(CompanyTag("4.0"))
+    assert not TagRange(">=3.10").satisfied_by(CompanyTag("3.9"))
+    assert not TagRange(">=3.10").satisfied_by(CompanyTag("2.0"))
+
+    assert not TagRange(">3.10").satisfied_by(CompanyTag("3.9"))
+    assert not TagRange(">3.10").satisfied_by(CompanyTag("3.10"))
+    assert not TagRange(">3.10").satisfied_by(CompanyTag("3.10.0"))
+    assert not TagRange(">3.10").satisfied_by(CompanyTag("3.10.1"))
+    assert TagRange(">3.10").satisfied_by(CompanyTag("3.11"))
+
+    assert TagRange("<=3.10").satisfied_by(CompanyTag("3.10"))
+    assert TagRange("<=3.10").satisfied_by(CompanyTag("3.9"))
+    assert TagRange("<=3.10").satisfied_by(CompanyTag("2.0"))
+    assert not TagRange("<=3.10").satisfied_by(CompanyTag("3.11"))
+    assert not TagRange("<=3.10").satisfied_by(CompanyTag("4.0"))
+
+    assert not TagRange("<3.10").satisfied_by(CompanyTag("3.11"))
+    assert not TagRange("<3.10").satisfied_by(CompanyTag("3.10"))
+    assert not TagRange("<3.10").satisfied_by(CompanyTag("3.10.0"))
+    assert not TagRange("<3.10").satisfied_by(CompanyTag("3.10.1"))
+    assert TagRange("<3.10").satisfied_by(CompanyTag("3.9"))
+
+
+def test_tag_range_platforms():
+    assert TagRange(">=3.10-32").satisfied_by(CompanyTag("3.10-32"))
+    assert TagRange(">=3.10-32").satisfied_by(CompanyTag("3.10.1-32"))
+    assert TagRange(">=3.10").satisfied_by(CompanyTag("3.10-32"))
+    assert not TagRange(">=3.10-32").satisfied_by(CompanyTag("3.10-64"))
+    assert not TagRange(">=3.10-32").satisfied_by(CompanyTag("3.10.1"))
+
+
+def test_tag_range_suffixes():
+    assert not TagRange(">=3.10").satisfied_by(CompanyTag("3.10-embed"))
+    assert not TagRange(">=3.10-embed").satisfied_by(CompanyTag("3.10"))
+    assert TagRange(">=3.10-embed").satisfied_by(CompanyTag("3.10-embed"))

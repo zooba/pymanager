@@ -1,8 +1,6 @@
 import json
 import sys
 
-from pathlib import PurePath
-
 from .exceptions import ArgumentError
 from .logging import LOGGER
 
@@ -116,13 +114,17 @@ def execute(cmd):
             installs = installs[:1]
         formatter(installs)
     else:
-        from .tagutils import CompanyTag
-        for arg in cmd.args:
-            ct = CompanyTag(arg)
-            filtered = [i for i in installs if CompanyTag.from_dict(i).match(ct)]
-            if cmd.one:
-                filtered = filtered[:1]
-            if filtered:
-                formatter(filtered)
+        from .tagutils import CompanyTag, tag_or_range
+        tags = [tag_or_range(arg) for arg in cmd.args]
+        if tags:
+            LOGGER.debug("Filtering to following items")
+            for t in tags:
+                LOGGER.debug("* %r", t)
+        filtered = [i for i in installs
+                    if any(t.satisfied_by(CompanyTag.from_dict(i)) for t in tags)]
+        if cmd.one:
+            filtered = filtered[:1]
+        if filtered:
+            formatter(filtered)
 
     LOGGER.debug("END list_command.execute")

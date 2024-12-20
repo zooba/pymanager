@@ -54,23 +54,45 @@ class Version:
     def __repr__(self):
         return self.s
 
-    def __eq__(self, other):
+    def _are_equal(self, other, prefix_match=None, other_prefix_match = None, prerelease_match=None):
         if other is None:
             return False
         if isinstance(other, str):
             return self.s.casefold() == other.casefold()
+        if not isinstance(other, type(self)):
+            return False
         if self.sortkey == other.sortkey:
             return True
-        if self.prefix_match:
+        if prefix_match is not None and prefix_match or self.prefix_match:
             if self.sortkey[:self.sortkey[-3]] == other.sortkey[:self.sortkey[-3]]:
                 return True
-        elif other.prefix_match:
+        elif other_prefix_match is not None and other_prefix_match or other.prefix_match:
             if self.sortkey[:other.sortkey[-3]] == other.sortkey[:other.sortkey[-3]]:
                 return True
-        elif self.prerelease_match:
+        if prerelease_match is not None and prerelease_match or self.prerelease_match:
             if self.sortkey[:-3] == other.sortkey[:-3]:
                 return True
         return False
+
+    def startswith(self, other):
+        return self._are_equal(other, other_prefix_match=True)
+
+    def above_lower_bound(self, other):
+        if other is None:
+            return True
+        if self.sortkey[:other.sortkey[-3]] > other.sortkey[:other.sortkey[-3]]:
+            return True
+        return False
+
+    def below_upper_bound(self, other):
+        if other is None:
+            return True
+        if self.sortkey[:other.sortkey[-3]] < other.sortkey[:other.sortkey[-3]]:
+            return True
+        return False
+
+    def __eq__(self, other):
+        return self._are_equal(other)
 
     def __gt__(self, other):
         if other is None:

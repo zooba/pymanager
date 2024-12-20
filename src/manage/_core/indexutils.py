@@ -1,4 +1,5 @@
 from .exceptions import InvalidFeedError
+from .tagutils import CompanyTag, TagRange, tag_or_range
 from .verutils import Version
 
 SCHEMA = {
@@ -75,6 +76,17 @@ def _one_dict_match(d, expect):
         return True
     if not isinstance(expect, dict):
         return True
+    try:
+        if expect["schema"] == d["schema"]:
+            return True
+    except KeyError:
+        pass
+    try:
+        if expect["version"] == d["version"]:
+            return True
+    except KeyError:
+        pass
+
     for k, v in expect.items():
         if isinstance(v, int) and d.get(k) != v:
             return False
@@ -155,16 +167,22 @@ class Index:
             len(self.versions),
         )
 
-    def find_to_install(self, tag, prefer_prerelease=False):
+    def find_to_install(self, tag, *, loose_company=False, prefer_prerelease=False):
+        if not tag:
+            tag = CompanyTag("", "")
+        if isinstance(tag, str):
+            tag = tag_or_range(tag)
         for i in self.versions:
-            if not tag or tag.match_any(
-                company=i.get("company"),
-                exact_company=False,
-                tags=i.get("install-for"),
-                exact_tag=True,
-            ):
-                if prefer_prerelease or not i["sort-version"].is_prerelease:
+            if prefer_prerelease or not i["sort-version"].is_prerelease:
+                if isinstance(tag, TagRange):
+                    for_tags = [CompanyTag(i["company"], i["tag"], loose_company=loose_company)]
+                else:
+                    for_tags = [CompanyTag(i["company"], t, loose_company=loose_company)
+                                for t in i.get("install-for", [])]
+                if any(tag.satisfied_by(t) for t in for_tags):
                     return i
         if not prefer_prerelease:
-            return self.find_to_install(tag, prefer_prerelease=True)
+            return self.find_to_install(tag, loose_company=loose_company, prefer_prerelease=True)
+        if not loose_company:
+            return self.find_to_install(tag, loose_company=True, prefer_prerelease=prefer_prerelease)
         raise LookupError(tag)

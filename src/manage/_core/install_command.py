@@ -7,7 +7,7 @@ from .exceptions import ArgumentError, HashMismatchError
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
 from .logging import LOGGER, ProgressPrinter
-from .tagutils import CompanyTag
+from .tagutils import CompanyTag, tag_or_range
 from .urlutils import (
     sanitise_url,
     urljoin,
@@ -281,14 +281,11 @@ def execute(cmd):
     for spec in cmd.args:
         if not spec:
             tag = None
-        elif spec.lstrip().startswith(("<", ">", "=")):
-            # TODO: Implement install from version range
-            raise NotImplementedError("Version ranges are not yet supported")
         else:
-            tag = CompanyTag(spec)
+            tag = tag_or_range(spec)
             LOGGER.info("Searching for Python matching %s", tag)
             if not cmd.force and installed:
-                already_installed = [i for i in installed if CompanyTag.from_dict(i).match(tag)]
+                already_installed = [i for i in installed if tag.satisfied_by(CompanyTag.from_dict(i))]
                 if already_installed:
                     LOGGER.info("%s is already installed", already_installed[0]["displayName"])
                     continue

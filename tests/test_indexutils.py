@@ -71,6 +71,25 @@ EXAMPLE_V1_PACKAGE = {
 }
 
 
+def fake_install_data(v, company="PythonCore", exe="python.exe"):
+    assert len(v.split(".")) > 2, "Expect at least x.y.z"
+    return {
+        "schema": 1,
+        "id": f"{company}-{v}",
+        "sort-version": v,
+        "company": company,
+        "tag": v,
+        "install-for": [v, v.rpartition(".")[0], v.partition(".")[0]],
+        "run-for": [
+            {"tag": v, "target": exe},
+            {"tag": v.rpartition(".")[0], "target": exe},
+            {"tag": v.partition(".")[0], "target": exe},
+        ],
+        "displayName": f"{company} {v}",
+        "executable": exe,
+    }
+
+
 class Unstringable:
     def __str__(self):
         raise TypeError("I am unstringable")
@@ -125,3 +144,27 @@ def test_schema_parse_invalid(value, key):
 def test_v1_package():
     # Ensure we don't change the schema for v1 packages
     iu._one(EXAMPLE_V1_PACKAGE, iu.SCHEMA)
+
+
+def test_install_lookup():
+    index = iu.Index("https://localhost/", {
+        "versions": [
+            fake_install_data("3.13.1"),
+            fake_install_data("3.12.2"),
+            fake_install_data("3.11.3"),
+            fake_install_data("3.10.4"),
+        ],
+    })
+    assert index.find_to_install("3.13.1")["tag"] == "3.13.1"
+    assert index.find_to_install("3.13")["tag"] == "3.13.1"
+    assert index.find_to_install("3")["tag"] == "3.13.1"
+    assert index.find_to_install("PythonCore/3")["tag"] == "3.13.1"
+    assert index.find_to_install("Python/3")["tag"] == "3.13.1"
+    assert index.find_to_install("cpy/3")["tag"] == "3.13.1"
+    assert index.find_to_install("3.12")["tag"] == "3.12.2"
+
+    assert index.find_to_install("!=3.13")["tag"] == "3.12.2"
+    assert index.find_to_install("<=3.12")["tag"] == "3.12.2"
+    assert index.find_to_install("<3.12")["tag"] == "3.11.3"
+    assert index.find_to_install("<3.12,!=3.11")["tag"] == "3.10.4"
+    assert index.find_to_install("<3.12,!=3.10")["tag"] == "3.11.3"
