@@ -375,9 +375,9 @@ to avoid collisions. Anywhere we use "tag" as a placeholder in this PEP, a
 available. The Company for python.org releases is ``PythonCore``, for
 compatibility with the registry keys used by earlier releases.
 
-> In this document, all command line options will be shown with one or two
-> hyphens. In implementation, all options will support one or two hyphens or a
-> forward slash, to be consistent with both Windows and UNIX conventions.
+When no managed install is found, a regular PEP 514 search will be used to
+locate and launch legacy installs. If none is found, the requested version will
+be automatically installed and launched if it is known.
 
 As an alternative to the version specification, one of the following subcommands
 may be used. These must be the first argument, and must be spelled exactly, or
@@ -392,14 +392,21 @@ Rejected Ideas.
 Install subcommand
 ------------------
 
+> In this document, all command line options will be shown with one or two
+> hyphens. In implementation, all options will support one or two hyphens or a
+> forward slash, to be consistent with both Windows and UNIX conventions.
+
 ```
 python install [-s|--source <URL>] [-f|--force] [-u|--upgrade] [tag ...]
 python install [-s|--source <URL>] [-t|--target <DIR>] [tag ...]
+python install --refresh
 ```
 
 This subcommand will install one or more runtimes onto the current machine.
 The tags are ``Company\\Tag`` pairs (or just ``Tag`` if no slash is included),
 are are used for a PEP 514 compatible search of the index file.
+
+TODO: Install using version range rather than tag
 
 The default index file is hosted on python.org, and contains install information
 including package URLs and hashes for all installable versions. An alternate
@@ -410,16 +417,20 @@ of no exact match, a prefix match will be used. In both cases, numbers in the
 tag are treated logically - that is, ``3.1`` is a prefix of ``3.1.2`` but not of
 ``3.10``.
 
-TODO: Install using version range rather than tag
-
 If a tag is already satisfied by an existing install, nothing will be installed.
 The user must pass an ``--upgrade`` or ``--force`` option to replace the
 existing install; the former will only replace it with a newer version, while
 the latter will remove and replace even with the same version.
 
-Calling the command without providing any tags will refresh all installs, such
-as regenerating metadata or shortcuts. Passing ``--upgrade`` with no tags is an
-error.
+Calling the command without providing any tags will install the latest default
+version (in effect, the first non-prerelease entry in the index).
+Passing ``--upgrade`` with no tags is an error.
+
+Passing ``--refresh`` will regenerate all metadata and shortcuts for all
+installs. This is intentionally applied to all installs at once, as shortcut
+prioritisation relies on all installs being consistent (for example, the latest
+3.x version should get the ``python3.exe`` shortcut, which gets complicated if
+users can choose to only refresh an older install).
 
 If a ``--target <DIR>`` option is passed with only a single tag, that runtime
 will be extracted to the specified directory without being registered as an
@@ -450,7 +461,7 @@ List subcommand
 ---------------
 
 ```
-python list [-f|--format <FMT>] [-1|--one] [tag ...]
+python list [-f|--format <FMT>] [-1|--one] [-u|--unmanaged] [tag ...]
 ```
 
 This subcommand will list any or all installs matching the specified tags. If
@@ -461,27 +472,38 @@ The default format is user-friendly. Other formats will include machine-readable
 and single string formats (e.g. ``--format=prefix`` simply prints ``sys.prefix``
 on a line by itself). The exact list of formats is left to implementation.
 
+The ``--unmanaged`` option enables listing runtimes that are discovered using a
+regular PEP 514 lookup. This may include runtimes that cannot be managed by
+PyManager, and would be an error if provided to other commands. Unmanaged
+installs will be distinguishable from managed installs if permitted by the
+selected format.
 
-(DROPPED) Help subcommand
--------------------------
+Additionally, the legacy ``--list``, ``--list-paths``, ``-0`` and ``-0p``
+arguments supported by the ``py.exe`` launcher will also be provided. However,
+they will not support the new options listed here, and are limited to
+reproducing the output from the existing launcher. Unmanaged installs are
+included by default.
 
-> **Note: This idea is on its way to being dropped, but leaving the text in the
-> draft for now in case it triggers any better ideas.**
+
+Help subcommand
+---------------
 
 ```
-python help <TOPIC>
+python help <COMMAND>
 ```
 
-This subcommand will open the online Python documentation to a search results
-page for the topic. Normal command-line parsing is ignored following the
-subcommand, so that (provided the process launched), queries can be typed
-directly without being misinterpreted by quoting rules.
+This subcommand will display the help text for each specified command, or if
+none specified, will show the list of commands. Specifying one command is the
+equivalent of ``python <COMMAND> --help``.
 
-If no topic is specified, opens the PyManager documentation, which is local to
-the app and does not require network access.
+The command is added primarily to offer a simple way to tell users how to find
+more information. They can be told to run ``python help``. This avoids having
+to override or extend the ``python -?`` output, which is supposed to forward to
+the selected runtime.
 
-Handling the risk of command injection into a browser is an exercise left to the
-implementation.
+After an automatic install (e.g. running ``python`` with nothing installed), a
+message will be displayed telling users that they can run ``python help`` for
+more information on how to manage their installs.
 
 
 Replacing other installers
@@ -511,6 +533,10 @@ regular download pages.
 Third-party tools that currently distribute their own builds of CPython will be
 welcome to use ours, though will be expected to be the initial point of contact
 for their users requiring support.
+
+PyManager will be able to launch other installs if they have provided a PEP 514
+registration. However, it cannot manage these, and they will not be listed by
+default
 
 
 Project ownership and development
