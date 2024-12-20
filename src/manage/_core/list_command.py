@@ -1,8 +1,9 @@
 import json
 import sys
 
+from pathlib import PurePath
+
 from .exceptions import ArgumentError
-from .installs import get_installs
 from .logging import LOGGER
 
 
@@ -17,6 +18,7 @@ def format_table(installs):
     installs = [{
         **i,
         "alias": ", ".join(a["name"] for a in i.get("alias", ())),
+        # TODO: Override tag/displayName for unmanaged installs
     } for i in installs]
     cwidth = {k: len(v) for k, v in columns.items()}
     for i in installs:
@@ -40,9 +42,10 @@ def format_table(installs):
 def format_csv(installs):
     import csv
     columns = {}
+    # TODO: Exclude complex columns
     installs = list(installs)
     for i in installs:
-        for k, v in i.items():
+        for k in i:
             columns[k] = True
     writer = csv.DictWriter(sys.stdout, columns)
     writer.writeheader()
@@ -103,7 +106,7 @@ def execute(cmd):
 
     LOGGER.debug("Reading installs from %s", cmd.install_dir)
     try:
-        installs = get_installs(cmd.install_dir, cmd.default_tag)
+        installs = cmd.get_installs(include_pep514=cmd.unmanaged)
     except OSError:
         LOGGER.debug("Unable to read installs", exc_info=True)
         installs = []

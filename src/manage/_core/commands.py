@@ -83,6 +83,8 @@ CLI_SCHEMA = {
         "format": ("format", _NEXT),
         "one": ("one", True),
         "1": ("one", True),
+        "u": ("unmanaged", True),
+        "unmanaged": ("unmanaged", True),
     },
 
     "install": {
@@ -308,8 +310,9 @@ Global options:
         except AttributeError:
             pass
 
-    def get_installs(self):
+    def get_installs(self, *, include_pep514=False):
         from .installs import get_installs
+        # TODO: Handle include_pep514
         return get_installs(self.install_dir, self.default_tag)
 
     def get_install_to_run(self, tag=None, script=None):
@@ -351,6 +354,7 @@ EXAMPLE: Show JSON details for each Python 3 runtime
 
     format = "table"
     one = False
+    unmanaged = False
 
     def execute(self):
         from .list_command import execute
@@ -360,21 +364,25 @@ EXAMPLE: Show JSON details for each Python 3 runtime
 class ListLegacy0Command(ListCommand):
     CMD = "-0"
     format = "legacy"
+    unmanaged = True
 
 
 class ListLegacy0pCommand(ListCommand):
     CMD = "-0p"
     format = "legacy-paths"
+    unmanaged = True
 
 
 class ListLegacyCommand(ListCommand):
     CMD = "--list"
     format = "legacy"
+    unmanaged = True
 
 
 class ListPathsLegacyCommand(ListCommand):
     CMD = "--list-paths"
     format = "legacy-paths"
+    unmanaged = True
 
 
 class InstallCommand(BaseCommand):
@@ -478,7 +486,6 @@ Help options:
             except LookupError:
                 LOGGER.warn("Command %s is not known.", a)
                 continue
-            any_shown = True
             try:
                 print(cls.HELP_TEXT.lstrip())
             except AttributeError:
