@@ -174,24 +174,53 @@ def _write_alias(cmd, alias, target):
     p.with_name(p.name + ".__target__").write_text(str(target), encoding="utf-8")
 
 
+def _create_shortcut_pep514(cmd, install, shortcut):
+    from .pep514utils import update_registry
+    update_registry(cmd.pep514_root, install, shortcut)
+
+
+def _cleanup_shortcut_pep514(cmd, install_shortcut_pairs):
+    from .pep514utils import cleanup_registry
+    cleanup_registry(cmd.pep514_root, {(i["company"], i["tag"]) for i, s in install_shortcut_pairs})
+
+
+SHORTCUT_HANDLERS = {
+    "pep514": (_create_shortcut_pep514, _cleanup_shortcut_pep514),
+}
+
+
 def update_all_shortcuts(cmd, path_warning=True):
     LOGGER.debug("Updating global shortcuts")
-    written = set()
+    alias_written = set()
+    shortcut_written = {}
     for i in cmd.get_installs():
-        for a in i["alias"]:
+        for a in i.get("alias", ()):
             target = i["prefix"] / a["target"]
             if not target.is_file():
                 LOGGER.info("Skipping '%s' because target '%s' does not exist", a["name"], a["target"])
                 continue
             _write_alias(cmd, a, target)
-            written.add(a["name"].casefold())
+            alias_written.add(a["name"].casefold())
+
+        for s in i.get("shortcuts", ()):
+            try:
+                create, cleanup = SHORTCUT_HANDLERS[s["kind"]]
+            except LookupError:
+                LOGGER.warn("Skipping invalid shortcut for '%s'", i["id"])
+                LOGGER.debug("shortcut: %s", s)
+            else:
+                create(cmd, i, s)
+                shortcut_written.setdefault(s["kind"], []).append((i, s))
 
     for target in cmd.global_dir.glob("*.exe.__target__"):
         alias = target.with_suffix("")
-        if alias.name.casefold() not in written:
+        if alias.name.casefold() not in alias_written:
             LOGGER.debug("Unlink %s", alias)
             alias.unlink()
             target.unlink()
+
+    for k, (_, cleanup) in SHORTCUT_HANDLERS.items():
+        cleanup(cmd, shortcut_written.get(k, []))
 
     if path_warning and any(cmd.global_dir.glob("*.exe")):
         if not any(cmd.global_dir.match(p) for p in os.getenv("PATH", "").split(os.pathsep)):

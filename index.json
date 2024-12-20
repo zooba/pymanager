@@ -39,6 +39,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a3/python.3.14.0-a3.nupkg"
@@ -82,6 +102,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a2/python.3.14.0-a2.nupkg"
@@ -123,6 +163,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a1",
@@ -169,6 +229,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.1/python.3.13.1.nupkg"
@@ -211,6 +291,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0",
@@ -256,6 +356,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc3/python.3.13.0-rc3.nupkg"
@@ -297,6 +417,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0rc2",
@@ -342,6 +482,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc1/python.3.13.0-rc1.nupkg"
@@ -383,6 +543,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b4",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b4",
@@ -428,6 +608,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b3/python.3.13.0-b3.nupkg"
@@ -469,6 +669,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b2",
@@ -514,6 +734,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b1/python.3.13.0-b1.nupkg"
@@ -555,6 +795,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a6",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a6",
@@ -600,6 +860,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a5",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a5",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a5/python.3.13.0-a5.nupkg"
@@ -641,6 +921,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a4",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a4",
@@ -686,6 +986,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a3/python.3.13.0-a3.nupkg"
@@ -729,6 +1049,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a2/python.3.13.0-a2.nupkg"
@@ -770,6 +1110,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a1",
@@ -816,6 +1176,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.8",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.8",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.8",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.8/python.3.12.8.nupkg"
@@ -858,6 +1238,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.7",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.7",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.7",
@@ -904,6 +1304,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.6",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.6",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.6/python.3.12.6.nupkg"
@@ -946,6 +1366,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.5",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.5",
@@ -992,6 +1432,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.4",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.4/python.3.12.4.nupkg"
@@ -1034,6 +1494,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.3",
@@ -1080,6 +1560,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.2/python.3.12.2.nupkg"
@@ -1122,6 +1622,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.1",
@@ -1168,6 +1688,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0/python.3.12.0.nupkg"
@@ -1209,6 +1749,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0rc3",
@@ -1254,6 +1814,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0rc2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-rc2/python.3.12.0-rc2.nupkg"
@@ -1295,6 +1875,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0rc1",
@@ -1340,6 +1940,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b4",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0b4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b4/python.3.12.0-b4.nupkg"
@@ -1381,6 +2001,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0b3",
@@ -1426,6 +2066,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0b2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b2/python.3.12.0-b2.nupkg"
@@ -1467,6 +2127,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0b1",
@@ -1512,6 +2192,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a7",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a7",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a7",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a7/python.3.12.0-a7.nupkg"
@@ -1553,6 +2253,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a6",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a6",
@@ -1598,6 +2318,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a5",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a5",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a5/python.3.12.0-a5.nupkg"
@@ -1639,6 +2379,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a4",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a4",
@@ -1684,6 +2444,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a3",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a3/python.3.12.0-a3.nupkg"
@@ -1725,6 +2505,26 @@
           "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a2",
@@ -1770,6 +2570,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a1",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a1/python.3.12.0-a1.nupkg"
@@ -1811,6 +2631,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.14.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a3 (32-bit)",
@@ -1856,6 +2696,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.14.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a2/pythonx86.3.14.0-a2.nupkg"
@@ -1897,6 +2757,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.14.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a1 (32-bit)",
@@ -1943,6 +2823,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.1/pythonx86.3.13.1.nupkg"
@@ -1985,6 +2885,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0 (32-bit)",
@@ -2030,6 +2950,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc3/pythonx86.3.13.0-rc3.nupkg"
@@ -2071,6 +3011,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0rc2 (32-bit)",
@@ -2116,6 +3076,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc1/pythonx86.3.13.0-rc1.nupkg"
@@ -2157,6 +3137,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b4 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b4 (32-bit)",
@@ -2202,6 +3202,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b3/pythonx86.3.13.0-b3.nupkg"
@@ -2243,6 +3263,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b2 (32-bit)",
@@ -2288,6 +3328,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b1/pythonx86.3.13.0-b1.nupkg"
@@ -2329,6 +3389,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a6 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a6 (32-bit)",
@@ -2374,6 +3454,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a5 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a5 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a5/pythonx86.3.13.0-a5.nupkg"
@@ -2415,6 +3515,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a4 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a4 (32-bit)",
@@ -2460,6 +3580,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a3/pythonx86.3.13.0-a3.nupkg"
@@ -2503,6 +3643,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a2/pythonx86.3.13.0-a2.nupkg"
@@ -2544,6 +3704,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a1 (32-bit)",
@@ -2590,6 +3770,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.8 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.8",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.8 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.8/pythonx86.3.12.8.nupkg"
@@ -2632,6 +3832,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.7 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.7",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.7 (32-bit)",
@@ -2678,6 +3898,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.6 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.6 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.6/pythonx86.3.12.6.nupkg"
@@ -2720,6 +3960,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.5 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.5 (32-bit)",
@@ -2766,6 +4026,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.4 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.4/pythonx86.3.12.4.nupkg"
@@ -2808,6 +4088,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.3 (32-bit)",
@@ -2854,6 +4154,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.2/pythonx86.3.12.2.nupkg"
@@ -2896,6 +4216,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.1 (32-bit)",
@@ -2942,6 +4282,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0/pythonx86.3.12.0.nupkg"
@@ -2983,6 +4343,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0rc3 (32-bit)",
@@ -3028,6 +4408,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0rc2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-rc2/pythonx86.3.12.0-rc2.nupkg"
@@ -3069,6 +4469,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0rc1 (32-bit)",
@@ -3114,6 +4534,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b4 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0b4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b4/pythonx86.3.12.0-b4.nupkg"
@@ -3155,6 +4595,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0b3 (32-bit)",
@@ -3200,6 +4660,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0b2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b2/pythonx86.3.12.0-b2.nupkg"
@@ -3241,6 +4721,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0b1 (32-bit)",
@@ -3286,6 +4786,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a7 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0a7",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a7 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a7/pythonx86.3.12.0-a7.nupkg"
@@ -3327,6 +4847,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a6 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a6 (32-bit)",
@@ -3372,6 +4912,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a5 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a5 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a5/pythonx86.3.12.0-a5.nupkg"
@@ -3413,6 +4973,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a4 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a4 (32-bit)",
@@ -3458,6 +5038,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a3 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a3/pythonx86.3.12.0-a3.nupkg"
@@ -3499,6 +5099,26 @@
           "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a2 (32-bit)",
@@ -3544,6 +5164,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a1 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.12.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a1/pythonx86.3.12.0-a1.nupkg"
@@ -3585,6 +5225,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a3 (ARM64)",
@@ -3630,6 +5290,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a2/pythonarm64.3.14.0-a2.nupkg"
@@ -3671,6 +5351,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a1 (ARM64)",
@@ -3717,6 +5417,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.1/pythonarm64.3.13.1.nupkg"
@@ -3759,6 +5479,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0 (ARM64)",
@@ -3804,6 +5544,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc3/pythonarm64.3.13.0-rc3.nupkg"
@@ -3845,6 +5605,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0rc2 (ARM64)",
@@ -3890,6 +5670,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc1/pythonarm64.3.13.0-rc1.nupkg"
@@ -3931,6 +5731,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b4 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b4 (ARM64)",
@@ -3976,6 +5796,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b3/pythonarm64.3.13.0-b3.nupkg"
@@ -4017,6 +5857,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b2 (ARM64)",
@@ -4062,6 +5922,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b1/pythonarm64.3.13.0-b1.nupkg"
@@ -4103,6 +5983,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a6 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a6 (ARM64)",
@@ -4148,6 +6048,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a5 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a5 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a5/pythonarm64.3.13.0-a5.nupkg"
@@ -4189,6 +6109,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a4 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a4 (ARM64)",
@@ -4234,6 +6174,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a3/pythonarm64.3.13.0-a3.nupkg"
@@ -4277,6 +6237,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a2/pythonarm64.3.13.0-a2.nupkg"
@@ -4318,6 +6298,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a1 (ARM64)",
@@ -4364,6 +6364,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.8 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.8",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.8 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.8/pythonarm64.3.12.8.nupkg"
@@ -4406,6 +6426,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.7 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.7",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.7 (ARM64)",
@@ -4452,6 +6492,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.6 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.6 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.6/pythonarm64.3.12.6.nupkg"
@@ -4494,6 +6554,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.5 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.5 (ARM64)",
@@ -4540,6 +6620,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.4 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.4/pythonarm64.3.12.4.nupkg"
@@ -4582,6 +6682,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.3 (ARM64)",
@@ -4628,6 +6748,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.2/pythonarm64.3.12.2.nupkg"
@@ -4670,6 +6810,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.1 (ARM64)",
@@ -4716,6 +6876,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0/pythonarm64.3.12.0.nupkg"
@@ -4757,6 +6937,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0rc3 (ARM64)",
@@ -4802,6 +7002,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0rc2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-rc2/pythonarm64.3.12.0-rc2.nupkg"
@@ -4843,6 +7063,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0rc1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0rc1 (ARM64)",
@@ -4888,6 +7128,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b4 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0b4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b4/pythonarm64.3.12.0-b4.nupkg"
@@ -4929,6 +7189,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0b3 (ARM64)",
@@ -4974,6 +7254,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0b2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b2/pythonarm64.3.12.0-b2.nupkg"
@@ -5015,6 +7315,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0b1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0b1 (ARM64)",
@@ -5060,6 +7380,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a7 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a7",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a7 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a7/pythonarm64.3.12.0-a7.nupkg"
@@ -5101,6 +7441,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a6 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a6 (ARM64)",
@@ -5146,6 +7506,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a5 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a5 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a5/pythonarm64.3.12.0-a5.nupkg"
@@ -5187,6 +7567,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a4 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a4 (ARM64)",
@@ -5232,6 +7632,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a3 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a3/pythonarm64.3.12.0-a3.nupkg"
@@ -5273,6 +7693,26 @@
           "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.12.0a2 (ARM64)",
@@ -5318,6 +7758,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.12.0a1 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.12.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.12.0a1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a1/pythonarm64.3.12.0-a1.nupkg"
@@ -5359,6 +7819,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a3 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a3 (free-threaded)",
@@ -5404,6 +7884,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a2 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a2 (free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a2/python-freethreaded.3.14.0-a2.nupkg"
@@ -5445,6 +7945,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a1 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a1 (free-threaded)",
@@ -5491,6 +8011,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.1 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.1 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.1/python-freethreaded.3.13.1.nupkg"
@@ -5533,6 +8073,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0 (free-threaded)",
@@ -5578,6 +8138,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc3 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc3 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc3/python-freethreaded.3.13.0-rc3.nupkg"
@@ -5619,6 +8199,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc2 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0rc2 (free-threaded)",
@@ -5664,6 +8264,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc1 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc1 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc1/python-freethreaded.3.13.0-rc1.nupkg"
@@ -5705,6 +8325,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b4 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b4 (free-threaded)",
@@ -5750,6 +8390,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b3 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b3 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b3/python-freethreaded.3.13.0-b3.nupkg"
@@ -5791,6 +8451,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b2 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b2 (free-threaded)",
@@ -5836,6 +8516,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b1 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b1 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b1/python-freethreaded.3.13.0-b1.nupkg"
@@ -5877,6 +8577,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a6 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a6 (free-threaded)",
@@ -5922,6 +8642,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a5 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a5 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-a5/python-freethreaded.3.13.0-a5.nupkg"
@@ -5963,6 +8703,26 @@
           "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a4 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a4 (free-threaded)",
@@ -6008,6 +8768,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a3 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.14.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a3 (32-bit, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a3/pythonx86-freethreaded.3.14.0-a3.nupkg"
@@ -6051,6 +8831,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a2 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.14.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a2 (32-bit, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a2/pythonx86-freethreaded.3.14.0-a2.nupkg"
@@ -6092,6 +8892,26 @@
           "name": "pythonw3t-32.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a1 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.14.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a1 (32-bit, free-threaded)",
@@ -6138,6 +8958,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.1 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.1 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.1/pythonx86-freethreaded.3.13.1.nupkg"
@@ -6180,6 +9020,26 @@
           "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0 (32-bit, free-threaded)",
@@ -6225,6 +9085,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc3 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc3 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc3/pythonx86-freethreaded.3.13.0-rc3.nupkg"
@@ -6266,6 +9146,26 @@
           "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc2 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0rc2 (32-bit, free-threaded)",
@@ -6311,6 +9211,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc1 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc1 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc1/pythonx86-freethreaded.3.13.0-rc1.nupkg"
@@ -6352,6 +9272,26 @@
           "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b4 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b4 (32-bit, free-threaded)",
@@ -6397,6 +9337,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b3 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b3 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b3/pythonx86-freethreaded.3.13.0-b3.nupkg"
@@ -6438,6 +9398,26 @@
           "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b2 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b2 (32-bit, free-threaded)",
@@ -6483,6 +9463,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b1 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b1 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b1/pythonx86-freethreaded.3.13.0-b1.nupkg"
@@ -6524,6 +9524,26 @@
           "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a6 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a6 (32-bit, free-threaded)",
@@ -6569,6 +9589,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a5 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a5 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a5/pythonx86-freethreaded.3.13.0-a5.nupkg"
@@ -6610,6 +9650,26 @@
           "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a4 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": null,
+          "Version": "3.13.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a4 (32-bit, free-threaded)",
@@ -6655,6 +9715,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a3 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a3 (ARM64, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a3/pythonarm64-freethreaded.3.14.0-a3.nupkg"
@@ -6698,6 +9778,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a2 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.14.0a2 (ARM64, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a2/pythonarm64-freethreaded.3.14.0-a2.nupkg"
@@ -6739,6 +9839,26 @@
           "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.14.0a1 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.14.0a1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.14.0a1 (ARM64, free-threaded)",
@@ -6785,6 +9905,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.1 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.1 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.1/pythonarm64-freethreaded.3.13.1.nupkg"
@@ -6827,6 +9967,26 @@
           "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.0",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0 (ARM64, free-threaded)",
@@ -6872,6 +10032,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc3 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc3 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc3/pythonarm64-freethreaded.3.13.0-rc3.nupkg"
@@ -6913,6 +10093,26 @@
           "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc2 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0rc2 (ARM64, free-threaded)",
@@ -6958,6 +10158,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0rc1 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0rc1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0rc1 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc1/pythonarm64-freethreaded.3.13.0-rc1.nupkg"
@@ -6999,6 +10219,26 @@
           "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b4 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b4 (ARM64, free-threaded)",
@@ -7044,6 +10284,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b3 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b3",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b3 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b3/pythonarm64-freethreaded.3.13.0-b3.nupkg"
@@ -7085,6 +10345,26 @@
           "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b2 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0b2 (ARM64, free-threaded)",
@@ -7130,6 +10410,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0b1 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0b1",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0b1 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b1/pythonarm64-freethreaded.3.13.0-b1.nupkg"
@@ -7171,6 +10471,26 @@
           "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a6 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a6 (ARM64, free-threaded)",
@@ -7216,6 +10536,26 @@
           "windowed": 1
         }
       ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a5 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
+        }
+      ],
       "displayName": "Python 3.13.0a5 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-a5/pythonarm64-freethreaded.3.13.0-a5.nupkg"
@@ -7257,6 +10597,26 @@
           "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "DisplayName": "Python 3.13.0a4 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": null,
+          "Version": "3.13.0a4",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": null
+            }
+          }
         }
       ],
       "displayName": "Python 3.13.0a4 (ARM64, free-threaded)",

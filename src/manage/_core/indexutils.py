@@ -5,8 +5,7 @@ SCHEMA = {
     "next": str,
     "versions": [
         {
-            # Should be 1.
-            "schema": int,
+            "schema": 1,
             # Unique ID used for install detection/side-by-sides
             "id": str,
             # Version used to sort installs. Also determines prerelease
@@ -26,8 +25,8 @@ SCHEMA = {
             # have to be unique across all installs; the first match will be
             # created.
             "alias": [{"name": str, "target": str, "windowed": int}],
-            # List of other kinds of shortcuts to create. Additional
-            "shortcuts": [{"name": str, "target": str, "kind": str, ...: ...}],
+            # List of other kinds of shortcuts to create.
+            "shortcuts": [{"kind": str, ...: ...}],
             # Name to display in the UI
             "displayName": str,
             # [RESERVED] Install prefix. This will always be overwritten, so
@@ -60,17 +59,47 @@ def _schema_error(actual, expect, ctxt):
     ))
 
 
-def _one_or_list(d, expect, ctxt):
-    if isinstance(d, list):
-        ctxt.append("[]")
-        for i, e in enumerate(d):
-            ctxt[-1] = f"[{i}]"
-            yield _one(e, expect, ctxt)
-        del ctxt[-1]
-    else:
-        ctxt.append("[0]")
-        yield _one(d, expect, ctxt)
-        del ctxt[-1]
+# More specific for better internal handling. Users don't need to distinguish.
+class InvalidFeedVersionError(InvalidFeedError):
+    pass
+
+
+def _version_error(actual, expect, ctxt):
+    return InvalidFeedVersionError("Expected {} {}; found {}".format(
+        ".".join(ctxt), expect, actual,
+    ))
+
+
+def _one_dict_match(d, expect):
+    if not isinstance(d, dict):
+        return True
+    if not isinstance(expect, dict):
+        return True
+    for k, v in expect.items():
+        if isinstance(v, int) and d.get(k) != v:
+            return False
+    if ... not in expect:
+        for k in d:
+            if k not in expect:
+                return False
+    return True
+    
+
+def _one_or_list(d, expects, ctxt):
+    if not isinstance(d, list):
+        d = [d]
+    ctxt.append("[]")
+    for i, e in enumerate(d):
+        ctxt[-1] = f"[{i}]"
+        for expect in expects:
+            if _one_dict_match(e, expect):
+                yield _one(e, expect, ctxt)
+                break
+        else:
+            raise InvalidFeedError("No matching item format at {}".format(
+                ".".join(ctxt)
+            ))
+    del ctxt[-1]
 
 
 def _one(d, expect, ctxt=None):
@@ -78,6 +107,15 @@ def _one(d, expect, ctxt=None):
         ctxt = []
     if expect is None:
         raise InvalidFeedError("Unexpected key {}".format(".".join(ctxt)))
+    if isinstance(expect, int):
+        if d != expect:
+            raise _version_error(d, expect, ctxt)
+        return d
+    if isinstance(expect, list):
+        return list(_one_or_list(d, expect, ctxt))
+    if expect is ...:
+        # Allow ... value for arbitrary value types
+        return d
     if isinstance(d, dict):
         if isinstance(expect, dict):
             d2 = {}
@@ -90,19 +128,12 @@ def _one(d, expect, ctxt=None):
                     try:
                         expect2 = expect[...]
                     except LookupError:
-                        raise InvalidFeedError("Unexpected key '{}' at {}".format(
-                            k, ".".join(ctxt)
-                        )) from None
+                        raise InvalidFeedError("Unexpected key {}".format(".".join(ctxt))) from None
                 d2[k] = _one(v, expect2, ctxt)
                 del ctxt[-1]
             return d2
-        raise _schema_error(d, dict, ctxt)
-    if isinstance(expect, list):
-        return list(_one_or_list(d, expect[0], ctxt))
+        raise _schema_error(dict, expect, ctxt)
     if isinstance(expect, type) and isinstance(d, expect):
-        return d
-    if expect is ...:
-        # Allow ... value for arbitrary value types
         return d
     try:
         return expect(d)

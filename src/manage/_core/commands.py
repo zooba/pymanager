@@ -117,6 +117,8 @@ CONFIG_SCHEMA = {
 
     "default_tag": (str, None, "env"),
 
+    "pep514_root": (str, None),
+
     # Overrides for launcher executables. Not expected to be commonly used
     "launcher_exe": (str, None, "path"),
     "launcherw_exe": (str, None, "path"),
@@ -156,6 +158,8 @@ class BaseCommand:
     download_dir = None
     global_dir = None
     install_dir = None
+
+    pep514_root = r"HKEY_CURRENT_USER\Software\Python"
 
     launcher_exe = None
     launcherw_exe = None

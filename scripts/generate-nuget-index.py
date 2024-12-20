@@ -41,6 +41,26 @@ SCHEMA = {
             {"name": "pythonw$XYVERSION$.exe", "target": "pythonw.exe", "windowed": 1},
             {"name": "pythonw$XVERSION$.exe", "target": "pythonw.exe", "windowed": 1}
         ],
+        "shortcuts": [
+            {
+                "kind": "pep514",
+                "DisplayName": "Python $FULLVERSION$",
+                "SupportUrl": "https://www.python.org/",
+                "SysArchitecture": "64bit",
+                "SysVersion": "$XYVERSIONNOPRE$",
+                "Version": "$FULLVERSION$",
+                "InstallPath": {
+                    "": "%PREFIX%",
+                    "ExecutablePath": "%PREFIX%python.exe",
+                    "WindowedExecutablePath": "%PREFIX%pythonw.exe",
+                },
+                "Help": {
+                    "Online Python Documentation": {
+                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                    },
+                },
+            },
+        ],
         "displayName": "Python $FULLVERSION$",
         "executable": "./python.exe",
         "url": "$PACKAGEURL$"
@@ -61,6 +81,26 @@ SCHEMA = {
             {"name": "python$XVERSION$-32.exe", "target": "python.exe"},
             {"name": "pythonw$XYVERSION$-32.exe", "target": "pythonw.exe", "windowed": 1},
             {"name": "pythonw$XVERSION$-32.exe", "target": "pythonw.exe", "windowed": 1}
+        ],
+        "shortcuts": [
+            {
+                "kind": "pep514",
+                "DisplayName": "Python $FULLVERSION$ (32-bit)",
+                "SupportUrl": "https://www.python.org/",
+                "SysArchitecture": "32bit",
+                "SysVersion": "$XYVERSIONNOPRE$",
+                "Version": "$FULLVERSION$",
+                "InstallPath": {
+                    "": "%PREFIX%",
+                    "ExecutablePath": "%PREFIX%python.exe",
+                    "WindowedExecutablePath": "%PREFIX%pythonw.exe",
+                },
+                "Help": {
+                    "Online Python Documentation": {
+                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                    },
+                },
+            },
         ],
         "displayName": "Python $FULLVERSION$ (32-bit)",
         "executable": "./python.exe",
@@ -83,6 +123,26 @@ SCHEMA = {
             {"name": "pythonw$XYVERSION$-arm64.exe", "target": "pythonw.exe", "windowed": 1},
             {"name": "pythonw$XVERSION$-arm64.exe", "target": "pythonw.exe", "windowed": 1}
         ],
+        "shortcuts": [
+            {
+                "kind": "pep514",
+                "DisplayName": "Python $FULLVERSION$ (ARM64)",
+                "SupportUrl": "https://www.python.org/",
+                "SysArchitecture": "64bit",
+                "SysVersion": "$XYVERSIONNOPRE$",
+                "Version": "$FULLVERSION$",
+                "InstallPath": {
+                    "": "%PREFIX%",
+                    "ExecutablePath": "%PREFIX%python.exe",
+                    "WindowedExecutablePath": "%PREFIX%pythonw.exe",
+                },
+                "Help": {
+                    "Online Python Documentation": {
+                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                    },
+                },
+            },
+        ],
         "displayName": "Python $FULLVERSION$ (ARM64)",
         "executable": "./python.exe",
         "url": "$PACKAGEURL$"
@@ -103,6 +163,26 @@ SCHEMA = {
             {"name": "python$XVERSION$t.exe", "target": "python$XYVERSION$t.exe"},
             {"name": "pythonw$XYVERSION$t.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
             {"name": "pythonw$XVERSION$t.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
+        ],
+        "shortcuts": [
+            {
+                "kind": "pep514",
+                "DisplayName": "Python $FULLVERSION$ (free-threaded)",
+                "SupportUrl": "https://www.python.org/",
+                "SysArchitecture": "64bit",
+                "SysVersion": "$XYVERSIONNOPRE$",
+                "Version": "$FULLVERSION$",
+                "InstallPath": {
+                    "": "%PREFIX%",
+                    "ExecutablePath": "%PREFIX%python.exe",
+                    "WindowedExecutablePath": "%PREFIX%pythonw.exe",
+                },
+                "Help": {
+                    "Online Python Documentation": {
+                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                    },
+                },
+            },
         ],
         "displayName": "Python $FULLVERSION$ (free-threaded)",
         "executable": "./python$XYVERSION$t.exe",
@@ -125,6 +205,26 @@ SCHEMA = {
             {"name": "pythonw$XYVERSION$t-32.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
             {"name": "pythonw$XVERSION$t-32.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
         ],
+        "shortcuts": [
+            {
+                "kind": "pep514",
+                "DisplayName": "Python $FULLVERSION$ (32-bit, free-threaded)",
+                "SupportUrl": "https://www.python.org/",
+                "SysArchitecture": "32bit",
+                "SysVersion": "$XYVERSIONNOPRE$",
+                "Version": "$FULLVERSION$",
+                "InstallPath": {
+                    "": "%PREFIX%",
+                    "ExecutablePath": "%PREFIX%python.exe",
+                    "WindowedExecutablePath": "%PREFIX%pythonw.exe",
+                },
+                "Help": {
+                    "Online Python Documentation": {
+                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                    },
+                },
+            },
+        ],
         "displayName": "Python $FULLVERSION$ (32-bit, free-threaded)",
         "executable": "./python$XYVERSION$t.exe",
         "url": "$PACKAGEURL$"
@@ -145,6 +245,26 @@ SCHEMA = {
             {"name": "python$XVERSION$t-arm64.exe", "target": "python$XYVERSION$t.exe"},
             {"name": "pythonw$XYVERSION$t-arm64.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
             {"name": "pythonw$XVERSION$t-arm64.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
+        ],
+        "shortcuts": [
+            {
+                "kind": "pep514",
+                "DisplayName": "Python $FULLVERSION$ (ARM64, free-threaded)",
+                "SupportUrl": "https://www.python.org/",
+                "SysArchitecture": "64bit",
+                "SysVersion": "$XYVERSIONNOPRE$",
+                "Version": "$FULLVERSION$",
+                "InstallPath": {
+                    "": "%PREFIX%",
+                    "ExecutablePath": "%PREFIX%python.exe",
+                    "WindowedExecutablePath": "%PREFIX%pythonw.exe",
+                },
+                "Help": {
+                    "Online Python Documentation": {
+                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                    },
+                },
+            },
         ],
         "displayName": "Python $FULLVERSION$ (ARM64, free-threaded)",
         "executable": "./python$XYVERSION$t.exe",

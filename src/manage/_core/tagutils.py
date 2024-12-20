@@ -50,8 +50,8 @@ class CompanyTag:
         if not tags:
             return False
         if exact_tag:
-            return any(self._sortkey == _sort_tag(t) for t in tags)
-        return any(self._sortkey.startswith(_sort_tag(t)) for t in tags)
+            return any(self == CompanyTag(self.company, t) for t in tags)
+        return any(self.match(CompanyTag(self.company, t)) for t in tags)
 
     def match(self, pattern):
         if isinstance(pattern, str):
