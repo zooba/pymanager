@@ -40,12 +40,13 @@ launch(const wchar_t *executable, const wchar_t *insert_args, int skip_argc, DWO
     PROCESS_INFORMATION pi;
     int lastError = 0;
     const wchar_t *arg_space = L" ";
-
+    LPCWSTR origCmdLine = GetCommandLineW();
     const wchar_t *cmdLine = NULL;
+
     if (insert_args == NULL) {
         insert_args = L"";
     }
-    LPCWSTR origCmdLine = GetCommandLineW();
+
     size_t n = wcslen(executable) + wcslen(origCmdLine) + wcslen(insert_args) + 5;
     wchar_t *newCmdLine = (wchar_t *)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, n * sizeof(wchar_t));
     if (!newCmdLine) {
@@ -65,11 +66,11 @@ launch(const wchar_t *executable, const wchar_t *insert_args, int skip_argc, DWO
         while (*++cmdLine && *cmdLine != L' ') { }
     }
 
-    if (insert_args && !*insert_args) {
+    if (!insert_args || !*insert_args) {
         arg_space = L"";
     }
     if (cmdLine && *cmdLine) {
-        swprintf_s(newCmdLine, n + 1, L"\"%s\"%s%s%s", executable, arg_space, insert_args, cmdLine + 1);
+        swprintf_s(newCmdLine, n + 1, L"\"%s\"%s%s %s", executable, arg_space, insert_args, cmdLine + 1);
     } else {
         swprintf_s(newCmdLine, n + 1, L"\"%s\"%s%s", executable, arg_space, insert_args);
     }

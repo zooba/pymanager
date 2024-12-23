@@ -22,7 +22,15 @@
 #define ERROR_NO_MATCHING_INSTALL   0xA0000004
 #define ERROR_NO_INSTALLS           0xA0000005
 
-static PyObject *manage_mod = NULL;
+#ifndef PY_WINDOWED
+#define PY_WINDOWED 0
+#endif
+
+struct {
+    PyObject *mod;
+    PyObject *no_install_found_error;
+    PyObject *no_installs_error;
+} manage = {NULL};
 
 static std::wstring
 get_root()
@@ -155,8 +163,18 @@ init_python()
     }
 
     // Ensure our main module is loadable
-    manage_mod = PyImport_ImportModule("manage");
-    if (!manage_mod) {
+    manage.mod = PyImport_ImportModule("manage");
+    if (!manage.mod) {
+        PyErr_Print();
+        return -1;
+    }
+    manage.no_install_found_error = PyObject_GetAttrString(manage.mod, "NoInstallFoundError");
+    if (!manage.no_install_found_error) {
+        PyErr_Print();
+        return -1;
+    }
+    manage.no_installs_error = PyObject_GetAttrString(manage.mod, "NoInstallsError");
+    if (!manage.no_installs_error) {
         PyErr_Print();
         return -1;
     }
@@ -167,8 +185,10 @@ init_python()
 static void
 close_python()
 {
-    assert(manage_mod);
-    Py_CLEAR(manage_mod);
+    assert(manage.mod);
+    Py_CLEAR(manage.no_installs_error);
+    Py_CLEAR(manage.no_install_found_error);
+    Py_CLEAR(manage.mod);
     Py_Finalize();
 }
 
@@ -195,7 +215,7 @@ run_command(int argc, const wchar_t **argv)
     }
     root = PyUnicode_FromWideChar(root_str.c_str(), -1);
     if (!root) goto python_fail;
-    r = PyObject_CallMethod(manage_mod, "main", "OO", args, root);
+    r = PyObject_CallMethod(manage.mod, "main", "OO", args, root);
     if (r) {
         exitCode = PyLong_AsLong(r);
         goto done;
@@ -232,25 +252,32 @@ auto_install_runtime(const wchar_t *argv0, const std::wstring &tag, const std::w
 
 
 static int
-locate_runtime(const std::wstring &tag, const std::wstring &script, std::wstring &executable, std::wstring &args) {
+locate_runtime(
+    const std::wstring &tag,
+    const std::wstring &script,
+    std::wstring &executable,
+    std::wstring &args,
+    int print_not_found_error
+) {
     int exitCode = 1;
     auto root_str = get_root();
     PyObject *r = NULL;
 
-    r = PyObject_CallMethod(manage_mod, "_find_one", "uuu", root_str.c_str(), tag.c_str(), script.c_str());
+    r = PyObject_CallMethod(manage.mod, "find_one", "uuui",
+        root_str.c_str(), tag.c_str(), script.c_str(), PY_WINDOWED);
     if (!r) {
-        // Errors should already have been printed
+        if (PyErr_ExceptionMatches(manage.no_installs_error)) {
+            exitCode = ERROR_NO_INSTALLS;
+        } else if (PyErr_ExceptionMatches(manage.no_install_found_error)) {
+            exitCode = ERROR_NO_MATCHING_INSTALL;
+            if (print_not_found_error) {
+                // TODO: Display error properly
+                PyErr_Print();
+            }
+        }
+        // Other errors should already have been printed
         PyErr_Clear();
         goto done;
-    } else if (!PyObject_IsTrue(r)) {
-        Py_CLEAR(r);
-        r = PyObject_CallMethod(manage_mod, "_find_any", "u", root_str.c_str());
-        if (r && PyObject_IsTrue(r)) {
-            exitCode = ERROR_NO_MATCHING_INSTALL;
-        } else {
-            PyErr_Clear();
-            exitCode = ERROR_NO_INSTALLS;
-        }
     } else {
         wchar_t *w_exe, *w_args;
         if (!PyArg_ParseTuple(r, "O&O&", as_utf16, &w_exe, as_utf16, &w_args)) {
@@ -300,22 +327,24 @@ wmain(int argc, wchar_t **argv)
         }
     }
 
-    err = locate_runtime(tag, script, executable, args);
+    err = locate_runtime(tag, script, executable, args, 0);
+#if !PY_WINDOWED
+    // No implicit install when there's no console UI
     if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
         err = auto_install_runtime(argv[0], tag, script);
         if (!err) {
-            err = locate_runtime(tag, script, executable, args);
+            err = locate_runtime(tag, script, executable, args, 1);
+        }
+        if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
+            // Error has already been displayed
+            goto error;
         }
     }
+#endif
 
     if (err) {
-        if (!tag.empty()) {
-            fprintf(stderr, "FATAL ERROR: Finding executable for %ls (0x%08X)\n", tag.c_str(), err);
-        } else if (!script.empty()) {
-            fprintf(stderr, "FATAL ERROR: Finding executable for %ls (0x%08X)\n", script.c_str(), err);
-        } else {
-            fprintf(stderr, "FATAL ERROR: Finding default executable (0x%08X)\n", err);
-        }
+        // Most 'not found' errors have been handled above. These are genuine
+        fprintf(stderr, "FATAL ERROR: Found no suitable runtimes (0x%08X)\n", err);
         goto error;
     }
 

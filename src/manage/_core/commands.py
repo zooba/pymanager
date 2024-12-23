@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 from .config import load_config, config_append, config_bool
-from .exceptions import ArgumentError
+from .exceptions import ArgumentError, NoInstallsError
 from .logging import LOGGER
 
 COMMANDS = {}
@@ -314,21 +314,15 @@ Global options:
         from .installs import get_installs
         return get_installs(self.install_dir, self.default_tag, include_unmanaged=include_unmanaged)
 
-    def get_install_to_run(self, tag=None, script=None):
-        if tag:
-            from .installs import get_install_to_run
-            try:
-                return get_install_to_run(self.install_dir, self.default_tag, tag)
-            except LookupError:
-                pass
-        if script:
+    def get_install_to_run(self, tag=None, script=None, *, windowed=False):
+        if script and not tag:
             from .scriptutils import find_install_from_script
             try:
                 return find_install_from_script(self, script)
             except LookupError:
                 pass
-        installs = self.get_installs()
-        return installs[0] if installs else None
+        from .installs import get_install_to_run
+        return get_install_to_run(self.install_dir, self.default_tag, tag, windowed=windowed)
 
 
 class ListCommand(BaseCommand):

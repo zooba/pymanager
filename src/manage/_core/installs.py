@@ -2,6 +2,7 @@ import json
 
 from pathlib import Path
 
+from .exceptions import NoInstallFoundError, NoInstallsError
 from .logging import LOGGER
 from .tagutils import CompanyTag
 from .verutils import Version
@@ -89,23 +90,43 @@ def get_install_to_run(install_dir, default_tag, tag, include_unmanaged=True, wi
             installs.sort(key=_make_sort_key)
 
     if not installs:
-        return
+        raise NoInstallsError
+
+    best_non_windowed = None
+
     if not tag:
-        return installs[0]
+        for i in installs:
+            for t in i.get("run-for", ()):
+                if bool(windowed) == bool(t.get("windowed")):
+                    return _patch_install_to_run(i, t)
+                if not best_non_windowed:
+                    best_non_windowed = _patch_install_to_run(i, t)
+        if best_non_windowed:
+            return best_non_windowed
+        raise NoInstallFoundError()
 
     tag = CompanyTag(tag)
+
     # Exact match search
     for i in installs:
         for t in i.get("run-for", ()):
-            if (CompanyTag(i["company"], t["tag"]) == tag
-                    and bool(windowed) == bool(t.get("windowed"))):
-                return _patch_install_to_run(i, t)
+            if CompanyTag(i["company"], t["tag"]) == tag:
+                if bool(windowed) == bool(t.get("windowed")):
+                    return _patch_install_to_run(i, t)
+                if not best_non_windowed:
+                    best_non_windowed = _patch_install_to_run(i, t)
 
     # Prefix match search
     for i in installs:
         for t in i.get("run-for", ()):
-            if (CompanyTag(i["company"], t["tag"]).match(tag)
-                    and bool(windowed) == bool(t.get("windowed"))):
-                return _patch_install_to_run(i, t)
+            if CompanyTag(i["company"], t["tag"]).match(tag):
+                if bool(windowed) == bool(t.get("windowed")):
+                    return _patch_install_to_run(i, t)
+                if not best_non_windowed:
+                    best_non_windowed = _patch_install_to_run(i, t)
 
-    raise LookupError(tag)
+    # No matches found for correct windowed mode, so pick the best non-match
+    if best_non_windowed:
+        return best_non_windowed
+
+    raise NoInstallFoundError(tag=tag)

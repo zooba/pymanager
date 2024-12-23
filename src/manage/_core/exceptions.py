@@ -6,6 +6,20 @@ class HashMismatchError(Exception):
     pass
 
 
+class NoInstallsError(Exception):
+    pass
+
+
+class NoInstallFoundError(Exception):
+    def __init__(self, tag=None, script=None):
+        self.tag = tag
+        self.script = script
+        # TODO: Better error message
+        super().__init__("No install found for '{}' or '{}'".format(
+            self.tag, self.script
+        ))
+
+
 class InvalidFeedError(Exception):
     pass
 
