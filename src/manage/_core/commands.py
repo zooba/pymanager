@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 from .config import load_config, config_append, config_bool
-from .exceptions import ArgumentError, NoInstallsError
+from .exceptions import ArgumentError
 from .logging import LOGGER
 
 COMMANDS = {}
@@ -333,7 +333,8 @@ List options:
     -f, --format=<table,json,jsonl,exe,prefix>
                      Specify output formatting (list.format=...)
     -1, --one        Only display first result
-    <TAG>            Filter results (Company\Tag format)
+    -u, --unmanaged  Also list Python installs from other sources
+    <TAG>            Filter results (Company\Tag or constraint format)
 
 EXAMPLE: List all installed runtimes
 > python list
@@ -341,8 +342,8 @@ EXAMPLE: List all installed runtimes
 EXAMPLE: Display executable of default runtime
 > python list --one -f=exe
 
-EXAMPLE: Show JSON details for each Python 3 runtime
-> python list -f=jsonl 3
+EXAMPLE: Show JSON details for all installs since 3.10
+> python list -f=jsonl --unmanaged >=3.10
 """
 
     format = "table"

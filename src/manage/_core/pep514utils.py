@@ -218,6 +218,15 @@ def _read_one_unmanaged_install(company_name, tag_name, is_core, tag):
 
     prefix = Path(prefix)
 
+    try:
+        exe = (prefix / exe).relative_to(prefix)
+    except (TypeError, ValueError):
+        pass
+    try:
+        exew = (prefix / exew).relative_to(prefix)
+    except (TypeError, ValueError):
+        pass
+
     i = {
         "schema": 1,
         "unmanaged": 1,

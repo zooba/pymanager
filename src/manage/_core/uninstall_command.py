@@ -47,6 +47,7 @@ def execute(cmd):
             if cmd.confirm and not ask_yn("Uninstall ", i["displayName"], "?"):
                 break
             rmtree(i["prefix"])
+            LOGGER.info("Removed %s", i["displayName"])
             try:
                 for target in cmd.global_dir.glob("*.__target__"):
                     alias = target.with_suffix("")
@@ -57,6 +58,8 @@ def execute(cmd):
                         unlink(target)
             except OSError as ex:
                 LOGGER.warn("Failed to remove alias: %s", ex)
+        else:
+            LOGGER.warn("No install found matching '%s'", tag)
 
     update_all_shortcuts(cmd, path_warning=False)
 

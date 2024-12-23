@@ -16,9 +16,13 @@ def format_table(installs):
     installs = [{
         **i,
         "alias": ", ".join(a["name"] for a in i.get("alias", ())),
-        # TODO: Better override for unmanaged installs
-        "tag": f"{i['tag']} ?" if i.get("unmanaged") else i['tag'],
+        "displayName": f"{i['displayName']} (unmanaged)" if i.get("unmanaged") else i['displayName'],
     } for i in installs]
+
+    if not installs:
+        print("No installs. Run 'python install <version>' to install one.")
+        return
+
     cwidth = {k: len(v) for k, v in columns.items()}
     for i in installs:
         for k, v in i.items():
@@ -37,15 +41,37 @@ def format_table(installs):
             print(v.ljust(cwidth[c]), end="  ", flush=False)
         print()
 
+CSV_EXCLUDE = {
+    "schema", "unmanaged",
+    # Complex columns of limited value
+    "install-for", "shortcuts",
+    "executable", "executable_args",
+}
+
+CSV_EXPAND = ["run-for", "alias"]
+
+def _csv_filter_and_expand(installs):
+    for i in installs:
+        i = {k: v for k, v in i.items() if k not in CSV_EXCLUDE}
+        to_expand = {k: i.pop(k, ()) for k in CSV_EXPAND}
+        yield i
+        for k2, vlist in to_expand.items():
+            for vv in vlist:
+                yield {f"{k2}.{k}": v for k, v in vv.items()}
+
 
 def format_csv(installs):
     import csv
     columns = {}
     # TODO: Exclude complex columns
-    installs = list(installs)
+    exclude = {"install-for", "run-for", "alias", "shortcuts"}
+    installs = list(_csv_filter_and_expand(installs))
+    if not installs:
+        return
     for i in installs:
         for k in i:
-            columns[k] = True
+            if k not in exclude:
+                columns[k] = True
     writer = csv.DictWriter(sys.stdout, columns)
     writer.writeheader()
     writer.writerows(installs)
