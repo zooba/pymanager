@@ -310,10 +310,9 @@ Global options:
         except AttributeError:
             pass
 
-    def get_installs(self, *, include_pep514=False):
+    def get_installs(self, *, include_unmanaged=False):
         from .installs import get_installs
-        # TODO: Handle include_pep514
-        return get_installs(self.install_dir, self.default_tag)
+        return get_installs(self.install_dir, self.default_tag, include_unmanaged=include_unmanaged)
 
     def get_install_to_run(self, tag=None, script=None):
         if tag:

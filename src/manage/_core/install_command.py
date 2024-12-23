@@ -223,11 +223,14 @@ def update_all_shortcuts(cmd, path_warning=True):
         cleanup(cmd, shortcut_written.get(k, []))
 
     if path_warning and any(cmd.global_dir.glob("*.exe")):
-        if not any(cmd.global_dir.match(p) for p in os.getenv("PATH", "").split(os.pathsep)):
-            LOGGER.warn("""
+        try:
+            if not any(cmd.global_dir.match(p) for p in os.getenv("PATH", "").split(os.pathsep) if p):
+                LOGGER.warn("""
 Global shortcuts directory is not on PATH. Add it for global commands.
 Directory: %s
 """, cmd.global_dir)
+        except Exception:
+            LOGGER.debug("Failed to display PATH warning", exc_info=True)
 
 
 def print_cli_shortcuts(cmd, tags):

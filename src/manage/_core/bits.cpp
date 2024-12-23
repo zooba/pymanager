@@ -60,8 +60,9 @@ error_from_bits_job(IBackgroundCopyJob *job)
         || FAILED(hr = error->GetErrorDescription(LANGIDFROMLCID(GetThreadLocale()), &str_error))
     ) {
         error->Release();
-        PyErr_SetFromWindowsErr(hr_error);
-        err_SetFromWindowsErrWithMessage(hr, "Retrieving error message", NULL);
+        //PyErr_SetFromWindowsErr(hr_error);
+        //err_SetFromWindowsErrWithMessage(hr, "Retrieving error message", NULL);
+        err_SetFromWindowsErrWithMessage(hr_error, "Could not retrieve message", NULL);
         return NULL;
     }
 

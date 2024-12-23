@@ -36,6 +36,7 @@ int as_utf16(PyObject *obj, wchar_t **address) {
     return Py_CLEANUP_SUPPORTED;
 }
 
+
 void err_SetFromWindowsErrWithMessage(int error, const char *message, const wchar_t *os_message) {
     LPWSTR os_message_buffer = NULL;
     PyObject *cause = NULL;
@@ -74,10 +75,19 @@ void err_SetFromWindowsErrWithMessage(int error, const char *message, const wcha
     }
 
     if (msg) {
-        PyObject *exc_args = Py_BuildValue("(iOOiO)", (int)0, msg, Py_None, error, Py_None);
-        if (exc_args) {
-            PyErr_SetObject(PyExc_OSError, exc_args);
-            Py_DECREF(exc_args);
+        // Hacky way to get OSError without a direct data reference
+        // This allows us to delay load the Python DLL
+        PyObject *builtins = PyEval_GetBuiltins();
+        PyObject *oserr = builtins ? PyDict_GetItemString(builtins, "OSError") : NULL;
+        Py_XDECREF(builtins);
+        if (oserr) {
+            PyObject *exc_args = Py_BuildValue("(iONiN)",
+                (int)0, msg, Py_GetConstant(Py_CONSTANT_NONE), error, Py_GetConstant(Py_CONSTANT_NONE));
+            if (exc_args) {
+                PyErr_SetObject(oserr, exc_args);
+                Py_DECREF(exc_args);
+            }
+            Py_DECREF(oserr);
         }
         Py_DECREF(msg);
     }

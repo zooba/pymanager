@@ -21,7 +21,7 @@ SCHEMA = {
             "install-for": [str],
             # List of tags to run this package for. Does not have to be unique
             # across all installs; the first match will be selected.
-            "run-for": [{"tag": str, "target": str}],
+            "run-for": [{"tag": str, "target": str, "args": [str]}],
             # List of global CLI aliases to create for this package. Does not
             # have to be unique across all installs; the first match will be
             # created.
@@ -33,8 +33,11 @@ SCHEMA = {
             # [RESERVED] Install prefix. This will always be overwritten, so
             # don't specify it in the index.
             "prefix": None,
-            # Default executable path (relative to 
+            # Default executable path (relative to prefix)
             "executable": str,
+            # Optional arguments to launch the executable with
+            # (inserted before any user-provided arguments)
+            "executable_args": [str],
             # URL to download the package
             "url": str,
             # Optional set of hashes to validate the download

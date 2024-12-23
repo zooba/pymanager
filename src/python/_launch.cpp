@@ -31,7 +31,7 @@ dup_handle(HANDLE input, HANDLE *output)
 
 
 int
-launch(const wchar_t *executable, int skip_argc, DWORD *exitCode)
+launch(const wchar_t *executable, const wchar_t *insert_args, int skip_argc, DWORD *exitCode)
 {
     HANDLE job;
     JOBOBJECT_EXTENDED_LIMIT_INFORMATION info;
@@ -39,10 +39,14 @@ launch(const wchar_t *executable, int skip_argc, DWORD *exitCode)
     STARTUPINFOW si;
     PROCESS_INFORMATION pi;
     int lastError = 0;
+    const wchar_t *arg_space = L" ";
 
     const wchar_t *cmdLine = NULL;
+    if (insert_args == NULL) {
+        insert_args = L"";
+    }
     LPCWSTR origCmdLine = GetCommandLineW();
-    size_t n = wcslen(executable) + wcslen(origCmdLine) + 5;
+    size_t n = wcslen(executable) + wcslen(origCmdLine) + wcslen(insert_args) + 5;
     wchar_t *newCmdLine = (wchar_t *)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, n * sizeof(wchar_t));
     if (!newCmdLine) {
         lastError = GetLastError();
@@ -61,10 +65,13 @@ launch(const wchar_t *executable, int skip_argc, DWORD *exitCode)
         while (*++cmdLine && *cmdLine != L' ') { }
     }
 
+    if (insert_args && !*insert_args) {
+        arg_space = L"";
+    }
     if (cmdLine && *cmdLine) {
-        swprintf_s(newCmdLine, n + 1, L"\"%s\" %s", executable, cmdLine + 1);
+        swprintf_s(newCmdLine, n + 1, L"\"%s\"%s%s%s", executable, arg_space, insert_args, cmdLine + 1);
     } else {
-        swprintf_s(newCmdLine, n + 1, L"\"%s\"", executable);
+        swprintf_s(newCmdLine, n + 1, L"\"%s\"%s%s", executable, arg_space, insert_args);
     }
 
 #if defined(_WINDOWS)

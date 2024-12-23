@@ -47,6 +47,18 @@ def main(args, root=None):
     else:
         cmd.execute()
 
+# TODO: Move to a helper module and test
+def _maybe_quote(a):
+    if " " not in a:
+        return a
+    if a.endswith("\\"):
+        c = len(a) - len(a.rstrip("\\"))
+        if c % 1:
+            a += "\\"
+    if a.count('"') % 1:
+        # Odd quotes get double-quoted at end, to include any spaces
+        a += '"'
+    return f'"{a}"'
 
 @_with_error_log
 def _find_one(root, tag, script):
@@ -54,8 +66,9 @@ def _find_one(root, tag, script):
     cmd = load_default_config(root)
     i = cmd.get_install_to_run(tag, script)
     if i and "executable" in i:
-        return str(i["executable"])
-    # TODO: Regular PEP 514 search
+        exe = str(i["executable"])
+        args = " ".join(_maybe_quote(a) for a in i.get("executable_args", ()))
+        return exe, args
     return None
 
 

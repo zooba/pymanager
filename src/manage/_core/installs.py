@@ -7,13 +7,13 @@ from .tagutils import CompanyTag
 from .verutils import Version
 
 
-def _make_sort_key(kwargs):
+def _make_sort_key(install):
     # Our sort key orders from most-preferred to least
     return (
         # Non-prereleases always sort last
-        0 if not Version(kwargs["sort-version"]).is_prerelease else 1,
+        0 if not Version(install["sort-version"]).is_prerelease else 1,
         # Order by descending tags
-        CompanyTag(kwargs.get("company"), kwargs.get("tag")),
+        CompanyTag(install.get("company"), install.get("tag")),
     )
 
 
@@ -37,8 +37,20 @@ def _get_installs(install_dir):
             continue
 
 
-def get_installs(install_dir, default_tag):
+def get_installs(install_dir, default_tag, include_unmanaged=True):
     installs = sorted(_get_installs(install_dir), key=_make_sort_key)
+
+    if include_unmanaged:
+        from .pep514utils import get_unmanaged_installs
+        try:
+            um_installs = get_unmanaged_installs()
+        except Exception as ex:
+            LOGGER.warn("Failed to read unmanaged installs: %s", ex)
+            LOGGER.debug("TRACEBACK:", exc_info=True)
+        else:
+            installs.extend(um_installs)
+            installs.sort(key=_make_sort_key)
+
     seen_alias = set()
     for i in installs:
         i_tag = CompanyTag.from_dict(i)
@@ -53,23 +65,47 @@ def get_installs(install_dir, default_tag):
     return installs
 
 
-def get_install_to_run(install_dir, default_tag, tag):
+def _patch_install_to_run(i, run_for):
+    return {
+        **i,
+        "executable": i["prefix"] / run_for["target"],
+        "executable_args": run_for.get("args", ()),
+    }
+
+def get_install_to_run(install_dir, default_tag, tag, include_unmanaged=True, windowed=False):
     """Returns the first install matching 'tag'.
     """
     installs = get_installs(install_dir, default_tag)
+
+    if include_unmanaged:
+        from .pep514utils import get_unmanaged_installs
+        try:
+            um_installs = get_unmanaged_installs()
+        except Exception as ex:
+            LOGGER.warn("Failed to read unmanaged installs: %s", ex)
+            LOGGER.debug("TRACEBACK:", exc_info=True)
+        else:
+            installs.extend(um_installs)
+            installs.sort(key=_make_sort_key)
+
     if not installs:
         return
     if not tag:
         return installs[0]
+
     tag = CompanyTag(tag)
     # Exact match search
     for i in installs:
         for t in i.get("run-for", ()):
-            if CompanyTag(i["company"], t["tag"]) == tag:
-                return {**i, "executable": i["prefix"] / t["target"]}
+            if (CompanyTag(i["company"], t["tag"]) == tag
+                    and bool(windowed) == bool(t.get("windowed"))):
+                return _patch_install_to_run(i, t)
+
     # Prefix match search
     for i in installs:
         for t in i.get("run-for", ()):
-            if CompanyTag(i["company"], t["tag"]).match(tag):
-                return {**i, "executable": i["prefix"] / t["target"]}
+            if (CompanyTag(i["company"], t["tag"]).match(tag)
+                    and bool(windowed) == bool(t.get("windowed"))):
+                return _patch_install_to_run(i, t)
+
     raise LookupError(tag)

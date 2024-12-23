@@ -26,8 +26,7 @@ class Version:
             re.I,
         )
         if not m:
-            LOGGER.error("Failed to parse version %s", s)
-            return
+            raise ValueError("Failed to parse version %s", s)
         bits = [int(v) for v in m.group("numbers").split(".")]
         try:
             dev = self.TEXT_MAP[(m.group("level") or "").lower()]

@@ -16,7 +16,8 @@ def format_table(installs):
     installs = [{
         **i,
         "alias": ", ".join(a["name"] for a in i.get("alias", ())),
-        # TODO: Override tag/displayName for unmanaged installs
+        # TODO: Better override for unmanaged installs
+        "tag": f"{i['tag']} ?" if i.get("unmanaged") else i['tag'],
     } for i in installs]
     cwidth = {k: len(v) for k, v in columns.items()}
     for i in installs:
@@ -104,7 +105,7 @@ def execute(cmd):
 
     LOGGER.debug("Reading installs from %s", cmd.install_dir)
     try:
-        installs = cmd.get_installs(include_pep514=cmd.unmanaged)
+        installs = cmd.get_installs(include_unmanaged=cmd.unmanaged)
     except OSError:
         LOGGER.debug("Unable to read installs", exc_info=True)
         installs = []

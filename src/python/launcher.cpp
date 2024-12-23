@@ -112,7 +112,7 @@ wmain(int argc, wchar_t **argv)
         HeapFree(GetProcessHeap(), 0, newArgv);
     } else {
         DWORD exitCode;
-        err = launch(executable, 0, &exitCode);
+        err = launch(executable, NULL, 0, &exitCode);
         if (err) {
             fprintf(stderr, "FATAL ERROR: Failed to launch '%ls' (0x%08X)\n", executable, err);
         } else {

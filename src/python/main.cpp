@@ -8,12 +8,14 @@
 #include <shlobj.h>
 
 #include <string>
+#include <vector>
 
 #include <appmodel.h>
 #include <winrt\Windows.ApplicationModel.h>
 #include <winrt\Windows.Storage.h>
 
 #include "_launch.h"
+#include "src\manage\_core\helpers.h"
 #include "commands.g.h"
 
 // HRESULT-compatible error codes
@@ -230,7 +232,7 @@ auto_install_runtime(const wchar_t *argv0, const std::wstring &tag, const std::w
 
 
 static int
-locate_runtime(const std::wstring &tag, const std::wstring &script, std::wstring &executable) {
+locate_runtime(const std::wstring &tag, const std::wstring &script, std::wstring &executable, std::wstring &args) {
     int exitCode = 1;
     auto root_str = get_root();
     PyObject *r = NULL;
@@ -250,17 +252,16 @@ locate_runtime(const std::wstring &tag, const std::wstring &script, std::wstring
             exitCode = ERROR_NO_INSTALLS;
         }
     } else {
-        Py_ssize_t len = PyUnicode_GetLength(r);
-        if (len > 0) {
-            executable.resize((size_t)len);
-            len = PyUnicode_AsWideChar(r, executable.data(), len);
-            if (len > 0) {
-                executable.resize((size_t)len);
-                exitCode = 0;
-                goto done;
-            }
+        wchar_t *w_exe, *w_args;
+        if (!PyArg_ParseTuple(r, "O&O&", as_utf16, &w_exe, as_utf16, &w_args)) {
+            PyErr_Print();
+            goto done;
         }
-        PyErr_Print();
+        executable = w_exe;
+        args = w_args;
+        PyMem_Free(w_exe);
+        PyMem_Free(w_args);
+        exitCode = 0;
     }
 done:
     Py_XDECREF(r);
@@ -273,7 +274,7 @@ wmain(int argc, wchar_t **argv)
 {
     int err = 0;
     DWORD exitCode;
-    std::wstring executable, tag, script;
+    std::wstring executable, args, tag, script;
     int skip_argc = 0;
 
     err = init_python();
@@ -299,11 +300,11 @@ wmain(int argc, wchar_t **argv)
         }
     }
 
-    err = locate_runtime(tag, script, executable);
+    err = locate_runtime(tag, script, executable, args);
     if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
         err = auto_install_runtime(argv[0], tag, script);
         if (!err) {
-            err = locate_runtime(tag, script, executable);
+            err = locate_runtime(tag, script, executable, args);
         }
     }
 
@@ -318,7 +319,7 @@ wmain(int argc, wchar_t **argv)
         goto error;
     }
 
-    err = launch(executable.c_str(), skip_argc, &exitCode);
+    err = launch(executable.c_str(), args.c_str(), skip_argc, &exitCode);
     if (err) {
         fprintf(stderr, "FATAL ERROR: Failed to launch '%ls' (0x%08X)\n", executable.c_str(), err);
     } else {

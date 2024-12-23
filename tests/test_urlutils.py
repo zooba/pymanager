@@ -196,11 +196,14 @@ def test_bits_errors(localserver, tmp_path, inject_error):
             for _ in range(100):
                 bits_get_progress(conn, job)
                 time.sleep(0.1)
-        # Original error is the 404
-        assert "404" in str(ex.value.__context__)
-        assert ex.value.__context__.winerror & 0xFFFFFFFF == 0x80190194
-        # The cause is our error
-        assert ex.value.winerror & 0xFFFFFFFF == 0xA0000002
+        # HACK: We are overriding errors right now. Commented code is "ideal"
+        ## Original error is the 404
+        #assert "404" in str(ex.value.__context__)
+        #assert ex.value.__context__.winerror & 0xFFFFFFFF == 0x80190194
+        ## The cause is our error
+        #assert ex.value.winerror & 0xFFFFFFFF == 0xA0000002
+        assert "404" in str(ex.value)
+        assert ex.value.winerror & 0xFFFFFFFF == 0x80190194
     finally:
         bits_cancel(conn, job)
 
