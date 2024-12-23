@@ -841,7 +841,8 @@ SCHEMA = {
             # List of tags to run this package for. Does not have to be unique
             # across all installs; the first match will be selected. The target
             # is the executable path relative to the root of the archive.
-            "run-for": [{"tag": str, "target": str}, ...],
+            # Explicit args (optional) are inserted before user args.
+            "run-for": [{"tag": str, "target": str, "args": [str], "windowed": int}, ...],
 
             # List of global CLI aliases to create for this package. Does not
             # have to be unique across all installs; the first match will be
@@ -850,13 +851,18 @@ SCHEMA = {
 
             # List of shortcuts to create for this package. Additional keys on
             # each instance are allowed based on the value of 'kind'.
-            # At present, no values of 'kind' are defined, and so this key
-            # should be empty or omitted.
-            # TODO: Define 'registry' kind to create PEP 514 entries
-            "shortcuts": [{"kind": str, "name": str, "target": str}, ...]
+            # Initially, 'kind' supports the following values:
+            # * 'pep514' - other keys define registry values to set
+            # * 'start' - generate shortcuts in the user's Start Menu
+            # * 'uninstall' - generate an Add/Remove Programs entry
+            "shortcuts": [{"kind": str, ...}, ...]
 
-            # Default executable path, relative to the root of the archive
+            # Default executable path, relative to the root of the archive.
+            # Usually the values from 'run-for' will be used instead, and this
+            # is mainly for display purposes.
             "executable": str,
+            # Default executable args
+            "executable_args": [str],
 
             # URL to download the package archive from
             "url": str,
@@ -928,6 +934,17 @@ The specific patterns to be detected are left to the implementation.
 Backwards Compatibility
 =======================
 
+In general, there are no compatibility guarantees to the install process between
+major versions (``3.x`` to ``3.y``), and so "having to use a different
+installer" is not considered compatibility breakage. The versions of Python
+installed are only impacted by this change to the extent that the install method
+modified their behaviour. In general, most installs will be closer to the
+behaviour of having been built from source by the user themselves.
+
+That said, there are a number of changes that will impact certain users when
+they do move to a new install process. This section outlines as many of these
+changes as we are aware of, and will likely form the basis of a migration guide.
+
 Without doubt, enabling some subcommands on the default ``python.exe`` alias has
 compatibility implications, specifically in that a small number of unusual
 filenames will not be executable as scripts without additional arguments or
@@ -960,6 +977,13 @@ impact those who have scripted downloads and installs. The deprecation period
 of two releases will allow time to transition, and the traditional installer
 will have additional output and warnings added to direct users to the newer
 options.
+
+Administrators who rely on the traditional installer to deploy Python to their
+user's machines are also impacted, and potentially blocked. While there has
+never been any automatic upgrade path for these users, replacing a "simple"
+executable installer with a launcher will necessitate a different deployment
+strategy. The intention is that the trivial MSI package of PyManager along with
+registry key controls will allow administrators similar, but greater control.
 
 Users currently using Store packages are already manually installing each
 version, as there is no predictable way to adopt new versions. One potentially
@@ -1098,6 +1122,9 @@ text:
 **TODO: When/how to teach advanced deployment**
 
 **TODO: How to update platform-generic documentation (e.g. on package READMEs)**
+
+**TODO: How to uninstall runtimes/everything**
+
 
 Reference Implementation
 ========================
@@ -1303,6 +1330,25 @@ need to investigate using our binary packages directly.
 
 Currently, none of these install tools are officially supported by CPython, and
 so we have no obligation to make them work.
+
+
+Make every version a Windows Store package
+------------------------------------------
+
+It is possible to release each version to the Windows Store as we currently do,
+but make them unlisted and rely on an installer (potentially PyManager, WinGet,
+or another tool that can install Store packages). This would avoid the risk of
+overwhelming the user, while greatly simplifying our own reponsibilities for
+package management.
+
+This approach would leave a significant burden on whichever contributor has
+access to the Store publishing interface, as updating packages is a manual
+operation. Additionally, it would leave every Python runtime with the technical
+limitations outlined earlier. As such, this idea is rejected.
+
+Making every version a MSIX package rather than a ZIP, even though this avoids
+the Store publishing interface, would still impose technical limitations on
+users. It is also rejected.
 
 
 Just publish the plain ZIP file
