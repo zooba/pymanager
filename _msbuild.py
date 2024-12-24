@@ -33,8 +33,13 @@ PACKAGE = Package('python-manager',
     # Default index feed, mainly for testing right now
     File('index*.json'),
     Package(
+        'templates',
+        File('src/python/templates/template.py'),
+    ),
+    Package(
         '_resources',
         File('src/python/_resources/*.png'),
+        File('src/python/_resources/*.ico'),
     ),
     Package(
         'manage',
