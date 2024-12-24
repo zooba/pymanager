@@ -14,17 +14,16 @@ if os.getenv("PYMANAGER_VERBOSE"):
 
 
 class ProgressPrinter:
-    def __init__(self, operation):
+    def __init__(self, operation, maxwidth=80):
         self.operation = operation or "Progress"
-        self.width = 80
+        self.width = maxwidth - 2 - len(self.operation)
         self._dots_shown = 0
+        self._started = False
         self._complete = False
         self._need_newline = False
         self.file = FILE if LOGGER.isEnabledFor(logging.INFO) else None
 
     def __enter__(self):
-        if self.file:
-            print(self.operation, ": ", sep="", end="", flush=True, file=self.file)
         return self
 
     def __exit__(self, *exc_info):
@@ -44,6 +43,12 @@ class ProgressPrinter:
                     print(file=self.file)
                     self._need_newline = False
             return
+
+        if not self._started:
+            if self.file:
+                print(self.operation, ": ", sep="", end="", flush=True, file=self.file)
+            self._started = True
+            self._need_newline = True
 
         dot_count = min(self.width, progress * self.width // 100) - self._dots_shown
         if dot_count <= 0:

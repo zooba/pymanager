@@ -1,4 +1,5 @@
 import os
+import time
 
 from pathlib import Path
 
@@ -20,7 +21,22 @@ def ensure_tree(path, overwrite_files=True):
         path.parent.mkdir(parents=True, exist_ok=True)
 
 
-def rmtree(path):
+def _rglob(root):
+    q = [root]
+    while q:
+        r = q.pop(0)
+        for f in os.scandir(r):
+            p = r / f.name
+            if f.is_dir():
+                q.append(p)
+                yield p, None
+            else:
+                yield None, p
+
+
+def rmtree(path, after_5s_warning=None):
+    start = time.monotonic()
+
     if isinstance(path, (str, bytes)):
         path = Path(path)
     if not path.is_dir():
@@ -29,6 +45,9 @@ def rmtree(path):
         return
 
     for i in range(1000):
+        if after_5s_warning and (time.monotonic() - start) > 5:
+            LOGGER.warn(after_5s_warning)
+            after_5s_warning = None
         new_path = path.with_name(f"{path.name}.{i}.deleteme")
         if new_path.exists():
             continue
@@ -38,14 +57,17 @@ def rmtree(path):
         except OSError as ex:
             LOGGER.debug("Failed to rename to %s: %s", new_path, ex)
     else:
-        LOGGER.warn("Failed to remove %s", path)
-        return
+        raise FileExistsError(str(path))
 
     to_rmdir = [path]
     to_retry = []
-    for f in path.rglob("*"):
-        if f.is_dir():
-            to_rmdir.append(f)
+    for d, f in _rglob(path):
+        if after_5s_warning and (time.monotonic() - start) > 5:
+            LOGGER.warn(after_5s_warning)
+            after_5s_warning = None
+
+        if d:
+            to_rmdir.append(d)
         else:
             try:
                 f.unlink()
@@ -75,7 +97,9 @@ def rmtree(path):
                 LOGGER.warn("Failed to remove %s", f)
 
 
-def unlink(path):
+def unlink(path, after_5s_warning=None):
+    start = time.monotonic()
+
     if isinstance(path, (str, bytes)):
         path = Path(path)
     try:
@@ -87,6 +111,10 @@ def unlink(path):
         pass
 
     for i in range(1000):
+        if after_5s_warning and (time.monotonic() - start) > 5:
+            LOGGER.warn(after_5s_warning)
+            after_5s_warning = None
+
         try:
             path = path.rename(path.with_name(f"{path.name}.{i}.deleteme"))
             try:

@@ -43,7 +43,7 @@ def _expand_versions_by_tag(versions):
                 yield {**v, "tag": t}
 
 
-def download_package(cmd, tag, cache, urlopen=_urlopen, urlretrieve=_urlretrieve):
+def download_package(cmd, tag, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
     """Finds suitable package from index.json that looks like:
     {"versions": [
       {"id": ..., "company": ..., "tag": ..., "url": ..., "hash": {"sha256": hexdigest}},
@@ -89,8 +89,9 @@ def download_package(cmd, tag, cache, urlopen=_urlopen, urlretrieve=_urlretrieve
         LOGGER.info("Download was found in the cache")
         LOGGER.debug("Download skipped because %s already exists", dest)
     else:
-        with ProgressPrinter("Downloading") as on_progress:
-            urlretrieve(install["url"], dest, on_progress=on_progress)
+        unlink(dest, "Removing old downloads is taking some time. " + 
+                     "Please continue to wait, or press Ctrl+C to abort.")
+        urlretrieve(install["url"], dest, on_progress=on_progress)
         LOGGER.debug("Downloaded to %s", dest)
 
     if "hash" in install:
@@ -99,12 +100,13 @@ def download_package(cmd, tag, cache, urlopen=_urlopen, urlretrieve=_urlretrieve
                 _multihash(f, install["hash"])
         except HashMismatchError as ex:
             LOGGER.debug("ERROR:", exc_info=True)
-            unlink(dest)
+            unlink(dest, "Deleting downloaded files is taking some time. " +
+                         "Please continue to wait, or press Ctrl+C to abort.")
             raise HashMismatchError() from ex
     return dest, install
 
 
-def extract_package(package, prefix, calculate_dest=Path, on_progress=None):
+def extract_package(package, prefix, calculate_dest=Path, *, on_progress=None):
     import zipfile
 
     if not on_progress:
@@ -216,7 +218,9 @@ def update_all_shortcuts(cmd, path_warning=True):
         alias = target.with_suffix("")
         if alias.name.casefold() not in alias_written:
             LOGGER.debug("Unlink %s", alias)
-            alias.unlink()
+            unlink(alias, f"Attempting to remove {alias} is taking some time. " +
+                           "Ensure it is not is use, and please continue to wait " +
+                           "or press Ctrl+C to abort.")
             target.unlink()
 
     for k, (_, cleanup) in SHORTCUT_HANDLERS.items():
@@ -251,6 +255,10 @@ def print_cli_shortcuts(cmd, tags):
 def execute(cmd):
     LOGGER.debug("BEGIN install_command.execute: %r", cmd.args)
 
+    # TODO: Consider reading the current value
+    # Though there's a solid argument we should just pick one and stick with it
+    console_width = 79
+
     if cmd.target:
         target = Path(cmd.target)
         if len(cmd.args) > 1:
@@ -270,7 +278,7 @@ def execute(cmd):
         cmd.args = [""]
 
     if cmd.automatic:
-        LOGGER.info("**********************************************************************")
+        LOGGER.info("*" * console_width)
 
     if cmd.from_script:
         from .scriptutils import find_install_from_script
@@ -280,6 +288,8 @@ def execute(cmd):
 
     # In-process cache to save repeat downloads
     download_cache = {}
+
+    skip_shortcuts = False
 
     for spec in cmd.args:
         if not spec:
@@ -293,17 +303,31 @@ def execute(cmd):
                     LOGGER.info("%s is already installed", already_installed[0]["displayName"])
                     continue
 
-        package, install = download_package(cmd, tag, download_cache)
+        with ProgressPrinter("Downloading", maxwidth=console_width) as on_progress:
+            package, install = download_package(cmd, tag, download_cache, on_progress=on_progress)
 
         dest = target or (cmd.install_dir / install["id"])
 
         LOGGER.debug("Extracting %s", package)
         LOGGER.debug("To %s", dest)
-        rmtree(dest)
+        try:
+            rmtree(dest, "Cleaning up a previous install is taking some time. " +
+                         "Ensure Python is not running, and continue to wait " +
+                         "or press Ctrl+C to abort.")
+        except FileExistsError:
+            LOGGER.warn(
+                "Unable to remove previous install. " +
+                "Please check your packages directory at %s for issues.",
+                dest.parent
+            )
+            LOGGER.error("Install failed. Please check any output above and try again.")
+            skip_shortcuts = True
+            break
+
         if cmd.dry_run:
             LOGGER.info("Extract skipped because of --dry-run")
         else:
-            with ProgressPrinter("Installing") as on_progress:
+            with ProgressPrinter("Installing", maxwidth=console_width) as on_progress:
                 extract_package(package, dest, on_progress=on_progress)
             LOGGER.debug("Write __install__.json to %s", dest)
             with open(dest / "__install__.json", "w", encoding="utf-8") as f:
@@ -313,15 +337,16 @@ def execute(cmd):
                     "source": sanitise_url(cmd.source),
                 }, f, default=str)
 
-        LOGGER.debug("Install complete")
+            LOGGER.debug("Install complete")
 
-    if cmd.global_dir and cmd.launcher_exe and not cmd.target:
-        update_all_shortcuts(cmd)
+    if not skip_shortcuts:
+        if cmd.global_dir and cmd.launcher_exe and not cmd.target:
+            update_all_shortcuts(cmd)
 
-    print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
+        print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
 
     if cmd.automatic:
         LOGGER.info("To see all available commands, run 'python help'")
-        LOGGER.info("**********************************************************************")
+        LOGGER.info("*" * console_width)
 
     LOGGER.debug("END install_command.execute")

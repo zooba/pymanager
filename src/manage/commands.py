@@ -144,7 +144,6 @@ def _default_launcher_exe():
 
 
 def _default_launcherw_exe():
-    from importlib.resources import files
     exe = Path(package_get_root()) / "launcherw.exe"
     if not exe.is_file():
         LOGGER.warn("Launcher not found at %s", exe)
@@ -281,7 +280,7 @@ class BaseCommand:
 
     @classmethod
     def help_text(self):
-        from .. import __version__
+        from . import __version__
         cmd_help = [
             "    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", ""))
             for cmd in sorted(COMMANDS)
