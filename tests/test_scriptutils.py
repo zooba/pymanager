@@ -2,7 +2,7 @@ import pytest
 
 from pathlib import PurePath
 
-from manage._core.scriptutils import find_install_from_script, _read_script, NewEncoding
+from manage.scriptutils import find_install_from_script, _read_script, NewEncoding
 
 def _fake_install(v, **kwargs):
     return {

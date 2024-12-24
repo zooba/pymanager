@@ -1,6 +1,7 @@
 import pytest
 
-from manage._core.verutils import Version
+from manage.verutils import Version
+
 
 @pytest.mark.parametrize("ver_str", [
     "3", "3.1", "3.10", "3.1.2", "3.1.2.3",

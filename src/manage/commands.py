@@ -4,6 +4,7 @@ import sys
 
 from pathlib import Path
 
+from _native import package_get_root
 from .config import load_config, config_append, config_bool
 from .exceptions import ArgumentError
 from .logging import LOGGER
@@ -136,8 +137,7 @@ CONFIG_SCHEMA = {
 
 
 def _default_launcher_exe():
-    from importlib.resources import files
-    exe = Path(files("manage") / "launcher.exe")
+    exe = Path(package_get_root()) / "launcher.exe"
     if not exe.is_file():
         LOGGER.warn("Launcher not found at %s", exe)
     return exe
@@ -145,7 +145,7 @@ def _default_launcher_exe():
 
 def _default_launcherw_exe():
     from importlib.resources import files
-    exe = Path(files("manage") / "launcherw.exe")
+    exe = Path(package_get_root()) / "launcherw.exe"
     if not exe.is_file():
         LOGGER.warn("Launcher not found at %s", exe)
     return exe

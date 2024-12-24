@@ -41,83 +41,70 @@ PACKAGE = Package('python-manager',
         File('src/python/_resources/*.png'),
         File('src/python/_resources/*.ico'),
     ),
-    Package(
+    DllPackage(
         'manage',
-        PyFile('src/manage/__init__.py'),
-        PyFile('src/manage/__main__.py'),
-        DllPackage('_core',
-            PyFile('*.py'),
-            IncludeFile('*.h'),
-            CSourceFile('*.cpp'),
-            CFunction('coinitialize'),
-            CFunction('bits_connect'),
-            CFunction('bits_begin'),
-            CFunction('bits_cancel'),
-            CFunction('bits_get_progress'),
-            CFunction('bits_find_job'),
-            CFunction('bits_serialize_job'),
-            CFunction('winhttp_urlopen'),
-            CFunction('file_url_to_path'),
-            ItemDefinition('ClCompile', LanguageStandard="stdcpp20"),
-            source='src/manage/_core',
-        ),
-        CProject('launcher',
-            ItemDefinition('ClCompile',
-                LanguageStandard='stdcpplatest',
-            ),
-            ItemDefinition('Link',
-                SubSystem='CONSOLE',
-            ),
-            Manifest('python.manifest'),
-            CSourceFile('launcher.cpp'),
-            CSourceFile('_launch.cpp'),
-            IncludeFile('*.h'),
-            source='src/python',
-            ConfigurationType='Application',
-        ),
-        CProject('launcherw',
-            ItemDefinition('ClCompile',
-                LanguageStandard='stdcpplatest',
-            ),
-            ItemDefinition('Link',
-                SubSystem='WINDOWS',
-            ),
-            Manifest('python.manifest'),
-            CSourceFile('launcher.cpp'),
-            CSourceFile('_launch.cpp'),
-            IncludeFile('*.h'),
-            source='src/python',
-            ConfigurationType='Application',
-        ),
+        PyFile('*.py'),
+        source='src/manage',
+    ),
+    DllPackage('_native',
+        PyFile('__init__.py'),
+        ItemDefinition('ClCompile', LanguageStandard="stdcpp20"),
+        IncludeFile('*.h'),
+        CSourceFile('*.cpp'),
+        CFunction('coinitialize'),
+        CFunction('bits_connect'),
+        CFunction('bits_begin'),
+        CFunction('bits_cancel'),
+        CFunction('bits_get_progress'),
+        CFunction('bits_find_job'),
+        CFunction('bits_serialize_job'),
+        CFunction('winhttp_urlopen'),
+        CFunction('file_url_to_path'),
+        CFunction('package_get_root'),
+        source='src/_native',
+    ),
+    CProject('launcher',
+        ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
+        ItemDefinition('Link', SubSystem='CONSOLE'),
+        Manifest('python.manifest'),
+        CSourceFile('launcher.cpp'),
+        CSourceFile('_launch.cpp'),
+        IncludeFile('*.h'),
+        source='src/python',
+        ConfigurationType='Application',
+    ),
+    CProject('launcherw',
+        ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
+        ItemDefinition('Link', SubSystem='WINDOWS'),
+        Manifest('python.manifest'),
+        CSourceFile('launcher.cpp'),
+        CSourceFile('_launch.cpp'),
+        IncludeFile('*.h'),
+        source='src/python',
+        ConfigurationType='Application',
     ),
     CProject('py-manage',
-        ItemDefinition('ClCompile',
-            LanguageStandard='stdcpplatest',
-        ),
-        ItemDefinition('Link',
-            SubSystem='CONSOLE',
-        ),
+        ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
+        ItemDefinition('Link', SubSystem='CONSOLE'),
         CSourceFile('main.cpp'),
         CSourceFile('_launch.cpp'),
         IncludeFile('*.h'),
-        CSourceFile('../manage/_core/helpers.cpp'),
-        IncludeFile('../manage/_core/helpers.h'),
+        CSourceFile('../_native/helpers.cpp'),
+        IncludeFile('../_native/helpers.h'),
         source='src/python',
         ConfigurationType='Application',
     ),
     CProject('pyw-manage',
         ItemDefinition('ClCompile',
             PreprocessorDefinitions=Prepend("PY_WINDOWED=1;"),
-            LanguageStandard='stdcpplatest',
+            LanguageStandard='stdcpp20',
         ),
-        ItemDefinition('Link',
-            SubSystem='WINDOWS',
-        ),
+        ItemDefinition('Link', SubSystem='WINDOWS'),
         CSourceFile('main.cpp'),
         CSourceFile('_launch.cpp'),
         IncludeFile('*.h'),
-        CSourceFile('../manage/_core/helpers.cpp'),
-        IncludeFile('../manage/_core/helpers.h'),
+        CSourceFile('../_native/helpers.cpp'),
+        IncludeFile('../_native/helpers.h'),
         source='src/python',
         ConfigurationType='Application',
     ),
@@ -128,7 +115,7 @@ def get_commands():
     import ast
     command_bases = {"BaseCommand"}
     commands = []
-    with open("src/manage/_core/commands.py", "r", encoding="utf-8") as f:
+    with open("src/manage/commands.py", "r", encoding="utf-8") as f:
         mod = ast.parse(f.read())
     for cls in filter(lambda c: isinstance(c, ast.ClassDef), mod.body):
         # Check if a subclass of BaseCommand
@@ -162,28 +149,29 @@ def init_PACKAGE(tag=None):
 
     tmpdir = get_current_build_state().temp_dir
 
+    # GENERATE _version MODULE
     ver_py = tmpdir / "_version.py"
     ver_code = f"__version__ = {METADATA['Version']!r}"
-    if ver_py.is_file() and ver_py.read_text("utf-8").strip() != ver_code:
+    if not ver_py.is_file() or ver_py.read_text("utf-8").strip() != ver_code:
+        ver_py.parent.mkdir(parents=True, exist_ok=True)
         with ver_py.open("w", encoding="utf-8") as f:
             print(ver_code, file=f)
-    PACKAGE.find("manage/_core").members.append(PyFile(ver_py))
+    PACKAGE.find("manage").members.append(PyFile(ver_py))
 
+    # GENERATE SUBCOMMAND LIST
     cmds = get_commands()
     cmds_h = tmpdir / "commands.g.h"
     cmds_txt = "static const wchar_t *subcommands[] = {" + ", ".join(f'L"{c}"' for c in cmds) + ", NULL};"
-    try:
-        if cmds_h.read_text(encoding="utf-8").strip() == cmds_txt.strip():
-            cmds_txt = None
-    except OSError:
-        pass
-    if cmds_txt:
+    if not cmds_h.is_file() or cmds_h.read_text("utf-8").strip() != cmds_txt:
+        cmds_h.parent.mkdir(parents=True, exist_ok=True)
         with cmds_h.open("w", encoding="utf-8") as f:
             print(cmds_txt, file=f)
+
     incl = ItemDefinition("ClCompile", AdditionalIncludeDirectories = Prepend(f"{tmpdir};"))
     PACKAGE.find("py-manage").members.append(incl)
     PACKAGE.find("pyw-manage").members.append(incl)
 
+    # BUNDLE EMBEDDABLE DISTRO
     dll_name = {
         "cp313": "python313.dll",
         "cp314": "python314.dll",

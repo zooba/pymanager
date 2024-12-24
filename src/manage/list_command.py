@@ -20,7 +20,8 @@ def format_table(installs):
     } for i in installs]
 
     if not installs:
-        print("No installs. Run 'python install <version>' to install one.")
+        print("No installs. Run 'python install <version>' to install one " +
+              "or 'python list --unmanaged' to include other Python installs.")
         return
 
     cwidth = {k: len(v) for k, v in columns.items()}

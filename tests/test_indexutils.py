@@ -1,7 +1,7 @@
 import pytest
 
-from manage._core import indexutils as iu
-from manage._core.exceptions import InvalidFeedError
+from manage import indexutils as iu
+from manage.exceptions import InvalidFeedError
 
 
 TEST_SCHEMA = {

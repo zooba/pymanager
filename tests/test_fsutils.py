@@ -3,7 +3,7 @@ import shutil
 
 from copy import copy
 
-from manage._core.fsutils import ensure_tree, rmtree, unlink
+from manage.fsutils import ensure_tree, rmtree, unlink
 
 @pytest.fixture
 def tree(tmp_path):

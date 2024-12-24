@@ -1,5 +1,7 @@
 import pytest
-from manage._core.tagutils import CompanyTag, TagRange
+
+from manage.tagutils import CompanyTag, TagRange
+
 
 @pytest.mark.parametrize("tag_str", [
     "3.13", "3.13-32", "3.13-arm64",

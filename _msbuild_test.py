@@ -17,7 +17,7 @@ METADATA = {
 
 
 PACKAGE = Package('src',
-    DllPackage('_core_test',
+    DllPackage('_native_test',
         PyFile('__init__.py'),
         ItemDefinition("ClCompile",
             PreprocessorDefinitions=Prepend("ERROR_LOCATIONS=1;BITS_INJECT_ERROR=1"),
@@ -35,6 +35,7 @@ PACKAGE = Package('src',
         CFunction('bits_inject_error'), # only in tests
         CFunction('winhttp_urlopen'),
         CFunction('file_url_to_path'),
-        source='src/manage/_core',
+        CFunction('package_get_root'),
+        source='src/_native',
     ),
 )

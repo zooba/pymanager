@@ -1,9 +1,9 @@
-from ._core.commands import find_command, load_default_config, show_help
-from ._core.exceptions import ArgumentError, NoInstallFoundError, NoInstallsError
-from ._core.logging import LOGGER
+from .commands import find_command, load_default_config, show_help
+from .exceptions import ArgumentError, NoInstallFoundError, NoInstallsError
+from .logging import LOGGER
 
 try:
-    from ._core._version import __version__
+    from ._version import __version__
 except ImportError:
     __version__ = "0.0"
 

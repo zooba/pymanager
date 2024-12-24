@@ -1,9 +1,9 @@
 import json
 import os
-import _winapi
 
 from pathlib import Path
 
+from _native import package_get_root
 from .exceptions import InvalidConfigurationError
 from .logging import LOGGER
 
@@ -29,7 +29,7 @@ def config_bool(v):
 def load_config(root, override_file, schema):
     cfg = {}
 
-    global_file = Path(_winapi.GetModuleFileName(0)).parent / DEFAULT_CONFIG_NAME
+    global_file = Path(package_get_root()) / DEFAULT_CONFIG_NAME
     try:
         load_one_config(cfg, global_file, schema=schema)
     except FileNotFoundError:

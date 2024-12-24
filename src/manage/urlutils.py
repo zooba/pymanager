@@ -7,7 +7,7 @@ from .logging import LOGGER
 from .fsutils import ensure_tree, unlink
 
 try:
-    from . import file_url_to_path
+    from _native import file_url_to_path
 except ImportError:
     from nturl2path import url2pathname as file_url_to_path
 
@@ -17,7 +17,7 @@ ENABLE_WINHTTP = os.getenv("PYTHON_DISABLE_WINHTTP", "0").lower()[:1] not in "1y
 
 
 try:
-    from . import (coinitialize, bits_connect, bits_begin, bits_cancel,
+    from _native import (coinitialize, bits_connect, bits_begin, bits_cancel,
         bits_get_progress, bits_find_job, bits_serialize_job)
 except ImportError:
     pass
@@ -75,7 +75,7 @@ else:
 
 
 try:
-    from . import winhttp_urlopen
+    from _native import winhttp_urlopen
 except ImportError:
     pass
 else:

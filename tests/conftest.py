@@ -10,12 +10,12 @@ from pathlib import Path
 
 TESTS = Path(__file__).absolute().parent
 
-import manage._core
-if not hasattr(manage._core, "coinitialize"):
-    import _core_test
-    for k in dir(_core_test):
+import _native
+if not hasattr(_native, "coinitialize"):
+    import _native_test
+    for k in dir(_native_test):
         if k[:1] not in ("", "_"):
-            setattr(manage._core, k, getattr(_core_test, k))
+            setattr(_native, k, getattr(_native_test, k))
 
 
 class LogCaptureHandler:

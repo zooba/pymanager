@@ -15,7 +15,7 @@
 #include <winrt\Windows.Storage.h>
 
 #include "_launch.h"
-#include "src\manage\_core\helpers.h"
+#include "src\_native\helpers.h"
 #include "commands.g.h"
 
 // HRESULT-compatible error codes
