@@ -263,17 +263,13 @@ locate_runtime(
     auto root_str = get_root();
     PyObject *r = NULL;
 
-    r = PyObject_CallMethod(manage.mod, "find_one", "uuui",
-        root_str.c_str(), tag.c_str(), script.c_str(), PY_WINDOWED);
+    r = PyObject_CallMethod(manage.mod, "find_one", "uuuii",
+        root_str.c_str(), tag.c_str(), script.c_str(), PY_WINDOWED, print_not_found_error);
     if (!r) {
         if (PyErr_ExceptionMatches(manage.no_installs_error)) {
             exitCode = ERROR_NO_INSTALLS;
         } else if (PyErr_ExceptionMatches(manage.no_install_found_error)) {
             exitCode = ERROR_NO_MATCHING_INSTALL;
-            if (print_not_found_error) {
-                // TODO: Display error properly
-                PyErr_Print();
-            }
         }
         // Other errors should already have been printed
         PyErr_Clear();

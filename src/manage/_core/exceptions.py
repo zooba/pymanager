@@ -1,36 +1,50 @@
+
 class ArgumentError(Exception):
-    pass
+    def __init__(self, message):
+        super().__init__(message)
 
 
 class HashMismatchError(Exception):
-    pass
+    def __init__(self, message=None):
+        super().__init__(message or "The downloaded file could not be verified and has been deleted. Please try again.")
 
 
 class NoInstallsError(Exception):
-    pass
+    def __init__(self):
+        super().__init__("""No runtimes are installed. Try running "python install" first.""")
 
 
 class NoInstallFoundError(Exception):
     def __init__(self, tag=None, script=None):
         self.tag = tag
         self.script = script
-        # TODO: Better error message
-        super().__init__("No install found for '{}' or '{}'".format(
-            self.tag, self.script
-        ))
+        if script:
+            msg = f"No runtime installed that can launch {script}"
+        elif tag:
+            msg = f"""No runtime installed that matches {tag}. Try running "python install {tag}"."""
+        else:
+            msg = """No suitable runtime installed. Try running "python install"."""
+        super().__init__(msg)
 
 
 class InvalidFeedError(Exception):
-    pass
+    def __init__(self, message=None, *, feed_url=None):
+        from .urlutils import sanitise_url
+        if feed_url:
+            feed_url = sanitise_url(feed_url)
+        if not message:
+            if feed_url:
+                message = f"There is an issue with the feed at {feed_url}. Please check your settings and try again."
+            else:
+                message = "There is an issue with the feed. Please check your settings and try again."
+        super().__init__(message)
+        self.feed_url = feed_url
 
 
 class InvalidInstallError(Exception):
     def __init__(self, message, prefix=None):
-        super().__init__(message, prefix)
-
-    @property
-    def prefix(self):
-        return self.args[1] if len(self.args) >= 2 else None
+        super().__init__(message)
+        self.prefix = prefix
 
 
 class InvalidConfigurationError(ValueError):
@@ -43,16 +57,7 @@ class InvalidConfigurationError(ValueError):
             msg = f"Invalid configuration file {file}"
         else:
             msg = "Invalid configuration"
-        super().__init__(msg, file, argument, value)
-
-    @property
-    def file(self):
-        return self.args[1] if len(self.args) >= 2 else None
-
-    @property
-    def argument(self):
-        return self.args[2] if len(self.args) >= 3 else None
-
-    @property
-    def value(self):
-        return self.args[3] if len(self.args) >= 4 else None
+        super().__init__(msg)
+        self.file = file
+        self.argument = argument
+        self.value = value

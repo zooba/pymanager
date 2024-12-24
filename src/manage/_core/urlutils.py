@@ -117,7 +117,7 @@ def _urllib_urlopen(url, method, headers, on_progress, on_auth_request):
         raise RuntimeError("Unable to download from the internet") from ex
 
     if not on_progress:
-        on_progress = lambda *_: None
+        def on_progress(*_): pass
 
     LOGGER.debug("urlopen: %s %s", method, sanitise_url(url))
     req = Request(url, method=method, headers=headers)
@@ -163,7 +163,7 @@ def _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress=No
         raise RuntimeError("Unable to download from the internet") from ex
 
     if not on_progress:
-        on_progress = lambda *_: None
+        def on_progress(*_): pass
 
     outfile = Path(outfile)
     LOGGER.debug("urlretrieve: %s %s -> %s", method, sanitise_url(url), outfile)

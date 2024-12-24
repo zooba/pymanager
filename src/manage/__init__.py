@@ -49,7 +49,7 @@ def _maybe_quote(a):
     return f'"{a}"'
 
 
-def find_one(root, tag, script, windowed):
+def find_one(root, tag, script, windowed, show_not_found_error):
     try:
         i = None
         cmd = load_default_config(root)
@@ -59,9 +59,10 @@ def find_one(root, tag, script, windowed):
         args = " ".join(_maybe_quote(a) for a in i.get("executable_args", ()))
         LOGGER.debug("Selected %s %s", exe, args)
         return exe, args
-    except NoInstallFoundError:
-        raise
-    except NoInstallsError:
+    except (NoInstallFoundError, NoInstallsError) as ex:
+        if show_not_found_error:
+            LOGGER.error("%s", ex)
+            LOGGER.debug("TRACEBACK:", exc_info=True)
         raise
     except Exception as ex:
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)

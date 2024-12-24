@@ -97,10 +97,10 @@ def download_package(cmd, tag, cache, urlopen=_urlopen, urlretrieve=_urlretrieve
         try:
             with open(dest, "rb") as f:
                 _multihash(f, install["hash"])
-        except HashMismatchError:
+        except HashMismatchError as ex:
+            LOGGER.debug("ERROR:", exc_info=True)
             unlink(dest)
-            raise HashMismatchError("""The downloaded file could not be verified and has been deleted.
-Please retry the installation and download the file again.""")
+            raise HashMismatchError() from ex
     return dest, install
 
 
@@ -108,7 +108,7 @@ def extract_package(package, prefix, calculate_dest=Path, on_progress=None):
     import zipfile
 
     if not on_progress:
-        on_progress = lambda *_: None
+        def on_progress(*_): pass
 
     if package.match("*.nupkg"):
         def _calc(prefix, filename, calculate_dest=calculate_dest):

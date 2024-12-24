@@ -1,4 +1,5 @@
 from .exceptions import InvalidFeedError
+from .logging import LOGGER
 from .tagutils import CompanyTag, TagRange, tag_or_range
 from .verutils import Version
 
@@ -158,7 +159,11 @@ def _one(d, expect, ctxt=None):
 
 class Index:
     def __init__(self, source_url, d):
-        validated = _one(d, SCHEMA)
+        try:
+            validated = _one(d, SCHEMA)
+        except InvalidFeedError as ex:
+            LOGGER.debug("ERROR:", exc_info=True)
+            raise InvalidFeedError(feed_url=source_url) from ex
         self.source_url = source_url
         self.next_url = validated.get("next")
         self.versions = sorted(validated["versions"], key=lambda v: v["sort-version"], reverse=True)
