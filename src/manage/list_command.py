@@ -63,16 +63,12 @@ def _csv_filter_and_expand(installs):
 
 def format_csv(installs):
     import csv
-    columns = {}
-    # TODO: Exclude complex columns
-    exclude = {"install-for", "run-for", "alias", "shortcuts"}
     installs = list(_csv_filter_and_expand(installs))
     if not installs:
         return
-    for i in installs:
-        for k in i:
-            if k not in exclude:
-                columns[k] = True
+    s = set()
+    columns = [c for i in installs for c in i
+               if c not in s and (s.add(c) or True)]
     writer = csv.DictWriter(sys.stdout, columns)
     writer.writeheader()
     writer.writerows(installs)
