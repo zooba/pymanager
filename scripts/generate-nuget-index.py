@@ -7,7 +7,7 @@ from urllib.request import Request, urlopen
 
 REPO = Path(__file__).absolute().parent.parent
 sys.path.append(str(REPO / "src"))
-from manage._core.verutils import Version
+from manage.verutils import Version
 
 
 # Like Invoke-RestMethod in PowerShell
@@ -59,6 +59,23 @@ SCHEMA = {
                         "": "https://docs.python.org/$XYVERSIONNOPRE$/"
                     },
                 },
+            },
+            {
+                "kind": "start",
+                "Name": "Python $XYVERSION$",
+                "Items": [
+                    {
+                        "Name": "Python $XYVERSION$",
+                        "Target": "%PREFIX%python.exe",
+                        "Icon": "%PREFIX%python.exe",
+                    },
+                    {
+                        "Name": "Python $XYVERSION$ Documentation",
+                        "Icon": r"%SystemRoot%\System32\SHELL32.dll",
+                        "IconIndex": 13,
+                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                    },
+                ],
             },
         ],
         "displayName": "Python $FULLVERSION$",

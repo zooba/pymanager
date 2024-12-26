@@ -34,6 +34,51 @@ def _rglob(root):
                 yield None, p
 
 
+def _unlink(f, on_missing=None, on_fail=None, on_isdir=None):
+    try:
+        f.unlink()
+    except FileNotFoundError:
+        if on_missing:
+            on_missing(f)
+        else:
+            pass
+    except PermissionError:
+        if f.is_dir():
+            if on_isdir:
+                on_isdir(f)
+            elif on_fail:
+                on_fail(f)
+            else:
+                raise IsADirectoryError() from None
+    except OSError:
+        if on_fail:
+            on_fail(f)
+        else:
+            raise
+
+
+def _rmdir(d, on_missing=None, on_fail=None, on_isfile=None):
+    try:
+        d.rmdir()
+    except FileNotFoundError:
+        if on_missing:
+            on_missing(d)
+        else:
+            pass
+    except NotADirectoryError:
+        if on_isfile:
+            on_isfile(d)
+        elif on_fail:
+            on_fail(d)
+        else:
+            raise
+    except OSError:
+        if on_fail:
+            on_fail(d)
+        else:
+            raise
+
+
 def rmtree(path, after_5s_warning=None):
     start = time.monotonic()
 
@@ -60,7 +105,7 @@ def rmtree(path, after_5s_warning=None):
         raise FileExistsError(str(path))
 
     to_rmdir = [path]
-    to_retry = []
+    to_unlink = []
     for d, f in _rglob(path):
         if after_5s_warning and (time.monotonic() - start) > 5:
             LOGGER.warn(after_5s_warning)
@@ -69,24 +114,18 @@ def rmtree(path, after_5s_warning=None):
         if d:
             to_rmdir.append(d)
         else:
-            try:
-                f.unlink()
-            except OSError:
-                to_retry.append(f)
-
-    if to_retry:
-        for f in to_retry:
-            try:
-                f.unlink()
-            except OSError:
-                LOGGER.warn("Failed to remove %s", f)
+            _unlink(f, on_fail=to_unlink.append, on_isdir=to_rmdir.append)
 
     to_warn = []
-    for d in sorted(to_rmdir, key=lambda p: len(p.parts), reverse=True):
-        try:
-            d.rmdir()
-        except OSError:
-            to_warn.append(d)
+    retries = 0
+    while retries < 3 and (to_rmdir or to_unlink):
+        retries += 1
+        for f in to_unlink:
+            _unlink(f, on_fail=to_warn.append, on_isdir=to_rmdir.append)
+        to_unlink.clear()
+
+        for d in sorted(to_rmdir, key=lambda p: len(p.parts), reverse=True):
+            _rmdir(d, on_fail=to_warn.append, on_isfile=to_unlink)
 
     if to_warn:
         f = os.path.commonprefix(to_warn)
@@ -107,9 +146,13 @@ def unlink(path, after_5s_warning=None):
         return
     except FileNotFoundError:
         return
+    except PermissionError:
+        if path.is_dir():
+            raise IsADirectoryError() from None
     except OSError:
         pass
 
+    orig_path = path
     for i in range(1000):
         if after_5s_warning and (time.monotonic() - start) > 5:
             LOGGER.warn(after_5s_warning)
@@ -117,6 +160,7 @@ def unlink(path, after_5s_warning=None):
 
         try:
             path = path.rename(path.with_name(f"{path.name}.{i}.deleteme"))
+            
             try:
                 path.unlink()
             except OSError:
@@ -125,5 +169,5 @@ def unlink(path, after_5s_warning=None):
         except OSError:
             pass
     else:
-        LOGGER.warn("Failed to remove %s", path)
+        LOGGER.warn("Failed to remove %s", orig_path)
         return

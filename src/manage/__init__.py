@@ -1,4 +1,3 @@
-from .commands import find_command, load_default_config, show_help
 from .exceptions import ArgumentError, NoInstallFoundError, NoInstallsError
 from .logging import LOGGER
 
@@ -13,6 +12,7 @@ __all__ = ["main", "NoInstallFoundError", "NoInstallsError", "find_one"]
 
 def main(args, root=None):
     try:
+        from .commands import find_command, show_help
         args = list(args)
         if not root:
             from pathlib import Path
@@ -51,6 +51,7 @@ def _maybe_quote(a):
 
 def find_one(root, tag, script, windowed, show_not_found_error):
     try:
+        from .commands import load_default_config
         i = None
         cmd = load_default_config(root)
         LOGGER.debug("Finding runtime for '%s' or '%s' %s", tag, script, "(windowed)" if windowed else "")

@@ -34,10 +34,10 @@ def execute(cmd):
                 rmtree(i["prefix"])
             LOGGER.info("Purging saved downloads")
             for f in cmd.install_dir.iterdir():
-                unlink(f)
+                rmtree(f)
             LOGGER.info("Purging global commands")
             for f in cmd.global_dir.iterdir():
-                unlink(f)
+                rmtree(f)
 
     for tag in cmd.args:
         company, _, tag = tag.casefold().replace("/", "\\").rpartition("\\")

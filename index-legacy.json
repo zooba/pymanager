@@ -58,6 +58,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.9",
@@ -122,6 +139,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.8",
@@ -186,6 +220,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.7",
@@ -250,6 +301,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.6",
@@ -314,6 +382,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.5",
@@ -378,6 +463,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.4",
@@ -442,6 +544,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.3",
@@ -506,6 +625,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.2",
@@ -570,6 +706,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.1",
@@ -634,6 +787,23 @@
               "": "https://docs.python.org/3.11/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.11/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0",
@@ -697,6 +867,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0rc2",
@@ -760,6 +947,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0rc1",
@@ -823,6 +1027,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0b5",
@@ -886,6 +1107,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0b4",
@@ -949,6 +1187,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0b3",
@@ -1012,6 +1267,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0b2",
@@ -1075,6 +1347,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0b1",
@@ -1138,6 +1427,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0a7",
@@ -1201,6 +1507,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0a6",
@@ -1264,6 +1587,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0a5",
@@ -1327,6 +1667,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0a4",
@@ -1390,6 +1747,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0a3",
@@ -1453,6 +1827,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0a2",
@@ -1516,6 +1907,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.11",
+          "Items": [
+            {
+              "Name": "Python 3.11",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.11 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.11.0a1",
@@ -1580,6 +1988,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.11",
@@ -1644,6 +2069,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.10",
@@ -1708,6 +2150,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.9",
@@ -1772,6 +2231,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.8",
@@ -1836,6 +2312,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.7",
@@ -1900,6 +2393,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.6",
@@ -1964,6 +2474,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.5",
@@ -2028,6 +2555,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.4",
@@ -2092,6 +2636,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.3",
@@ -2156,6 +2717,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.2",
@@ -2220,6 +2798,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.1",
@@ -2284,6 +2879,23 @@
               "": "https://docs.python.org/3.10/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.10/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0",
@@ -2347,6 +2959,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0rc2",
@@ -2410,6 +3039,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0rc1",
@@ -2473,6 +3119,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0b4",
@@ -2536,6 +3199,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0b3",
@@ -2599,6 +3279,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0b2",
@@ -2662,6 +3359,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0b1",
@@ -2725,6 +3439,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0a7",
@@ -2788,6 +3519,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0a6",
@@ -2851,6 +3599,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0a5",
@@ -2914,6 +3679,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0a4",
@@ -2977,6 +3759,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0a3",
@@ -3040,6 +3839,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0a2",
@@ -3103,6 +3919,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.10",
+          "Items": [
+            {
+              "Name": "Python 3.10",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.10 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.10.0a1",
@@ -3167,6 +4000,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.13",
@@ -3231,6 +4081,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.12",
@@ -3295,6 +4162,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.11",
@@ -3359,6 +4243,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.10",
@@ -3423,6 +4324,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.9",
@@ -3487,6 +4405,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.8",
@@ -3551,6 +4486,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.7",
@@ -3615,6 +4567,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.6",
@@ -3679,6 +4648,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.5",
@@ -3743,6 +4729,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.4",
@@ -3807,6 +4810,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.3",
@@ -3871,6 +4891,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.2",
@@ -3934,6 +4971,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.2rc1",
@@ -3998,6 +5052,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.1",
@@ -4061,6 +5132,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.1rc1",
@@ -4125,6 +5213,23 @@
               "": "https://docs.python.org/3.9/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.9/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0",
@@ -4188,6 +5293,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0rc2",
@@ -4251,6 +5373,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0rc1",
@@ -4314,6 +5453,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0b5",
@@ -4377,6 +5533,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0b4",
@@ -4440,6 +5613,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0b3",
@@ -4503,6 +5693,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0b2",
@@ -4566,6 +5773,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0b1",
@@ -4629,6 +5853,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0a6",
@@ -4692,6 +5933,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0a5",
@@ -4755,6 +6013,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0a4",
@@ -4818,6 +6093,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0a3",
@@ -4881,6 +6173,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0a2",
@@ -4944,6 +6253,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.9",
+          "Items": [
+            {
+              "Name": "Python 3.9",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.9 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.9.0a1",
@@ -5008,6 +6334,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.10",
@@ -5072,6 +6415,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.9",
@@ -5136,6 +6496,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.8",
@@ -5199,6 +6576,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.8rc1",
@@ -5263,6 +6657,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.7",
@@ -5326,6 +6737,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.7rc1",
@@ -5390,6 +6818,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.6",
@@ -5453,6 +6898,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.6rc1",
@@ -5517,6 +6979,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.5",
@@ -5581,6 +7060,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.4",
@@ -5644,6 +7140,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.4rc1",
@@ -5708,6 +7221,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.3",
@@ -5771,6 +7301,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.3rc1",
@@ -5835,6 +7382,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.2",
@@ -5898,6 +7462,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.2rc2",
@@ -5961,6 +7542,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.2rc1",
@@ -6025,6 +7623,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.1",
@@ -6088,6 +7703,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.1rc1",
@@ -6152,6 +7784,23 @@
               "": "https://docs.python.org/3.8/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.8/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0",
@@ -6215,6 +7864,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0rc1",
@@ -6278,6 +7944,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0b4",
@@ -6341,6 +8024,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0b3",
@@ -6404,6 +8104,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0b2",
@@ -6467,6 +8184,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0b1",
@@ -6530,6 +8264,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0a4",
@@ -6593,6 +8344,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0a3",
@@ -6656,6 +8424,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0a2",
@@ -6719,6 +8504,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.8",
+          "Items": [
+            {
+              "Name": "Python 3.8",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.8 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.8.0a1",
@@ -6783,6 +8585,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.9",
@@ -6847,6 +8666,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.8",
@@ -6910,6 +8746,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.8rc1",
@@ -6974,6 +8827,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.7",
@@ -7037,6 +8907,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.7rc1",
@@ -7101,6 +8988,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.6",
@@ -7165,6 +9069,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.5",
@@ -7228,6 +9149,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.5rc1",
@@ -7292,6 +9230,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.4",
@@ -7355,6 +9310,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.4rc2",
@@ -7418,6 +9390,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.4rc1",
@@ -7482,6 +9471,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.3",
@@ -7545,6 +9551,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.3rc1",
@@ -7609,6 +9632,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.2",
@@ -7672,6 +9712,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.2rc1",
@@ -7736,6 +9793,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.1",
@@ -7799,6 +9873,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.1rc2",
@@ -7862,6 +9953,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.1rc1",
@@ -7926,6 +10034,23 @@
               "": "https://docs.python.org/3.7/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.7/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0",
@@ -7989,6 +10114,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0rc1",
@@ -8052,6 +10194,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0b5",
@@ -8115,6 +10274,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0b4",
@@ -8178,6 +10354,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0b3",
@@ -8241,6 +10434,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0b2",
@@ -8304,6 +10514,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0b1",
@@ -8367,6 +10594,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.7",
+          "Items": [
+            {
+              "Name": "Python 3.7",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.7 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.7.0a3",
@@ -8431,6 +10675,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.8",
@@ -8494,6 +10755,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.8rc1",
@@ -8558,6 +10836,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.7",
@@ -8621,6 +10916,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.7rc2",
@@ -8684,6 +10996,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.7rc1",
@@ -8748,6 +11077,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.6",
@@ -8812,6 +11158,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.5",
@@ -8875,6 +11238,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.5rc1",
@@ -8939,6 +11319,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.4",
@@ -9002,6 +11399,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.4rc1",
@@ -9066,6 +11480,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.3",
@@ -9130,6 +11561,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.2",
@@ -9194,6 +11642,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.1",
@@ -9258,6 +11723,23 @@
               "": "https://docs.python.org/3.6/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.6/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.0",
@@ -9321,6 +11803,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.0rc2",
@@ -9384,6 +11883,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.0rc1",
@@ -9447,6 +11963,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.0b41",
@@ -9510,6 +12043,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.0b4",
@@ -9573,6 +12123,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.0b3",
@@ -9636,6 +12203,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.6",
+          "Items": [
+            {
+              "Name": "Python 3.6",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.6 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.6.0b1",
@@ -9700,6 +12284,23 @@
               "": "https://docs.python.org/3.5/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.5",
+          "Items": [
+            {
+              "Name": "Python 3.5",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.5 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.5/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.5.4",
@@ -9763,6 +12364,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.5",
+          "Items": [
+            {
+              "Name": "Python 3.5",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.5 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.5.4rc1",
@@ -9827,6 +12445,23 @@
               "": "https://docs.python.org/3.5/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.5",
+          "Items": [
+            {
+              "Name": "Python 3.5",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.5 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.5/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.5.3",
@@ -9890,6 +12525,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.5",
+          "Items": [
+            {
+              "Name": "Python 3.5",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.5 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.5.3rc1",
@@ -9954,6 +12606,23 @@
               "": "https://docs.python.org/3.5/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.5",
+          "Items": [
+            {
+              "Name": "Python 3.5",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.5 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.5/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.5.2",
@@ -10018,6 +12687,23 @@
               "": "https://docs.python.org/3.5/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.5",
+          "Items": [
+            {
+              "Name": "Python 3.5",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.5 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.5/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.5.2",
@@ -10082,6 +12768,23 @@
               "": "https://docs.python.org/3.5/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.5",
+          "Items": [
+            {
+              "Name": "Python 3.5",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.5 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.5/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.5.2",

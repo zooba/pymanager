@@ -57,6 +57,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14",
+          "Items": [
+            {
+              "Name": "Python 3.14",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a3",
@@ -120,6 +137,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14",
+          "Items": [
+            {
+              "Name": "Python 3.14",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a2",
@@ -183,6 +217,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14",
+          "Items": [
+            {
+              "Name": "Python 3.14",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a1",
@@ -247,6 +298,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.1",
@@ -311,6 +379,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0",
@@ -374,6 +459,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc3",
@@ -437,6 +539,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc2",
@@ -500,6 +619,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc1",
@@ -563,6 +699,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b4",
@@ -626,6 +779,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b3",
@@ -689,6 +859,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b2",
@@ -752,6 +939,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b1",
@@ -815,6 +1019,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a6",
@@ -878,6 +1099,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a5",
@@ -941,6 +1179,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a4",
@@ -1004,6 +1259,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a3",
@@ -1067,6 +1339,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a2",
@@ -1130,6 +1419,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a1",
@@ -1194,6 +1500,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.8",
@@ -1258,6 +1581,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.7",
@@ -1322,6 +1662,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.6",
@@ -1386,6 +1743,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.5",
@@ -1450,6 +1824,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.4",
@@ -1514,6 +1905,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.3",
@@ -1578,6 +1986,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.2",
@@ -1642,6 +2067,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.1",
@@ -1706,6 +2148,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0",
@@ -1769,6 +2228,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc3",
@@ -1832,6 +2308,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc2",
@@ -1895,6 +2388,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc1",
@@ -1958,6 +2468,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b4",
@@ -2021,6 +2548,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b3",
@@ -2084,6 +2628,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b2",
@@ -2147,6 +2708,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b1",
@@ -2210,6 +2788,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a7",
@@ -2273,6 +2868,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a6",
@@ -2336,6 +2948,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a5",
@@ -2399,6 +3028,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a4",
@@ -2462,6 +3108,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a3",
@@ -2525,6 +3188,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a2",
@@ -2588,6 +3268,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a1",

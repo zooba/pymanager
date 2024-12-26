@@ -9,6 +9,12 @@ int as_utf16(PyObject *obj, wchar_t **address) {
         PyMem_Free(*address);
         return 1;
     }
+    if (!PyObject_IsTrue(obj)) {
+        if (Py_Is(obj, Py_GetConstantBorrowed(Py_CONSTANT_NONE))) {
+            *address = NULL;
+            return 1;
+        }
+    }
     PyObject *wobj = PyObject_Str(obj);
     if (!wobj) {
         return 0;

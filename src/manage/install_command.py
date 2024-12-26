@@ -186,8 +186,17 @@ def _cleanup_shortcut_pep514(cmd, install_shortcut_pairs):
     cleanup_registry(cmd.pep514_root, {(i["company"], i["tag"]) for i, s in install_shortcut_pairs})
 
 
+def _create_start_shortcut(cmd, install, shortcut):
+    from .startutils import create_one
+    create_one(cmd.start_folder, install, shortcut)
+
+def _cleanup_start_shortcut(cmd, install_shortcut_pairs):
+    from .startutils import cleanup
+    cleanup(cmd.start_folder, [s for i, s in install_shortcut_pairs])
+
 SHORTCUT_HANDLERS = {
     "pep514": (_create_shortcut_pep514, _cleanup_shortcut_pep514),
+    "start": (_create_start_shortcut, _cleanup_start_shortcut),
 }
 
 

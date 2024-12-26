@@ -4,7 +4,8 @@ import sys
 
 from pathlib import Path
 
-from _native import package_get_root
+import _native
+
 from .config import load_config, config_append, config_bool
 from .exceptions import ArgumentError
 from .logging import LOGGER
@@ -120,7 +121,13 @@ CONFIG_SCHEMA = {
 
     "default_tag": (str, None, "env"),
 
+    # Registry key to write PEP 514 entries at
+    # Default: HKEY_CURRENT_USER\Software\Python
     "pep514_root": (str, None),
+
+    # Directory to create Start shortcuts at
+    # Default: %AppData%\Microsoft\Windows\Start Menu\Programs\Python
+    "start_folder": (str, None, "path"),
 
     # Overrides for launcher executables. Not expected to be commonly used
     "launcher_exe": (str, None, "path"),
@@ -137,14 +144,14 @@ CONFIG_SCHEMA = {
 
 
 def _default_launcher_exe():
-    exe = Path(package_get_root()) / "launcher.exe"
+    exe = Path(_native.package_get_root()) / "launcher.exe"
     if not exe.is_file():
         LOGGER.warn("Launcher not found at %s", exe)
     return exe
 
 
 def _default_launcherw_exe():
-    exe = Path(package_get_root()) / "launcherw.exe"
+    exe = Path(_native.package_get_root()) / "launcherw.exe"
     if not exe.is_file():
         LOGGER.warn("Launcher not found at %s", exe)
     return exe
@@ -161,6 +168,7 @@ class BaseCommand:
     install_dir = None
 
     pep514_root = r"HKEY_CURRENT_USER\Software\Python"
+    start_folder = Path(_native.shortcut_get_start_programs()) / "Python"
 
     launcher_exe = None
     launcherw_exe = None

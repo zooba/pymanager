@@ -293,6 +293,8 @@ done:
     PyMem_Free(path);
     PyMem_Free(url);
     PyMem_Free(name);
+    PyMem_Free(username);
+    PyMem_Free(password);
 
     return r;
 }
