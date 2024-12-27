@@ -162,7 +162,10 @@ def _write_alias(cmd, alias, target):
     launcher = cmd.launcher_exe
     if alias.get("windowed"):
         launcher = cmd.launcherw_exe or launcher
-    LOGGER.debug("Link %s to %s using %s", alias["name"], target, launcher)
+    LOGGER.debug("Copy %s to %s using %s", alias["name"], target, launcher)
+    if not launcher or not launcher.is_file():
+        LOGGER.info("Skipping %s alias because the launcher template was not found.", alias["name"])
+        return
     p.write_bytes(launcher.read_bytes())
     p.with_name(p.name + ".__target__").write_text(str(target), encoding="utf-8")
 
@@ -196,13 +199,14 @@ def update_all_shortcuts(cmd, path_warning=True):
     alias_written = set()
     shortcut_written = {}
     for i in cmd.get_installs():
-        for a in i.get("alias", ()):
-            target = i["prefix"] / a["target"]
-            if not target.is_file():
-                LOGGER.info("Skipping '%s' because target '%s' does not exist", a["name"], a["target"])
-                continue
-            _write_alias(cmd, a, target)
-            alias_written.add(a["name"].casefold())
+        if cmd.global_dir:
+            for a in i.get("alias", ()):
+                target = i["prefix"] / a["target"]
+                if not target.is_file():
+                    LOGGER.info("Skipping '%s' because target '%s' does not exist", a["name"], a["target"])
+                    continue
+                _write_alias(cmd, a, target)
+                alias_written.add(a["name"].casefold())
 
         for s in i.get("shortcuts", ()):
             if cmd.enable_shortcut_kinds and s["kind"] not in cmd.enable_shortcut_kinds:
@@ -218,14 +222,15 @@ def update_all_shortcuts(cmd, path_warning=True):
                 create(cmd, i, s)
                 shortcut_written.setdefault(s["kind"], []).append((i, s))
 
-    for target in cmd.global_dir.glob("*.exe.__target__"):
-        alias = target.with_suffix("")
-        if alias.name.casefold() not in alias_written:
-            LOGGER.debug("Unlink %s", alias)
-            unlink(alias, f"Attempting to remove {alias} is taking some time. " +
-                           "Ensure it is not is use, and please continue to wait " +
-                           "or press Ctrl+C to abort.")
-            target.unlink()
+    if cmd.global_dir and cmd.launcher_exe:
+        for target in cmd.global_dir.glob("*.exe.__target__"):
+            alias = target.with_suffix("")
+            if alias.name.casefold() not in alias_written:
+                LOGGER.debug("Unlink %s", alias)
+                unlink(alias, f"Attempting to remove {alias} is taking some time. " +
+                               "Ensure it is not is use, and please continue to wait " +
+                               "or press Ctrl+C to abort.")
+                target.unlink()
 
     for k, (_, cleanup) in SHORTCUT_HANDLERS.items():
         cleanup(cmd, shortcut_written.get(k, []))
@@ -262,9 +267,11 @@ def execute(cmd):
     # TODO: Consider reading the current console width
     # Though there's a solid argument we should just pick one and stick with it
     console_width = 79
+    skip_shortcuts = False
 
     if cmd.target:
         target = Path(cmd.target)
+        skip_shortcuts = True
         if len(cmd.args) > 1:
             raise ArgumentError("Unable to install multiple versions with --target")
         installed = []
@@ -292,8 +299,6 @@ def execute(cmd):
 
     # In-process cache to save repeat downloads
     download_cache = {}
-
-    skip_shortcuts = False
 
     for spec in cmd.args:
         if not spec:
@@ -365,9 +370,7 @@ def execute(cmd):
         LOGGER.debug("Install complete")
 
     if not skip_shortcuts:
-        if cmd.global_dir and cmd.launcher_exe and not cmd.target:
-            update_all_shortcuts(cmd)
-
+        update_all_shortcuts(cmd)
         print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
 
     if cmd.automatic:

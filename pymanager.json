@@ -1,5 +1,8 @@
 {
     "install": {
         "source": "./index.json"
-    }
+    },
+    "launcher_exe": "./templates/launcher.exe",
+    "launcherw_exe": "./templates/launcherw.exe",
+    "pep514_root": "HKEY_CURRENT_USER\\Software\\Python"
 }

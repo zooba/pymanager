@@ -85,7 +85,7 @@ def _cleanup(root, keep):
     ini = root / "pymanager.ini"
     try:
         with open(ini, "r", encoding="utf-8") as f:
-            files = [root / s.strip() for s in f if s.strip()]
+            files = {root / s.strip() for s in f if s.strip()}
     except FileNotFoundError:
         return
     _native.hide_file(ini, False)

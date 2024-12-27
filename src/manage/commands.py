@@ -109,6 +109,9 @@ CLI_SCHEMA = {
 
     "uninstall": {
         "purge": ("purge", True),
+        # Undocumented aliases so that install and uninstall can be mirrored
+        "f": ("confirm", False),
+        "force": ("confirm", False),
     },
 }
 
@@ -148,20 +151,6 @@ CONFIG_SCHEMA = {
         "disable_shortcut_kinds": (str, config_append),
     },
 }
-
-
-def _default_launcher_exe():
-    exe = Path(_native.package_get_root()) / "launcher.exe"
-    if not exe.is_file():
-        LOGGER.warn("Launcher not found at %s", exe)
-    return exe
-
-
-def _default_launcherw_exe():
-    exe = Path(_native.package_get_root()) / "launcherw.exe"
-    if not exe.is_file():
-        LOGGER.warn("Launcher not found at %s", exe)
-    return exe
 
 
 class BaseCommand:
@@ -266,10 +255,8 @@ class BaseCommand:
 
         self.default_tag = config.get("default_tag") or self.default_tag
 
-        if not self.launcher_exe:
-            self.launcher_exe = _default_launcher_exe()
-        if not self.launcherw_exe:
-            self.launcherw_exe = _default_launcherw_exe()
+        self.launcher_exe = config.get("launcher_exe") or self.launcher_exe
+        self.launcherw_exe = config.get("launcherw_exe") or self.launcherw_exe
 
         # If our command has any config, load them to override anything that
         # wasn't set on the command line.
