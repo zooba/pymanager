@@ -12,94 +12,112 @@ except ImportError:
     from nturl2path import url2pathname as file_url_to_path
 
 
-ENABLE_BITS = os.getenv("PYTHON_DISABLE_BITS", "0").lower()[:1] not in "1yt"
-ENABLE_WINHTTP = os.getenv("PYTHON_DISABLE_WINHTTP", "0").lower()[:1] not in "1yt"
+ENABLE_BITS = os.getenv("PYTHON_DISABLE_BITS_DOWNLOAD", "0").lower()[:1] not in "1yt"
+ENABLE_WINHTTP = os.getenv("PYTHON_DISABLE_WINHTTP_DOWNLOAD", "0").lower()[:1] not in "1yt"
+ENABLE_URLLIB = os.getenv("PYTHON_DISABLE_URLLIB_DOWNLOAD", "0").lower()[:1] not in "1yt"
+ENABLE_POWERSHELL = os.getenv("PYTHON_DISABLE_POWERSHELL_DOWNLOAD", "0").lower()[:1] not in "1yt"
+
+class _Request:
+    def __init__(self, url, method="GET", headers={}, outfile=None):
+        self.url = url
+        self.method = method.upper()
+        self.headers = dict(headers)
+        self.chunksize = 64 * 1024
+        self.username = None
+        self.password = None
+        self.outfile = Path(outfile) if outfile else None
+        self._on_progress = None
+        self._on_auth_request = None
+
+    def __str__(self):
+        return sanitise_url(self.url)
+
+    def on_progress(self, progress):
+        if self._on_progress:
+            self._on_progress(progress)
+
+    def on_auth_request(self, url=None):
+        if url is None:
+            url = self.url
+        if self._on_auth_request:
+            return self._on_auth_request(url)
+        if self.username or self.password:
+            return self.username, self.password
+        return None
 
 
-try:
+def _bits_urlretrieve(request):
     from _native import (coinitialize, bits_connect, bits_begin, bits_cancel,
         bits_get_progress, bits_find_job, bits_serialize_job)
-except ImportError:
-    pass
-else:
-    def _bits_urlretrieve(url, outfile, on_progress, on_auth_request):
-        LOGGER.debug("_bits_urlretrieve: %s", sanitise_url(url))
-        coinitialize()
-        bits = bits_connect()
 
-        job = None
-        jobfile = outfile.with_suffix(".job")
-        last_progress = None
-        try:
-            job_id = jobfile.read_bytes()
-        except OSError:
-            job_id = None
-        else:
-            LOGGER.debug("Recovering job %s from %s", job_id, jobfile)
+    assert request.outfile
+    LOGGER.debug("_bits_urlretrieve: %s", request)
+    coinitialize()
+    bits = bits_connect()
 
-        try:
-            if job_id:
-                try:
-                    job = bits_find_job(bits, job_id)
-                except OSError as ex:
-                    LOGGER.debug("Failed to recover job due to %s", ex)
-                    job = None
-                else:
-                    last_progress = bits_get_progress(bits, job)
-            if not job:
-                LOGGER.debug("Starting new BITS job: %s -> %s", sanitise_url(url), outfile)
-                ensure_tree(outfile)
-                if on_auth_request:
-                    user, passw = on_auth_request(url)
-                else:
-                    user, passw = None, None
-                job = bits_begin(bits, PurePath(outfile).name, url, outfile, user, passw)
-                LOGGER.debug("Writing %s", jobfile)
-                jobfile.write_bytes(bits_serialize_job(bits, job))
+    outfile = request.outfile
 
-            LOGGER.debug("Downloading %s", sanitise_url(url))
-            last_progress = -1
-            while last_progress < 100:
-                progress = bits_get_progress(bits, job)
-                if on_progress and progress > last_progress:
-                    on_progress(progress)
-                last_progress = progress
-                time.sleep(0.1)
-        except OSError:
-            if job:
-                bits_cancel(bits, job)
-            if jobfile.is_file():
-                unlink(jobfile)
-            raise
-        unlink(jobfile)
+    job = None
+    jobfile = outfile.with_suffix(".job")
+    last_progress = None
+    try:
+        job_id = jobfile.read_bytes()
+    except OSError:
+        job_id = None
+    else:
+        LOGGER.debug("Recovering job %s from %s", job_id, jobfile)
+
+    try:
+        if job_id:
+            try:
+                job = bits_find_job(bits, job_id)
+            except OSError as ex:
+                LOGGER.debug("Failed to recover job due to %s", ex)
+                job = None
+            else:
+                last_progress = bits_get_progress(bits, job)
+        if not job:
+            LOGGER.debug("Starting new BITS job: %s -> %s", request, outfile)
+            ensure_tree(outfile)
+            # TODO: Apply auth after failed un-authed attempt?
+            auth = request.on_auth_request() or (None, None)
+            job = bits_begin(bits, PurePath(outfile).name, request.url, outfile, *auth)
+            LOGGER.debug("Writing %s", jobfile)
+            jobfile.write_bytes(bits_serialize_job(bits, job))
+
+        LOGGER.debug("Downloading %s", request)
+        last_progress = -1
+        while last_progress < 100:
+            progress = bits_get_progress(bits, job)
+            if progress > last_progress:
+                request.on_progress(progress)
+            last_progress = progress
+            time.sleep(0.1)
+    except OSError:
+        if job:
+            bits_cancel(bits, job)
+        if jobfile.is_file():
+            unlink(jobfile)
+        raise
+    unlink(jobfile)
 
 
-try:
+def _winhttp_urlopen(request):
     from _native import winhttp_urlopen
-except ImportError:
-    pass
-else:
-    def _winhttp_urlopen(url, method, headers, on_progress, on_auth_request):
-        headers = {k.lower(): v for k, v in headers.items()}
-        accepts = headers.pop("accepts", "application/*;text/*")
-        header_str = "\r\n".join(f"{k}: {v}" for k, v in headers.items())
-        method = method.upper()
-        LOGGER.debug("winhttp_urlopen: %s %s", method, sanitise_url(url))
-        data = winhttp_urlopen(url, method, header_str, accepts, on_progress, on_auth_request)
-        if data[:3] == b"\xEF\xBB\xBF":
-            data = data[3:]
-        return data
+    headers = {k.lower(): v for k, v in request.headers.items()}
+    accepts = headers.pop("accepts", "application/*;text/*")
+    header_str = "\r\n".join(f"{k}: {v}" for k, v in headers.items())
+    method = request.method.upper()
+    LOGGER.debug("winhttp_urlopen: %s", request)
+    data = winhttp_urlopen(request.url, method, header_str, accepts,
+        request.chunksize, request.on_progress, request.on_auth_request)
+    if data[:3] == b"\xEF\xBB\xBF":
+        data = data[3:]
+    return data
 
-    def _winhttp_urlretrieve(
-        url,
-        outfile,
-        method,
-        headers={},
-        chunksize=...,
-        on_progress=None,
-        on_auth_request=None,
-    ):
-        Path(outfile).write_bytes(_winhttp_urlopen(url, method, headers, on_progress, on_auth_request))
+def _winhttp_urlretrieve(request):
+    assert request.outfile
+    request.outfile.write_bytes(_winhttp_urlopen(request))
 
 
 def _basic_auth_header(username, password):
@@ -109,74 +127,51 @@ def _basic_auth_header(username, password):
     return "Basic " + token.decode("ascii")
 
 
-def _urllib_urlopen(url, method, headers, on_progress, on_auth_request):
-    try:
-        import urllib.error
-        from urllib.request import Request, urlopen
-    except ImportError as ex:
-        raise RuntimeError("Unable to download from the internet") from ex
+def _urllib_urlopen(request):
+    import urllib.error
+    from urllib.request import Request, urlopen
 
-    if not on_progress:
-        def on_progress(*_): pass
-
-    LOGGER.debug("urlopen: %s %s", method, sanitise_url(url))
-    req = Request(url, method=method, headers=headers)
+    LOGGER.debug("urlopen: %s", request)
+    req = Request(request.url, method=request.method, headers=request.headers)
     try:
-        on_progress(0)
+        request.on_progress(0)
         try:
             r = urlopen(req)
         except urllib.error.HTTPError as ex:
-            if ex.status == 401 and on_auth_request:
-                req.headers["Authorization"] = _basic_auth_header(*on_auth_request(url))
+            if ex.status == 401:
+                auth = request.on_auth_request()
+                if not auth:
+                    raise
+                req.headers["Authorization"] = _basic_auth_header(*auth)
                 r = urlopen(req)
             else:
                 raise
         with r:
             data = r.read()
-        on_progress(100)
+        request.on_progress(100)
         return data
     finally:
         LOGGER.debug("urlopen: complete")
 
 
-def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=None):
-    if url.casefold().startswith("file://".casefold()):
-        with open(file_url_to_path(url), "rb") as f:
-            return f.read()
+def _urllib_urlretrieve(request):
+    import urllib.error
+    from urllib.request import Request, urlopen
 
-    if ENABLE_WINHTTP:
-        try:
-            _winhttp_urlopen
-        except NameError:
-            LOGGER.debug("WinHTTP download unavailable - using fallback")
-        else:
-            return _winhttp_urlopen(url, method, headers, on_progress, on_auth_request)
-
-    return _urllib_urlopen(url, method, headers, on_progress, on_auth_request)
-
-
-def _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress=None, on_auth_request=None):
-    try:
-        import urllib.error
-        from urllib.request import Request, urlopen
-    except ImportError as ex:
-        raise RuntimeError("Unable to download from the internet") from ex
-
-    if not on_progress:
-        def on_progress(*_): pass
-
-    outfile = Path(outfile)
-    LOGGER.debug("urlretrieve: %s %s -> %s", method, sanitise_url(url), outfile)
+    outfile = request.outfile
+    LOGGER.debug("urlretrieve: %s -> %s", request, outfile)
     ensure_tree(outfile)
     unlink(outfile)
-    req = Request(url, method=method, headers=headers)
+    req = Request(request.url, method=request.method, headers=request.headers)
     try:
-        on_progress(0)
+        request.on_progress(0)
         try:
             r = urlopen(req)
         except urllib.error.HTTPError as ex:
-            if ex.status == 401 and on_auth_request:
-                req.auth = on_auth_request(url)
+            if ex.status == 401:
+                req.auth = request.on_auth_request()
+                if not req.auth:
+                    raise
                 r = urlopen(req)
             else:
                 raise
@@ -185,18 +180,58 @@ def _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress=No
             try:
                 total = int(r.headers.get("Content-Length", 0))
             except ValueError:
-                total = 0
+                total = 1
             with open(outfile, "wb") as f:
-                for chunk in iter(lambda: r.read(chunksize), b""):
+                for chunk in iter(lambda: r.read(request.chunksize), b""):
                     f.write(chunk)
                     progress += len(chunk)
-                    on_progress((progress * 100) // total)
-        on_progress(100)
+                    request.on_progress((progress * 100) // total)
+        request.on_progress(100)
     finally:
         LOGGER.debug("urlretrieve: complete")
 
 
-def urlretrieve(url, outfile, method="GET", headers={}, chunksize=32 * 1024, on_progress=None, on_auth_request=None):
+
+def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=None):
+    if url.casefold().startswith("file://".casefold()):
+        with open(file_url_to_path(url), "rb") as f:
+            return f.read()
+
+    request = _Request(url, method=method, headers=headers)
+    request._on_progress = on_progress
+    request._on_auth_request = on_auth_request
+
+    if ENABLE_WINHTTP:
+        try:
+            return _winhttp_urlopen(request)
+        except ImportError:
+            LOGGER.debug("WinHTTP module unavailable - using fallback")
+        except OSError:
+            request.on_progress(None)
+            LOGGER.info("Failed to download using WinHTTP. Retrying with fallback method.")
+            LOGGER.debug("ERROR:", exc_info=True)
+
+    if ENABLE_URLLIB:
+        try:
+            return _urllib_urlopen(request)
+        except ImportError:
+            LOGGER.debug("urllib download unavailable - using fallback")
+        except (AttributeError, TypeError, ValueError):
+            # Blame the caller for these errors and let them bubble out
+            raise
+        except Exception:
+            request.on_progress(None)
+            LOGGER.info("Failed to download using urllib. Retrying with fallback method.")
+            LOGGER.debug("ERROR:", exc_info=True)
+
+    if ENABLE_POWERSHELL:
+        # TODO: Implement PowerShell fallback
+        pass
+
+    raise RuntimeError("Unable to download from the internet")
+
+
+def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_progress=None, on_auth_request=None):
     if url.casefold().startswith("file://".casefold()):
         with open(file_url_to_path(url), "rb") as r:
             with open(outfile, "wb") as f:
@@ -204,24 +239,50 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=32 * 1024, on_
                     f.write(chunk)
         return
 
-    if ENABLE_BITS:
+    request = _Request(url, method=method, headers=headers)
+    request.outfile = Path(outfile)
+    request.chunksize = chunksize
+    request._on_progress = on_progress
+    request._on_auth_request = on_auth_request
+
+    if ENABLE_BITS and method.upper() == "GET":
         try:
-            _bits_urlretrieve
-        except NameError:
-            LOGGER.debug("BITS download unavailable - using fallback")
-        else:
-            if method.casefold() == "GET".casefold():
-                return _bits_urlretrieve(url, outfile, on_progress=on_progress, on_auth_request=on_auth_request)
+            return _bits_urlretrieve(request)
+        except ImportError:
+            LOGGER.debug("BITS module unavailable - using fallback")
+        except OSError:
+            request.on_progress(None)
+            LOGGER.info("Failed to download using BITS. Retrying with fallback method.")
+            LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_WINHTTP:
         try:
-            _winhttp_urlretrieve
-        except NameError:
-            LOGGER.debug("WinHTTP download unavailable - using fallback")
-        else:
-            return _winhttp_urlretrieve(url, outfile, method, headers, chunksize, on_progress, on_auth_request)
+            return _winhttp_urlretrieve(request)
+        except ImportError:
+            LOGGER.debug("WinHTTP module unavailable - using fallback")
+        except OSError:
+            request.on_progress(None)
+            LOGGER.info("Failed to download using WinHTTP. Retrying with fallback method.")
+            LOGGER.debug("ERROR:", exc_info=True)
 
-    return _urllib_urlretrieve(url, outfile, method, headers, chunksize, on_progress, on_auth_request)
+    if ENABLE_URLLIB:
+        try:
+            return _urllib_urlretrieve(request)
+        except ImportError:
+            LOGGER.debug("urllib module unavailable - using fallback")
+        except (AttributeError, TypeError, ValueError):
+            # Blame the caller for these errors and let them bubble out
+            raise
+        except Exception:
+            request.on_progress(None)
+            LOGGER.info("Failed to download using urllib. Retrying with fallback method.")
+            LOGGER.debug("ERROR:", exc_info=True)
+
+    if ENABLE_POWERSHELL:
+        # TODO: Implement PowerShell fallback
+        pass
+
+    raise RuntimeError("Unable to download from the internet")
 
 
 def sanitise_url(url):

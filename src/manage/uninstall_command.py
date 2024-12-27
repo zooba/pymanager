@@ -26,18 +26,23 @@ def execute(cmd):
 
     from .install_command import update_all_shortcuts
 
+    warn_msg = ("Attempting to remove {} is taking longer than expected. " +
+        "Ensure no Python interpreters are running, and continue to wait " +
+        "or press Ctrl+C to abort.")
+
     installed = list(cmd.get_installs())
     if cmd.purge:
         if not cmd.confirm or ask_yn("Uninstall all runtimes?"):
             for i in installed:
                 LOGGER.info("Purging %s from %s", i["displayName"], i["prefix"])
-                rmtree(i["prefix"])
+                unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["displayName"]))
+                rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["displayName"]))
             LOGGER.info("Purging saved downloads")
             for f in cmd.install_dir.iterdir():
-                rmtree(f)
+                rmtree(f, after_5s_warning=warn_msg.format("cached downloads"))
             LOGGER.info("Purging global commands")
             for f in cmd.global_dir.iterdir():
-                rmtree(f)
+                rmtree(f, after_5s_warning=warn_msg.format("global commands"))
 
     for tag in cmd.args:
         company, _, tag = tag.casefold().replace("/", "\\").rpartition("\\")
@@ -46,7 +51,9 @@ def execute(cmd):
             LOGGER.debug("Uninstalling %s from %s", i["displayName"], i["prefix"])
             if cmd.confirm and not ask_yn("Uninstall ", i["displayName"], "?"):
                 break
-            rmtree(i["prefix"])
+            # Remove registration first to avoid stray installs showing up
+            unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["displayName"]))
+            rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["displayName"]))
             LOGGER.info("Removed %s", i["displayName"])
             try:
                 for target in cmd.global_dir.glob("*.__target__"):
@@ -54,10 +61,11 @@ def execute(cmd):
                     entry = target.read_text(encoding="utf-8-sig", errors="strict")
                     if PurePath(entry).match(i["executable"]):
                         LOGGER.debug("Unlink %s", alias)
-                        unlink(alias)
-                        unlink(target)
+                        unlink(alias, after_5s_warning=warn_msg.format(alias))
+                        unlink(target, after_5s_warning=warn_msg.format(target))
             except OSError as ex:
                 LOGGER.warn("Failed to remove alias: %s", ex)
+                LOGGER.debug("TRACEBACK:", exc_info=True)
         else:
             LOGGER.warn("No install found matching '%s'", tag)
 

@@ -202,6 +202,8 @@ run_command(int argc, const wchar_t **argv)
     PyObject *root = NULL;
     PyObject *r = NULL;
 
+    // TODO: Global mutex to avoid parallel operations
+
     args = PyList_New(0);
     if (!args) goto python_fail;
     for (int i = 0; i < argc; ++i) {

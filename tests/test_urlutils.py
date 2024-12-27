@@ -34,42 +34,67 @@ def test_urljoin(url1, url2, to_parent, expect):
         assert expect == UU.urljoin(url1, url2, to_parent=True)
 
 
-def test_urllib_urlretrieve(localserver, tmp_path):
-    dest = tmp_path / "read.txt"
-    progress = []
-    UU._urllib_urlretrieve(localserver + "/128kb", dest, "GET", {}, 1024, progress.append, None)
+@pytest.fixture
+def local_128kb(localserver):
+    req = UU._Request(localserver + "/128kb")
+    req.chunksize = 1024
+    req.progress = []
+    req._on_progress = req.progress.append
+    yield req
+
+
+@pytest.fixture
+def local_1kb(localserver):
+    req = UU._Request(localserver + "/1kb")
+    req.chunksize = 1024
+    req.progress = []
+    req._on_progress = req.progress.append
+    yield req
+
+
+@pytest.fixture
+def local_withauth(localserver):
+    req = UU._Request(localserver + "/withauth")
+    yield req
+
+
+def test_urllib_urlretrieve(local_128kb, tmp_path):
+    local_128kb.outfile = dest = tmp_path / "read.txt"
+    progress = local_128kb.progress
+    UU._urllib_urlretrieve(local_128kb)
     assert dest.is_file()
     assert progress[:1] + progress[-1:] == [0, 100]
     assert sorted(progress) == progress
 
 
-def test_urllib_urlopen(localserver):
-    progress = []
-    data = UU._urllib_urlopen(localserver + "/1kb", "GET", {}, progress.append, None)
+def test_urllib_urlopen(local_1kb):
+    progress = local_1kb.progress
+    data = UU._urllib_urlopen(local_1kb)
     assert data
     assert progress[:1] + progress[-1:] == [0, 100]
     assert sorted(progress) == progress
 
 
-def test_urllib_auth(localserver):
+def test_urllib_auth(local_withauth):
     import base64
     with pytest.raises(Exception) as ex:
-        data = UU._urllib_urlopen(localserver + "/withauth", "GET", {}, None, None)
+        data = UU._urllib_urlopen(local_withauth)
     assert "401" in str(ex)
 
-    auth_header = {"Authorization": "Basic " + base64.b64encode("in header".encode()).decode()}
-    data = UU._urllib_urlopen(localserver + "/withauth", "GET", auth_header, None, None)
+    local_withauth.headers = {"Authorization": "Basic " + base64.b64encode("in header".encode()).decode()}
+    data = UU._urllib_urlopen(local_withauth)
     assert data == b"Basic in header"
+    local_withauth.headers = {}
 
-    auth_callback =  lambda u: ("on", "demand")
-    data = UU._urllib_urlopen(localserver + "/withauth", "GET", {}, None, auth_callback)
+    local_withauth._on_auth_request =  lambda u: ("on", "demand")
+    data = UU._urllib_urlopen(local_withauth)
     assert data == b"Basic on:demand"
 
 
-def test_winhttp_urlretrieve(localserver, tmp_path):
-    dest = tmp_path / "read.txt"
-    progress = []
-    UU._winhttp_urlretrieve(localserver + "/128kb", dest, "GET", {}, 1024, progress.append, None)
+def test_winhttp_urlretrieve(local_128kb, tmp_path):
+    local_128kb.outfile = dest = tmp_path / "read.txt"
+    progress = local_128kb.progress
+    UU._winhttp_urlretrieve(local_128kb)
     assert dest.is_file()
     # progress is _probably_ [0, 100, 100]
     assert progress[:1] + progress[-1:] == [0, 100]
@@ -77,9 +102,9 @@ def test_winhttp_urlretrieve(localserver, tmp_path):
     assert sorted(progress) == progress
 
 
-def test_winhttp_urlopen(localserver):
-    progress = []
-    data = UU._winhttp_urlopen(localserver + "/1kb", "GET", {}, progress.append, None)
+def test_winhttp_urlopen(local_1kb):
+    progress = local_1kb.progress
+    data = UU._winhttp_urlopen(local_1kb)
     assert data
     # progress is _probably_ [0, 100, 100]
     assert progress[:1] + progress[-1:] == [0, 100]
@@ -87,45 +112,46 @@ def test_winhttp_urlopen(localserver):
     assert sorted(progress) == progress
 
 
-def test_winhttp_https(localserver):
-    data = UU._winhttp_urlopen("https://example.com", "GET", {}, None, None)
+def test_winhttp_https():
+    data = UU._winhttp_urlopen(UU._Request("https://example.com"))
     assert data
 
 
-def test_winhttp_auth(localserver):
+def test_winhttp_auth(local_withauth):
     import base64
     with pytest.raises(Exception) as ex:
-        data = UU._winhttp_urlopen(localserver + "/withauth", "GET", {}, None, None)
+        data = UU._winhttp_urlopen(local_withauth)
     assert "401" in str(ex)
 
-    auth_header = {"Authorization": "Basic " + base64.b64encode("in header".encode()).decode()}
-    data = UU._winhttp_urlopen(localserver + "/withauth", "GET", auth_header, None, None)
+    local_withauth.headers = {"Authorization": "Basic " + base64.b64encode("in header".encode()).decode()}
+    data = UU._winhttp_urlopen(local_withauth)
     assert data == b"Basic in header"
+    local_withauth.headers = {}
 
-    creds = {
-        localserver + "/withauth": ("placeholder", "placeholder"),
-    }
-    data = UU._winhttp_urlopen(localserver + "/withauth", "GET", {}, None, creds.__getitem__)
+    creds = {local_withauth.url: ("placeholder", "placeholder")}
+    local_withauth._on_auth_request = creds.__getitem__
+    data = UU._winhttp_urlopen(local_withauth)
     assert data == b"Basic placeholder:placeholder"
 
 
 
-def test_bits_urlretrieve(localserver, tmp_path):
-    dest = tmp_path / "read.txt"
-    progress = []
-    UU._bits_urlretrieve(localserver + "/128kb", dest, progress.append, None)
+def test_bits_urlretrieve(local_128kb, tmp_path):
+    local_128kb.outfile = dest = tmp_path / "read.txt"
+    progress = local_128kb.progress
+    UU._winhttp_urlretrieve(local_128kb)
     assert dest.is_file()
     assert progress[:1] + progress[-1:] == [0, 100]
     assert progress != [0, 100]
     assert sorted(progress) == progress
 
 
-def test_bits_urlretrieve_auth(localserver, tmp_path):
-    dest = tmp_path / "read.txt"
+def test_bits_urlretrieve_auth(local_withauth, tmp_path):
+    local_withauth.outfile = dest = tmp_path / "read.txt"
     creds = {
-        localserver + "/withauth": ("placeholder", "placeholder"),
+        local_withauth.url: ("placeholder", "placeholder"),
     }
-    UU._bits_urlretrieve(localserver + "/withauth", dest, None, creds.__getitem__)
+    local_withauth._on_auth_request = creds.__getitem__
+    UU._bits_urlretrieve(local_withauth)
     assert dest.is_file()
     assert dest.read_bytes() == b"Basic placeholder:placeholder"
 

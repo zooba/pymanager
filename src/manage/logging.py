@@ -40,7 +40,9 @@ class ProgressPrinter:
         if progress is None:
             if self.file and self._need_newline:
                 if not self._complete:
-                    print(file=self.file)
+                    print("⏸️", file=self.file)
+                    self._dots_shown = 0
+                    self._started = False
                     self._need_newline = False
             return
 

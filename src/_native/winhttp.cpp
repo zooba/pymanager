@@ -99,9 +99,15 @@ static void http_error(HINTERNET hRequest) {
     PyMem_Free(reason);
 }
 
+
 static bool request_creds(HINTERNET hRequest, const wchar_t *url, PyObject *on_cred_request) {
     PyObject *result = PyObject_CallFunction(on_cred_request, "u", url);
     if (!result) {
+        return false;
+    }
+    if (!PyObject_IsTrue(result)) {
+        Py_DECREF(result);
+        http_error(hRequest);
         return false;
     }
     // Read new auth from result
@@ -229,7 +235,7 @@ static int free_cracked_url(URL_COMPONENTS *parts) {
 extern "C" {
 
 PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
-    static const char * keywords[] = {"url", "method", "headers", "accepts", "on_progress", "on_cred_request", NULL};
+    static const char * keywords[] = {"url", "method", "headers", "accepts", "chunksize", "on_progress", "on_cred_request", NULL};
     wchar_t *url = NULL;
     wchar_t *method = NULL;
     wchar_t *headers = NULL;
@@ -245,13 +251,14 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
     DWORD opt = 0;
     LPCWSTR *accepts_array;
 
+    Py_ssize_t chunksize = 65536;
     DWORD status_code = 0;
     uint64_t content_length;
     PyObject *chunks = NULL;
     uint64_t content_read = 0;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O&O&O&O&|OO:winhttp_urlopen", keywords,
-        as_utf16, &url, as_utf16, &method, as_utf16, &headers, as_utf16, &accepts, &on_progress, &on_cred_request)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O&O&O&O&|nOO:winhttp_urlopen", keywords,
+        as_utf16, &url, as_utf16, &method, as_utf16, &headers, as_utf16, &accepts, &chunksize, &on_progress, &on_cred_request)) {
         return NULL;
     }
 
@@ -359,12 +366,16 @@ PyObject *winhttp_urlopen(PyObject *, PyObject *args, PyObject *kwargs) {
     chunks = PyList_New(0);
     while (true) {
         DWORD data_len, data_read;
+        // TODO: Check for KeyboardInterrupt and abort
         if (!WinHttpQueryDataAvailable(hRequest, &data_len)) {
             winhttp_error();
             goto exit;
         }
         if (!data_len) {
             break;
+        }
+        if (data_len > chunksize) {
+            data_len = chunksize;
         }
         PyObject *buffer = PyBytes_FromStringAndSize(NULL, data_len);
         if (!buffer) {
