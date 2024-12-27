@@ -324,6 +324,8 @@ class TagRange:
 
 
 def tag_or_range(tag):
+    if not isinstance(tag, str):
+        return tag
     tag = tag.lstrip(" =")
     if not tag:
         return CompanyTag("", "")

@@ -17,6 +17,7 @@ def format_table(installs):
         **i,
         "alias": ", ".join(a["name"] for a in i.get("alias", ())),
         "displayName": f"{i['displayName']} (unmanaged)" if i.get("unmanaged") else i['displayName'],
+        "sort-version": str(i['sort-version']),
     } for i in installs]
 
     if not installs:
@@ -90,7 +91,15 @@ def format_bare_exe(installs):
 
 def format_bare_prefix(installs):
     for i in installs:
-        print(i["prefix"])
+        try:
+            print(i["prefix"])
+        except KeyError:
+            pass
+
+
+def format_bare_url(installs):
+    for i in installs:
+        print(i["url"])
 
 
 def format_legacy(installs, paths=False):
@@ -111,9 +120,35 @@ FORMATTERS = {
     "jsonl": format_json_lines,
     "exe": format_bare_exe,
     "prefix": format_bare_prefix,
+    "url": format_bare_url,
     "legacy": format_legacy,
     "legacy-paths": lambda i: format_legacy(i, paths=True),
 }
+
+
+def _get_installs_from_index(source, filters):
+    from .indexutils import Index
+    from .urlutils import sanitise_url, urljoin, urlopen
+
+    installs = []
+    seen_ids = set()
+
+    url = source
+    while url:
+        index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
+
+        count = 0
+        for i in index.find_all(filters, seen_ids=seen_ids):
+            installs.append(i)
+            count += 1
+        LOGGER.debug("Fetched %i installs from %s", count, sanitise_url(url))
+
+        if index.next_url:
+            url = urljoin(url, index.next_url, to_parent=True)
+        else:
+            url = None
+
+    return installs
 
 
 def execute(cmd):
@@ -126,29 +161,32 @@ def execute(cmd):
         expect = ", ".join(sorted(FORMATTERS))
         raise ArgumentError(f"'{cmd.format}' is not a valid format; expect one of: {expect}") from None
 
-    LOGGER.debug("Reading installs from %s", cmd.install_dir)
-    try:
-        installs = cmd.get_installs(include_unmanaged=cmd.unmanaged)
-    except OSError:
-        LOGGER.debug("Unable to read installs", exc_info=True)
-        installs = []
+    from .tagutils import CompanyTag, tag_or_range
+    tags = [tag_or_range(arg) for arg in cmd.args]
+    if tags:
+        LOGGER.debug("Filtering to following items")
+        for t in tags:
+            LOGGER.debug("* %r", t)
 
-    if not cmd.args:
-        if cmd.one:
-            installs = installs[:1]
-        formatter(installs)
-    else:
-        from .tagutils import CompanyTag, tag_or_range
-        tags = [tag_or_range(arg) for arg in cmd.args]
-        if tags:
-            LOGGER.debug("Filtering to following items")
-            for t in tags:
-                LOGGER.debug("* %r", t)
+    if cmd.source:
+        from .urlutils import sanitise_url
+        LOGGER.debug("Reading potential installs from %s", sanitise_url(cmd.source))
+        filtered = _get_installs_from_index(cmd.source, tags)
+    elif cmd.install_dir:
+        LOGGER.debug("Reading installs from %s", cmd.install_dir)
+        try:
+            installs = cmd.get_installs(include_unmanaged=cmd.unmanaged)
+        except OSError:
+            LOGGER.debug("Unable to read installs", exc_info=True)
+            installs = []
         filtered = [i for i in installs
                     if any(t.satisfied_by(CompanyTag.from_dict(i)) for t in tags)]
-        if cmd.one:
-            filtered = filtered[:1]
-        if filtered:
-            formatter(filtered)
+    else:
+        raise ArgumentError("Configuration file does not specify install directory.")
+
+    if cmd.one:
+        filtered = filtered[:1]
+    if filtered:
+        formatter(filtered)
 
     LOGGER.debug("END list_command.execute")

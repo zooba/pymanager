@@ -175,22 +175,33 @@ class Index:
             len(self.versions),
         )
 
-    def find_to_install(self, tag, *, loose_company=False, prefer_prerelease=False):
-        if not tag:
-            tag = CompanyTag("", "")
-        if isinstance(tag, str):
-            tag = tag_or_range(tag)
+    @classmethod
+    def _one_check(cls, i, f, loose_company):
+        if isinstance(f, TagRange):
+            return f.satisfied_by(CompanyTag(i["company"], i["tag"], loose_company=loose_company))
+        for t in i.get("install-for", [i["tag"]]):
+            if f.satisfied_by(CompanyTag(i["company"], t, loose_company=loose_company)):
+                return True
+        return False
+
+    def find_all(self, tags, *, seen_ids=None, loose_company=False, with_prerelease=False):
+        filters = [tag_or_range(tag) for tag in tags]
         for i in self.versions:
-            if prefer_prerelease or not i["sort-version"].is_prerelease:
-                if isinstance(tag, TagRange):
-                    for_tags = [CompanyTag(i["company"], i["tag"], loose_company=loose_company)]
-                else:
-                    for_tags = [CompanyTag(i["company"], t, loose_company=loose_company)
-                                for t in i.get("install-for", [])]
-                if any(tag.satisfied_by(t) for t in for_tags):
-                    return i
-        if not prefer_prerelease:
-            return self.find_to_install(tag, loose_company=loose_company, prefer_prerelease=True)
+            if seen_ids is not None:
+                if i["id"].casefold() in seen_ids:
+                    continue
+            if with_prerelease or not i["sort-version"].is_prerelease:
+                if not filters or any(self._one_check(i, f, loose_company) for f in filters):
+                    if seen_ids is not None:
+                        seen_ids.add(i["id"].casefold())
+                    yield i
+
+    def find_to_install(self, tag, *, loose_company=False, prefer_prerelease=False):
+        for i in self.find_all([tag], loose_company=loose_company, with_prerelease=prefer_prerelease):
+            return i
         if not loose_company:
             return self.find_to_install(tag, loose_company=True, prefer_prerelease=prefer_prerelease)
+        if not prefer_prerelease:
+            for i in self.find_all([tag], loose_company=loose_company, with_prerelease=True):
+                return i
         raise LookupError(tag)

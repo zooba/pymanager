@@ -26,11 +26,11 @@ NUGET_SOURCE = "https://api.nuget.org/v3/index.json"
 SCHEMA = {
     "python": {
         "schema": 1,
-        "id": "pythoncore-$FULLVERSION$",
+        "id": "pythoncore-$XYVERSION$",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$XYVERSION$",
-        "install-for": ["$FULLVERSION$", "$XYVERSIONNOPRE$"],
+        "tag": "$FULLVERSION$",
+        "install-for": ["$FULLVERSION$", "$XYVERSIONNOPRE$", "$XVERSION$"],
         "run-for": [
             {"tag": "$XYVERSION$", "target": "python.exe"},
             {"tag": "$XVERSION$", "target": "python.exe"}
@@ -84,11 +84,11 @@ SCHEMA = {
     },
     "pythonx86": {
         "schema": 1,
-        "id": "pythoncore-$FULLVERSION$-32",
+        "id": "pythoncore-$XYVERSION$-32",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$XYVERSION$-32",
-        "install-for": ["$FULLVERSION$-32", "$XYVERSIONNOPRE$-32"],
+        "tag": "$FULLVERSION$-32",
+        "install-for": ["$FULLVERSION$-32", "$XYVERSIONNOPRE$-32", "$XVERSION$-32"],
         "run-for": [
             {"tag": "$XYVERSION$-32", "target": "python.exe"},
             {"tag": "$XVERSION$-32", "target": "python.exe"}
@@ -118,6 +118,23 @@ SCHEMA = {
                     },
                 },
             },
+            {
+                "kind": "start",
+                "Name": "Python $XYVERSION$ (32-bit)",
+                "Items": [
+                    {
+                        "Name": "Python $XYVERSION$ (32-bit)",
+                        "Target": "%PREFIX%python.exe",
+                        "Icon": "%PREFIX%python.exe",
+                    },
+                    {
+                        "Name": "Python $XYVERSION$ Documentation",
+                        "Icon": r"%SystemRoot%\System32\SHELL32.dll",
+                        "IconIndex": 13,
+                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                    },
+                ],
+            },
         ],
         "displayName": "Python $FULLVERSION$ (32-bit)",
         "executable": "./python.exe",
@@ -125,11 +142,11 @@ SCHEMA = {
     },
     "pythonarm64": {
         "schema": 1,
-        "id": "pythoncore-$FULLVERSION$-arm64",
+        "id": "pythoncore-$XYVERSION$-arm64",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$XYVERSION$-arm64",
-        "install-for": ["$FULLVERSION$-arm64", "$XYVERSIONNOPRE$-arm64"],
+        "tag": "$FULLVERSION$-arm64",
+        "install-for": ["$FULLVERSION$-arm64", "$XYVERSIONNOPRE$-arm64", "$XVERSION$-arm64"],
         "run-for": [
             {"tag": "$XYVERSION$-arm64", "target": "python.exe"},
             {"tag": "$XVERSION$-arm64", "target": "python.exe"}
@@ -159,6 +176,23 @@ SCHEMA = {
                     },
                 },
             },
+            {
+                "kind": "start",
+                "Name": "Python $XYVERSION$ (ARM64)",
+                "Items": [
+                    {
+                        "Name": "Python $XYVERSION$ (ARM64)",
+                        "Target": "%PREFIX%python.exe",
+                        "Icon": "%PREFIX%python.exe",
+                    },
+                    {
+                        "Name": "Python $XYVERSION$ Documentation",
+                        "Icon": r"%SystemRoot%\System32\SHELL32.dll",
+                        "IconIndex": 13,
+                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                    },
+                ],
+            },
         ],
         "displayName": "Python $FULLVERSION$ (ARM64)",
         "executable": "./python.exe",
@@ -166,11 +200,11 @@ SCHEMA = {
     },
     "python-freethreaded": {
         "schema": 1,
-        "id": "pythoncore-$FULLVERSION$-t",
+        "id": "pythoncore-$XYVERSION$-t",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$XYVERSION$t",
-        "install-for": ["$FULLVERSION$t", "$XYVERSIONNOPRE$t"],
+        "tag": "$FULLVERSION$t",
+        "install-for": ["$FULLVERSION$t", "$XYVERSIONNOPRE$t", "$XVERSION$t"],
         "run-for": [
             {"tag": "$XYVERSION$t", "target": "python.exe"},
             {"tag": "$XVERSION$t", "target": "python.exe"}
@@ -200,6 +234,23 @@ SCHEMA = {
                     },
                 },
             },
+            {
+                "kind": "start",
+                "Name": "Python $XYVERSION$ (free-threaded)",
+                "Items": [
+                    {
+                        "Name": "Python $XYVERSION$ (free-threaded)",
+                        "Target": "%PREFIX%python.exe",
+                        "Icon": "%PREFIX%python.exe",
+                    },
+                    {
+                        "Name": "Python $XYVERSION$ Documentation",
+                        "Icon": r"%SystemRoot%\System32\SHELL32.dll",
+                        "IconIndex": 13,
+                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                    },
+                ],
+            },
         ],
         "displayName": "Python $FULLVERSION$ (free-threaded)",
         "executable": "./python$XYVERSION$t.exe",
@@ -207,11 +258,11 @@ SCHEMA = {
     },
     "pythonx86-freethreaded": {
         "schema": 1,
-        "id": "pythoncore-$FULLVERSION$-32-t",
+        "id": "pythoncore-$XYVERSION$-32-t",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$XYVERSION$t-32",
-        "install-for": ["$FULLVERSION$t-32", "$XYVERSIONNOPRE$t-32"],
+        "tag": "$FULLVERSION$t-32",
+        "install-for": ["$FULLVERSION$t-32", "$XYVERSIONNOPRE$t-32", "$XVERSION$t-32"],
         "run-for": [
             {"tag": "$XYVERSION$t-32", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XVERSION$t-32", "target": "python$XYVERSION$t.exe"}
@@ -241,6 +292,23 @@ SCHEMA = {
                     },
                 },
             },
+            {
+                "kind": "start",
+                "Name": "Python $XYVERSION$ (32-bit, free-threaded)",
+                "Items": [
+                    {
+                        "Name": "Python $XYVERSION$ (32-bit, free-threaded)",
+                        "Target": "%PREFIX%python.exe",
+                        "Icon": "%PREFIX%python.exe",
+                    },
+                    {
+                        "Name": "Python $XYVERSION$ Documentation",
+                        "Icon": r"%SystemRoot%\System32\SHELL32.dll",
+                        "IconIndex": 13,
+                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                    },
+                ],
+            },
         ],
         "displayName": "Python $FULLVERSION$ (32-bit, free-threaded)",
         "executable": "./python$XYVERSION$t.exe",
@@ -248,11 +316,11 @@ SCHEMA = {
     },
     "pythonarm64-freethreaded": {
         "schema": 1,
-        "id": "pythoncore-$FULLVERSION$-arm64-t",
+        "id": "pythoncore-$XYVERSION$-arm64-t",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$XYVERSION$t-arm64",
-        "install-for": ["$FULLVERSION$t-arm64", "$XYVERSIONNOPRE$t-arm64"],
+        "tag": "$FULLVERSION$t-arm64",
+        "install-for": ["$FULLVERSION$t-arm64", "$XYVERSIONNOPRE$t-arm64", "$XVERSION$t-arm64"],
         "run-for": [
             {"tag": "$XYVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XVERSION$t-arm64", "target": "python$XYVERSION$t.exe"}
@@ -281,6 +349,23 @@ SCHEMA = {
                         "": "https://docs.python.org/$XYVERSIONNOPRE$/"
                     },
                 },
+            },
+            {
+                "kind": "start",
+                "Name": "Python $XYVERSION$ (ARM64, free-threaded)",
+                "Items": [
+                    {
+                        "Name": "Python $XYVERSION$ (ARM64, free-threaded)",
+                        "Target": "%PREFIX%python.exe",
+                        "Icon": "%PREFIX%python.exe",
+                    },
+                    {
+                        "Name": "Python $XYVERSION$ Documentation",
+                        "Icon": r"%SystemRoot%\System32\SHELL32.dll",
+                        "IconIndex": 13,
+                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                    },
+                ],
             },
         ],
         "displayName": "Python $FULLVERSION$ (ARM64, free-threaded)",

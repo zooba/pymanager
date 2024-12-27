@@ -87,6 +87,9 @@ CLI_SCHEMA = {
         "1": ("one", True),
         "u": ("unmanaged", True),
         "unmanaged": ("unmanaged", True),
+        "s": ("source", _NEXT),
+        "source": ("source", _NEXT),
+        "online": ("default_source", True),
     },
 
     "install": {
@@ -246,7 +249,7 @@ class BaseCommand:
         # Update log_level from config if the config file requested more output
         # than the command line did.
         new_log_level = config.get("log_level")
-        if new_log_level is not None and new_log_level < self.log_level:
+        if new_log_level is not None and not LOGGER.isEnabledFor(new_log_level):
             self.log_level = new_log_level
             LOGGER.setLevel(self.log_level)
 
@@ -341,6 +344,9 @@ List options:
                      Specify output formatting (list.format=...)
     -1, --one        Only display first result
     -u, --unmanaged  Also list Python installs from other sources
+    --online         List runtimes available to install from the default index
+    -s, --source=<URL>
+                     List runtimes from a particular index
     <TAG>            Filter results (Company\Tag or constraint format)
 
 EXAMPLE: List all installed runtimes
@@ -351,14 +357,23 @@ EXAMPLE: Display executable of default runtime
 
 EXAMPLE: Show JSON details for all installs since 3.10
 > python list -f=jsonl --unmanaged >=3.10
+
+EXAMPLE: Find 3.12 runtimes available for install
+> python list --online 3.12
 """
 
     format = "table"
     one = False
     unmanaged = False
+    source = None
+    default_source = False
 
     def execute(self):
         from .list_command import execute
+        if self.default_source:
+            LOGGER.debug("Loading 'install' command to get source")
+            inst_cmd = COMMANDS["install"](["install"], self.root)
+            self.source = inst_cmd.source
         execute(self)
 
 

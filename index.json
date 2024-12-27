@@ -2,12 +2,13 @@
   "versions": [
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a3",
+      "id": "pythoncore-3.14",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14",
+      "tag": "3.14.0a3",
       "install-for": [
-        "3.14.0a3"
+        "3.14.0a3",
+        "3"
       ],
       "run-for": [
         {
@@ -82,12 +83,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a2",
+      "id": "pythoncore-3.14",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14",
+      "tag": "3.14.0a2",
       "install-for": [
-        "3.14.0a2"
+        "3.14.0a2",
+        "3"
       ],
       "run-for": [
         {
@@ -162,12 +164,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a1",
+      "id": "pythoncore-3.14",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14",
+      "tag": "3.14.0a1",
       "install-for": [
-        "3.14.0a1"
+        "3.14.0a1",
+        "3"
       ],
       "run-for": [
         {
@@ -242,13 +245,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.1",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.1",
       "install-for": [
         "3.13.1",
-        "3.13"
+        "3.13",
+        "3"
       ],
       "run-for": [
         {
@@ -323,13 +327,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0",
       "install-for": [
         "3.13.0",
-        "3.13"
+        "3.13",
+        "3"
       ],
       "run-for": [
         {
@@ -404,12 +409,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc3",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0rc3",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0rc3",
       "install-for": [
-        "3.13.0rc3"
+        "3.13.0rc3",
+        "3"
       ],
       "run-for": [
         {
@@ -484,12 +490,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc2",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0rc2",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0rc2",
       "install-for": [
-        "3.13.0rc2"
+        "3.13.0rc2",
+        "3"
       ],
       "run-for": [
         {
@@ -564,12 +571,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc1",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0rc1",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0rc1",
       "install-for": [
-        "3.13.0rc1"
+        "3.13.0rc1",
+        "3"
       ],
       "run-for": [
         {
@@ -644,12 +652,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b4",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0b4",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0b4",
       "install-for": [
-        "3.13.0b4"
+        "3.13.0b4",
+        "3"
       ],
       "run-for": [
         {
@@ -724,12 +733,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b3",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0b3",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0b3",
       "install-for": [
-        "3.13.0b3"
+        "3.13.0b3",
+        "3"
       ],
       "run-for": [
         {
@@ -804,12 +814,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b2",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0b2",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0b2",
       "install-for": [
-        "3.13.0b2"
+        "3.13.0b2",
+        "3"
       ],
       "run-for": [
         {
@@ -884,12 +895,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b1",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0b1",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0b1",
       "install-for": [
-        "3.13.0b1"
+        "3.13.0b1",
+        "3"
       ],
       "run-for": [
         {
@@ -964,12 +976,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a6",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0a6",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0a6",
       "install-for": [
-        "3.13.0a6"
+        "3.13.0a6",
+        "3"
       ],
       "run-for": [
         {
@@ -1044,12 +1057,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a5",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0a5",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0a5",
       "install-for": [
-        "3.13.0a5"
+        "3.13.0a5",
+        "3"
       ],
       "run-for": [
         {
@@ -1124,12 +1138,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a4",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0a4",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0a4",
       "install-for": [
-        "3.13.0a4"
+        "3.13.0a4",
+        "3"
       ],
       "run-for": [
         {
@@ -1204,12 +1219,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a3",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0a3",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0a3",
       "install-for": [
-        "3.13.0a3"
+        "3.13.0a3",
+        "3"
       ],
       "run-for": [
         {
@@ -1284,12 +1300,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a2",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0a2",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0a2",
       "install-for": [
-        "3.13.0a2"
+        "3.13.0a2",
+        "3"
       ],
       "run-for": [
         {
@@ -1364,12 +1381,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a1",
+      "id": "pythoncore-3.13",
       "sort-version": "3.13.0a1",
       "company": "PythonCore",
-      "tag": "3.13",
+      "tag": "3.13.0a1",
       "install-for": [
-        "3.13.0a1"
+        "3.13.0a1",
+        "3"
       ],
       "run-for": [
         {
@@ -1444,13 +1462,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.8",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.8",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.8",
       "install-for": [
         "3.12.8",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -1525,13 +1544,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.7",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.7",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.7",
       "install-for": [
         "3.12.7",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -1606,13 +1626,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.6",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.6",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.6",
       "install-for": [
         "3.12.6",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -1687,13 +1708,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.5",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.5",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.5",
       "install-for": [
         "3.12.5",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -1768,13 +1790,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.4",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.4",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.4",
       "install-for": [
         "3.12.4",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -1849,13 +1872,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.3",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.3",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.3",
       "install-for": [
         "3.12.3",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -1930,13 +1954,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.2",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.2",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.2",
       "install-for": [
         "3.12.2",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -2011,13 +2036,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.1",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.1",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.1",
       "install-for": [
         "3.12.1",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -2092,13 +2118,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0",
       "install-for": [
         "3.12.0",
-        "3.12"
+        "3.12",
+        "3"
       ],
       "run-for": [
         {
@@ -2173,12 +2200,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc3",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0rc3",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0rc3",
       "install-for": [
-        "3.12.0rc3"
+        "3.12.0rc3",
+        "3"
       ],
       "run-for": [
         {
@@ -2253,12 +2281,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc2",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0rc2",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0rc2",
       "install-for": [
-        "3.12.0rc2"
+        "3.12.0rc2",
+        "3"
       ],
       "run-for": [
         {
@@ -2333,12 +2362,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc1",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0rc1",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0rc1",
       "install-for": [
-        "3.12.0rc1"
+        "3.12.0rc1",
+        "3"
       ],
       "run-for": [
         {
@@ -2413,12 +2443,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b4",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0b4",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0b4",
       "install-for": [
-        "3.12.0b4"
+        "3.12.0b4",
+        "3"
       ],
       "run-for": [
         {
@@ -2493,12 +2524,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b3",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0b3",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0b3",
       "install-for": [
-        "3.12.0b3"
+        "3.12.0b3",
+        "3"
       ],
       "run-for": [
         {
@@ -2573,12 +2605,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b2",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0b2",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0b2",
       "install-for": [
-        "3.12.0b2"
+        "3.12.0b2",
+        "3"
       ],
       "run-for": [
         {
@@ -2653,12 +2686,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b1",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0b1",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0b1",
       "install-for": [
-        "3.12.0b1"
+        "3.12.0b1",
+        "3"
       ],
       "run-for": [
         {
@@ -2733,12 +2767,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a7",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0a7",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0a7",
       "install-for": [
-        "3.12.0a7"
+        "3.12.0a7",
+        "3"
       ],
       "run-for": [
         {
@@ -2813,12 +2848,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a6",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0a6",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0a6",
       "install-for": [
-        "3.12.0a6"
+        "3.12.0a6",
+        "3"
       ],
       "run-for": [
         {
@@ -2893,12 +2929,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a5",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0a5",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0a5",
       "install-for": [
-        "3.12.0a5"
+        "3.12.0a5",
+        "3"
       ],
       "run-for": [
         {
@@ -2973,12 +3010,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a4",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0a4",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0a4",
       "install-for": [
-        "3.12.0a4"
+        "3.12.0a4",
+        "3"
       ],
       "run-for": [
         {
@@ -3053,12 +3091,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a3",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0a3",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0a3",
       "install-for": [
-        "3.12.0a3"
+        "3.12.0a3",
+        "3"
       ],
       "run-for": [
         {
@@ -3133,12 +3172,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a2",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0a2",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0a2",
       "install-for": [
-        "3.12.0a2"
+        "3.12.0a2",
+        "3"
       ],
       "run-for": [
         {
@@ -3213,12 +3253,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a1",
+      "id": "pythoncore-3.12",
       "sort-version": "3.12.0a1",
       "company": "PythonCore",
-      "tag": "3.12",
+      "tag": "3.12.0a1",
       "install-for": [
-        "3.12.0a1"
+        "3.12.0a1",
+        "3"
       ],
       "run-for": [
         {
@@ -3293,12 +3334,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a3-32",
+      "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14-32",
+      "tag": "3.14.0a3-32",
       "install-for": [
-        "3.14.0a3-32"
+        "3.14.0a3-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3348,6 +3390,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a3 (32-bit)",
@@ -3356,12 +3415,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a2-32",
+      "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14-32",
+      "tag": "3.14.0a2-32",
       "install-for": [
-        "3.14.0a2-32"
+        "3.14.0a2-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3411,6 +3471,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a2 (32-bit)",
@@ -3419,12 +3496,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a1-32",
+      "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14-32",
+      "tag": "3.14.0a1-32",
       "install-for": [
-        "3.14.0a1-32"
+        "3.14.0a1-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3474,6 +3552,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a1 (32-bit)",
@@ -3482,13 +3577,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.1-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.1-32",
       "install-for": [
         "3.13.1-32",
-        "3.13-32"
+        "3.13-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3538,6 +3634,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.1 (32-bit)",
@@ -3546,13 +3659,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0-32",
       "install-for": [
         "3.13.0-32",
-        "3.13-32"
+        "3.13-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3602,6 +3716,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0 (32-bit)",
@@ -3610,12 +3741,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc3-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0rc3",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0rc3-32",
       "install-for": [
-        "3.13.0rc3-32"
+        "3.13.0rc3-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3665,6 +3797,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc3 (32-bit)",
@@ -3673,12 +3822,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc2-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0rc2",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0rc2-32",
       "install-for": [
-        "3.13.0rc2-32"
+        "3.13.0rc2-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3728,6 +3878,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc2 (32-bit)",
@@ -3736,12 +3903,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc1-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0rc1",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0rc1-32",
       "install-for": [
-        "3.13.0rc1-32"
+        "3.13.0rc1-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3791,6 +3959,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc1 (32-bit)",
@@ -3799,12 +3984,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b4-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0b4",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0b4-32",
       "install-for": [
-        "3.13.0b4-32"
+        "3.13.0b4-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3854,6 +4040,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b4 (32-bit)",
@@ -3862,12 +4065,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b3-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0b3",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0b3-32",
       "install-for": [
-        "3.13.0b3-32"
+        "3.13.0b3-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3917,6 +4121,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b3 (32-bit)",
@@ -3925,12 +4146,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b2-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0b2",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0b2-32",
       "install-for": [
-        "3.13.0b2-32"
+        "3.13.0b2-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -3980,6 +4202,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b2 (32-bit)",
@@ -3988,12 +4227,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b1-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0b1",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0b1-32",
       "install-for": [
-        "3.13.0b1-32"
+        "3.13.0b1-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4043,6 +4283,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b1 (32-bit)",
@@ -4051,12 +4308,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a6-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0a6",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0a6-32",
       "install-for": [
-        "3.13.0a6-32"
+        "3.13.0a6-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4106,6 +4364,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a6 (32-bit)",
@@ -4114,12 +4389,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a5-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0a5",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0a5-32",
       "install-for": [
-        "3.13.0a5-32"
+        "3.13.0a5-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4169,6 +4445,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a5 (32-bit)",
@@ -4177,12 +4470,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a4-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0a4",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0a4-32",
       "install-for": [
-        "3.13.0a4-32"
+        "3.13.0a4-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4232,6 +4526,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a4 (32-bit)",
@@ -4240,12 +4551,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a3-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0a3",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0a3-32",
       "install-for": [
-        "3.13.0a3-32"
+        "3.13.0a3-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4295,6 +4607,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a3 (32-bit)",
@@ -4303,12 +4632,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a2-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0a2",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0a2-32",
       "install-for": [
-        "3.13.0a2-32"
+        "3.13.0a2-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4358,6 +4688,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a2 (32-bit)",
@@ -4366,12 +4713,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a1-32",
+      "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0a1",
       "company": "PythonCore",
-      "tag": "3.13-32",
+      "tag": "3.13.0a1-32",
       "install-for": [
-        "3.13.0a1-32"
+        "3.13.0a1-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4421,6 +4769,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a1 (32-bit)",
@@ -4429,13 +4794,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.8-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.8",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.8-32",
       "install-for": [
         "3.12.8-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4485,6 +4851,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.8 (32-bit)",
@@ -4493,13 +4876,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.7-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.7",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.7-32",
       "install-for": [
         "3.12.7-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4549,6 +4933,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.7 (32-bit)",
@@ -4557,13 +4958,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.6-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.6",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.6-32",
       "install-for": [
         "3.12.6-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4613,6 +5015,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.6 (32-bit)",
@@ -4621,13 +5040,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.5-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.5",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.5-32",
       "install-for": [
         "3.12.5-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4677,6 +5097,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.5 (32-bit)",
@@ -4685,13 +5122,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.4-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.4",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.4-32",
       "install-for": [
         "3.12.4-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4741,6 +5179,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.4 (32-bit)",
@@ -4749,13 +5204,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.3-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.3",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.3-32",
       "install-for": [
         "3.12.3-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4805,6 +5261,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.3 (32-bit)",
@@ -4813,13 +5286,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.2-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.2",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.2-32",
       "install-for": [
         "3.12.2-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4869,6 +5343,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.2 (32-bit)",
@@ -4877,13 +5368,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.1-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.1",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.1-32",
       "install-for": [
         "3.12.1-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4933,6 +5425,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.1 (32-bit)",
@@ -4941,13 +5450,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0-32",
       "install-for": [
         "3.12.0-32",
-        "3.12-32"
+        "3.12-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -4997,6 +5507,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0 (32-bit)",
@@ -5005,12 +5532,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc3-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0rc3",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0rc3-32",
       "install-for": [
-        "3.12.0rc3-32"
+        "3.12.0rc3-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5060,6 +5588,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc3 (32-bit)",
@@ -5068,12 +5613,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc2-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0rc2",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0rc2-32",
       "install-for": [
-        "3.12.0rc2-32"
+        "3.12.0rc2-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5123,6 +5669,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc2 (32-bit)",
@@ -5131,12 +5694,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc1-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0rc1",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0rc1-32",
       "install-for": [
-        "3.12.0rc1-32"
+        "3.12.0rc1-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5186,6 +5750,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc1 (32-bit)",
@@ -5194,12 +5775,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b4-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0b4",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0b4-32",
       "install-for": [
-        "3.12.0b4-32"
+        "3.12.0b4-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5249,6 +5831,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b4 (32-bit)",
@@ -5257,12 +5856,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b3-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0b3",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0b3-32",
       "install-for": [
-        "3.12.0b3-32"
+        "3.12.0b3-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5312,6 +5912,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b3 (32-bit)",
@@ -5320,12 +5937,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b2-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0b2",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0b2-32",
       "install-for": [
-        "3.12.0b2-32"
+        "3.12.0b2-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5375,6 +5993,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b2 (32-bit)",
@@ -5383,12 +6018,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b1-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0b1",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0b1-32",
       "install-for": [
-        "3.12.0b1-32"
+        "3.12.0b1-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5438,6 +6074,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b1 (32-bit)",
@@ -5446,12 +6099,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a7-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0a7",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0a7-32",
       "install-for": [
-        "3.12.0a7-32"
+        "3.12.0a7-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5501,6 +6155,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a7 (32-bit)",
@@ -5509,12 +6180,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a6-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0a6",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0a6-32",
       "install-for": [
-        "3.12.0a6-32"
+        "3.12.0a6-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5564,6 +6236,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a6 (32-bit)",
@@ -5572,12 +6261,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a5-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0a5",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0a5-32",
       "install-for": [
-        "3.12.0a5-32"
+        "3.12.0a5-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5627,6 +6317,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a5 (32-bit)",
@@ -5635,12 +6342,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a4-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0a4",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0a4-32",
       "install-for": [
-        "3.12.0a4-32"
+        "3.12.0a4-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5690,6 +6398,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a4 (32-bit)",
@@ -5698,12 +6423,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a3-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0a3",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0a3-32",
       "install-for": [
-        "3.12.0a3-32"
+        "3.12.0a3-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5753,6 +6479,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a3 (32-bit)",
@@ -5761,12 +6504,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a2-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0a2",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0a2-32",
       "install-for": [
-        "3.12.0a2-32"
+        "3.12.0a2-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5816,6 +6560,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a2 (32-bit)",
@@ -5824,12 +6585,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a1-32",
+      "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0a1",
       "company": "PythonCore",
-      "tag": "3.12-32",
+      "tag": "3.12.0a1-32",
       "install-for": [
-        "3.12.0a1-32"
+        "3.12.0a1-32",
+        "3-32"
       ],
       "run-for": [
         {
@@ -5879,6 +6641,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a1 (32-bit)",
@@ -5887,12 +6666,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a3-arm64",
+      "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14-arm64",
+      "tag": "3.14.0a3-arm64",
       "install-for": [
-        "3.14.0a3-arm64"
+        "3.14.0a3-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -5942,6 +6722,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a3 (ARM64)",
@@ -5950,12 +6747,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a2-arm64",
+      "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14-arm64",
+      "tag": "3.14.0a2-arm64",
       "install-for": [
-        "3.14.0a2-arm64"
+        "3.14.0a2-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6005,6 +6803,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a2 (ARM64)",
@@ -6013,12 +6828,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a1-arm64",
+      "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14-arm64",
+      "tag": "3.14.0a1-arm64",
       "install-for": [
-        "3.14.0a1-arm64"
+        "3.14.0a1-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6068,6 +6884,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a1 (ARM64)",
@@ -6076,13 +6909,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.1-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.1-arm64",
       "install-for": [
         "3.13.1-arm64",
-        "3.13-arm64"
+        "3.13-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6132,6 +6966,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.1 (ARM64)",
@@ -6140,13 +6991,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0-arm64",
       "install-for": [
         "3.13.0-arm64",
-        "3.13-arm64"
+        "3.13-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6196,6 +7048,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0 (ARM64)",
@@ -6204,12 +7073,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc3-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0rc3",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0rc3-arm64",
       "install-for": [
-        "3.13.0rc3-arm64"
+        "3.13.0rc3-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6259,6 +7129,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc3 (ARM64)",
@@ -6267,12 +7154,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc2-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0rc2",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0rc2-arm64",
       "install-for": [
-        "3.13.0rc2-arm64"
+        "3.13.0rc2-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6322,6 +7210,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc2 (ARM64)",
@@ -6330,12 +7235,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc1-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0rc1",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0rc1-arm64",
       "install-for": [
-        "3.13.0rc1-arm64"
+        "3.13.0rc1-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6385,6 +7291,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc1 (ARM64)",
@@ -6393,12 +7316,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b4-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0b4",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0b4-arm64",
       "install-for": [
-        "3.13.0b4-arm64"
+        "3.13.0b4-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6448,6 +7372,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b4 (ARM64)",
@@ -6456,12 +7397,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b3-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0b3",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0b3-arm64",
       "install-for": [
-        "3.13.0b3-arm64"
+        "3.13.0b3-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6511,6 +7453,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b3 (ARM64)",
@@ -6519,12 +7478,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b2-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0b2",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0b2-arm64",
       "install-for": [
-        "3.13.0b2-arm64"
+        "3.13.0b2-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6574,6 +7534,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b2 (ARM64)",
@@ -6582,12 +7559,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b1-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0b1",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0b1-arm64",
       "install-for": [
-        "3.13.0b1-arm64"
+        "3.13.0b1-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6637,6 +7615,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b1 (ARM64)",
@@ -6645,12 +7640,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a6-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0a6",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0a6-arm64",
       "install-for": [
-        "3.13.0a6-arm64"
+        "3.13.0a6-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6700,6 +7696,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a6 (ARM64)",
@@ -6708,12 +7721,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a5-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0a5",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0a5-arm64",
       "install-for": [
-        "3.13.0a5-arm64"
+        "3.13.0a5-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6763,6 +7777,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a5 (ARM64)",
@@ -6771,12 +7802,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a4-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0a4",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0a4-arm64",
       "install-for": [
-        "3.13.0a4-arm64"
+        "3.13.0a4-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6826,6 +7858,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a4 (ARM64)",
@@ -6834,12 +7883,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a3-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0a3",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0a3-arm64",
       "install-for": [
-        "3.13.0a3-arm64"
+        "3.13.0a3-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6889,6 +7939,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a3 (ARM64)",
@@ -6897,12 +7964,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a2-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0a2",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0a2-arm64",
       "install-for": [
-        "3.13.0a2-arm64"
+        "3.13.0a2-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -6952,6 +8020,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a2 (ARM64)",
@@ -6960,12 +8045,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a1-arm64",
+      "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0a1",
       "company": "PythonCore",
-      "tag": "3.13-arm64",
+      "tag": "3.13.0a1-arm64",
       "install-for": [
-        "3.13.0a1-arm64"
+        "3.13.0a1-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7015,6 +8101,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a1 (ARM64)",
@@ -7023,13 +8126,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.8-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.8",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.8-arm64",
       "install-for": [
         "3.12.8-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7079,6 +8183,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.8 (ARM64)",
@@ -7087,13 +8208,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.7-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.7",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.7-arm64",
       "install-for": [
         "3.12.7-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7143,6 +8265,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.7 (ARM64)",
@@ -7151,13 +8290,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.6-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.6",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.6-arm64",
       "install-for": [
         "3.12.6-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7207,6 +8347,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.6 (ARM64)",
@@ -7215,13 +8372,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.5-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.5",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.5-arm64",
       "install-for": [
         "3.12.5-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7271,6 +8429,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.5 (ARM64)",
@@ -7279,13 +8454,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.4-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.4",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.4-arm64",
       "install-for": [
         "3.12.4-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7335,6 +8511,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.4 (ARM64)",
@@ -7343,13 +8536,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.3-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.3",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.3-arm64",
       "install-for": [
         "3.12.3-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7399,6 +8593,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.3 (ARM64)",
@@ -7407,13 +8618,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.2-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.2",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.2-arm64",
       "install-for": [
         "3.12.2-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7463,6 +8675,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.2 (ARM64)",
@@ -7471,13 +8700,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.1-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.1",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.1-arm64",
       "install-for": [
         "3.12.1-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7527,6 +8757,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.1 (ARM64)",
@@ -7535,13 +8782,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0-arm64",
       "install-for": [
         "3.12.0-arm64",
-        "3.12-arm64"
+        "3.12-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7591,6 +8839,23 @@
               "": "https://docs.python.org/3.12/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0 (ARM64)",
@@ -7599,12 +8864,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc3-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0rc3",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0rc3-arm64",
       "install-for": [
-        "3.12.0rc3-arm64"
+        "3.12.0rc3-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7654,6 +8920,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc3 (ARM64)",
@@ -7662,12 +8945,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc2-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0rc2",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0rc2-arm64",
       "install-for": [
-        "3.12.0rc2-arm64"
+        "3.12.0rc2-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7717,6 +9001,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc2 (ARM64)",
@@ -7725,12 +9026,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0rc1-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0rc1",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0rc1-arm64",
       "install-for": [
-        "3.12.0rc1-arm64"
+        "3.12.0rc1-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7780,6 +9082,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0rc1 (ARM64)",
@@ -7788,12 +9107,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b4-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0b4",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0b4-arm64",
       "install-for": [
-        "3.12.0b4-arm64"
+        "3.12.0b4-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7843,6 +9163,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b4 (ARM64)",
@@ -7851,12 +9188,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b3-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0b3",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0b3-arm64",
       "install-for": [
-        "3.12.0b3-arm64"
+        "3.12.0b3-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7906,6 +9244,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b3 (ARM64)",
@@ -7914,12 +9269,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b2-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0b2",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0b2-arm64",
       "install-for": [
-        "3.12.0b2-arm64"
+        "3.12.0b2-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -7969,6 +9325,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b2 (ARM64)",
@@ -7977,12 +9350,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0b1-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0b1",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0b1-arm64",
       "install-for": [
-        "3.12.0b1-arm64"
+        "3.12.0b1-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8032,6 +9406,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0b1 (ARM64)",
@@ -8040,12 +9431,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a7-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0a7",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0a7-arm64",
       "install-for": [
-        "3.12.0a7-arm64"
+        "3.12.0a7-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8095,6 +9487,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a7 (ARM64)",
@@ -8103,12 +9512,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a6-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0a6",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0a6-arm64",
       "install-for": [
-        "3.12.0a6-arm64"
+        "3.12.0a6-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8158,6 +9568,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a6 (ARM64)",
@@ -8166,12 +9593,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a5-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0a5",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0a5-arm64",
       "install-for": [
-        "3.12.0a5-arm64"
+        "3.12.0a5-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8221,6 +9649,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a5 (ARM64)",
@@ -8229,12 +9674,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a4-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0a4",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0a4-arm64",
       "install-for": [
-        "3.12.0a4-arm64"
+        "3.12.0a4-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8284,6 +9730,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a4 (ARM64)",
@@ -8292,12 +9755,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a3-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0a3",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0a3-arm64",
       "install-for": [
-        "3.12.0a3-arm64"
+        "3.12.0a3-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8347,6 +9811,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a3 (ARM64)",
@@ -8355,12 +9836,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a2-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0a2",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0a2-arm64",
       "install-for": [
-        "3.12.0a2-arm64"
+        "3.12.0a2-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8410,6 +9892,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a2 (ARM64)",
@@ -8418,12 +9917,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12.0a1-arm64",
+      "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0a1",
       "company": "PythonCore",
-      "tag": "3.12-arm64",
+      "tag": "3.12.0a1-arm64",
       "install-for": [
-        "3.12.0a1-arm64"
+        "3.12.0a1-arm64",
+        "3-arm64"
       ],
       "run-for": [
         {
@@ -8473,6 +9973,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.12.0a1 (ARM64)",
@@ -8481,12 +9998,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a3-t",
+      "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14t",
+      "tag": "3.14.0a3t",
       "install-for": [
-        "3.14.0a3t"
+        "3.14.0a3t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8536,6 +10054,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a3 (free-threaded)",
@@ -8544,12 +10079,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a2-t",
+      "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14t",
+      "tag": "3.14.0a2t",
       "install-for": [
-        "3.14.0a2t"
+        "3.14.0a2t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8599,6 +10135,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a2 (free-threaded)",
@@ -8607,12 +10160,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a1-t",
+      "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14t",
+      "tag": "3.14.0a1t",
       "install-for": [
-        "3.14.0a1t"
+        "3.14.0a1t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8662,6 +10216,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a1 (free-threaded)",
@@ -8670,13 +10241,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.1-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.1t",
       "install-for": [
         "3.13.1t",
-        "3.13t"
+        "3.13t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8726,6 +10298,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.1 (free-threaded)",
@@ -8734,13 +10323,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0t",
       "install-for": [
         "3.13.0t",
-        "3.13t"
+        "3.13t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8790,6 +10380,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0 (free-threaded)",
@@ -8798,12 +10405,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc3-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0rc3",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0rc3t",
       "install-for": [
-        "3.13.0rc3t"
+        "3.13.0rc3t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8853,6 +10461,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc3 (free-threaded)",
@@ -8861,12 +10486,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc2-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0rc2",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0rc2t",
       "install-for": [
-        "3.13.0rc2t"
+        "3.13.0rc2t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8916,6 +10542,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc2 (free-threaded)",
@@ -8924,12 +10567,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc1-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0rc1",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0rc1t",
       "install-for": [
-        "3.13.0rc1t"
+        "3.13.0rc1t",
+        "3t"
       ],
       "run-for": [
         {
@@ -8979,6 +10623,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc1 (free-threaded)",
@@ -8987,12 +10648,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b4-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0b4",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0b4t",
       "install-for": [
-        "3.13.0b4t"
+        "3.13.0b4t",
+        "3t"
       ],
       "run-for": [
         {
@@ -9042,6 +10704,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b4 (free-threaded)",
@@ -9050,12 +10729,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b3-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0b3",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0b3t",
       "install-for": [
-        "3.13.0b3t"
+        "3.13.0b3t",
+        "3t"
       ],
       "run-for": [
         {
@@ -9105,6 +10785,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b3 (free-threaded)",
@@ -9113,12 +10810,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b2-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0b2",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0b2t",
       "install-for": [
-        "3.13.0b2t"
+        "3.13.0b2t",
+        "3t"
       ],
       "run-for": [
         {
@@ -9168,6 +10866,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b2 (free-threaded)",
@@ -9176,12 +10891,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b1-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0b1",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0b1t",
       "install-for": [
-        "3.13.0b1t"
+        "3.13.0b1t",
+        "3t"
       ],
       "run-for": [
         {
@@ -9231,6 +10947,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b1 (free-threaded)",
@@ -9239,12 +10972,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a6-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0a6",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0a6t",
       "install-for": [
-        "3.13.0a6t"
+        "3.13.0a6t",
+        "3t"
       ],
       "run-for": [
         {
@@ -9294,6 +11028,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a6 (free-threaded)",
@@ -9302,12 +11053,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a5-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0a5",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0a5t",
       "install-for": [
-        "3.13.0a5t"
+        "3.13.0a5t",
+        "3t"
       ],
       "run-for": [
         {
@@ -9357,6 +11109,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a5 (free-threaded)",
@@ -9365,12 +11134,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a4-t",
+      "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0a4",
       "company": "PythonCore",
-      "tag": "3.13t",
+      "tag": "3.13.0a4t",
       "install-for": [
-        "3.13.0a4t"
+        "3.13.0a4t",
+        "3t"
       ],
       "run-for": [
         {
@@ -9420,6 +11190,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a4 (free-threaded)",
@@ -9428,12 +11215,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a3-32-t",
+      "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14t-32",
+      "tag": "3.14.0a3t-32",
       "install-for": [
-        "3.14.0a3t-32"
+        "3.14.0a3t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9483,6 +11271,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a3 (32-bit, free-threaded)",
@@ -9491,12 +11296,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a2-32-t",
+      "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14t-32",
+      "tag": "3.14.0a2t-32",
       "install-for": [
-        "3.14.0a2t-32"
+        "3.14.0a2t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9546,6 +11352,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a2 (32-bit, free-threaded)",
@@ -9554,12 +11377,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a1-32-t",
+      "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14t-32",
+      "tag": "3.14.0a1t-32",
       "install-for": [
-        "3.14.0a1t-32"
+        "3.14.0a1t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9609,6 +11433,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a1 (32-bit, free-threaded)",
@@ -9617,13 +11458,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.1-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.1t-32",
       "install-for": [
         "3.13.1t-32",
-        "3.13t-32"
+        "3.13t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9673,6 +11515,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.1 (32-bit, free-threaded)",
@@ -9681,13 +11540,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0t-32",
       "install-for": [
         "3.13.0t-32",
-        "3.13t-32"
+        "3.13t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9737,6 +11597,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0 (32-bit, free-threaded)",
@@ -9745,12 +11622,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc3-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0rc3",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0rc3t-32",
       "install-for": [
-        "3.13.0rc3t-32"
+        "3.13.0rc3t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9800,6 +11678,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc3 (32-bit, free-threaded)",
@@ -9808,12 +11703,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc2-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0rc2",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0rc2t-32",
       "install-for": [
-        "3.13.0rc2t-32"
+        "3.13.0rc2t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9863,6 +11759,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc2 (32-bit, free-threaded)",
@@ -9871,12 +11784,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc1-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0rc1",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0rc1t-32",
       "install-for": [
-        "3.13.0rc1t-32"
+        "3.13.0rc1t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9926,6 +11840,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc1 (32-bit, free-threaded)",
@@ -9934,12 +11865,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b4-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0b4",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0b4t-32",
       "install-for": [
-        "3.13.0b4t-32"
+        "3.13.0b4t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -9989,6 +11921,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b4 (32-bit, free-threaded)",
@@ -9997,12 +11946,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b3-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0b3",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0b3t-32",
       "install-for": [
-        "3.13.0b3t-32"
+        "3.13.0b3t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -10052,6 +12002,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b3 (32-bit, free-threaded)",
@@ -10060,12 +12027,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b2-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0b2",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0b2t-32",
       "install-for": [
-        "3.13.0b2t-32"
+        "3.13.0b2t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -10115,6 +12083,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b2 (32-bit, free-threaded)",
@@ -10123,12 +12108,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b1-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0b1",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0b1t-32",
       "install-for": [
-        "3.13.0b1t-32"
+        "3.13.0b1t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -10178,6 +12164,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b1 (32-bit, free-threaded)",
@@ -10186,12 +12189,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a6-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0a6",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0a6t-32",
       "install-for": [
-        "3.13.0a6t-32"
+        "3.13.0a6t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -10241,6 +12245,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a6 (32-bit, free-threaded)",
@@ -10249,12 +12270,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a5-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0a5",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0a5t-32",
       "install-for": [
-        "3.13.0a5t-32"
+        "3.13.0a5t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -10304,6 +12326,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a5 (32-bit, free-threaded)",
@@ -10312,12 +12351,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a4-32-t",
+      "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0a4",
       "company": "PythonCore",
-      "tag": "3.13t-32",
+      "tag": "3.13.0a4t-32",
       "install-for": [
-        "3.13.0a4t-32"
+        "3.13.0a4t-32",
+        "3t-32"
       ],
       "run-for": [
         {
@@ -10367,6 +12407,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a4 (32-bit, free-threaded)",
@@ -10375,12 +12432,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a3-arm64-t",
+      "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14t-arm64",
+      "tag": "3.14.0a3t-arm64",
       "install-for": [
-        "3.14.0a3t-arm64"
+        "3.14.0a3t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10430,6 +12488,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a3 (ARM64, free-threaded)",
@@ -10438,12 +12513,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a2-arm64-t",
+      "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14t-arm64",
+      "tag": "3.14.0a2t-arm64",
       "install-for": [
-        "3.14.0a2t-arm64"
+        "3.14.0a2t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10493,6 +12569,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a2 (ARM64, free-threaded)",
@@ -10501,12 +12594,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14.0a1-arm64-t",
+      "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14t-arm64",
+      "tag": "3.14.0a1t-arm64",
       "install-for": [
-        "3.14.0a1t-arm64"
+        "3.14.0a1t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10556,6 +12650,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.14.0a1 (ARM64, free-threaded)",
@@ -10564,13 +12675,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.1-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.1t-arm64",
       "install-for": [
         "3.13.1t-arm64",
-        "3.13t-arm64"
+        "3.13t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10620,6 +12732,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.1 (ARM64, free-threaded)",
@@ -10628,13 +12757,14 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0t-arm64",
       "install-for": [
         "3.13.0t-arm64",
-        "3.13t-arm64"
+        "3.13t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10684,6 +12814,23 @@
               "": "https://docs.python.org/3.13/"
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0 (ARM64, free-threaded)",
@@ -10692,12 +12839,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc3-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0rc3",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0rc3t-arm64",
       "install-for": [
-        "3.13.0rc3t-arm64"
+        "3.13.0rc3t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10747,6 +12895,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc3 (ARM64, free-threaded)",
@@ -10755,12 +12920,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc2-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0rc2",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0rc2t-arm64",
       "install-for": [
-        "3.13.0rc2t-arm64"
+        "3.13.0rc2t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10810,6 +12976,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc2 (ARM64, free-threaded)",
@@ -10818,12 +13001,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0rc1-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0rc1",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0rc1t-arm64",
       "install-for": [
-        "3.13.0rc1t-arm64"
+        "3.13.0rc1t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10873,6 +13057,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0rc1 (ARM64, free-threaded)",
@@ -10881,12 +13082,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b4-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0b4",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0b4t-arm64",
       "install-for": [
-        "3.13.0b4t-arm64"
+        "3.13.0b4t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10936,6 +13138,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b4 (ARM64, free-threaded)",
@@ -10944,12 +13163,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b3-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0b3",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0b3t-arm64",
       "install-for": [
-        "3.13.0b3t-arm64"
+        "3.13.0b3t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -10999,6 +13219,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b3 (ARM64, free-threaded)",
@@ -11007,12 +13244,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b2-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0b2",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0b2t-arm64",
       "install-for": [
-        "3.13.0b2t-arm64"
+        "3.13.0b2t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -11062,6 +13300,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b2 (ARM64, free-threaded)",
@@ -11070,12 +13325,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0b1-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0b1",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0b1t-arm64",
       "install-for": [
-        "3.13.0b1t-arm64"
+        "3.13.0b1t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -11125,6 +13381,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0b1 (ARM64, free-threaded)",
@@ -11133,12 +13406,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a6-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0a6",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0a6t-arm64",
       "install-for": [
-        "3.13.0a6t-arm64"
+        "3.13.0a6t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -11188,6 +13462,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a6 (ARM64, free-threaded)",
@@ -11196,12 +13487,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a5-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0a5",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0a5t-arm64",
       "install-for": [
-        "3.13.0a5t-arm64"
+        "3.13.0a5t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -11251,6 +13543,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a5 (ARM64, free-threaded)",
@@ -11259,12 +13568,13 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13.0a4-arm64-t",
+      "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0a4",
       "company": "PythonCore",
-      "tag": "3.13t-arm64",
+      "tag": "3.13.0a4t-arm64",
       "install-for": [
-        "3.13.0a4t-arm64"
+        "3.13.0a4t-arm64",
+        "3t-arm64"
       ],
       "run-for": [
         {
@@ -11314,6 +13624,23 @@
               "": null
             }
           }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": null
+            }
+          ]
         }
       ],
       "displayName": "Python 3.13.0a4 (ARM64, free-threaded)",

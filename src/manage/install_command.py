@@ -43,7 +43,7 @@ def _expand_versions_by_tag(versions):
                 yield {**v, "tag": t}
 
 
-def download_package(cmd, tag, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
+def select_package(cmd, tag, cache, *, urlopen=_urlopen):
     """Finds suitable package from index.json that looks like:
     {"versions": [
       {"id": ..., "company": ..., "tag": ..., "url": ..., "hash": {"sha256": hexdigest}},
@@ -66,24 +66,20 @@ def download_package(cmd, tag, cache, *, on_progress=None, urlopen=_urlopen, url
             cache[url] = index
 
         try:
-            install = index.find_to_install(tag)
-            break
+            return index.find_to_install(tag)
         except LookupError:
             if not index.next_url:
                 raise
             url = urljoin(url, index.next_url, to_parent=True)
-            
-    LOGGER.info("Installing %s", install["displayName"])
 
-    dest = cmd.download_dir / f"{install['id']}.zip"
+    assert False, "unreachable code"
+    raise RuntimeError("End of select_package reached")
 
+
+def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
     # Preserve nupkg extensions so we can directly reference Nuget packages
     if install["url"].casefold().endswith(".nupkg".casefold()):
         dest = dest.with_suffix(".nupkg")
-
-    if cmd.dry_run:
-        LOGGER.info("Download skipped because of --dry-run")
-        return dest, install
 
     if not cmd.force and dest.is_file():
         LOGGER.info("Download was found in the cache")
@@ -103,7 +99,6 @@ def download_package(cmd, tag, cache, *, on_progress=None, urlopen=_urlopen, url
             unlink(dest, "Deleting downloaded files is taking some time. " +
                          "Please continue to wait, or press Ctrl+C to abort.")
             raise HashMismatchError() from ex
-    return dest, install
 
 
 def extract_package(package, prefix, calculate_dest=Path, *, on_progress=None):
@@ -312,8 +307,19 @@ def execute(cmd):
                     LOGGER.info("%s is already installed", already_installed[0]["displayName"])
                     continue
 
+        install = select_package(cmd, tag, download_cache)
+
+        if cmd.dry_run:
+            LOGGER.info("Selected to install %s (tag %s\\%s)",
+                install['displayName'], install['company'], install['tag']
+            )
+            LOGGER.debug("Skipping rest of install due to --dry-run")
+            continue
+
+        package = cmd.download_dir / f"{install['id']}.zip"
+
         with ProgressPrinter("Downloading", maxwidth=console_width) as on_progress:
-            package, install = download_package(cmd, tag, download_cache, on_progress=on_progress)
+            download_package(cmd, install, package, download_cache, on_progress=on_progress)
 
         dest = target or (cmd.install_dir / install["id"])
 
@@ -333,20 +339,18 @@ def execute(cmd):
             skip_shortcuts = True
             break
 
-        if cmd.dry_run:
-            LOGGER.info("Extract skipped because of --dry-run")
-        else:
-            with ProgressPrinter("Installing", maxwidth=console_width) as on_progress:
-                extract_package(package, dest, on_progress=on_progress)
-            LOGGER.debug("Write __install__.json to %s", dest)
-            with open(dest / "__install__.json", "w", encoding="utf-8") as f:
-                json.dump({
-                    **install,
-                    "url": sanitise_url(install["url"]),
-                    "source": sanitise_url(cmd.source),
-                }, f, default=str)
+        with ProgressPrinter("Installing", maxwidth=console_width) as on_progress:
+            extract_package(package, dest, on_progress=on_progress)
 
-            LOGGER.debug("Install complete")
+        LOGGER.debug("Write __install__.json to %s", dest)
+        with open(dest / "__install__.json", "w", encoding="utf-8") as f:
+            json.dump({
+                **install,
+                "url": sanitise_url(install["url"]),
+                "source": sanitise_url(cmd.source),
+            }, f, default=str)
+
+        LOGGER.debug("Install complete")
 
     if not skip_shortcuts:
         if cmd.global_dir and cmd.launcher_exe and not cmd.target:
