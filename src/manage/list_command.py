@@ -161,7 +161,7 @@ def execute(cmd):
         expect = ", ".join(sorted(FORMATTERS))
         raise ArgumentError(f"'{cmd.format}' is not a valid format; expect one of: {expect}") from None
 
-    from .tagutils import CompanyTag, tag_or_range
+    from .tagutils import CompanyTag, tag_or_range, install_matches_any
     tags = [tag_or_range(arg) for arg in cmd.args]
     if tags:
         LOGGER.debug("Filtering to following items")
@@ -171,7 +171,7 @@ def execute(cmd):
     if cmd.source:
         from .urlutils import sanitise_url
         LOGGER.debug("Reading potential installs from %s", sanitise_url(cmd.source))
-        filtered = _get_installs_from_index(cmd.source, tags)
+        installs = _get_installs_from_index(cmd.source, tags)
     elif cmd.install_dir:
         LOGGER.debug("Reading installs from %s", cmd.install_dir)
         try:
@@ -179,14 +179,13 @@ def execute(cmd):
         except OSError:
             LOGGER.debug("Unable to read installs", exc_info=True)
             installs = []
-        filtered = [i for i in installs
-                    if any(t.satisfied_by(CompanyTag.from_dict(i)) for t in tags)]
+        installs = [i for i in installs if install_matches_any(i, tags)]
     else:
         raise ArgumentError("Configuration file does not specify install directory.")
 
     if cmd.one:
-        filtered = filtered[:1]
-    if filtered:
-        formatter(filtered)
+        installs = installs[:1]
+    if installs:
+        formatter(installs)
 
     LOGGER.debug("END list_command.execute")

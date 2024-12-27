@@ -202,7 +202,37 @@ run_command(int argc, const wchar_t **argv)
     PyObject *root = NULL;
     PyObject *r = NULL;
 
-    // TODO: Global mutex to avoid parallel operations
+    HANDLE hGlobalSem = CreateSemaphoreExW(NULL, 0, 1,
+        L"PyManager-OperationInProgress", 0, SEMAPHORE_MODIFY_STATE | SYNCHRONIZE);
+    if (!hGlobalSem) {
+        return GetLastError();
+    } else if (GetLastError() == ERROR_ALREADY_EXISTS) {
+        DWORD waitTime = 3000;
+        DWORD res = WAIT_IO_COMPLETION;
+        while (res == WAIT_IO_COMPLETION) {
+            res = WaitForSingleObjectEx(hGlobalSem, waitTime, TRUE);
+            switch (res) {
+            case WAIT_OBJECT_0:
+            case WAIT_ABANDONED:
+                break;
+            case WAIT_TIMEOUT:
+                if (waitTime != INFINITE) {
+                    fprintf(stderr, "Waiting for other operations to complete. . .\n");
+                    waitTime = INFINITE;
+                    res = WAIT_IO_COMPLETION;
+                } else {
+                    exitCode = WAIT_TIMEOUT;
+                }
+                break;
+            case WAIT_FAILED:
+                exitCode = GetLastError();
+                break;
+            default:
+                res = WAIT_IO_COMPLETION;
+                break;
+            }
+        }
+    }
 
     args = PyList_New(0);
     if (!args) goto python_fail;
@@ -225,6 +255,8 @@ run_command(int argc, const wchar_t **argv)
 python_fail:
     PyErr_Print();
 done:
+    ReleaseSemaphore(hGlobalSem, 1, NULL);
+    CloseHandle(hGlobalSem);
     Py_XDECREF(r);
     Py_XDECREF(root);
     Py_XDECREF(args);

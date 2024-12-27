@@ -1,6 +1,6 @@
 from .exceptions import InvalidFeedError
 from .logging import LOGGER
-from .tagutils import CompanyTag, TagRange, tag_or_range
+from .tagutils import CompanyTag, TagRange, tag_or_range, install_matches_any
 from .verutils import Version
 
 SCHEMA = {
@@ -175,15 +175,6 @@ class Index:
             len(self.versions),
         )
 
-    @classmethod
-    def _one_check(cls, i, f, loose_company):
-        if isinstance(f, TagRange):
-            return f.satisfied_by(CompanyTag(i["company"], i["tag"], loose_company=loose_company))
-        for t in i.get("install-for", [i["tag"]]):
-            if f.satisfied_by(CompanyTag(i["company"], t, loose_company=loose_company)):
-                return True
-        return False
-
     def find_all(self, tags, *, seen_ids=None, loose_company=False, with_prerelease=False):
         filters = [tag_or_range(tag) for tag in tags]
         for i in self.versions:
@@ -191,7 +182,7 @@ class Index:
                 if i["id"].casefold() in seen_ids:
                     continue
             if with_prerelease or not i["sort-version"].is_prerelease:
-                if not filters or any(self._one_check(i, f, loose_company) for f in filters):
+                if not filters or install_matches_any(i, filters, loose_company=loose_company):
                     if seen_ids is not None:
                         seen_ids.add(i["id"].casefold())
                     yield i

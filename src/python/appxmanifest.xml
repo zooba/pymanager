@@ -82,6 +82,8 @@
                             <uap:FileType ContentType="application/x-python-pyd">.pyd</uap:FileType>
                         </uap:SupportedFileTypes>
                     </uap:FileTypeAssociation>
+                </uap:Extension>
+                <uap:Extension Category="windows.fileTypeAssociation">
                     <uap:FileTypeAssociation Name="pyz">
                         <uap:DisplayName>Python Application</uap:DisplayName>
                         <uap:InfoTip>Python Application</uap:InfoTip>
@@ -124,6 +126,8 @@
                             <uap:FileType ContentType="text/x-python">.pyw</uap:FileType>
                         </uap:SupportedFileTypes>
                     </uap:FileTypeAssociation>
+                </uap:Extension>
+                <uap:Extension Category="windows.fileTypeAssociation">
                     <uap:FileTypeAssociation Name="pyzw">
                         <uap:DisplayName>Python Application (Windowed)</uap:DisplayName>
                         <uap:InfoTip>Python Application (Windowed)</uap:InfoTip>

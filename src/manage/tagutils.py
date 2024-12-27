@@ -332,3 +332,23 @@ def tag_or_range(tag):
     if tag[:1] in "<>!":
         return TagRange(tag)
     return CompanyTag(tag)
+
+
+def install_matches_any(install, tags_or_ranges, *, loose_company=False):
+    if not tags_or_ranges:
+        return True
+
+    own_tag = CompanyTag(install["company"], install["tag"], loose_company=loose_company)
+    install_tags = [CompanyTag(install["company"], t, loose_company=loose_company)
+                    for t in install.get("install-for", ())]
+    if not install_tags:
+        install_tags.append(own_tag)
+
+    for f in tags_or_ranges:
+        if isinstance(f, TagRange):
+            if f.satisfied_by(own_tag):
+                return True
+        else:
+            if any(f.satisfied_by(t) for t in install_tags):
+                return True
+    return False
