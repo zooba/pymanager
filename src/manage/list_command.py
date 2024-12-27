@@ -16,14 +16,8 @@ def format_table(installs):
     installs = [{
         **i,
         "alias": ", ".join(a["name"] for a in i.get("alias", ())),
-        "displayName": f"{i['displayName']} (unmanaged)" if i.get("unmanaged") else i['displayName'],
         "sort-version": str(i['sort-version']),
     } for i in installs]
-
-    if not installs:
-        print("No installs. Run 'python install <version>' to install one " +
-              "or 'python list --unmanaged' to include other Python installs.")
-        return
 
     cwidth = {k: len(v) for k, v in columns.items()}
     for i in installs:
@@ -35,13 +29,30 @@ def format_table(installs):
     for c in columns:
         print(columns[c].ljust(cwidth[c]), end="  ", flush=False)
     print()
+    any_shown = False
     for i in installs:
-        for c in columns:
-            v = i.get(c, "")
-            if c == "company" and v == "PythonCore":
-                v = "CPython"
-            print(v.ljust(cwidth[c]), end="  ", flush=False)
-        print()
+        if not i.get("unmanaged"):
+            for c in columns:
+                v = i.get(c, "")
+                if c == "company" and v == "PythonCore":
+                    v = "CPython"
+                print(v.ljust(cwidth[c]), end="  ", flush=False)
+            print()
+            any_shown=True
+    if not any_shown:
+        print("-- No runtimes. Use 'python install <version>' to install one. --")
+    shown_header = False
+    for i in installs:
+        if i.get("unmanaged"):
+            if not shown_header:
+                print()
+                print("* These runtimes may be run, but cannot be updated or uninstalled. *")
+                shown_header = True
+            for c in columns:
+                v = i.get(c, "")
+                print(v.ljust(cwidth[c]), end="  ", flush=False)
+            print()
+
 
 CSV_EXCLUDE = {
     "schema", "unmanaged",

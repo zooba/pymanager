@@ -85,8 +85,7 @@ CLI_SCHEMA = {
         "format": ("format", _NEXT),
         "one": ("one", True),
         "1": ("one", True),
-        "u": ("unmanaged", True),
-        "unmanaged": ("unmanaged", True),
+        "only-managed": ("unmanaged", False),
         "s": ("source", _NEXT),
         "source": ("source", _NEXT),
         "online": ("default_source", True),
@@ -138,6 +137,7 @@ CONFIG_SCHEMA = {
 
     "list": {
         "format": (str, None, "env"),
+        "unmanaged": (config_bool, None, "env"),
     },
 
     "install": {
@@ -343,10 +343,10 @@ List options:
     -f, --format=<table,json,jsonl,exe,prefix>
                      Specify output formatting (list.format=...)
     -1, --one        Only display first result
-    -u, --unmanaged  Also list Python installs from other sources
     --online         List runtimes available to install from the default index
     -s, --source=<URL>
                      List runtimes from a particular index
+    --only-managed   Only list Python installs managed by the tool
     <TAG>            Filter results (Company\Tag or constraint format)
 
 EXAMPLE: List all installed runtimes
@@ -356,7 +356,7 @@ EXAMPLE: Display executable of default runtime
 > python list --one -f=exe
 
 EXAMPLE: Show JSON details for all installs since 3.10
-> python list -f=jsonl --unmanaged >=3.10
+> python list -f=jsonl >=3.10
 
 EXAMPLE: Find 3.12 runtimes available for install
 > python list --online 3.12
@@ -364,7 +364,7 @@ EXAMPLE: Find 3.12 runtimes available for install
 
     format = "table"
     one = False
-    unmanaged = False
+    unmanaged = True
     source = None
     default_source = False
 

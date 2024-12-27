@@ -103,7 +103,7 @@ OUT = get_output_info()
 rmtree(OUT["build"])
 rmtree(OUT["out"])
 run([sys.executable, "-m", "pymsbuild"])
-run([sys.executable, "scripts/generate-nuget-index.py", OUT["out"] / "manage/index.json"])
+run([sys.executable, "scripts/generate-nuget-index.py", OUT["out"] / "index.json"])
 
 run([MAKEPRI, "new", "/o",
               "/pr", OUT["out"],
