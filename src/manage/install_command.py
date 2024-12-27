@@ -174,7 +174,7 @@ def _create_shortcut_pep514(cmd, install, shortcut):
 
 def _cleanup_shortcut_pep514(cmd, install_shortcut_pairs):
     from .pep514utils import cleanup_registry
-    cleanup_registry(cmd.pep514_root, {(i["company"], i["tag"]) for i, s in install_shortcut_pairs})
+    cleanup_registry(cmd.pep514_root, {s["Key"] for i, s in install_shortcut_pairs})
 
 
 def _create_start_shortcut(cmd, install, shortcut):
@@ -205,6 +205,10 @@ def update_all_shortcuts(cmd, path_warning=True):
             alias_written.add(a["name"].casefold())
 
         for s in i.get("shortcuts", ()):
+            if cmd.enable_shortcut_kinds and s["kind"] not in cmd.enable_shortcut_kinds:
+                continue
+            if cmd.disable_shortcut_kinds and s["kind"] in cmd.disable_shortcut_kinds:
+                continue
             try:
                 create, cleanup = SHORTCUT_HANDLERS[s["kind"]]
             except LookupError:
@@ -255,7 +259,7 @@ def print_cli_shortcuts(cmd, tags):
 def execute(cmd):
     LOGGER.debug("BEGIN install_command.execute: %r", cmd.args)
 
-    # TODO: Consider reading the current value
+    # TODO: Consider reading the current console width
     # Though there's a solid argument we should just pick one and stick with it
     console_width = 79
 
@@ -300,6 +304,7 @@ def execute(cmd):
             if not cmd.force and installed:
                 already_installed = [i for i in installed if tag.satisfied_by(CompanyTag.from_dict(i))]
                 if already_installed:
+                    # TODO: Implement install --update
                     LOGGER.info("%s is already installed", already_installed[0]["displayName"])
                     continue
 
@@ -340,6 +345,14 @@ def execute(cmd):
 
         with ProgressPrinter("Installing", maxwidth=console_width) as on_progress:
             extract_package(package, dest, on_progress=on_progress)
+
+        if "shortcuts" in install:
+            if cmd.enable_shortcut_kinds:
+                install["shortcuts"] = [s for s in install["shortcuts"]
+                                        if s["kind"] in cmd.enable_shortcut_kinds]
+            if cmd.disable_shortcut_kinds:
+                install["shortcuts"] = [s for s in install["shortcuts"]
+                                        if s["kind"] not in cmd.disable_shortcut_kinds]
 
         LOGGER.debug("Write __install__.json to %s", dest)
         with open(dest / "__install__.json", "w", encoding="utf-8") as f:

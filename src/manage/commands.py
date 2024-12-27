@@ -99,6 +99,8 @@ CLI_SCHEMA = {
         "f": ("force", True),
         "force": ("force", True),
         "dry-run": ("dry_run", True),
+        "enable-shortcut-kinds": ("enable_shortcut_kinds", _NEXT),
+        "disable-shortcut-kinds": ("disable_shortcut_kinds", _NEXT),
         # Set when the manager is doing an automatic install.
         # Generally won't be set by manual invocation
         "automatic": ("automatic", True),
@@ -142,6 +144,8 @@ CONFIG_SCHEMA = {
 
     "install": {
         "source": (str, None, "env", "path", "uri"),
+        "enable_shortcut_kinds": (str, config_append),
+        "disable_shortcut_kinds": (str, config_append),
     },
 }
 
@@ -435,6 +439,8 @@ EXAMPLE: Refresh and replace all shortcuts
     refresh = False
     automatic = False
     from_script = None
+    enable_shortcut_kinds = None
+    disable_shortcut_kinds = None
 
     def __init__(self, args, root=None):
         super().__init__(args, root)
@@ -451,6 +457,16 @@ EXAMPLE: Refresh and replace all shortcuts
             except Exception as ex:
                 print(ex)
                 raise
+        if self.enable_shortcut_kinds:
+            import re
+            if isinstance(self.enable_shortcut_kinds, str):
+                self.enable_shortcut_kinds = [self.enable_shortcut_kinds]
+            self.enable_shortcut_kinds = re.split("[;:|,+]", ";".join(self.enable_shortcut_kinds))
+        if self.disable_shortcut_kinds:
+            import re
+            if isinstance(self.disable_shortcut_kinds, str):
+                self.disable_shortcut_kinds = [self.disable_shortcut_kinds]
+            self.disable_shortcut_kinds = re.split("[;:|,+]", ";".join(self.disable_shortcut_kinds))
 
     def execute(self):
         from .install_command import execute
@@ -474,6 +490,10 @@ EXAMPLE: Uninstall all runtimes without confirmation
 
     confirm = True
     purge = False
+
+    # Not settable, but are checked by update_all_shortcuts() so we need them.
+    enable_shortcut_kinds = None
+    disable_shortcut_kinds = None
 
     def execute(self):
         from .uninstall_command import execute

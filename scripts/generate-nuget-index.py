@@ -30,7 +30,7 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$",
-        "install-for": ["$FULLVERSION$", "$XYVERSIONNOPRE$", "$XVERSION$"],
+        "install-for": ["$FULLVERSION$", "$XYVERSIONNOPRE$", "$XVERSIONNOPRE$"],
         "run-for": [
             {"tag": "$XYVERSION$", "target": "python.exe"},
             {"tag": "$XVERSION$", "target": "python.exe"}
@@ -44,10 +44,11 @@ SCHEMA = {
         "shortcuts": [
             {
                 "kind": "pep514",
+                "Key": r"PythonCore\$XYVERSION$",
                 "DisplayName": "Python $FULLVERSION$",
                 "SupportUrl": "https://www.python.org/",
                 "SysArchitecture": "64bit",
-                "SysVersion": "$XYVERSIONNOPRE$",
+                "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
                     "": "%PREFIX%",
@@ -56,7 +57,7 @@ SCHEMA = {
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                        "": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -73,7 +74,7 @@ SCHEMA = {
                         "Name": "Python $XYVERSION$ Documentation",
                         "Icon": r"%SystemRoot%\System32\SHELL32.dll",
                         "IconIndex": 13,
-                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                        "Target": "https://docs.python.org/$XYVERSION$/",
                     },
                 ],
             },
@@ -88,7 +89,7 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$-32",
-        "install-for": ["$FULLVERSION$-32", "$XYVERSIONNOPRE$-32", "$XVERSION$-32"],
+        "install-for": ["$FULLVERSION$-32", "$XYVERSIONNOPRE$-32", "$XVERSIONNOPRE$-32"],
         "run-for": [
             {"tag": "$XYVERSION$-32", "target": "python.exe"},
             {"tag": "$XVERSION$-32", "target": "python.exe"}
@@ -102,10 +103,11 @@ SCHEMA = {
         "shortcuts": [
             {
                 "kind": "pep514",
+                "Key": r"PythonCore\$XYVERSION$-32",
                 "DisplayName": "Python $FULLVERSION$ (32-bit)",
                 "SupportUrl": "https://www.python.org/",
                 "SysArchitecture": "32bit",
-                "SysVersion": "$XYVERSIONNOPRE$",
+                "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
                     "": "%PREFIX%",
@@ -114,7 +116,7 @@ SCHEMA = {
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                        "": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -131,7 +133,7 @@ SCHEMA = {
                         "Name": "Python $XYVERSION$ Documentation",
                         "Icon": r"%SystemRoot%\System32\SHELL32.dll",
                         "IconIndex": 13,
-                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                        "Target": "https://docs.python.org/$XYVERSION$/",
                     },
                 ],
             },
@@ -146,7 +148,7 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$-arm64",
-        "install-for": ["$FULLVERSION$-arm64", "$XYVERSIONNOPRE$-arm64", "$XVERSION$-arm64"],
+        "install-for": ["$FULLVERSION$-arm64", "$XYVERSIONNOPRE$-arm64", "$XVERSIONNOPRE$-arm64"],
         "run-for": [
             {"tag": "$XYVERSION$-arm64", "target": "python.exe"},
             {"tag": "$XVERSION$-arm64", "target": "python.exe"}
@@ -160,10 +162,11 @@ SCHEMA = {
         "shortcuts": [
             {
                 "kind": "pep514",
+                "Key": r"PythonCore\$XYVERSION$-arm64",
                 "DisplayName": "Python $FULLVERSION$ (ARM64)",
                 "SupportUrl": "https://www.python.org/",
                 "SysArchitecture": "64bit",
-                "SysVersion": "$XYVERSIONNOPRE$",
+                "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
                     "": "%PREFIX%",
@@ -172,7 +175,7 @@ SCHEMA = {
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                        "": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -189,7 +192,7 @@ SCHEMA = {
                         "Name": "Python $XYVERSION$ Documentation",
                         "Icon": r"%SystemRoot%\System32\SHELL32.dll",
                         "IconIndex": 13,
-                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                        "Target": "https://docs.python.org/$XYVERSION$/",
                     },
                 ],
             },
@@ -204,7 +207,7 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$t",
-        "install-for": ["$FULLVERSION$t", "$XYVERSIONNOPRE$t", "$XVERSION$t"],
+        "install-for": ["$FULLVERSION$t", "$XYVERSIONNOPRE$t", "$XVERSIONNOPRE$t"],
         "run-for": [
             {"tag": "$XYVERSION$t", "target": "python.exe"},
             {"tag": "$XVERSION$t", "target": "python.exe"}
@@ -218,10 +221,11 @@ SCHEMA = {
         "shortcuts": [
             {
                 "kind": "pep514",
+                "Key": r"PythonCoreFreeThreaded\$XYVERSION$",
                 "DisplayName": "Python $FULLVERSION$ (free-threaded)",
                 "SupportUrl": "https://www.python.org/",
                 "SysArchitecture": "64bit",
-                "SysVersion": "$XYVERSIONNOPRE$",
+                "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
                     "": "%PREFIX%",
@@ -230,7 +234,7 @@ SCHEMA = {
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                        "": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -247,7 +251,7 @@ SCHEMA = {
                         "Name": "Python $XYVERSION$ Documentation",
                         "Icon": r"%SystemRoot%\System32\SHELL32.dll",
                         "IconIndex": 13,
-                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                        "Target": "https://docs.python.org/$XYVERSION$/",
                     },
                 ],
             },
@@ -262,7 +266,7 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$t-32",
-        "install-for": ["$FULLVERSION$t-32", "$XYVERSIONNOPRE$t-32", "$XVERSION$t-32"],
+        "install-for": ["$FULLVERSION$t-32", "$XYVERSIONNOPRE$t-32", "$XVERSIONNOPRE$t-32"],
         "run-for": [
             {"tag": "$XYVERSION$t-32", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XVERSION$t-32", "target": "python$XYVERSION$t.exe"}
@@ -276,10 +280,11 @@ SCHEMA = {
         "shortcuts": [
             {
                 "kind": "pep514",
+                "Key": r"PythonCoreFreeThreaded\$XYVERSION$-32",
                 "DisplayName": "Python $FULLVERSION$ (32-bit, free-threaded)",
                 "SupportUrl": "https://www.python.org/",
                 "SysArchitecture": "32bit",
-                "SysVersion": "$XYVERSIONNOPRE$",
+                "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
                     "": "%PREFIX%",
@@ -288,7 +293,7 @@ SCHEMA = {
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                        "": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -305,7 +310,7 @@ SCHEMA = {
                         "Name": "Python $XYVERSION$ Documentation",
                         "Icon": r"%SystemRoot%\System32\SHELL32.dll",
                         "IconIndex": 13,
-                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                        "Target": "https://docs.python.org/$XYVERSION$/",
                     },
                 ],
             },
@@ -320,7 +325,7 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$t-arm64",
-        "install-for": ["$FULLVERSION$t-arm64", "$XYVERSIONNOPRE$t-arm64", "$XVERSION$t-arm64"],
+        "install-for": ["$FULLVERSION$t-arm64", "$XYVERSIONNOPRE$t-arm64", "$XVERSIONNOPRE$t-arm64"],
         "run-for": [
             {"tag": "$XYVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XVERSION$t-arm64", "target": "python$XYVERSION$t.exe"}
@@ -334,10 +339,11 @@ SCHEMA = {
         "shortcuts": [
             {
                 "kind": "pep514",
+                "Key": r"PythonCoreFreeThreaded\$XYVERSION$-arm64",
                 "DisplayName": "Python $FULLVERSION$ (ARM64, free-threaded)",
                 "SupportUrl": "https://www.python.org/",
                 "SysArchitecture": "64bit",
-                "SysVersion": "$XYVERSIONNOPRE$",
+                "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
                     "": "%PREFIX%",
@@ -346,7 +352,7 @@ SCHEMA = {
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSIONNOPRE$/"
+                        "": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -363,7 +369,7 @@ SCHEMA = {
                         "Name": "Python $XYVERSION$ Documentation",
                         "Icon": r"%SystemRoot%\System32\SHELL32.dll",
                         "IconIndex": 13,
-                        "Target": "https://docs.python.org/$XYVERSIONNOPRE$/",
+                        "Target": "https://docs.python.org/$XYVERSION$/",
                     },
                 ],
             },
@@ -412,6 +418,7 @@ for name, schema in SCHEMA.items():
             "XYVERSION": v.to_python_style(2, False),
             "XYVERSIONNOPRE": None if v.is_prerelease else v.to_python_style(2, False),
             "XVERSION": v.to_python_style(1, False),
+            "XVERSIONNOPRE": None if v.is_prerelease else v.to_python_style(1, False),
             "PACKAGEURL": f"{BASE_URL}/{name}/{v}/{name}.{v}.nupkg",
         }
         index = INDEX_CURRENT if v >= CURRENT_VERSION else INDEX_OLD

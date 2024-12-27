@@ -147,11 +147,13 @@ def update_registry(root_name, install, data):
     hive_name, _, root_name = root_name.partition("\\")
     hive = getattr(winreg, hive_name)
     with winreg.CreateKey(hive, root_name) as root:
-        with winreg.CreateKey(root, install["company"]) as company:
-            if _is_tag_managed(company, install["tag"]):
-                with winreg.CreateKey(company, install["tag"]) as tag:
-                    winreg.SetValueEx(tag, "ManagedByPyManager", None, winreg.REG_DWORD, 1)
-                    _update_reg_values(tag, data, install, {"kind", "ManagedByPyManager"})
+        if _is_tag_managed(root, data["Key"]):
+            with winreg.CreateKey(root, data["Key"]) as tag:
+                LOGGER.debug("Creating/updating %s %r", data["Key"], tag)
+                winreg.SetValueEx(tag, "ManagedByPyManager", None, winreg.REG_DWORD, 1)
+                _update_reg_values(tag, data, install, {"kind", "Key", "ManagedByPyManager"})
+        else:
+            LOGGER.debug("Skipping %s because it already exists", data["Key"])
 
 
 def cleanup_registry(root_name, keep):
@@ -162,7 +164,7 @@ def cleanup_registry(root_name, keep):
             any_left = False
             with winreg.OpenKey(root, company_name, access=winreg.KEY_ALL_ACCESS) as company:
                 for tag_name in _iter_keys(company):
-                    if (company_name, tag_name) in keep or not _is_tag_managed(company, tag_name):
+                    if f"{company_name}\\{tag_name}" in keep or not _is_tag_managed(company, tag_name):
                         any_left = True
                     else:
                         _reg_rmtree(company, tag_name)
