@@ -1,6 +1,6 @@
 from .exceptions import InvalidFeedError
 from .logging import LOGGER
-from .tagutils import CompanyTag, TagRange, tag_or_range, install_matches_any
+from .tagutils import tag_or_range, install_matches_any
 from .verutils import Version
 
 SCHEMA = {

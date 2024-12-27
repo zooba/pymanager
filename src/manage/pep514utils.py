@@ -269,6 +269,31 @@ def _get_unmanaged_installs(root):
                         LOGGER.debug("ERROR", exc_info=True)
 
 
+def _get_store_installs():
+    import os
+    from pathlib import Path
+
+    SUPPORTED_PFNS = tuple(s.casefold() for s in ("_qbz5n2kfra8p0", "_3847v3x7pw1km", "_hd69rhyc2wevp"))
+    root = Path(os.getenv("LocalAppData")) / "Microsoft/WindowsApps"
+    for prefix in root.glob("PythonSoftwareFoundation.Python.3.*"):
+        if prefix.name.casefold().endswith(SUPPORTED_PFNS):
+            tag = "3." + prefix.name.rpartition(".")[-1].partition("_")[0]
+            yield {
+                "schema": 1,
+                "unmanaged": 1,
+                "id": f"__unmanaged-PythonCore-Store-{tag}",
+                "sort-version": tag,
+                "company": "PythonCore",
+                "tag": tag,
+                "run-for": [
+                    {"tag": tag, "target": "python.exe"},
+                ],
+                "displayName": f"Python {tag} (Store)",
+                "prefix": prefix,
+                "executable": prefix / "python.exe",
+            }
+
+
 def get_unmanaged_installs(sort_key=None):
     installs = []
     with _reg_open(winreg.HKEY_CURRENT_USER, "SOFTWARE\\Python") as root:
@@ -277,6 +302,7 @@ def get_unmanaged_installs(sort_key=None):
         installs.extend(_get_unmanaged_installs(root))
     with _reg_open(winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\\Python", x86_only=True) as root:
         installs.extend(_get_unmanaged_installs(root))
+    installs.extend(_get_store_installs())
     if not sort_key:
         return installs
     return sorted(installs, key=sort_key)

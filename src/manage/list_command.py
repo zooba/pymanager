@@ -172,7 +172,7 @@ def execute(cmd):
         expect = ", ".join(sorted(FORMATTERS))
         raise ArgumentError(f"'{cmd.format}' is not a valid format; expect one of: {expect}") from None
 
-    from .tagutils import CompanyTag, tag_or_range, install_matches_any
+    from .tagutils import tag_or_range, install_matches_any
     tags = [tag_or_range(arg) for arg in cmd.args]
     if tags:
         LOGGER.debug("Filtering to following items")
