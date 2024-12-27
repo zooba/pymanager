@@ -4,7 +4,7 @@ import time
 from pathlib import Path, PurePath
 
 from .logging import LOGGER
-from .fsutils import ensure_tree, unlink
+from .fsutils import ensure_tree, rmtree, unlink
 
 try:
     from _native import file_url_to_path
@@ -12,10 +12,10 @@ except ImportError:
     from nturl2path import url2pathname as file_url_to_path
 
 
-ENABLE_BITS = os.getenv("PYTHON_DISABLE_BITS_DOWNLOAD", "0").lower()[:1] not in "1yt"
-ENABLE_WINHTTP = os.getenv("PYTHON_DISABLE_WINHTTP_DOWNLOAD", "0").lower()[:1] not in "1yt"
-ENABLE_URLLIB = os.getenv("PYTHON_DISABLE_URLLIB_DOWNLOAD", "0").lower()[:1] not in "1yt"
-ENABLE_POWERSHELL = os.getenv("PYTHON_DISABLE_POWERSHELL_DOWNLOAD", "0").lower()[:1] not in "1yt"
+ENABLE_BITS = os.getenv("PYTHON_ENABLE_BITS_DOWNLOAD", "1").lower()[:1] in "1yt"
+ENABLE_WINHTTP = os.getenv("PYTHON_ENABLE_WINHTTP_DOWNLOAD", "1").lower()[:1] in "1yt"
+ENABLE_URLLIB = os.getenv("PYTHON_ENABLE_URLLIB_DOWNLOAD", "1").lower()[:1] in "1yt"
+ENABLE_POWERSHELL = os.getenv("PYTHON_ENABLE_POWERSHELL_DOWNLOAD", "1").lower()[:1] in "1yt"
 
 class _Request:
     def __init__(self, url, method="GET", headers={}, outfile=None):
@@ -191,6 +191,64 @@ def _urllib_urlretrieve(request):
         LOGGER.debug("urlretrieve: complete")
 
 
+def _powershell_urlopen(request):
+    import tempfile
+    cwd = tempfile.mkdtemp()
+    try:
+        request.outfile = Path(cwd) / "response.dat"
+        _powershell_urlretrieve(request)
+        return request.outfile.read_bytes()
+    finally:
+        rmtree(cwd)
+
+
+def _powershell_urlretrieve(request):
+    from base64 import b64encode
+    import subprocess
+    powershell = Path(os.getenv("SystemRoot")) / "System32/WindowsPowerShell/v1.0/powershell.exe"
+    script = fr"""$ProgressPreference = "SilentlyContinue"
+$headers = @{{ {''.join(f'"{k}"={v};' for k, v in request.headers.items())} }}
+# TODO: Get credentials from environment
+$r = Invoke-WebRequest "{request.url}" -UseBasicParsing `
+    -Headers $headers `
+    -UseDefaultCredentials `
+    -Method "{request.method}" `
+    -OutFile "{request.outfile}"
+"""
+    LOGGER.debug("PowerShell script: %s", script)
+    with subprocess.Popen(
+        [powershell,
+            "-ExecutionPolicy", "Bypass",
+            "-OutputFormat", "Text",
+            "-NonInteractive",
+            "-EncodedCommand", b64encode(script.encode("utf-16-le"))
+        ],
+        cwd=request.outfile.parent,
+        creationflags=subprocess.CREATE_NO_WINDOW,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        # TODO: Pass credentials in environment
+        env={**os.environ},
+    ) as p:
+        request.on_progress(0)
+        start = time.time()
+        while True:
+            try:
+                try:
+                    out = p.communicate(b'', timeout=10.0)[0]
+                    request.on_progress(100)
+                    LOGGER.debug("PowerShell Output: %s", out.decode("utf-8", "replace"))
+                    return
+                except subprocess.TimeoutExpired:
+                    if not request.outfile.exists():
+                        # Suppress the original exception to avoid leaking the command
+                        raise subprocess.TimeoutExpired(powershell, int(time.time() - start)) from None
+            except:
+                p.terminate()
+                out = p.communicate()[0]
+                LOGGER.debug("PowerShell Output: %s", out.decode("utf-8", "replace"))
+                raise
+
 
 def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=None):
     if url.casefold().startswith("file://".casefold()):
@@ -225,7 +283,14 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_POWERSHELL:
-        # TODO: Implement PowerShell fallback
+        try:
+            return _powershell_urlopen(request)
+        except FileNotFoundError:
+            LOGGER.debug("PowerShell download unavailable - using fallback")
+        except Exception:
+            request.on_progress(None)
+            LOGGER.info("Failed to download using PowerShell. Retrying with fallback method.")
+            LOGGER.debug("ERROR:", exc_info=True)
         pass
 
     raise RuntimeError("Unable to download from the internet")
@@ -279,8 +344,14 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_POWERSHELL:
-        # TODO: Implement PowerShell fallback
-        pass
+        try:
+            return _powershell_urlretrieve(request)
+        except FileNotFoundError:
+            LOGGER.debug("PowerShell download unavailable - using fallback")
+        except Exception:
+            request.on_progress(None)
+            LOGGER.info("Failed to download using PowerShell. Retrying with fallback method.")
+            LOGGER.debug("ERROR:", exc_info=True)
 
     raise RuntimeError("Unable to download from the internet")
 

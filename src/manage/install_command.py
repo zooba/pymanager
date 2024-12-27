@@ -77,10 +77,6 @@ def select_package(cmd, tag, cache, *, urlopen=_urlopen):
 
 
 def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
-    # Preserve nupkg extensions so we can directly reference Nuget packages
-    if install["url"].casefold().endswith(".nupkg".casefold()):
-        dest = dest.with_suffix(".nupkg")
-
     if not cmd.force and dest.is_file():
         LOGGER.info("Download was found in the cache")
         LOGGER.debug("Download skipped because %s already exists", dest)
@@ -317,6 +313,9 @@ def execute(cmd):
             continue
 
         package = cmd.download_dir / f"{install['id']}.zip"
+        # Preserve nupkg extensions so we can directly reference Nuget packages
+        if install["url"].casefold().endswith(".nupkg".casefold()):
+            package = package.with_suffix(".nupkg")
 
         with ProgressPrinter("Downloading", maxwidth=console_width) as on_progress:
             download_package(cmd, install, package, download_cache, on_progress=on_progress)

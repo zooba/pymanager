@@ -75,6 +75,23 @@ def test_urllib_urlopen(local_1kb):
     assert sorted(progress) == progress
 
 
+def test_powershell_urlretrieve(local_128kb, tmp_path):
+    local_128kb.outfile = dest = tmp_path / "read.txt"
+    progress = local_128kb.progress
+    UU._powershell_urlretrieve(local_128kb)
+    assert dest.is_file()
+    assert progress[:1] + progress[-1:] == [0, 100]
+    assert sorted(progress) == progress
+
+
+def test_powershell_urlopen(local_1kb):
+    progress = local_1kb.progress
+    data = UU._powershell_urlopen(local_1kb)
+    assert data
+    assert progress[:1] + progress[-1:] == [0, 100]
+    assert sorted(progress) == progress
+
+
 def test_urllib_auth(local_withauth):
     import base64
     with pytest.raises(Exception) as ex:
