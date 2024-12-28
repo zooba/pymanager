@@ -6,29 +6,28 @@ from pymsbuild.dllpack import *
 METADATA = {
     "Metadata-Version": "2.2",
     "Name": "manage",
-    "Version": "1.0.0.0",
-    "Author": "Steve Dower",
+    "Version": "0.1a0",
+    "Author": "Python Software Foundation",
     "Author-email": "steve.dower@python.org",
-    "Home-page": "TODO",
     "Project-url": [
-        "Bug Tracker, TODO",
+        "Homepage, https://www.python.org/",
+        "Sources, https://github.com/zooba/pymanager",
+        "Issues, https://github.com/zooba/pymanager",
     ],
     "Summary": "Proof of concept for Python install manager app",
     "Description": File("README.md"),
     "Description-Content-Type": "text/markdown",
     "Keywords": "python,install,manager",
-    "Classifier": [
-        # See https://pypi.org/classifiers/ for the full list
-    ],
-    "Requires-Dist": [
-        # https://packaging.python.org/en/latest/specifications/dependency-specifiers/
-    ],
 }
+
+
+class ResourceFile(CSourceFile):
+    _ITEMNAME = "ResourceCompile"
 
 
 PACKAGE = Package('python-manager',
     PyprojectTomlFile('pyproject.toml'),
-    File('src/python/appxmanifest.xml'),
+    File('src/python/appxmanifest.xml', name='appxmanifest.xml'),
     File('pymanager.json'),
     # Default index feed, mainly for testing right now
     File('index*.json'),
@@ -36,9 +35,11 @@ PACKAGE = Package('python-manager',
         'templates',
         File('src/python/templates/template.py'),
         CProject('launcher',
+            VersionInfo(FileDescription="Python launcher", OriginalFilename="launcher.exe"),
             ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
             ItemDefinition('Link', SubSystem='CONSOLE'),
             Manifest('python.manifest'),
+            ResourceFile('python.rc'),
             CSourceFile('launcher.cpp'),
             CSourceFile('_launch.cpp'),
             IncludeFile('*.h'),
@@ -46,9 +47,11 @@ PACKAGE = Package('python-manager',
             ConfigurationType='Application',
         ),
         CProject('launcherw',
+            VersionInfo(FileDescription="Python launcher (windowed)", OriginalFilename="launcherw.exe"),
             ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
             ItemDefinition('Link', SubSystem='WINDOWS'),
             Manifest('python.manifest'),
+            ResourceFile('pythonw.rc'),
             CSourceFile('launcher.cpp'),
             CSourceFile('_launch.cpp'),
             IncludeFile('*.h'),
@@ -63,10 +66,13 @@ PACKAGE = Package('python-manager',
     ),
     DllPackage(
         'manage',
+        VersionInfo(FileDescription="Implementation of PyManager"),
         PyFile('*.py'),
         source='src/manage',
     ),
-    DllPackage('_native',
+    DllPackage(
+        '_native',
+        VersionInfo(FileDescription="Native helper functions for PyManager"),
         PyFile('__init__.py'),
         ItemDefinition('ClCompile', LanguageStandard="stdcpp20"),
         IncludeFile('*.h'),
@@ -87,22 +93,32 @@ PACKAGE = Package('python-manager',
         source='src/_native',
     ),
     CProject('py-manage',
+        VersionInfo(FileDescription="Python Install Manager"),
         ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
         ItemDefinition('Link', SubSystem='CONSOLE'),
+        Manifest('python.manifest'),
+        ResourceFile('python.rc'),
         CSourceFile('main.cpp'),
         CSourceFile('_launch.cpp'),
         IncludeFile('*.h'),
         CSourceFile('../_native/helpers.cpp'),
         IncludeFile('../_native/helpers.h'),
+        File(r'$(VC_CppRuntimeFilesPath_x64)\Microsoft.VC143.CRT\vcruntime140.dll',
+            Name='vcruntime140.dll'),
+        File(r'$(VC_CppRuntimeFilesPath_x64)\Microsoft.VC143.CRT\vcruntime140_1.dll',
+            Name='vcruntime140_1.dll'),
         source='src/python',
         ConfigurationType='Application',
     ),
     CProject('pyw-manage',
+        VersionInfo(FileDescription="Python Install Manager (windowed)"),
         ItemDefinition('ClCompile',
             PreprocessorDefinitions=Prepend("PY_WINDOWED=1;"),
             LanguageStandard='stdcpp20',
         ),
         ItemDefinition('Link', SubSystem='WINDOWS'),
+        Manifest('python.manifest'),
+        ResourceFile('pythonw.rc'),
         CSourceFile('main.cpp'),
         CSourceFile('_launch.cpp'),
         IncludeFile('*.h'),
@@ -136,14 +152,60 @@ def get_commands():
     return [c for c in commands if c[:1] != "_"]
 
 
+def _make_xyzw_version(v):
+    from packaging.version import parse
+    v = parse(v)
+    if not v.pre:
+        return "{}.{}.{}.{}".format(v.major, v.minor, v.micro, 0xF0)
+    return "{}.{}.{}.{}".format(
+        v.major,
+        v.minor,
+        v.micro,
+        {"a": 0xA0, "b": 0xB0, "rc": 0xC0}.get(v.pre[0].lower(), 0) | v.pre[1]
+    )
+
+
+def _patch_appx_identity(source, dest, **new):
+    from xml.etree import ElementTree as ET
+    NS = {}
+    with open(source, "r", encoding="utf-8") as f:
+        NS = dict(e for _, e in ET.iterparse(f, events=("start-ns",)))
+    for k, v in NS.items():
+        ET.register_namespace(k, v)
+
+    with open(source, "r", encoding="utf-8") as f:
+        xml = ET.parse(f)
+
+    identity = xml.find(f"x:Identity", {"x": NS[""]})
+    for k, v in new.items():
+        if v:
+            identity.set(k, v)
+    
+    with open(dest, "wb") as f:
+        xml.write(f, "utf-8")
+
+
+def update_file(file, content):
+    if not file.is_file() or file.read_text("utf-8").strip() != content.strip():
+        file.parent.mkdir(parents=True, exist_ok=True)
+        with file.open("w", encoding="utf-8") as f:
+            print(content, file=f)
+
+
 def init_METADATA():
     import os, re
     _, sep, version = os.getenv("GITHUB_REF", "").rpartition("/")
-    if sep and re.match(r"(\d+!)?\d+(\.\d+)+((a|b|rc)\d+)?(\.post\d+)?(\.dev\d+)?$", version):
-        # Looks like a version tag
-        METADATA["Version"] = version
+    if sep:
+        from packaging.version import parse
+        try:
+            # Looks like a version tag
+            METADATA["Version"] = parse(version).public
+        except Exception:
+            pass
 
     PACKAGE.find("pyproject.toml").from_metadata(METADATA)
+    for vi in PACKAGE.findall("*/VersionInfo"):
+        vi.from_metadata(METADATA)
 
 
 def init_PACKAGE(tag=None):
@@ -154,21 +216,27 @@ def init_PACKAGE(tag=None):
 
     # GENERATE _version MODULE
     ver_py = tmpdir / "_version.py"
-    ver_code = f"__version__ = {METADATA['Version']!r}"
-    if not ver_py.is_file() or ver_py.read_text("utf-8").strip() != ver_code:
-        ver_py.parent.mkdir(parents=True, exist_ok=True)
-        with ver_py.open("w", encoding="utf-8") as f:
-            print(ver_code, file=f)
+    update_file(ver_py, f"__version__ = {METADATA['Version']!r}")
     PACKAGE.find("manage").members.append(PyFile(ver_py))
+
+    # GENERATE version.txt
+    ver_txt = tmpdir / "version.txt"
+    update_file(ver_txt, str(METADATA['Version']))
+    PACKAGE.members.append(PyFile(ver_txt))
+
+    # PATCH VERSION INTO appxmanifest.xml
+    appx_xml = tmpdir / "appxmanifest.xml"
+    _patch_appx_identity(PACKAGE.find("appxmanifest.xml").source, appx_xml,
+        Version=_make_xyzw_version(METADATA["Version"]),
+        Publisher=os.getenv("PYMANAGER_APPX_PUBLISHER"),
+    )
+    PACKAGE.find("appxmanifest.xml").source = appx_xml
 
     # GENERATE SUBCOMMAND LIST
     cmds = get_commands()
     cmds_h = tmpdir / "commands.g.h"
     cmds_txt = "static const wchar_t *subcommands[] = {" + ", ".join(f'L"{c}"' for c in cmds) + ", NULL};"
-    if not cmds_h.is_file() or cmds_h.read_text("utf-8").strip() != cmds_txt:
-        cmds_h.parent.mkdir(parents=True, exist_ok=True)
-        with cmds_h.open("w", encoding="utf-8") as f:
-            print(cmds_txt, file=f)
+    update_file(cmds_h, cmds_txt)
 
     incl = ItemDefinition("ClCompile", AdditionalIncludeDirectories = Prepend(f"{tmpdir};"))
     PACKAGE.find("py-manage").members.append(incl)
@@ -191,7 +259,8 @@ def init_PACKAGE(tag=None):
 
     dll = tmpdir / tag / dll_name
     stdlibzip = dll.with_suffix(".zip")
-    if not dll.is_file():
+    pth = dll.with_suffix("._pth")
+    if not dll.is_file() or not stdlibzip.is_file() or not pth.is_file():
         dll.parent.mkdir(exist_ok=True, parents=True)
         from urllib.request import urlretrieve
         from zipfile import ZipFile
@@ -199,5 +268,10 @@ def init_PACKAGE(tag=None):
         with ZipFile(dll.parent / "package.zip") as zf:
             dll.write_bytes(zf.read(dll_name))
             stdlibzip.write_bytes(zf.read(stdlibzip.name))
+            pth.write_bytes(zf.read(pth.name))
     PACKAGE.members.append(File(dll, dll.name))
     PACKAGE.members.append(File(stdlibzip, stdlibzip.name))
+    PACKAGE.members.append(File(pth, pth.name))
+
+    # BUNDLE VCRUNTIME
+    # TODO: Bundle vcruntime140 and vcruntime140_1
