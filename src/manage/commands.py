@@ -4,11 +4,15 @@ import sys
 
 from pathlib import Path
 
-import _native
-
-from .config import load_config, config_append, config_bool
+from .config import (
+    load_config,
+    config_append,
+    config_bool,
+    config_split,
+    config_split_append,
+)
 from .exceptions import ArgumentError
-from .logging import LOGGER
+from .logging import LOGGER, LEVEL_VERBOSE
 
 COMMANDS = {}
 
@@ -67,10 +71,11 @@ Arguments passed on the command line always override any config files.
 
 _NEXT = object()
 
+
 CLI_SCHEMA = {
-    "v": ("log_level", logging.INFO),
+    "v": ("log_level", LEVEL_VERBOSE),
     "vv": ("log_level", logging.DEBUG),
-    "verbose": ("log_level", logging.INFO),
+    "verbose": ("log_level", LEVEL_VERBOSE),
     "q": ("log_level", logging.WARN),
     "qq": ("log_level", logging.CRITICAL),
     "quiet": ("log_level", logging.WARN),
@@ -99,8 +104,8 @@ CLI_SCHEMA = {
         "f": ("force", True),
         "force": ("force", True),
         "dry-run": ("dry_run", True),
-        "enable-shortcut-kinds": ("enable_shortcut_kinds", _NEXT),
-        "disable-shortcut-kinds": ("disable_shortcut_kinds", _NEXT),
+        "enable-shortcut-kinds": ("enable_shortcut_kinds", _NEXT, config_split),
+        "disable-shortcut-kinds": ("disable_shortcut_kinds", _NEXT, config_split),
         # Set when the manager is doing an automatic install.
         # Generally won't be set by manual invocation
         "automatic": ("automatic", True),
@@ -128,18 +133,6 @@ CONFIG_SCHEMA = {
 
     "default_tag": (str, None, "env"),
 
-    # Registry key to write PEP 514 entries at
-    # Default: HKEY_CURRENT_USER\Software\Python
-    "pep514_root": (str, None),
-
-    # Directory to create Start shortcuts at
-    # Default: %AppData%\Microsoft\Windows\Start Menu\Programs\Python
-    "start_folder": (str, None, "path"),
-
-    # Overrides for launcher executables. Not expected to be commonly used
-    "launcher_exe": (str, None, "path"),
-    "launcherw_exe": (str, None, "path"),
-
     "list": {
         "format": (str, None, "env"),
         "unmanaged": (config_bool, None, "env"),
@@ -147,9 +140,48 @@ CONFIG_SCHEMA = {
 
     "install": {
         "source": (str, None, "env", "path", "uri"),
-        "enable_shortcut_kinds": (str, config_append),
-        "disable_shortcut_kinds": (str, config_append),
+        "enable_shortcut_kinds": (str, config_split_append),
+        "disable_shortcut_kinds": (str, config_split_append),
     },
+
+    # These configuration settings are intended for administrative override only
+    # For example, if you are managing deployments that will use your own index
+    # and/or your own builds.
+
+    # Registry key containing configuration overrides. Each value specified
+    # under this key will be applied to the configuration both before and after
+    # all other configuration files (but not command-line options).
+    # Default: HKEY_LOCAL_MACHINE\Software\Policies\Python\PyManager
+    "registry_override_key": (str, None),
+
+    # Specify a new base config file. This would normally be set in the registry
+    # and will override earlier settings (including those in the registry).
+    # The intent is to allow a registry override for just this one value to
+    # reference a JSON file containing other admin overrides.
+    "base_config": (str, None, "env", "path"),
+
+    # Specify a user config file. This will normally use an environment variable
+    # to locate the file under %UserProfile%.
+    # Default: %AppData%\Python\PyManager.json
+    "user_config": (str, None, "env", "path"),
+
+    # Specify an additional config file. This would normally be a complete
+    # environment variable to allow users to set this as they launch.
+    # Default: %PYTHON_MANAGER_CONFIG%
+    "additional_config": (str, None, "env", "path"),
+
+    # Registry key to write PEP 514 entries into
+    # Default: HKEY_CURRENT_USER\Software\Python
+    "pep514_root": (str, None),
+
+    # Directory to create Start shortcuts (Start Menu\Programs is assumed)
+    # Default: Python
+    "start_folder": (str, None),
+
+    # Overrides for launcher executables
+    # Default: .\launcher.exe and .\launcherw.exe
+    "launcher_exe": (str, None, "path"),
+    "launcherw_exe": (str, None, "path"),
 }
 
 
@@ -157,19 +189,17 @@ class BaseCommand:
     log_level = logging.INFO
     config_file = None
     confirm = True
+    default_tag = None
 
     root = None
     download_dir = None
     global_dir = None
     install_dir = None
 
-    pep514_root = r"HKEY_CURRENT_USER\Software\Python"
-    start_folder = Path(_native.shortcut_get_start_programs()) / "Python"
-
+    pep514_root = None
+    start_folder = None
     launcher_exe = None
     launcherw_exe = None
-
-    default_tag = "3"
 
     show_help = False
 
@@ -185,8 +215,11 @@ class BaseCommand:
         self.args = []
         for a in args:
             if set_next:
-                setattr(self, set_next, a)
-                _set_args.add(set_next)
+                key, value, *opts = cmd_args[set_next]
+                if value is _NEXT and opts:
+                    a = opts[0](a)
+                setattr(self, key, a)
+                _set_args.add(key)
                 set_next = None
             elif not seen_cmd and a.lower() == self.CMD:
                 # Check once to handle legacy commands with - prefix
@@ -196,19 +229,22 @@ class BaseCommand:
                 a, sep, v = a.partition(":")
                 if not sep:
                     a, sep, v = a.partition("=")
+                set_next = a.lstrip("-/").lower()
                 try:
-                    key, value, *opts = cmd_args[a.lstrip("-/").lower()]
+                    key, value, *opts = cmd_args[set_next]
                 except LookupError:
                     raise ArgumentError(f"Unexpected argument: {a}")
                 if value is _NEXT:
                     if sep:
+                        if opts:
+                            v = opts[0](v)
                         setattr(self, key, v)
                         _set_args.add(key)
-                    else:
-                        set_next = key
+                        set_next = None
                 else:
                     setattr(self, key, value)
                     _set_args.add(key)
+                    set_next = None
             elif not seen_cmd:
                 if a.lower() != self.CMD:
                     raise ArgumentError(f"expected '{self.CMD}' command, not '{a}'")
@@ -249,14 +285,20 @@ class BaseCommand:
         # Update directories from configuration
         # (these are not available on the command line)
         self.root = config.get("root") or self.root
-        self.install_dir = config.get("install_dir") or (self.root / "pkgs")
-        self.global_dir = config.get("global_dir") or (self.root / "bin")
-        self.download_dir = config.get("download_dir") or (self.root / "pkgs")
+        _set_args.add("root")
+        self.install_dir = self.root / "pkgs"
+        self.global_dir = self.root / "bin"
+        self.download_dir = self.root / "pkgs"
 
-        self.default_tag = config.get("default_tag") or self.default_tag
-
-        self.launcher_exe = config.get("launcher_exe") or self.launcher_exe
-        self.launcherw_exe = config.get("launcherw_exe") or self.launcherw_exe
+        arg_names = frozenset(k for k, v in CONFIG_SCHEMA.items()
+            if hasattr(type(self), k) and not isinstance(v, dict))
+        for k, v in config.items():
+            if isinstance(v, dict):
+                continue
+            if k in arg_names and k not in _set_args:
+                LOGGER.debug("Overriding global option %s with %r", k, v)
+                setattr(self, k, v)
+                _set_args.add(k)
 
         # If our command has any config, load them to override anything that
         # wasn't set on the command line.
@@ -268,6 +310,7 @@ class BaseCommand:
             arg_names = frozenset(a[0] for a in cmd_args.values())
             for k, v in cmd_config.items():
                 if k in arg_names and k not in _set_args:
+                    LOGGER.debug("Overriding command option %s with %r", k, v)
                     setattr(self, k, v)
                     _set_args.add(k)
 
@@ -444,16 +487,6 @@ EXAMPLE: Refresh and replace all shortcuts
             except Exception as ex:
                 print(ex)
                 raise
-        if self.enable_shortcut_kinds:
-            import re
-            if isinstance(self.enable_shortcut_kinds, str):
-                self.enable_shortcut_kinds = [self.enable_shortcut_kinds]
-            self.enable_shortcut_kinds = re.split("[;:|,+]", ";".join(self.enable_shortcut_kinds))
-        if self.disable_shortcut_kinds:
-            import re
-            if isinstance(self.disable_shortcut_kinds, str):
-                self.disable_shortcut_kinds = [self.disable_shortcut_kinds]
-            self.disable_shortcut_kinds = re.split("[;:|,+]", ";".join(self.disable_shortcut_kinds))
 
     def execute(self):
         from .install_command import execute

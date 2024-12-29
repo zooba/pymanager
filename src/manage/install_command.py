@@ -6,7 +6,7 @@ from pathlib import Path, PurePath
 from .exceptions import ArgumentError, HashMismatchError
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
-from .logging import LOGGER, ProgressPrinter
+from .logging import LOGGER, LEVEL_VERBOSE, ProgressPrinter
 from .tagutils import CompanyTag, tag_or_range
 from .urlutils import (
     sanitise_url,
@@ -14,6 +14,15 @@ from .urlutils import (
     urlopen as _urlopen,
     urlretrieve as _urlretrieve,
 )
+
+
+# TODO: Consider reading the current console width
+# Though there's a solid argument we should just pick one and stick with it
+CONSOLE_WIDTH = 79
+
+
+# In-process cache to save repeat downloads
+DOWNLOAD_CACHE = {}
 
 
 def _multihash(file, hashes):
@@ -164,7 +173,7 @@ def _write_alias(cmd, alias, target):
         launcher = cmd.launcherw_exe or launcher
     LOGGER.debug("Copy %s to %s using %s", alias["name"], target, launcher)
     if not launcher or not launcher.is_file():
-        LOGGER.info("Skipping %s alias because the launcher template was not found.", alias["name"])
+        LOGGER.warn("Skipping %s alias because the launcher template was not found.", alias["name"])
         return
     p.write_bytes(launcher.read_bytes())
     p.with_name(p.name + ".__target__").write_text(str(target), encoding="utf-8")
@@ -203,7 +212,7 @@ def update_all_shortcuts(cmd, path_warning=True):
             for a in i.get("alias", ()):
                 target = i["prefix"] / a["target"]
                 if not target.is_file():
-                    LOGGER.info("Skipping '%s' because target '%s' does not exist", a["name"], a["target"])
+                    LOGGER.warn("Skipping alias '%s' because target '%s' does not exist", a["name"], a["target"])
                     continue
                 _write_alias(cmd, a, target)
                 alias_written.add(a["name"].casefold())
@@ -238,9 +247,9 @@ def update_all_shortcuts(cmd, path_warning=True):
     if path_warning and any(cmd.global_dir.glob("*.exe")):
         try:
             if not any(cmd.global_dir.match(p) for p in os.getenv("PATH", "").split(os.pathsep) if p):
-                LOGGER.warn("""
+                LOGGER.info("""
 Global shortcuts directory is not on PATH. Add it for global commands.
-Directory: %s
+Directory to add: %s
 """, cmd.global_dir)
         except Exception:
             LOGGER.debug("Failed to display PATH warning", exc_info=True)
@@ -257,39 +266,95 @@ def print_cli_shortcuts(cmd, tags):
                 else:
                     LOGGER.info("Installed %s to %s", i["displayName"], i["prefix"])
                 if i.get("default"):
-                    LOGGER.info("This will be launched by default when you run 'python.exe'")
+                    LOGGER.info("This will be launched by default when you run 'python'.")
                 break
+
+
+def _install_one(cmd, tag, *, target=None, installed=None):
+    if tag:
+        LOGGER.log(LEVEL_VERBOSE, "Searching for Python matching %s", tag)
+    else:
+        LOGGER.log(LEVEL_VERBOSE, "Searching for default Python version")
+    install = select_package(cmd, tag, DOWNLOAD_CACHE)
+
+    existing = [i for i in (installed or ()) if i["id"].casefold() == install["id"].casefold()]
+    if existing:
+        if cmd.force:
+            LOGGER.info("Overwriting existing %s install because of --force.", existing[0]["displayName"])
+        elif cmd.update:
+            # TODO: Compare install and existing[0] version
+            LOGGER.info("%s is already up to date.", existing[0]["displayName"])
+            return
+        else:
+            LOGGER.info("%s is already installed.", existing[0]["displayName"])
+            return
+
+    LOGGER.info("Installing %s.", install['displayName'])
+    LOGGER.log(LEVEL_VERBOSE, "Tag: %s\\%s", install['company'], install['tag'])
+
+    if cmd.dry_run:
+        LOGGER.info("Skipping rest of install due to --dry-run")
+        return
+
+    package = cmd.download_dir / f"{install['id']}.zip"
+    # Preserve nupkg extensions so we can directly reference Nuget packages
+    if install["url"].casefold().endswith(".nupkg".casefold()):
+        package = package.with_suffix(".nupkg")
+
+    with ProgressPrinter("Downloading", maxwidth=CONSOLE_WIDTH) as on_progress:
+        download_package(cmd, install, package, DOWNLOAD_CACHE, on_progress=on_progress)
+
+    dest = target or (cmd.install_dir / install["id"])
+
+    LOGGER.log(LEVEL_VERBOSE, "Extracting %s to %s", package, dest)
+    try:
+        rmtree(dest, "Cleaning up a previous install is taking some time. " +
+                     "Ensure Python is not running, and continue to wait " +
+                     "or press Ctrl+C to abort.")
+    except FileExistsError:
+        LOGGER.warn(
+            "Unable to remove previous install. " +
+            "Please check your packages directory at %s for issues.",
+            dest.parent
+        )
+        raise
+
+    with ProgressPrinter("Installing", maxwidth=CONSOLE_WIDTH) as on_progress:
+        extract_package(package, dest, on_progress=on_progress)
+
+    if "shortcuts" in install:
+        if cmd.enable_shortcut_kinds:
+            install["shortcuts"] = [s for s in install["shortcuts"]
+                                    if s["kind"] in cmd.enable_shortcut_kinds]
+        if cmd.disable_shortcut_kinds:
+            install["shortcuts"] = [s for s in install["shortcuts"]
+                                    if s["kind"] not in cmd.disable_shortcut_kinds]
+
+    LOGGER.debug("Write __install__.json to %s", dest)
+    with open(dest / "__install__.json", "w", encoding="utf-8") as f:
+        json.dump({
+            **install,
+            "url": sanitise_url(install["url"]),
+            "source": sanitise_url(cmd.source),
+        }, f, default=str)
+
+    LOGGER.debug("Install complete")
 
 
 def execute(cmd):
     LOGGER.debug("BEGIN install_command.execute: %r", cmd.args)
-
-    # TODO: Consider reading the current console width
-    # Though there's a solid argument we should just pick one and stick with it
-    console_width = 79
-    skip_shortcuts = False
-
-    if cmd.target:
-        target = Path(cmd.target)
-        skip_shortcuts = True
-        if len(cmd.args) > 1:
-            raise ArgumentError("Unable to install multiple versions with --target")
-        installed = []
-    else:
-        target = None
-        installed = list(cmd.get_installs())
 
     if cmd.refresh:
         if cmd.args:
             LOGGER.warn("Ignoring arguments; --refresh always refreshes all installs.")
         update_all_shortcuts(cmd)
 
-    if not cmd.args and not installed:
+    if not cmd.args:
         LOGGER.debug("No tags provided, installing first version in index")
         cmd.args = [""]
 
     if cmd.automatic:
-        LOGGER.info("*" * console_width)
+        LOGGER.info("*" * CONSOLE_WIDTH)
 
     if cmd.from_script:
         from .scriptutils import find_install_from_script
@@ -297,84 +362,34 @@ def execute(cmd):
         if spec:
             cmd.args.append(spec)
 
-    # In-process cache to save repeat downloads
-    download_cache = {}
-
-    for spec in cmd.args:
-        if not spec:
-            tag = None
-        else:
-            tag = tag_or_range(spec)
-            LOGGER.info("Searching for Python matching %s", tag)
-            if not cmd.force and installed:
-                already_installed = [i for i in installed if tag.satisfied_by(CompanyTag.from_dict(i))]
-                if already_installed:
-                    # TODO: Implement install --update
-                    LOGGER.info("%s is already installed", already_installed[0]["displayName"])
-                    continue
-
-        install = select_package(cmd, tag, download_cache)
-
-        if cmd.dry_run:
-            LOGGER.info("Selected to install %s (tag %s\\%s)",
-                install['displayName'], install['company'], install['tag']
-            )
-            LOGGER.debug("Skipping rest of install due to --dry-run")
-            continue
-
-        package = cmd.download_dir / f"{install['id']}.zip"
-        # Preserve nupkg extensions so we can directly reference Nuget packages
-        if install["url"].casefold().endswith(".nupkg".casefold()):
-            package = package.with_suffix(".nupkg")
-
-        with ProgressPrinter("Downloading", maxwidth=console_width) as on_progress:
-            download_package(cmd, install, package, download_cache, on_progress=on_progress)
-
-        dest = target or (cmd.install_dir / install["id"])
-
-        LOGGER.debug("Extracting %s", package)
-        LOGGER.debug("To %s", dest)
-        try:
-            rmtree(dest, "Cleaning up a previous install is taking some time. " +
-                         "Ensure Python is not running, and continue to wait " +
-                         "or press Ctrl+C to abort.")
-        except FileExistsError:
-            LOGGER.warn(
-                "Unable to remove previous install. " +
-                "Please check your packages directory at %s for issues.",
-                dest.parent
-            )
-            LOGGER.error("Install failed. Please check any output above and try again.")
-            skip_shortcuts = True
+    if cmd.target:
+        if len(cmd.args) > 1:
+            raise ArgumentError("Unable to install multiple versions with --target")
+        for spec in cmd.args:
+            tag = tag_or_range(spec) if spec else None
+            try:
+                _install_one(cmd, (cmd.args + [None])[0], target=Path(cmd.target))
+            except Exception:
+                LOGGER.error("Install failed. Please check any output above and try again.")
+                LOGGER.debug("ERROR", exc_info=True)
             break
+        return
 
-        with ProgressPrinter("Installing", maxwidth=console_width) as on_progress:
-            extract_package(package, dest, on_progress=on_progress)
+    installed = list(cmd.get_installs())
 
-        if "shortcuts" in install:
-            if cmd.enable_shortcut_kinds:
-                install["shortcuts"] = [s for s in install["shortcuts"]
-                                        if s["kind"] in cmd.enable_shortcut_kinds]
-            if cmd.disable_shortcut_kinds:
-                install["shortcuts"] = [s for s in install["shortcuts"]
-                                        if s["kind"] not in cmd.disable_shortcut_kinds]
-
-        LOGGER.debug("Write __install__.json to %s", dest)
-        with open(dest / "__install__.json", "w", encoding="utf-8") as f:
-            json.dump({
-                **install,
-                "url": sanitise_url(install["url"]),
-                "source": sanitise_url(cmd.source),
-            }, f, default=str)
-
-        LOGGER.debug("Install complete")
-
-    if not skip_shortcuts:
+    try:
+        for spec in cmd.args:
+            tag = tag_or_range(spec) if spec else None
+            _install_one(cmd, tag, installed=installed)
+    except Exception:
+        LOGGER.error("Install failed. Please check any output above and try again.")
+        LOGGER.debug("ERROR", exc_info=True)
+    else:
         update_all_shortcuts(cmd)
         print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
 
     if cmd.automatic:
         LOGGER.info("To see all available commands, run 'python help'")
-        LOGGER.info("*" * console_width)
+        LOGGER.info("*" * CONSOLE_WIDTH)
 
     LOGGER.debug("END install_command.execute")

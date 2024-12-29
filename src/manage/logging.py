@@ -4,13 +4,36 @@ import sys
 
 FILE = sys.stderr
 
+LEVEL_VERBOSE = logging.DEBUG + 5
+assert logging.DEBUG < LEVEL_VERBOSE < logging.INFO
+logging.addLevelName(LEVEL_VERBOSE, "VERBOSE")
+
 LOGGER = logging.getLogger("pymanager")
-LOGGER.addHandler(logging.StreamHandler(FILE))
+
 
 # Set log level from environment if requested, so that everything is logged
 # even if we don't make it far enough to load a config.
-if os.getenv("PYMANAGER_VERBOSE"):
+if os.getenv("PYMANAGER_DEBUG"):
     LOGGER.setLevel(logging.DEBUG)
+elif os.getenv("PYMANAGER_VERBOSE"):
+    LOGGER.setLevel(LEVEL_VERBOSE)
+
+
+class LogFormatter(logging.Formatter):
+    def formatMessage(self, record):
+        msg = record.msg % record.args
+        if record.levelno == logging.DEBUG:
+            return f"# {msg}"
+        if record.levelno == logging.WARN:
+            return f"[WARNING] {msg}"
+        if record.levelno >= logging.ERROR:
+            return f"[ERROR] {msg}"
+        return msg
+
+
+handler = logging.StreamHandler(FILE)
+LOGGER.addHandler(handler)
+handler.setFormatter(LogFormatter())
 
 
 class ProgressPrinter:

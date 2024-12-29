@@ -188,11 +188,12 @@ class Index:
                     yield i
 
     def find_to_install(self, tag, *, loose_company=False, prefer_prerelease=False):
-        for i in self.find_all([tag], loose_company=loose_company, with_prerelease=prefer_prerelease):
+        tag_list = [tag] if tag else []
+        for i in self.find_all(tag_list, loose_company=loose_company, with_prerelease=prefer_prerelease):
             return i
         if not loose_company:
             return self.find_to_install(tag, loose_company=True, prefer_prerelease=prefer_prerelease)
         if not prefer_prerelease:
-            for i in self.find_all([tag], loose_company=loose_company, with_prerelease=True):
+            for i in self.find_all(tag_list, loose_company=loose_company, with_prerelease=True):
                 return i
         raise LookupError(tag)

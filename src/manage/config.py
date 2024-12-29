@@ -1,11 +1,12 @@
 import json
 import os
+import winreg
 
 from pathlib import Path
 
 from _native import package_get_root
 from .exceptions import InvalidConfigurationError
-from .logging import LOGGER
+from .logging import LOGGER, LEVEL_VERBOSE
 
 
 DEFAULT_CONFIG_NAME = "pymanager.json"
@@ -13,9 +14,20 @@ ENV_VAR = "PYTHON_MANAGE_CONFIG"
 
 
 def config_append(x, y):
+    if x is None:
+        return [y]
     if isinstance(x, list):
         return [*x, y]
     return [x, y]
+
+
+def config_split(x):
+    import re
+    return re.split("[;:|,+]", x)
+
+
+def config_split_append(x, y):
+    return config_append(x, config_split(y))
 
 
 def config_bool(v):
@@ -35,71 +47,141 @@ def load_config(root, override_file, schema):
     except FileNotFoundError:
         pass
 
+    try:
+        reg_cfg = load_registry_config(cfg["registry_override_key"], schema=schema)
+        merge_config(cfg, reg_cfg, schema=schema, source="registry", overwrite=True)
+    except LookupError:
+        reg_cfg = {}
+
+    for source, overwrite in [
+        ("base_config", True),
+        ("user_config", False),
+        ("additional_config", False),
+    ]:
+        try:
+            file = cfg[source]
+        except LookupError:
+            pass
+        else:
+            if file:
+                load_one_config(cfg, file, schema=schema, overwrite=overwrite)
+
+    if reg_cfg:
+        # Apply the registry overrides one more time
+        merge_config(cfg, reg_cfg, schema=schema, source="registry", overwrite=True)
+
     if override_file:
-        load_one_config(cfg, override_file, schema=schema)
-
-    env_file = os.getenv(ENV_VAR)
-    if env_file:
-        load_one_config(cfg, env_file, schema=schema)
-
-    # TODO: Per-user file
-
-    # TODO: Locked settings from global file
+        load_one_config(cfg, override_file, schema=schema, overwrite=True)
 
     return cfg
 
 
-def load_one_config(cfg, file, schema):
-    LOGGER.debug("Load config from %s", file)
-    with open(file, "r", encoding="utf-8") as f:
-        cfg2 = json.load(f)
+def load_one_config(cfg, file, schema, *, overwrite=False):
+    LOGGER.log(LEVEL_VERBOSE, "Loading configuration from %s", file)
+    try:
+        with open(file, "r", encoding="utf-8") as f:
+            cfg2 = json.load(f)
+    except FileNotFoundError:
+        LOGGER.log(LEVEL_VERBOSE, "Skipping configuration at %s because it does not exist", file)
+        return
+    except OSError as ex:
+        LOGGER.warn("Failed to read %s: %s", file, ex)
+        LOGGER.debug("TRACEBACK:", exc_info=True)
+        return
+    except ValueError as ex:
+        LOGGER.warn("Error reading configuration from %s: %s", file, ex)
+        LOGGER.debug("TRACEBACK:", exc_info=True)
+        return
     cfg2["config_files"] = file
-    resolve_config(cfg2, Path(file).absolute(), schema=schema)
-    merge_config(cfg, cfg2, schema=schema)
+    resolve_config(cfg2, file, Path(file).absolute().parent, schema=schema)
+    merge_config(cfg, cfg2, schema=schema, source=file, overwrite=overwrite)
 
 
-def resolve_config(cfg, source_path, key_so_far="", schema=None):
-    LOGGER.debug("resolve_config: %s", cfg)
+def load_registry_config(key_path, schema):
+    hive_name, _, key_name = key_path.replace("/", "\\").partition("\\")
+    hive = getattr(winreg, hive_name)
+    cfg = {}
+    try:
+        key = winreg.OpenKey(hive, key_name)
+    except FileNotFoundError:
+        return cfg
+    with key:
+        for i in range(10000):
+            try:
+                name, value, vt = winreg.EnumValue(key, i)
+            except OSError:
+                break
+            bits = name.split(".")
+            subcfg = cfg
+            for b in bits[:-1]:
+                subcfg = subcfg.setdefault(b, {})
+            subcfg[bits[-1]] = value
+        else:
+            LOGGER.warn("Too many registry values were read from %s. " +
+                        "This is very unexpected. Please check your configuration " +
+                        "or report an issue at https://github.com/zooba/pymanager.",
+                        key_path)
+    resolve_config(cfg, key_path, Path(package_get_root()), schema=schema, error_unknown=True)
+    return cfg
+
+
+def _expand_vars(v, env):
+    import re
+    def _sub(m):
+        v2 = env.get(m.group(1))
+        if v2:
+            return v2 + (m.group(2) or "")
+        return ""
+    v2 = re.sub(r"%(.*?)%([\\/])?", _sub, v)
+    return v2
+
+
+def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_unknown=False):
     for k, v in list(cfg.items()):
         try:
             subschema = schema[k]
         except LookupError:
-            raise InvalidConfigurationError(source_path, key_so_far + k)
+            if error_unknown:
+                raise InvalidConfigurationError(source, key_so_far + k)
+            LOGGER.log(LEVEL_VERBOSE, "Ignoring unknown configuration %s%s in %s", key_so_far, k, source)
+            continue
 
         if isinstance(subschema, dict):
             if not isinstance(v, dict):
-                raise InvalidConfigurationError(source_path, key_so_far + k, v)
-            resolve_config(v, source_path, f"{key_so_far}{k}.", subschema)
+                raise InvalidConfigurationError(source, key_so_far + k, v)
+            resolve_config(v, source, relative_to, f"{key_so_far}{k}.", subschema)
             continue
 
         kind, merge, *opts = subschema
         if "env" in opts:
             try:
-                v = os.path.expandvars(v)
+                v = _expand_vars(v, os.environ)
             except TypeError:
                 pass
         try:
             v = kind(v)
         except (TypeError, ValueError):
-            raise InvalidConfigurationError(source_path, key_so_far + k, v)
-        LOGGER.debug("Processing %s: %s", k, opts)
-        if "path" in opts:
-            v = Path(source_path).parent / v
-        if "uri" in opts:
+            raise InvalidConfigurationError(source, key_so_far + k, v)
+        if v and "path" in opts:
+            v = relative_to / v
+        if v and "uri" in opts:
             if hasattr(v, 'as_uri'):
                 v = v.as_uri()
+            else:
+                v = str(v)
             from urllib.parse import urlparse
             p = urlparse(v)
             if not p.scheme or (p.scheme != 'file' and not p.netloc) or p.path.startswith(".."):
-                raise InvalidConfigurationError(source_path, key_so_far + k, v)
+                raise InvalidConfigurationError(source, key_so_far + k, v)
         cfg[k] = v
 
 
-def merge_config(into_cfg, from_cfg, schema):
+def merge_config(into_cfg, from_cfg, schema, *, source="<unknown>", overwrite=False):
     for k, v in from_cfg.items():
         try:
             into = into_cfg[k]
         except LookupError:
+            LOGGER.debug("Setting config %s to %r", k, v)
             into_cfg[k] = v
             continue
 
@@ -107,22 +189,22 @@ def merge_config(into_cfg, from_cfg, schema):
             subschema = schema[k]
         except LookupError:
             # No schema information, so let's just replace
-            LOGGER.warn("Unknown configuration key %s", k)
+            LOGGER.warn("Unknown configuration key %s in %s", k, source)
             into_cfg[k] = v
             continue
 
         if isinstance(subschema, dict):
             if isinstance(into, dict) and isinstance(v, dict):
                 LOGGER.debug("Recursively updating config %s", k)
-                merge_config(into, v, subschema)
+                merge_config(into, v, subschema, source=source, overwrite=overwrite)
             else:
                 # Source isn't recursing, so let's ignore
                 # Should have been validated earlier
-                LOGGER.warn("Invalid configuration key %s", k)
+                LOGGER.warn("Invalid configuration key %s in %s", k, source)
             continue
 
         _, merge, *_ = subschema
-        if not merge:
+        if not merge or overwrite:
             LOGGER.debug("Updating config %s from %r to %r", k, into, v)
             into_cfg[k] = v
         else:

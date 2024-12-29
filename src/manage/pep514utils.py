@@ -1,7 +1,7 @@
 import time
 import winreg
 
-from .logging import LOGGER
+from .logging import LOGGER, LEVEL_VERBOSE
 
 
 REG_TYPES = {
@@ -143,13 +143,25 @@ def _is_tag_managed(company_key, tag_name):
     return False
 
 
+def _split_root(root_name):
+    if not root_name:
+        LOGGER.log(LEVEL_VERBOSE, "Skipping registry shortcuts as PEP 514 registry root is not set.")
+        return
+    hive_name, _, name = root_name.partition("\\")
+    try:
+        hive = getattr(winreg, hive_name.upper())
+    except AttributeError:
+        LOGGER.log(LEVEL_VERBOSE, "Skipping registry shortcuts as %s\\%s is not a valid key", root_name)
+        return
+    return hive, name
+
+
 def update_registry(root_name, install, data):
-    hive_name, _, root_name = root_name.partition("\\")
-    hive = getattr(winreg, hive_name)
-    with winreg.CreateKey(hive, root_name) as root:
+    hive, name = _split_root(root_name)
+    with winreg.CreateKey(hive, name) as root:
         if _is_tag_managed(root, data["Key"]):
             with winreg.CreateKey(root, data["Key"]) as tag:
-                LOGGER.debug("Creating/updating %s %r", data["Key"], tag)
+                LOGGER.debug("Creating/updating %s\\%s", root_name, data["Key"])
                 winreg.SetValueEx(tag, "ManagedByPyManager", None, winreg.REG_DWORD, 1)
                 _update_reg_values(tag, data, install, {"kind", "Key", "ManagedByPyManager"})
         else:
@@ -157,9 +169,8 @@ def update_registry(root_name, install, data):
 
 
 def cleanup_registry(root_name, keep):
-    hive_name, _, root_name = root_name.partition("\\")
-    hive = getattr(winreg, hive_name)
-    with _reg_open(hive, root_name, writable=True) as root:
+    hive, name = _split_root(root_name)
+    with _reg_open(hive, name, writable=True) as root:
         for company_name in _iter_keys(root):
             any_left = False
             with winreg.OpenKey(root, company_name, access=winreg.KEY_ALL_ACCESS) as company:

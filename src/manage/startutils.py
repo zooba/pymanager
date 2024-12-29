@@ -13,6 +13,7 @@ def _unprefix(p, prefix):
         return prefix / p[8:]
     return p
 
+
 def _make(root, prefix, item):
     n = item["Name"]
     try:
@@ -74,10 +75,6 @@ def _make_directory(root, name, prefix, items):
     return subdir
 
 
-def create_one(root, install, shortcut):
-    _make(Path(root), install["prefix"], shortcut)
-
-
 def _cleanup(root, keep):
     if root in keep:
         return
@@ -124,9 +121,13 @@ def _get_to_keep(keep, root, item):
             pass
 
 
+def create_one(root, install, shortcut):
+    root = Path(_native.shortcut_get_start_programs()) / root
+    _make(root, install["prefix"], shortcut)
+
+
 def cleanup(root, preserve):
-    if isinstance(root, str):
-        root = Path(root)
+    root = Path(_native.shortcut_get_start_programs()) / root
 
     if not root.is_dir():
         if root.is_file():

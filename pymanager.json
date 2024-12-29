@@ -2,7 +2,15 @@
     "install": {
         "source": "./index.json"
     },
+    "registry_override_key": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager",
+
+    "default_tag": "3",
+    "user_config": "%AppData%\\Python\\PyManager.json",
+    "additional_config": "%PYTHON_MANAGER_CONFIG%",
+
+    "pep514_root": "HKEY_CURRENT_USER\\Software\\Python",
+    "start_folder": "Python",
+
     "launcher_exe": "./templates/launcher.exe",
-    "launcherw_exe": "./templates/launcherw.exe",
-    "pep514_root": "HKEY_CURRENT_USER\\Software\\Python"
+    "launcherw_exe": "./templates/launcherw.exe"
 }
