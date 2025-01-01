@@ -3,7 +3,7 @@ import time
 
 from pathlib import Path, PurePath
 
-from .logging import LOGGER
+from .logging import LOGGER, LEVEL_VERBOSE
 from .fsutils import ensure_tree, rmtree, unlink
 
 try:
@@ -16,6 +16,11 @@ ENABLE_BITS = os.getenv("PYTHON_ENABLE_BITS_DOWNLOAD", "1").lower()[:1] in "1yt"
 ENABLE_WINHTTP = os.getenv("PYTHON_ENABLE_WINHTTP_DOWNLOAD", "1").lower()[:1] in "1yt"
 ENABLE_URLLIB = os.getenv("PYTHON_ENABLE_URLLIB_DOWNLOAD", "1").lower()[:1] in "1yt"
 ENABLE_POWERSHELL = os.getenv("PYTHON_ENABLE_POWERSHELL_DOWNLOAD", "1").lower()[:1] in "1yt"
+
+
+class NoInternetError(Exception):
+    pass
+
 
 class _Request:
     def __init__(self, url, method="GET", headers={}, outfile=None):
@@ -93,24 +98,33 @@ def _bits_urlretrieve(request):
                 request.on_progress(progress)
             last_progress = progress
             time.sleep(0.1)
-    except OSError:
+    except OSError as ex:
         if job:
             bits_cancel(bits, job)
         if jobfile.is_file():
             unlink(jobfile)
+        if ex.winerror & 0xFFFFFFFF == 0x80200010:
+            raise NoInternetError() from ex
         raise
     unlink(jobfile)
 
 
 def _winhttp_urlopen(request):
-    from _native import winhttp_urlopen
+    from _native import winhttp_urlopen, winhttp_isconnected
     headers = {k.lower(): v for k, v in request.headers.items()}
     accepts = headers.pop("accepts", "application/*;text/*")
     header_str = "\r\n".join(f"{k}: {v}" for k, v in headers.items())
     method = request.method.upper()
     LOGGER.debug("winhttp_urlopen: %s", request)
-    data = winhttp_urlopen(request.url, method, header_str, accepts,
-        request.chunksize, request.on_progress, request.on_auth_request)
+    try:
+        data = winhttp_urlopen(request.url, method, header_str, accepts,
+            request.chunksize, request.on_progress, request.on_auth_request)
+    except OSError as ex:
+        if ex.winerror == 0x00002EE7:
+            LOGGER.debug("winhttp_isconnected: %s", winhttp_isconnected())
+            if not winhttp_isconnected():
+                raise NoInternetError() from ex
+        raise
     if data[:3] == b"\xEF\xBB\xBF":
         data = data[3:]
     return data
@@ -235,9 +249,11 @@ $r = Invoke-WebRequest "{request.url}" -UseBasicParsing `
         while True:
             try:
                 try:
-                    out = p.communicate(b'', timeout=10.0)[0]
+                    out = p.communicate(b'', timeout=10.0)[0].decode("utf-8", "replace")
+                    if '<S S="Error">Invoke-WebRequest' in out:
+                        raise RuntimeError("Powershell download failed:" + out)
                     request.on_progress(100)
-                    LOGGER.debug("PowerShell Output: %s", out.decode("utf-8", "replace"))
+                    LOGGER.debug("PowerShell Output: %s", out)
                     return
                 except subprocess.TimeoutExpired:
                     if not request.outfile.exists():
@@ -264,9 +280,15 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             return _winhttp_urlopen(request)
         except ImportError:
             LOGGER.debug("WinHTTP module unavailable - using fallback")
+        except NoInternetError as ex:
+            # No point going any further if WinHTTP has detected no internet
+            # connection.
+            request.on_progress(None)
+            LOGGER.error("Failed to download. Please connect to the internet and try again.")
+            raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
         except OSError:
             request.on_progress(None)
-            LOGGER.info("Failed to download using WinHTTP. Retrying with fallback method.")
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using WinHTTP. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_URLLIB:
@@ -279,7 +301,7 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             raise
         except Exception:
             request.on_progress(None)
-            LOGGER.info("Failed to download using urllib. Retrying with fallback method.")
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using urllib. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_POWERSHELL:
@@ -289,7 +311,7 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             LOGGER.debug("PowerShell download unavailable - using fallback")
         except Exception:
             request.on_progress(None)
-            LOGGER.info("Failed to download using PowerShell. Retrying with fallback method.")
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using PowerShell. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
         pass
 
@@ -315,9 +337,22 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             return _bits_urlretrieve(request)
         except ImportError:
             LOGGER.debug("BITS module unavailable - using fallback")
+        except NoInternetError as ex:
+            request.on_progress(None)
+            try:
+                from _native import winhttp_isconnected
+            except ImportError:
+                pass
+            else:
+                if not winhttp_isconnected():
+                    LOGGER.error("Failed to download. Please connect to the internet and try again.")
+                    raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
+
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using BITS, " +
+                "possibly due to no internet. Retrying with fallback method.")
         except OSError:
             request.on_progress(None)
-            LOGGER.info("Failed to download using BITS. Retrying with fallback method.")
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using BITS. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_WINHTTP:
@@ -325,9 +360,15 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             return _winhttp_urlretrieve(request)
         except ImportError:
             LOGGER.debug("WinHTTP module unavailable - using fallback")
+        except NoInternetError as ex:
+            # No point going any further if WinHTTP has detected no internet
+            # connection.
+            request.on_progress(None)
+            LOGGER.error("Failed to download. Please connect to the internet and try again.")
+            raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
         except OSError:
             request.on_progress(None)
-            LOGGER.info("Failed to download using WinHTTP. Retrying with fallback method.")
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using WinHTTP. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_URLLIB:
@@ -340,7 +381,7 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             raise
         except Exception:
             request.on_progress(None)
-            LOGGER.info("Failed to download using urllib. Retrying with fallback method.")
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using urllib. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_POWERSHELL:
@@ -350,7 +391,7 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             LOGGER.debug("PowerShell download unavailable - using fallback")
         except Exception:
             request.on_progress(None)
-            LOGGER.info("Failed to download using PowerShell. Retrying with fallback method.")
+            LOGGER.log(LEVEL_VERBOSE, "Failed to download using PowerShell. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     raise RuntimeError("Unable to download from the internet")

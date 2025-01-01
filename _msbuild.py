@@ -28,9 +28,12 @@ class ResourceFile(CSourceFile):
 PACKAGE = Package('python-manager',
     PyprojectTomlFile('pyproject.toml'),
     File('src/python/appxmanifest.xml', name='appxmanifest.xml'),
-    File('pymanager.json'),
+    File('src/pymanager.json'),
     # Default index feed, mainly for testing right now
-    File('index*.json'),
+    Package(
+        'bundled',
+        File('src/index*.json'),
+    ),
     Package(
         'templates',
         File('src/python/templates/template.py'),
@@ -85,6 +88,7 @@ PACKAGE = Package('python-manager',
         CFunction('bits_find_job'),
         CFunction('bits_serialize_job'),
         CFunction('winhttp_urlopen'),
+        CFunction('winhttp_isconnected'),
         CFunction('file_url_to_path'),
         CFunction('package_get_root'),
         CFunction('shortcut_create'),

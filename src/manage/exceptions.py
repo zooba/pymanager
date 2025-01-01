@@ -61,3 +61,12 @@ class InvalidConfigurationError(ValueError):
         self.file = file
         self.argument = argument
         self.value = value
+
+
+class SilentError(Exception):
+    @property
+    def exitcode(self):
+        try:
+            return self.args[0]
+        except IndexError:
+            return 1

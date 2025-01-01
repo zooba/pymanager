@@ -1,4 +1,4 @@
-from .exceptions import ArgumentError, NoInstallFoundError, NoInstallsError
+from .exceptions import ArgumentError, NoInstallFoundError, NoInstallsError, SilentError
 from .logging import LOGGER
 
 try:
@@ -28,6 +28,9 @@ def main(args, root=None):
             cmd.help()
         else:
             cmd.execute()
+    except SilentError as ex:
+        LOGGER.debug("SILENCED ERROR", exc_info=True)
+        return ex.exitcode
     except Exception as ex:
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
         LOGGER.debug("TRACEBACK:", exc_info=True)
@@ -64,6 +67,9 @@ def find_one(root, tag, script, windowed, show_not_found_error):
         if show_not_found_error:
             LOGGER.error("%s", ex)
             LOGGER.debug("TRACEBACK:", exc_info=True)
+        raise
+    except SilentError:
+        LOGGER.debug("SILENCED ERROR", exc_info=True)
         raise
     except Exception as ex:
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)

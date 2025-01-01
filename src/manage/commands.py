@@ -122,14 +122,17 @@ CLI_SCHEMA = {
 
 
 CONFIG_SCHEMA = {
-    # Not meant for users to specify, but to track which files were loaded
-    "config_files": (str, config_append, "path"),
+    # Not meant for users to specify, but to track which files were loaded.
+    # The base_config, user_config and additional_config options are for
+    # configuration.
+    "_config_files": (str, config_append, "path"),
 
     "log_level": (int, min),
     "confirm": (config_bool, None, "env"),
     "install_dir": (str, None, "env", "path"),
     "global_dir": (str, None, "env", "path"),
     "download_dir": (str, None, "env", "path"),
+    "bundled_dir": (str, None, "env", "path"),
 
     "default_tag": (str, None, "env"),
 
@@ -195,6 +198,7 @@ class BaseCommand:
     download_dir = None
     global_dir = None
     install_dir = None
+    bundled_dir = None
 
     pep514_root = None
     start_folder = None

@@ -92,7 +92,7 @@ def load_one_config(cfg, file, schema, *, overwrite=False):
         LOGGER.warn("Error reading configuration from %s: %s", file, ex)
         LOGGER.debug("TRACEBACK:", exc_info=True)
         return
-    cfg2["config_files"] = file
+    cfg2["_config_files"] = file
     resolve_config(cfg2, file, Path(file).absolute().parent, schema=schema)
     merge_config(cfg, cfg2, schema=schema, source=file, overwrite=overwrite)
 

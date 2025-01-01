@@ -1,8 +1,10 @@
 {
     "install": {
-        "source": "./index.json"
+        "source": "./bundled/index.json"
     },
     "registry_override_key": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager",
+
+    "bundled_dir": "./bundled",
 
     "default_tag": "3",
     "user_config": "%AppData%\\Python\\PyManager.json",

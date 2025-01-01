@@ -1,6 +1,7 @@
 #include <Python.h>
 #include <windows.h>
 #include <winhttp.h>
+#include <netlistmgr.h>
 
 #include "helpers.h"
 
@@ -447,5 +448,34 @@ exit:
     PyMem_Free(url);
     return result;
 }
+
+
+PyObject *winhttp_isconnected(PyObject *, PyObject *, PyObject *) {
+    INetworkListManager *nlm = NULL;
+    VARIANT_BOOL connected;
+    
+    HRESULT hr = CoCreateInstance(
+        CLSID_NetworkListManager,
+        NULL,
+        CLSCTX_ALL,
+        IID_INetworkListManager,
+        (LPVOID*)&nlm
+    );
+    if (FAILED(hr)) {
+        err_SetFromWindowsErrWithMessage(hr, "Getting network list manager", NULL);
+        return NULL;
+    }
+    if (FAILED(hr = nlm->get_IsConnectedToInternet(&connected))) {
+        err_SetFromWindowsErrWithMessage(hr, "Checking internet access", NULL);
+        nlm->Release();
+        return NULL;
+    }
+    nlm->Release();
+    if (!connected) {
+        return Py_NewRef(Py_False);
+    }
+    return Py_NewRef(Py_True);
+}
+
 
 }

@@ -60,7 +60,7 @@ def get_installs(install_dir, default_tag, include_unmanaged=True):
             new_aliases = [a for a in aliases if a["name"].casefold() not in seen_alias]
             seen_alias.update(a["name"].casefold() for a in aliases)
             i["alias"] = new_aliases
-        if default_tag and i_tag.match(default_tag):
+        if default_tag and not i.get("unmanaged") and i_tag.match(default_tag):
             default_tag = None
             i["default"] = True
     return installs
@@ -96,13 +96,15 @@ def get_install_to_run(install_dir, default_tag, tag, include_unmanaged=True, wi
 
     if not tag:
         for i in installs:
-            for t in i.get("run-for", ()):
-                if bool(windowed) == bool(t.get("windowed")):
-                    return _patch_install_to_run(i, t)
-                if not best_non_windowed:
-                    best_non_windowed = _patch_install_to_run(i, t)
-        if best_non_windowed:
-            return best_non_windowed
+            if i.get("default"):
+                for t in i.get("run-for", ()):
+                    if bool(windowed) == bool(t.get("windowed")):
+                        return _patch_install_to_run(i, t)
+                    if not best_non_windowed:
+                        best_non_windowed = _patch_install_to_run(i, t)
+                if best_non_windowed:
+                    return best_non_windowed
+                break
         raise NoInstallFoundError()
 
     tag = CompanyTag(tag)

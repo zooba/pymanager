@@ -18,4 +18,4 @@ if "-i" not in sys.argv:
 run([sys.executable, "-m", "pymsbuild"], cwd=DIRS["root"])
 
 # Overwrite bundled feed. This will be removed eventually
-run([sys.executable, "scripts/generate-nuget-index.py", LAYOUT / "index.json"])
+run([sys.executable, "scripts/generate-nuget-index.py", LAYOUT / "bundled" / "index.json"])

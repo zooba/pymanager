@@ -3,7 +3,7 @@ import os
 
 from pathlib import Path, PurePath
 
-from .exceptions import ArgumentError, HashMismatchError
+from .exceptions import ArgumentError, HashMismatchError, SilentError
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
 from .logging import LOGGER, LEVEL_VERBOSE, ProgressPrinter
@@ -89,12 +89,23 @@ def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_ur
     if not cmd.force and dest.is_file():
         LOGGER.info("Download was found in the cache")
         LOGGER.debug("Download skipped because %s already exists", dest)
-    else:
-        unlink(dest, "Removing old downloads is taking some time. " + 
-                     "Please continue to wait, or press Ctrl+C to abort.")
-        urlretrieve(install["url"], dest, on_progress=on_progress)
-        LOGGER.debug("Downloaded to %s", dest)
+        return dest
 
+    if cmd.bundled_dir:
+        bundled = list(cmd.bundled_dir.glob(install["id"] + ".*"))
+        if bundled:
+            LOGGER.log(LEVEL_VERBOSE, "Using bundled file at %s", bundled[0])
+            return bundled[0]
+
+    unlink(dest, "Removing old downloads is taking some time. " + 
+                 "Please continue to wait, or press Ctrl+C to abort.")
+
+    urlretrieve(install["url"], dest, on_progress=on_progress)
+    LOGGER.debug("Downloaded to %s", dest)
+    return dest
+
+
+def validate_package(install, dest):
     if "hash" in install:
         try:
             with open(dest, "rb") as f:
@@ -302,7 +313,8 @@ def _install_one(cmd, tag, *, target=None, installed=None):
         package = package.with_suffix(".nupkg")
 
     with ProgressPrinter("Downloading", maxwidth=CONSOLE_WIDTH) as on_progress:
-        download_package(cmd, install, package, DOWNLOAD_CACHE, on_progress=on_progress)
+        package = download_package(cmd, install, package, DOWNLOAD_CACHE, on_progress=on_progress)
+    validate_package(install, package)
 
     dest = target or (cmd.install_dir / install["id"])
 
@@ -348,48 +360,53 @@ def execute(cmd):
         if cmd.args:
             LOGGER.warn("Ignoring arguments; --refresh always refreshes all installs.")
         update_all_shortcuts(cmd)
-
-    if not cmd.args:
-        LOGGER.debug("No tags provided, installing first version in index")
-        cmd.args = [""]
-
-    if cmd.automatic:
-        LOGGER.info("*" * CONSOLE_WIDTH)
-
-    if cmd.from_script:
-        from .scriptutils import find_install_from_script
-        spec = find_install_from_script(cmd, cmd.from_script)
-        if spec:
-            cmd.args.append(spec)
-
-    if cmd.target:
-        if len(cmd.args) > 1:
-            raise ArgumentError("Unable to install multiple versions with --target")
-        for spec in cmd.args:
-            tag = tag_or_range(spec) if spec else None
-            try:
-                _install_one(cmd, (cmd.args + [None])[0], target=Path(cmd.target))
-            except Exception:
-                LOGGER.error("Install failed. Please check any output above and try again.")
-                LOGGER.debug("ERROR", exc_info=True)
-            break
+        LOGGER.debug("END install_command.execute")
         return
 
-    installed = list(cmd.get_installs())
-
-    try:
-        for spec in cmd.args:
-            tag = tag_or_range(spec) if spec else None
-            _install_one(cmd, tag, installed=installed)
-    except Exception:
-        LOGGER.error("Install failed. Please check any output above and try again.")
-        LOGGER.debug("ERROR", exc_info=True)
-    else:
-        update_all_shortcuts(cmd)
-        print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
-
     if cmd.automatic:
-        LOGGER.info("To see all available commands, run 'python help'")
         LOGGER.info("*" * CONSOLE_WIDTH)
 
-    LOGGER.debug("END install_command.execute")
+    try:
+        if cmd.from_script:
+            from .scriptutils import find_install_from_script
+            spec = find_install_from_script(cmd, cmd.from_script)
+            if spec:
+                cmd.args.append(spec)
+
+        if not cmd.args:
+            LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
+            cmd.args = [cmd.default_tag]
+
+        if cmd.target:
+            if len(cmd.args) > 1:
+                raise ArgumentError("Unable to install multiple versions with --target")
+            for spec in cmd.args:
+                tag = tag_or_range(spec) if spec else None
+                try:
+                    _install_one(cmd, (cmd.args + [None])[0], target=Path(cmd.target))
+                except Exception:
+                    LOGGER.error("Install failed. Please check any output above and try again.")
+                    LOGGER.debug("ERROR", exc_info=True)
+                break
+            return
+
+        installed = list(cmd.get_installs())
+
+        try:
+            for spec in cmd.args:
+                tag = tag_or_range(spec) if spec else None
+                _install_one(cmd, tag, installed=installed)
+        except Exception as ex:
+            LOGGER.error("Install failed. Please check any output above and try again.")
+            LOGGER.debug("ERROR", exc_info=True)
+            raise SilentError(getattr(ex, "errno", 0) or 1) from ex
+        else:
+            update_all_shortcuts(cmd)
+            print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
+
+    finally:
+        if cmd.automatic:
+            LOGGER.info("To see all available commands, run 'python help'")
+            LOGGER.info("*" * CONSOLE_WIDTH)
+
+        LOGGER.debug("END install_command.execute")

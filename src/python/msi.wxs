@@ -18,12 +18,14 @@
 
     <StandardDirectory Id="ProgramFiles64Folder">
       <Directory Id="INSTALLFOLDER" Name="PyManager">
+        <Directory Id="BUNDLED" Name="bundled" />
         <Directory Id="TEMPLATES" Name="templates" />
       </Directory>
     </StandardDirectory>
 
     <Feature Id="Core">
       <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="BundledComponent" />
       <ComponentRef Id="TemplatesComponent" />
     </Feature>
 
@@ -37,9 +39,6 @@
       <File Source="pyw-manage.exe" Name="pywmanage.exe" />
       <File Source="pyw-manage.exe" Name="pyw.exe" />
       <File Source="pymanager.json" />
-      <!-- HACK: Included for test purposes only -->
-      <File Source="index.json" />
-      <File Source="index-legacy.json" />
 
       <File Source="$(var.pythondllname).dll" />
       <File Source="$(var.pythondllname).zip" />
@@ -83,6 +82,12 @@
           <Verb Id="open" TargetFile="pythonw.exe" Argument="&quot;%1&quot; %*" />
         </Extension>
       </ProgId>
+    </Component>
+
+    <Component Id="BundledComponent" Directory="BUNDLED" Guid="F51B5F28-A6B4-4C73-AF7B-B58D2247520B">
+      <!-- HACK: Included for test purposes only -->
+      <File Source="bundled\index.json" Name="index.json" />
+      <File Source="bundled\index-legacy.json" Name="index-legacy.json" />
     </Component>
 
     <Component Id="TemplatesComponent" Directory="TEMPLATES" Guid="3ACC110C-5C33-45C8-9843-A446718930A0">
