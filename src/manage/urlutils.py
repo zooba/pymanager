@@ -3,7 +3,7 @@ import time
 
 from pathlib import Path, PurePath
 
-from .logging import LOGGER, LEVEL_VERBOSE
+from .logging import LOGGER
 from .fsutils import ensure_tree, rmtree, unlink
 
 try:
@@ -288,7 +288,7 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
         except OSError:
             request.on_progress(None)
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using WinHTTP. Retrying with fallback method.")
+            LOGGER.verbose("Failed to download using WinHTTP. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_URLLIB:
@@ -301,7 +301,7 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             raise
         except Exception:
             request.on_progress(None)
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using urllib. Retrying with fallback method.")
+            LOGGER.verbose("Failed to download using urllib. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_POWERSHELL:
@@ -311,7 +311,7 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             LOGGER.debug("PowerShell download unavailable - using fallback")
         except Exception:
             request.on_progress(None)
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using PowerShell. Retrying with fallback method.")
+            LOGGER.verbose("Failed to download using PowerShell. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
         pass
 
@@ -348,11 +348,11 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
                     LOGGER.error("Failed to download. Please connect to the internet and try again.")
                     raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
 
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using BITS, " +
+            LOGGER.verbose("Failed to download using BITS, " +
                 "possibly due to no internet. Retrying with fallback method.")
         except OSError:
             request.on_progress(None)
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using BITS. Retrying with fallback method.")
+            LOGGER.verbose("Failed to download using BITS. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_WINHTTP:
@@ -368,7 +368,7 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
         except OSError:
             request.on_progress(None)
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using WinHTTP. Retrying with fallback method.")
+            LOGGER.verbose("Failed to download using WinHTTP. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_URLLIB:
@@ -381,7 +381,7 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             raise
         except Exception:
             request.on_progress(None)
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using urllib. Retrying with fallback method.")
+            LOGGER.verbose("Failed to download using urllib. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     if ENABLE_POWERSHELL:
@@ -391,7 +391,7 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             LOGGER.debug("PowerShell download unavailable - using fallback")
         except Exception:
             request.on_progress(None)
-            LOGGER.log(LEVEL_VERBOSE, "Failed to download using PowerShell. Retrying with fallback method.")
+            LOGGER.verbose("Failed to download using PowerShell. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
 
     raise RuntimeError("Unable to download from the internet")

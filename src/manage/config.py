@@ -1,12 +1,12 @@
 import json
 import os
+import sys
 import winreg
 
 from pathlib import Path
 
-from _native import package_get_root
 from .exceptions import InvalidConfigurationError
-from .logging import LOGGER, LEVEL_VERBOSE
+from .logging import LOGGER
 
 
 DEFAULT_CONFIG_NAME = "pymanager.json"
@@ -37,15 +37,22 @@ def config_bool(v):
         return v.lower().startswith(("t", "y", "1"))
     return True
 
+def _global_file():
+    try:
+        from _native import package_get_root
+    except ImportError:
+        return Path(sys.executable).parent / DEFAULT_CONFIG_NAME
+    return Path(package_get_root()) / DEFAULT_CONFIG_NAME
 
 def load_config(root, override_file, schema):
     cfg = {}
 
-    global_file = Path(package_get_root()) / DEFAULT_CONFIG_NAME
-    try:
-        load_one_config(cfg, global_file, schema=schema)
-    except FileNotFoundError:
-        pass
+    global_file = _global_file()
+    if global_file:
+        try:
+            load_one_config(cfg, global_file, schema=schema)
+        except FileNotFoundError:
+            pass
 
     try:
         reg_cfg = load_registry_config(cfg["registry_override_key"], schema=schema)
@@ -77,12 +84,12 @@ def load_config(root, override_file, schema):
 
 
 def load_one_config(cfg, file, schema, *, overwrite=False):
-    LOGGER.log(LEVEL_VERBOSE, "Loading configuration from %s", file)
+    LOGGER.verbose("Loading configuration from %s", file)
     try:
         with open(file, "r", encoding="utf-8") as f:
             cfg2 = json.load(f)
     except FileNotFoundError:
-        LOGGER.log(LEVEL_VERBOSE, "Skipping configuration at %s because it does not exist", file)
+        LOGGER.verbose("Skipping configuration at %s because it does not exist", file)
         return
     except OSError as ex:
         LOGGER.warn("Failed to read %s: %s", file, ex)
@@ -121,7 +128,7 @@ def load_registry_config(key_path, schema):
                         "This is very unexpected. Please check your configuration " +
                         "or report an issue at https://github.com/zooba/pymanager.",
                         key_path)
-    resolve_config(cfg, key_path, Path(package_get_root()), schema=schema, error_unknown=True)
+    resolve_config(cfg, key_path, _global_file().parent, schema=schema, error_unknown=True)
     return cfg
 
 
@@ -143,7 +150,7 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
         except LookupError:
             if error_unknown:
                 raise InvalidConfigurationError(source, key_so_far + k)
-            LOGGER.log(LEVEL_VERBOSE, "Ignoring unknown configuration %s%s in %s", key_so_far, k, source)
+            LOGGER.verbose("Ignoring unknown configuration %s%s in %s", key_so_far, k, source)
             continue
 
         if isinstance(subschema, dict):
@@ -158,6 +165,9 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
                 v = _expand_vars(v, os.environ)
             except TypeError:
                 pass
+            if not v:
+                del cfg[k]
+                continue
         try:
             v = kind(v)
         except (TypeError, ValueError):

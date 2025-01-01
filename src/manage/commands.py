@@ -1,5 +1,3 @@
-import logging
-import os
 import sys
 
 from pathlib import Path
@@ -12,9 +10,9 @@ from .config import (
     config_split_append,
 )
 from .exceptions import ArgumentError
-from .logging import LOGGER, LEVEL_VERBOSE
 
-COMMANDS = {}
+from . import logging
+LOGGER = logging.LOGGER
 
 """
 Command-line arguments are defined in CLI_SCHEMA as a mapping from argument
@@ -73,13 +71,14 @@ _NEXT = object()
 
 
 CLI_SCHEMA = {
-    "v": ("log_level", LEVEL_VERBOSE),
+    "v": ("log_level", logging.VERBOSE),
     "vv": ("log_level", logging.DEBUG),
-    "verbose": ("log_level", LEVEL_VERBOSE),
+    "verbose": ("log_level", logging.VERBOSE),
     "q": ("log_level", logging.WARN),
-    "qq": ("log_level", logging.CRITICAL),
+    "qq": ("log_level", logging.ERROR),
     "quiet": ("log_level", logging.WARN),
     "config": ("config_file", _NEXT),
+    "log": ("log_file", _NEXT),
     "y": ("confirm", False),
     "yes": ("confirm", False),
     "?": ("show_help", True),
@@ -133,6 +132,7 @@ CONFIG_SCHEMA = {
     "global_dir": (str, None, "env", "path"),
     "download_dir": (str, None, "env", "path"),
     "bundled_dir": (str, None, "env", "path"),
+    "logs_dir": (str, None, "env", "path"),
 
     "default_tag": (str, None, "env"),
 
@@ -188,17 +188,26 @@ CONFIG_SCHEMA = {
 }
 
 
+# Will be filled in by BaseCommand.__init_subclass__
+COMMANDS = {}
+
+
 class BaseCommand:
     log_level = logging.INFO
     config_file = None
     confirm = True
     default_tag = None
+    log_file = None
+
+    _create_log_file = True
+    keep_log = True
 
     root = None
     download_dir = None
     global_dir = None
     install_dir = None
     bundled_dir = None
+    logs_dir = None
 
     pep514_root = None
     start_folder = None
@@ -256,16 +265,9 @@ class BaseCommand:
             else:
                 self.args.append(a)
 
-        # Apply log_level from the environment or command line first, so that
-        # config loading is logged if desired.
-        if os.getenv("PYMANAGER_VERBOSE"):
-            self.log_level = logging.DEBUG
-
-        LOGGER.setLevel(self.log_level)
-
-        LOGGER.debug("Processing arguments for %s", self.CMD)
-        LOGGER.debug("Arguments: %r", self.args)
-        LOGGER.debug("Options: %r", {a: getattr(self, a) for a in {a[0] for a in cmd_args.values()}})
+        # Apply log_level from the command line first, so that config loading
+        # is logged (if desired).
+        LOGGER.reduce_level(self.log_level)
 
         self.root = Path(root or self.root or sys.prefix)
         try:
@@ -274,17 +276,12 @@ class BaseCommand:
             LOGGER.warn("Failed to read configuration file from %s", self.config_file)
             raise
 
-        LOGGER.debug("Config: %r", config)
-
         # Top-level arguments get updated manually from the config
         # (per-command config gets loaded automatically below)
 
         # Update log_level from config if the config file requested more output
         # than the command line did.
-        new_log_level = config.get("log_level")
-        if new_log_level is not None and not LOGGER.isEnabledFor(new_log_level):
-            self.log_level = new_log_level
-            LOGGER.setLevel(self.log_level)
+        self.log_level = LOGGER.reduce_level(config.get("log_level"))
 
         # Update directories from configuration
         # (these are not available on the command line)
@@ -293,6 +290,7 @@ class BaseCommand:
         self.install_dir = self.root / "pkgs"
         self.global_dir = self.root / "bin"
         self.download_dir = self.root / "pkgs"
+        self.logs_dir = None
 
         arg_names = frozenset(k for k, v in CONFIG_SCHEMA.items()
             if hasattr(type(self), k) and not isinstance(v, dict))
@@ -300,7 +298,6 @@ class BaseCommand:
             if isinstance(v, dict):
                 continue
             if k in arg_names and k not in _set_args:
-                LOGGER.debug("Overriding global option %s with %r", k, v)
                 setattr(self, k, v)
                 _set_args.add(k)
 
@@ -324,6 +321,48 @@ class BaseCommand:
     def __init_subclass__(subcls):
         COMMANDS[subcls.CMD] = subcls
 
+    def _get_one_argument_to_log(self, k):
+        try:
+            v = getattr(self, k)
+        except AttributeError:
+            return "<invalid option>"
+        if isinstance(v, str) and v.casefold().startswith("http".casefold()):
+            from .urlutils import sanitise_url
+            return sanitise_url(v)
+        return v
+
+    def dump_arguments(self):
+        try:
+            arg_spec = CLI_SCHEMA[self.CMD]
+        except LookupError:
+            arg_spec = None
+        else:
+            LOGGER.debug("Command: %r", self.CMD)
+        for k in sorted(set(k[0] for k in CLI_SCHEMA.values() if not isinstance(k, dict))):
+            LOGGER.debug("Global option: %s = %s", k, self._get_one_argument_to_log(k))
+        if arg_spec:
+            for k in sorted(set(k[0] for k in arg_spec.values() if not isinstance(k, dict))):
+                LOGGER.debug("Command option: %s = %s", k, self._get_one_argument_to_log(k))
+            LOGGER.debug("Arguments: %r", self.args)
+
+    def get_log_file(self):
+        if not self._create_log_file:
+            return None
+
+        if self.log_file:
+            self.keep_log = True
+            return self.log_file
+
+        logs_dir = self.logs_dir
+        if not logs_dir:
+            import tempfile
+            logs_dir = Path(tempfile.gettempdir())
+        import datetime
+        import os
+        return logs_dir / "python_{}_{}_{}.log".format(
+            self.CMD, datetime.datetime.now().strftime("%Y%m%d%H%M%S"), os.getpid()
+        )
+
     def execute(self):
         raise NotImplementedError(f"'{type(self).__name__}' does not implement 'execute()'")
 
@@ -346,7 +385,7 @@ Global options:
     -v, --verbose    Increased output (log_level={logging.INFO})
     -vv              Further increased output (log_level={logging.DEBUG})
     -q, --quiet      Less output (log_level={logging.WARN})
-    -qq              Even less output (log_level={logging.CRITICAL})
+    -qq              Even less output (log_level={logging.ERROR})
     -y, --yes        Always confirm prompts (confirm=False)
     --config=PATH    Override configuration with JSON file
 """.lstrip().replace("\r\n", "\n")
@@ -405,6 +444,7 @@ EXAMPLE: Find 3.12 runtimes available for install
     unmanaged = True
     source = None
     default_source = False
+    keep_log = False
 
     def execute(self):
         from .list_command import execute
@@ -419,24 +459,28 @@ class ListLegacy0Command(ListCommand):
     CMD = "-0"
     format = "legacy"
     unmanaged = True
+    _create_log_file = False
 
 
 class ListLegacy0pCommand(ListCommand):
     CMD = "-0p"
     format = "legacy-paths"
     unmanaged = True
+    _create_log_file = False
 
 
 class ListLegacyCommand(ListCommand):
     CMD = "--list"
     format = "legacy"
     unmanaged = True
+    _create_log_file = False
 
 
 class ListPathsLegacyCommand(ListCommand):
     CMD = "--list-paths"
     format = "legacy-paths"
     unmanaged = True
+    _create_log_file = False
 
 
 class InstallCommand(BaseCommand):
@@ -469,6 +513,7 @@ EXAMPLE: Refresh and replace all shortcuts
     source = None
     target = None
     force = False
+    update = False
     dry_run = False
     refresh = False
     automatic = False
@@ -489,8 +534,7 @@ EXAMPLE: Refresh and replace all shortcuts
             try:
                 self.source = Path(self.source).absolute().as_uri()
             except Exception as ex:
-                print(ex)
-                raise
+                raise ArgumentError("Source feed is not a valid path or URL") from ex
 
     def execute(self):
         from .install_command import execute
@@ -538,6 +582,8 @@ Help options:
                     commands and global options only.
 """
 
+    _create_log_file = False
+
     def execute(self):
         print(BaseCommand.help_text())
         for a in self.args:
@@ -554,6 +600,7 @@ Help options:
 
 class DefaultConfig(BaseCommand):
     CMD = "__no_command"
+    _create_log_file = False
 
     def __init__(self, root):
         super().__init__([], root)

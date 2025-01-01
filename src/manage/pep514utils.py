@@ -1,7 +1,7 @@
 import time
 import winreg
 
-from .logging import LOGGER, LEVEL_VERBOSE
+from .logging import LOGGER
 
 
 REG_TYPES = {
@@ -145,13 +145,13 @@ def _is_tag_managed(company_key, tag_name):
 
 def _split_root(root_name):
     if not root_name:
-        LOGGER.log(LEVEL_VERBOSE, "Skipping registry shortcuts as PEP 514 registry root is not set.")
+        LOGGER.verbose("Skipping registry shortcuts as PEP 514 registry root is not set.")
         return
     hive_name, _, name = root_name.partition("\\")
     try:
         hive = getattr(winreg, hive_name.upper())
     except AttributeError:
-        LOGGER.log(LEVEL_VERBOSE, "Skipping registry shortcuts as %s\\%s is not a valid key", root_name)
+        LOGGER.verbose("Skipping registry shortcuts as %s\\%s is not a valid key", root_name)
         return
     return hive, name
 

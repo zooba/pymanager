@@ -6,7 +6,7 @@ from pathlib import Path, PurePath
 from .exceptions import ArgumentError, HashMismatchError, SilentError
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
-from .logging import LOGGER, LEVEL_VERBOSE, ProgressPrinter
+from .logging import LOGGER, ProgressPrinter
 from .tagutils import CompanyTag, tag_or_range
 from .urlutils import (
     sanitise_url,
@@ -94,7 +94,7 @@ def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_ur
     if cmd.bundled_dir:
         bundled = list(cmd.bundled_dir.glob(install["id"] + ".*"))
         if bundled:
-            LOGGER.log(LEVEL_VERBOSE, "Using bundled file at %s", bundled[0])
+            LOGGER.verbose("Using bundled file at %s", bundled[0])
             return bundled[0]
 
     unlink(dest, "Removing old downloads is taking some time. " + 
@@ -258,10 +258,10 @@ def update_all_shortcuts(cmd, path_warning=True):
     if path_warning and any(cmd.global_dir.glob("*.exe")):
         try:
             if not any(cmd.global_dir.match(p) for p in os.getenv("PATH", "").split(os.pathsep) if p):
-                LOGGER.info("""
-Global shortcuts directory is not on PATH. Add it for global commands.
-Directory to add: %s
-""", cmd.global_dir)
+                LOGGER.info("")
+                LOGGER.info("Global shortcuts directory is not on PATH. Add it for global commands.")
+                LOGGER.info("Directory to add: %s", cmd.global_dir)
+                LOGGER.info("")
         except Exception:
             LOGGER.debug("Failed to display PATH warning", exc_info=True)
 
@@ -283,9 +283,9 @@ def print_cli_shortcuts(cmd, tags):
 
 def _install_one(cmd, tag, *, target=None, installed=None):
     if tag:
-        LOGGER.log(LEVEL_VERBOSE, "Searching for Python matching %s", tag)
+        LOGGER.verbose("Searching for Python matching %s", tag)
     else:
-        LOGGER.log(LEVEL_VERBOSE, "Searching for default Python version")
+        LOGGER.verbose("Searching for default Python version")
     install = select_package(cmd, tag, DOWNLOAD_CACHE)
 
     existing = [i for i in (installed or ()) if i["id"].casefold() == install["id"].casefold()]
@@ -301,13 +301,13 @@ def _install_one(cmd, tag, *, target=None, installed=None):
             return
 
     LOGGER.info("Installing %s.", install['displayName'])
-    LOGGER.log(LEVEL_VERBOSE, "Tag: %s\\%s", install['company'], install['tag'])
+    LOGGER.verbose("Tag: %s\\%s", install['company'], install['tag'])
 
     if cmd.dry_run:
         LOGGER.info("Skipping rest of install due to --dry-run")
         return
 
-    package = cmd.download_dir / f"{install['id']}.zip"
+    package = cmd.download_dir / f"{install['id']}-{install['sort-version']}.zip"
     # Preserve nupkg extensions so we can directly reference Nuget packages
     if install["url"].casefold().endswith(".nupkg".casefold()):
         package = package.with_suffix(".nupkg")
@@ -318,9 +318,9 @@ def _install_one(cmd, tag, *, target=None, installed=None):
 
     dest = target or (cmd.install_dir / install["id"])
 
-    LOGGER.log(LEVEL_VERBOSE, "Extracting %s to %s", package, dest)
+    LOGGER.verbose("Extracting %s to %s", package, dest)
     try:
-        rmtree(dest, "Cleaning up a previous install is taking some time. " +
+        rmtree(dest, "Removing the previous install is taking some time. " +
                      "Ensure Python is not running, and continue to wait " +
                      "or press Ctrl+C to abort.")
     except FileExistsError:

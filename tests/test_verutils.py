@@ -22,7 +22,7 @@ def test_long_version(assert_log):
     v2 = "3.1.2.3.4.5.6.7"
     Version(v)
     assert_log(
-        ("verutils", ".*is too long.*", (v, v2)),
+        (".*is too long.*", (v, v2)),
     )
 
 

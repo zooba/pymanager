@@ -5,6 +5,7 @@
     "registry_override_key": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager",
 
     "bundled_dir": "./bundled",
+    "logs_dir": "%PYTHON_MANAGER_LOGS%",
 
     "default_tag": "3",
     "user_config": "%AppData%\\Python\\PyManager.json",

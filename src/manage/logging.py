@@ -1,39 +1,93 @@
-import logging
 import os
 import sys
 
-FILE = sys.stderr
 
-LEVEL_VERBOSE = logging.DEBUG + 5
-assert logging.DEBUG < LEVEL_VERBOSE < logging.INFO
-logging.addLevelName(LEVEL_VERBOSE, "VERBOSE")
-
-LOGGER = logging.getLogger("pymanager")
-
-
-# Set log level from environment if requested, so that everything is logged
-# even if we don't make it far enough to load a config.
-if os.getenv("PYMANAGER_DEBUG"):
-    LOGGER.setLevel(logging.DEBUG)
-elif os.getenv("PYMANAGER_VERBOSE"):
-    LOGGER.setLevel(LEVEL_VERBOSE)
+DEBUG = 10
+VERBOSE = 15
+INFO = 20
+WARN = 30
+ERROR = 40
 
 
-class LogFormatter(logging.Formatter):
-    def formatMessage(self, record):
-        msg = record.msg % record.args
-        if record.levelno == logging.DEBUG:
-            return f"# {msg}"
-        if record.levelno == logging.WARN:
-            return f"[WARNING] {msg}"
-        if record.levelno >= logging.ERROR:
-            return f"[ERROR] {msg}"
-        return msg
+class Logger:
+    CONSOLE_PREFIX = {
+        DEBUG: "# ",
+        WARN: "[WARNING] ",
+        ERROR: "[ERROR] ",
+    }
+
+    FILE_PREFIX = {
+        VERBOSE: ">> ",
+        INFO: ">  ",
+        WARN: "!  ",
+        ERROR: "!! ",
+    }
+
+    def __init__(self):
+        if os.getenv("PYMANAGER_DEBUG"):
+            self.level = DEBUG
+        elif os.getenv("PYMANAGER_VERBOSE"):
+            self.level = VERBOSE
+        else:
+            self.level = INFO
+        self.console = sys.stderr
+        self.file = None
+        self._list = None
+
+    def set_level(self, level):
+        self.level = level
+
+    def reduce_level(self, new_level):
+        if new_level is not None and new_level < self.level:
+            self.level = new_level
+        return self.level
+
+    def debug(self, msg, *args, **kwargs):
+        self.log(DEBUG, msg, *args, **kwargs)
+
+    def verbose(self, msg, *args, **kwargs):
+        self.log(VERBOSE, msg, *args, **kwargs)
+
+    def info(self, msg, *args, **kwargs):
+        self.log(INFO, msg, *args, **kwargs)
+
+    def warn(self, msg, *args, **kwargs):
+        self.log(WARN, msg, *args, **kwargs)
+
+    def error(self, msg, *args, **kwargs):
+        self.log(ERROR, msg, *args, **kwargs)
+
+    def would_log_to_console(self, level):
+        return level >= self.level
+
+    def would_log(self, level):
+        return (level >= self.level) or self.file
+
+    def log(self, level, msg, *args, exc_info=False):
+        if self._list is not None:
+            self._list.append((msg, args))
+        if not ((level >= self.level) or self.file is not None):
+            return
+        msg = msg % args
+        if level >= self.level:
+            print(self.CONSOLE_PREFIX.get(level, ""), msg, sep="", file=self.console)
+        if self.file is not None:
+            print(self.FILE_PREFIX.get(level, ""), msg, sep="", file=self.file)
+        if exc_info:
+            import traceback
+            exc = traceback.format_exc()
+            if level >= self.level:
+                print(exc, file=self.console)
+            if self.file is not None:
+                print(exc, file=self.file)
+
+    def print(self, *args, **kwargs):
+        if kwargs.pop("level", INFO) < self.level:
+            return
+        print(*args, **kwargs, file=self.console)
 
 
-handler = logging.StreamHandler(FILE)
-LOGGER.addHandler(handler)
-handler.setFormatter(LogFormatter())
+LOGGER = Logger()
 
 
 class ProgressPrinter:
@@ -44,34 +98,32 @@ class ProgressPrinter:
         self._started = False
         self._complete = False
         self._need_newline = False
-        self.file = FILE if LOGGER.isEnabledFor(logging.INFO) else None
 
     def __enter__(self):
         return self
 
     def __exit__(self, *exc_info):
-        if self.file and self._need_newline:
+        if self._need_newline:
             if self._complete:
-                print(file=self.file)
+                LOGGER.print()
             else:
-                print("❌", file=self.file)
+                LOGGER.print("❌")
 
     def __call__(self, progress):
         if self._complete:
             return
 
         if progress is None:
-            if self.file and self._need_newline:
+            if self._need_newline:
                 if not self._complete:
-                    print("⏸️", file=self.file)
+                    LOGGER.print("⏸️")
                     self._dots_shown = 0
                     self._started = False
                     self._need_newline = False
             return
 
         if not self._started:
-            if self.file:
-                print(self.operation, ": ", sep="", end="", flush=True, file=self.file)
+            LOGGER.print(self.operation, ": ", sep="", end="", flush=True)
             self._started = True
             self._need_newline = True
 
@@ -80,10 +132,9 @@ class ProgressPrinter:
             return
 
         self._dots_shown += dot_count
-        if self.file:
-            print("." * dot_count, end="", flush=True, file=self.file)
-            self._need_newline = True
-            if progress >= 100:
-                print("✅", flush=True, file=self.file)
-                self._complete = True
-                self._need_newline = False
+        LOGGER.print("." * dot_count, end="", flush=True)
+        self._need_newline = True
+        if progress >= 100:
+            LOGGER.print("✅", flush=True)
+            self._complete = True
+            self._need_newline = False

@@ -32,10 +32,10 @@ class Version:
             dev = self.TEXT_MAP[(m.group("level") or "").lower()]
         except LookupError:
             dev = 0
-            LOGGER.warning("Version %s has invalid development level specified which will be ignored", s)
+            LOGGER.warn("Version %s has invalid development level specified which will be ignored", s)
         self.s = s
         if len(bits) > self.MAX_FIELDS:
-            LOGGER.warning("Version %s is too long and will be truncated to %s for ordering purposes",
+            LOGGER.warn("Version %s is too long and will be truncated to %s for ordering purposes",
                 s, ".".join(map(str, bits[:self.MAX_FIELDS])))
         self.sortkey = (
             *bits[:self.MAX_FIELDS],

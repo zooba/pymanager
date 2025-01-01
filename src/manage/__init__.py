@@ -11,6 +11,7 @@ __all__ = ["main", "NoInstallFoundError", "NoInstallsError", "find_one"]
 
 
 def main(args, root=None):
+    delete_log = None
     try:
         from .commands import find_command, show_help
         args = list(args)
@@ -26,8 +27,16 @@ def main(args, root=None):
 
         if cmd.show_help:
             cmd.help()
-        else:
-            cmd.execute()
+            return 0
+
+        log_file = cmd.get_log_file()
+        if log_file:
+            LOGGER.file = open(log_file, "w", encoding="utf-8", errors="replace")
+            LOGGER.verbose("Writing logs to %s", log_file)
+
+        cmd.execute()
+        if not cmd.keep_log:
+            delete_log = log_file
     except SilentError as ex:
         LOGGER.debug("SILENCED ERROR", exc_info=True)
         return ex.exitcode
@@ -35,6 +44,15 @@ def main(args, root=None):
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
         LOGGER.debug("TRACEBACK:", exc_info=True)
         return getattr(ex, "winerror", getattr(ex, "errno", 1))
+    finally:
+        if LOGGER.file:
+            LOGGER.file.flush()
+            LOGGER.file.close()
+        if delete_log:
+            try:
+                delete_log.unlink()
+            except OSError:
+                pass
     return 0
 
 

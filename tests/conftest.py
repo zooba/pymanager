@@ -1,4 +1,3 @@
-import logging
 import os
 import pytest
 import random
@@ -18,27 +17,20 @@ if not hasattr(_native, "coinitialize"):
             setattr(_native, k, getattr(_native_test, k))
 
 
-class LogCaptureHandler:
-    def __init__(self):
-        self.records = []
-        self.level = logging.DEBUG
-
-    def handle(self, record):
-        self.records.append((record.module, record.msg, record.args))
-
+class LogCaptureHandler(list):
     def __call__(self, *cmp):
-        for x, y in zip(self.records, cmp):
-            assert x[0] == y[0]
-            assert re.match(y[1], x[1])
-            assert x[2] == y[2]
+        for x, y in zip(self, cmp):
+            assert re.match(y[0], x[0])
+            assert x[1] == y[1]
 
 @pytest.fixture
 def assert_log():
-    logger = logging.getLogger("pymanager")
-    capture = LogCaptureHandler()
-    logger.addHandler(capture)
-    logger.setLevel(logging.DEBUG)
-    yield capture
+    from manage.logging import LOGGER
+    LOGGER._list = capture = LogCaptureHandler()
+    try:
+        yield capture
+    finally:
+        LOGGER._list = None
 
 
 @pytest.fixture(scope="session")

@@ -101,6 +101,7 @@ def rmtree(path, after_5s_warning=None):
             break
         except OSError as ex:
             LOGGER.debug("Failed to rename to %s: %s", new_path, ex)
+            time.sleep(0.01)
     else:
         raise FileExistsError(str(path))
 
@@ -167,7 +168,7 @@ def unlink(path, after_5s_warning=None):
                 pass
             break
         except OSError:
-            pass
+            time.sleep(0.01)
     else:
         LOGGER.warn("Failed to remove %s", orig_path)
         return
