@@ -52,7 +52,7 @@ def _expand_versions_by_tag(versions):
                 yield {**v, "tag": t}
 
 
-def select_package(cmd, tag, cache, *, urlopen=_urlopen):
+def select_package(cmd, tag, cache, *, urlopen=_urlopen, by_id=False):
     """Finds suitable package from index.json that looks like:
     {"versions": [
       {"id": ..., "company": ..., "tag": ..., "url": ..., "hash": {"sha256": hexdigest}},
@@ -75,6 +75,13 @@ def select_package(cmd, tag, cache, *, urlopen=_urlopen):
             cache[url] = index
 
         try:
+            if by_id:
+                for v in index.versions:
+                    if v["id"].casefold() == tag.casefold():
+                        return v
+                raise LookupError("Could not find a runtime matching '{}' at '{}'".format(
+                    tag, sanitise_url(index.source_url)
+                ))
             return index.find_to_install(tag)
         except LookupError:
             if not index.next_url:
@@ -87,37 +94,56 @@ def select_package(cmd, tag, cache, *, urlopen=_urlopen):
 
 def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
     if not cmd.force and dest.is_file():
-        LOGGER.info("Download was found in the cache")
-        LOGGER.debug("Download skipped because %s already exists", dest)
-        return dest
+        LOGGER.info("Download was found in the cache. (Pass --force to ignore cached downloads.)")
+        try:
+            validate_package(install, dest, delete=False)
+        except HashMismatchError:
+            LOGGER.info("Cached file could not be verified. Downloading it again.")
+        else:
+            LOGGER.debug("Download skipped because %s already exists", dest)
+            return dest
 
     if cmd.bundled_dir:
         bundled = list(cmd.bundled_dir.glob(install["id"] + ".*"))
         if bundled:
-            LOGGER.verbose("Using bundled file at %s", bundled[0])
-            return bundled[0]
+            try:
+                validate_package(install, bundled[0], delete=False)
+            except HashMismatchError:
+                LOGGER.debug("Bundled file at %s did not match expected hash.", bundled[0])
+            else:
+                LOGGER.verbose("Using bundled file at %s", bundled[0])
+                return bundled[0]
 
-    unlink(dest, "Removing old downloads is taking some time. " + 
+    unlink(dest, "Removing old download is taking some time. " + 
                  "Please continue to wait, or press Ctrl+C to abort.")
 
+    # TODO: Ensure auth information from cmd is available
+    # It's possible to be here with a sanitised URL (e.g. when repairing), or if
+    # the URL in the index did not include the auth information provided to
+    # access the index in the first place. We may need to track it back to the
+    # settings on cmd to find the right authentication. However, as no
+    # authenticated feeds currently exist (and we hope they'll use automatic
+    # auth anyway), this is not yet implemented.
     urlretrieve(install["url"], dest, on_progress=on_progress)
     LOGGER.debug("Downloaded to %s", dest)
     return dest
 
 
-def validate_package(install, dest):
+def validate_package(install, dest, *, delete=True):
     if "hash" in install:
         try:
             with open(dest, "rb") as f:
                 _multihash(f, install["hash"])
         except HashMismatchError as ex:
+            if not delete:
+                raise
             LOGGER.debug("ERROR:", exc_info=True)
             unlink(dest, "Deleting downloaded files is taking some time. " +
                          "Please continue to wait, or press Ctrl+C to abort.")
             raise HashMismatchError() from ex
 
 
-def extract_package(package, prefix, calculate_dest=Path, *, on_progress=None):
+def extract_package(package, prefix, calculate_dest=Path, *, on_progress=None, repair=False):
     import zipfile
 
     if not on_progress:
@@ -147,7 +173,11 @@ def extract_package(package, prefix, calculate_dest=Path, *, on_progress=None):
             except ValueError:
                 warn_out_of_prefix.append(dest)
                 continue
-            if dest.exists():
+            if repair:
+                unlink(dest, "Deleting an existing file is taking some time. " +
+                             "Please ensure Python is not running, and continue to wait " +
+                             "or press Ctrl+C to abort (which will leave your install corrupted).")
+            elif dest.exists():
                 warn_overwrite.append(dest)
                 continue
             ensure_tree(dest)
@@ -281,26 +311,46 @@ def print_cli_shortcuts(cmd, tags):
                 break
 
 
-def _install_one(cmd, tag, *, target=None, installed=None):
-    if tag:
+def _find_one(cmd, tag, *, installed=None, by_id=False):
+    if by_id:
+        LOGGER.debug("Searching for Python with ID %s", tag)
+    elif tag:
         LOGGER.verbose("Searching for Python matching %s", tag)
     else:
         LOGGER.verbose("Searching for default Python version")
-    install = select_package(cmd, tag, DOWNLOAD_CACHE)
+    install = select_package(cmd, tag, DOWNLOAD_CACHE, by_id=by_id)
+
+    if by_id:
+        return install
 
     existing = [i for i in (installed or ()) if i["id"].casefold() == install["id"].casefold()]
-    if existing:
-        if cmd.force:
-            LOGGER.info("Overwriting existing %s install because of --force.", existing[0]["displayName"])
-        elif cmd.update:
-            # TODO: Compare install and existing[0] version
-            LOGGER.info("%s is already up to date.", existing[0]["displayName"])
-            return
-        else:
-            LOGGER.info("%s is already installed.", existing[0]["displayName"])
-            return
+    if not existing:
+        return install
 
-    LOGGER.info("Installing %s.", install['displayName'])
+    if cmd.force:
+        LOGGER.info("Overwriting existing %s install because of --force.", existing[0]["displayName"])
+        return install
+
+    if cmd.repair:
+        return existing[0]
+
+    if cmd.update:
+        if install["sort-version"] > existing[0]["sort-version"]:
+            return install
+        LOGGER.info("%s is already up to date.", existing[0]["displayName"])
+        return None
+
+    LOGGER.info("%s is already installed.", existing[0]["displayName"])
+    return None
+
+
+def _install_one(cmd, install, *, target=None):
+    if cmd.repair:
+        LOGGER.info("Repairing %s.", install['displayName'])
+    elif cmd.update:
+        LOGGER.info("Updating to %s.", install['displayName'])
+    else:
+        LOGGER.info("Installing %s.", install['displayName'])
     LOGGER.verbose("Tag: %s\\%s", install['company'], install['tag'])
 
     if cmd.dry_run:
@@ -319,28 +369,33 @@ def _install_one(cmd, tag, *, target=None, installed=None):
     dest = target or (cmd.install_dir / install["id"])
 
     LOGGER.verbose("Extracting %s to %s", package, dest)
-    try:
-        rmtree(dest, "Removing the previous install is taking some time. " +
-                     "Ensure Python is not running, and continue to wait " +
-                     "or press Ctrl+C to abort.")
-    except FileExistsError:
-        LOGGER.warn(
-            "Unable to remove previous install. " +
-            "Please check your packages directory at %s for issues.",
-            dest.parent
-        )
-        raise
+    if not cmd.repair:
+        try:
+            rmtree(dest, "Removing the previous install is taking some time. " +
+                         "Ensure Python is not running, and continue to wait " +
+                         "or press Ctrl+C to abort.")
+        except FileExistsError:
+            LOGGER.warn(
+                "Unable to remove previous install. " +
+                "Please check your packages directory at %s for issues.",
+                dest.parent
+            )
+            raise
 
     with ProgressPrinter("Installing", maxwidth=CONSOLE_WIDTH) as on_progress:
-        extract_package(package, dest, on_progress=on_progress)
+        extract_package(package, dest, on_progress=on_progress, repair=cmd.repair)
 
     if "shortcuts" in install:
+        # This saves our original set of shortcuts, so a later repair operation
+        # can enable those that were originally disabled.
+        shortcuts = install.setdefault("__original-shortcuts", install["shortcuts"])
         if cmd.enable_shortcut_kinds:
-            install["shortcuts"] = [s for s in install["shortcuts"]
-                                    if s["kind"] in cmd.enable_shortcut_kinds]
+            shortcuts = [s for s in shortcuts
+                         if s["kind"] in cmd.enable_shortcut_kinds]
         if cmd.disable_shortcut_kinds:
-            install["shortcuts"] = [s for s in install["shortcuts"]
-                                    if s["kind"] not in cmd.disable_shortcut_kinds]
+            shortcuts = [s for s in shortcuts
+                         if s["kind"] not in cmd.disable_shortcut_kinds]
+        install["shortcuts"] = shortcuts
 
     LOGGER.debug("Write __install__.json to %s", dest)
     with open(dest / "__install__.json", "w", encoding="utf-8") as f:
@@ -363,39 +418,66 @@ def execute(cmd):
         LOGGER.debug("END install_command.execute")
         return
 
+    if cmd.force:
+        # Ensure we always do clean installs when --force specified
+        cmd.repair = False
+        cmd.update = False
+
     if cmd.automatic:
         LOGGER.info("*" * CONSOLE_WIDTH)
 
     try:
+        if cmd.target:
+            if len(cmd.args) > 1:
+                raise ArgumentError("Unable to install multiple versions with --target")
+            try:
+                spec = cmd.args[0]
+            except IndexError:
+                LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
+                spec = cmd.default_tag
+
+            try:
+                tag = tag_or_range(spec) if spec else None
+                install = _find_one(cmd, tag)
+                if install:
+                    _install_one(cmd, tag, target=Path(cmd.target))
+            except Exception:
+                LOGGER.error("Install failed. Please check any output above and try again.")
+                LOGGER.debug("ERROR", exc_info=True)
+            return
+
         if cmd.from_script:
             from .scriptutils import find_install_from_script
             spec = find_install_from_script(cmd, cmd.from_script)
             if spec:
                 cmd.args.append(spec)
 
-        if not cmd.args:
-            LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
-            cmd.args = [cmd.default_tag]
-
-        if cmd.target:
-            if len(cmd.args) > 1:
-                raise ArgumentError("Unable to install multiple versions with --target")
-            for spec in cmd.args:
-                tag = tag_or_range(spec) if spec else None
-                try:
-                    _install_one(cmd, (cmd.args + [None])[0], target=Path(cmd.target))
-                except Exception:
-                    LOGGER.error("Install failed. Please check any output above and try again.")
-                    LOGGER.debug("ERROR", exc_info=True)
-                break
-            return
-
         installed = list(cmd.get_installs())
 
         try:
+            if not cmd.args:
+                if cmd.repair:
+                    LOGGER.debug("No tags provided, repairing all installs:")
+                    for install in installed:
+                        _install_one(cmd, install)
+                    # Fallthrough is safe - cmd.args is empty
+                elif cmd.update:
+                    LOGGER.debug("No tags provided, updating all installs:")
+                    for install in installed:
+                        update = _find_one(cmd, install['id'], by_id=True)
+                        # TODO: Verify that we're updating the right thing?
+                        # Should be fine, the id match is all we can check.
+                        _install_one(cmd, update)
+                    # Fallthrough is safe - cmd.args is empty
+                else:
+                    LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
+                    cmd.args = [cmd.default_tag]
+
             for spec in cmd.args:
                 tag = tag_or_range(spec) if spec else None
-                _install_one(cmd, tag, installed=installed)
+                install = _find_one(cmd, tag, installed=installed)
+                if install:
+                    _install_one(cmd, install)
         except Exception as ex:
             LOGGER.error("Install failed. Please check any output above and try again.")
             LOGGER.debug("ERROR", exc_info=True)

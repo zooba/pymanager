@@ -102,6 +102,10 @@ CLI_SCHEMA = {
         "target": ("target", _NEXT),
         "f": ("force", True),
         "force": ("force", True),
+        "u": ("update", True),
+        "update": ("update", True),
+        "upgrade": ("update", True),
+        "repair": ("repair", True),
         "dry-run": ("dry_run", True),
         "enable-shortcut-kinds": ("enable_shortcut_kinds", _NEXT, config_split),
         "disable-shortcut-kinds": ("disable_shortcut_kinds", _NEXT, config_split),
@@ -493,6 +497,7 @@ Install options:
     -t, --target=<PATH>
                      Extract runtime to location instead of installing
     -f, --force      Re-download and overwrite existing install
+    -u, --update     Overwrite existing install if a newer version is available.
     --dry-run        Choose runtime but do not install
     --refresh        Update shortcuts and aliases for all installed versions.
     <TAG> <TAG> ...  One or more tags to install (Company\Tag format)
@@ -514,6 +519,7 @@ EXAMPLE: Refresh and replace all shortcuts
     target = None
     force = False
     update = False
+    repair = False
     dry_run = False
     refresh = False
     automatic = False

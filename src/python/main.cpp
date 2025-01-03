@@ -75,6 +75,24 @@ is_env_var_set(const wchar_t *name)
 
 
 static int
+should_run_commands(const wchar_t *argv0)
+{
+    size_t n = wcslen(argv0);
+    size_t dot = 0;
+    while (n > 0 && argv0[--n] != L'\\' && argv0[n] != L'/') {
+        if (!dot && argv0[n] == L'.') {
+            dot = n;
+        }
+    }
+    int cch = dot > n ? (int)(dot - n) : -1;
+    if (CompareStringOrdinal(&argv0[n], cch, L"python3", -1, TRUE) == CSTR_EQUAL) {
+        return 0;   // no commands supported for python3
+    }
+    return 1;
+}
+
+
+static int
 read_tag_from_argv(std::wstring arg, std::wstring &tag)
 {
     if (arg[0] != L'-' && arg[0] != L'/') {
@@ -265,10 +283,20 @@ done:
 
 
 static int
-auto_install_runtime(const wchar_t *argv0, const std::wstring &tag, const std::wstring &script)
+auto_install_runtime(
+    const wchar_t *argv0,
+    const std::wstring &tag,
+    const std::wstring &script,
+    int err_cause
+)
 {
     int err = 0;
     const wchar_t *new_argv[] = { argv0, NULL, NULL, NULL, NULL };
+
+    if (is_env_var_set(L"PYMANAGER_NO_AUTO_INSTALL")) {
+        return err_cause;
+    }
+
     new_argv[1] = L"install";
     new_argv[2] = L"--automatic";
     if (!tag.empty()) {
@@ -339,7 +367,9 @@ wmain(int argc, wchar_t **argv)
         return err;
     }
 
-    if (argc >= 2) {
+    bool use_commands = argc >= 2 && should_run_commands(argv[0]);
+
+    if (use_commands) {
         // Subcommands list is generated at sdist/build time and stored
         // in commands.g.h
         for (const wchar_t **cmd_name = subcommands; *cmd_name; ++cmd_name) {
@@ -347,21 +377,21 @@ wmain(int argc, wchar_t **argv)
                 return run_command(argc, (const wchar_t**)argv);
             }
         }
-    }
 
-    if (argc >= 2) {
         if (read_tag_from_argv(argv[1], tag)) {
             skip_argc += 1;
         } else {
             read_script_from_argv(argc, (const wchar_t **)argv, script);
         }
+    } else if (argc >= 2) {
+        read_script_from_argv(argc, (const wchar_t **)argv, script);
     }
 
     err = locate_runtime(tag, script, executable, args, 0);
 #if !PY_WINDOWED
     // No implicit install when there's no console UI
     if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
-        err = auto_install_runtime(argv[0], tag, script);
+        err = auto_install_runtime(argv[0], tag, script, err);
         if (!err) {
             err = locate_runtime(tag, script, executable, args, 1);
         }
@@ -374,13 +404,14 @@ wmain(int argc, wchar_t **argv)
 
     if (err) {
         // Most 'not found' errors have been handled above. These are genuine
-        fprintf(stderr, "FATAL ERROR: Found no suitable runtimes (0x%08X)\n", err);
+        fprintf(stderr, "INTERNAL ERROR 0x%08X. Please report to https://github.com/zooba/pymanager\n", err);
         goto error;
     }
 
     err = launch(executable.c_str(), args.c_str(), skip_argc, &exitCode);
     if (err) {
         fprintf(stderr, "FATAL ERROR: Failed to launch '%ls' (0x%08X)\n", executable.c_str(), err);
+        fprintf(stderr, "This may be a corrupt install or a system configuration issue.\n");
     } else {
         err = (int)exitCode;
     }
@@ -390,12 +421,13 @@ error:
     return err;
 }
 
-int WINAPI wWinMain(
-    HINSTANCE hInstance,      /* handle to current instance */
-    HINSTANCE hPrevInstance,  /* handle to previous instance */
-    LPWSTR lpCmdLine,         /* pointer to command line */
-    int nCmdShow              /* show state of window */
-)
+
+#if PY_WINDOWED
+
+int WINAPI
+wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
     return wmain(__argc, __wargv);
 }
+
+#endif

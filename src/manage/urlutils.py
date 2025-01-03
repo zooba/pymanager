@@ -12,10 +12,10 @@ except ImportError:
     from nturl2path import url2pathname as file_url_to_path
 
 
-ENABLE_BITS = os.getenv("PYTHON_ENABLE_BITS_DOWNLOAD", "1").lower()[:1] in "1yt"
-ENABLE_WINHTTP = os.getenv("PYTHON_ENABLE_WINHTTP_DOWNLOAD", "1").lower()[:1] in "1yt"
-ENABLE_URLLIB = os.getenv("PYTHON_ENABLE_URLLIB_DOWNLOAD", "1").lower()[:1] in "1yt"
-ENABLE_POWERSHELL = os.getenv("PYTHON_ENABLE_POWERSHELL_DOWNLOAD", "1").lower()[:1] in "1yt"
+ENABLE_BITS = os.getenv("PYMANAGER_ENABLE_BITS_DOWNLOAD", "1").lower()[:1] in "1yt"
+ENABLE_WINHTTP = os.getenv("PYMANAGER_ENABLE_WINHTTP_DOWNLOAD", "1").lower()[:1] in "1yt"
+ENABLE_URLLIB = os.getenv("PYMANAGER_ENABLE_URLLIB_DOWNLOAD", "1").lower()[:1] in "1yt"
+ENABLE_POWERSHELL = os.getenv("PYMANAGER_ENABLE_POWERSHELL_DOWNLOAD", "1").lower()[:1] in "1yt"
 
 
 class NoInternetError(Exception):

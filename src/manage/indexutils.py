@@ -188,6 +188,7 @@ class Index:
                     yield i
 
     def find_to_install(self, tag, *, loose_company=False, prefer_prerelease=False):
+        # TODO: tag of 'x.y.0' matches 'x.y' but shouldn't
         tag_list = [tag] if tag else []
         for i in self.find_all(tag_list, loose_company=loose_company, with_prerelease=prefer_prerelease):
             return i
