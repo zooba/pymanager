@@ -1,3 +1,4 @@
+import os
 import time
 
 import pytest
@@ -13,6 +14,28 @@ import manage.urlutils as UU
 ]])
 def test_urlsanitise(url, expect):
     assert expect == UU.sanitise_url(url)
+
+
+def test_urlunsanitise():
+    candidates = ["https://placeholder:placeholder@example.com/"]
+    url = "https://example.com/my_path"
+    expect = "https://placeholder:placeholder@example.com/my_path"
+    assert expect == UU.unsanitise_url(url, candidates)
+
+    url = "https://test:test@example.com/my_path"
+    assert url == UU.unsanitise_url(url, candidates)
+    assert url == UU.unsanitise_url(url, [])
+
+    url = "http://example.com/"
+    assert None == UU.unsanitise_url(url, candidates)
+
+
+def test_extract_url_auth():
+    assert "1", "2" == UU.extract_url_auth("https://1:2@example.com")
+    assert "1", "" == UU.extract_url_auth("https://1@example.com")
+
+    os.environ["PYMANAGER_TEST_VALUE"] = v = str(time.time())
+    assert "1", v == UU.extract_url_auth("https://1:%PYMANAGER_TEST_VALUE%@example.com")
 
 
 @pytest.mark.parametrize("url1, url2, to_parent, expect",

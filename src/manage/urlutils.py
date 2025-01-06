@@ -397,8 +397,24 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
     raise RuntimeError("Unable to download from the internet")
 
 
+def extract_url_auth(url):
+    from urllib.parse import urlparse
+    if not url:
+        return url
+    p = urlparse(url)
+    userpass, _, netloc = p[1].rpartition("@")
+    if userpass:
+        user, _, passw = userpass.partition(":")
+        if passw and passw.startswith("%") and passw.endswith("%"):
+            passw = os.getenv(passw[1:-1]) or ""
+        return user, passw
+    return None
+
+
 def sanitise_url(url):
     from urllib.parse import urlparse, urlunparse
+    if not url:
+        return url
     p = urlparse(url)
     userpass, _, netloc = p[1].rpartition("@")
     if userpass:
@@ -407,6 +423,26 @@ def sanitise_url(url):
         if passw and passw.startswith("%") and passw.endswith("%"):
             return url
     return urlunparse((*p[:1], netloc, *p[2:]))
+
+
+def unsanitise_url(url, candidates):
+    from urllib.parse import urlparse, urlunparse
+    if not url:
+        return url
+    p = urlparse(url)
+    if "@" in p[1]:
+        # URL contains user/pass info, so just return it
+        return url
+    best, best_path = None, None
+    for url2 in candidates:
+        p2 = urlparse(url2)
+        userpass, _, netloc = p2[1].rpartition("@")
+        if (p[0].casefold(), p[1].casefold()) == (p2[0].casefold(), netloc.casefold()):
+            if best is None or len(best_path) < len(p2[2]):
+                best = userpass
+                best_path = p2[2]
+    if best:
+        return urlunparse((*p[:1], best + "@" + p[1], *p[2:]))
 
 
 def urljoin(base_url, other_url, *, to_parent=False):
@@ -424,3 +460,4 @@ def urljoin(base_url, other_url, *, to_parent=False):
         str(p1 / u2[2]),
         *u1[3:]
     ))
+

@@ -92,6 +92,12 @@ def select_package(cmd, tag, cache, *, urlopen=_urlopen, by_id=False):
     raise RuntimeError("End of select_package reached")
 
 
+class AuthFinder:
+    def __init__(self, source):
+        self.source = source
+
+
+
 def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
     if not cmd.force and dest.is_file():
         LOGGER.info("Download was found in the cache. (Pass --force to ignore cached downloads.)")
@@ -117,14 +123,20 @@ def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_ur
     unlink(dest, "Removing old download is taking some time. " + 
                  "Please continue to wait, or press Ctrl+C to abort.")
 
-    # TODO: Ensure auth information from cmd is available
-    # It's possible to be here with a sanitised URL (e.g. when repairing), or if
-    # the URL in the index did not include the auth information provided to
-    # access the index in the first place. We may need to track it back to the
-    # settings on cmd to find the right authentication. However, as no
-    # authenticated feeds currently exist (and we hope they'll use automatic
-    # auth anyway), this is not yet implemented.
-    urlretrieve(install["url"], dest, on_progress=on_progress)
+    def _find_creds(url):
+        from .urlutils import extract_url_auth, unsanitise_url
+        LOGGER.verbose("Finding credentials for %s.", url)
+        auth = extract_url_auth(unsanitise_url(url, [cmd.source]))
+        if auth:
+            LOGGER.debug("Found credentials in URL or configured source.")
+            return auth
+        auth = os.getenv("PYMANAGER_USERNAME", ""), os.getenv("PYMANAGER_PASSWORD", "")
+        if auth[0]:
+            LOGGER.debug("Found credentials in environment.")
+            return auth
+        return None
+
+    urlretrieve(install["url"], dest, on_progress=on_progress, on_auth_request=_find_creds)
     LOGGER.debug("Downloaded to %s", dest)
     return dest
 
