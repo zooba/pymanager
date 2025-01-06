@@ -61,3 +61,9 @@ def test_version_dev(ver_str):
     wild = Version("3.14-dev")
     ver = Version(ver_str)
     assert wild == ver
+
+
+def test_version_startswith():
+    assert Version("3.13.0").startswith(Version("3.13"))
+    assert Version("3.13.0").startswith(Version("3.13.0"))
+    assert not Version("3.13").startswith(Version("3.13.0"))

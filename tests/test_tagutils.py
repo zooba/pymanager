@@ -25,12 +25,15 @@ def test_company_tag(tag_str):
 def test_tag_equality():
     assert CompanyTag("3.13") == CompanyTag("PythonCore\\3.13")
     assert CompanyTag("3.13") != CompanyTag("Company\\3.13")
+    assert CompanyTag("3.13.0") != CompanyTag("3.13")
 
 
 def test_tag_match():
     assert not CompanyTag("3.13").match(CompanyTag("Company\\3.13"))
     assert CompanyTag("3.13").match(CompanyTag("3.13"))
+    assert CompanyTag("3.13.0").match(CompanyTag("3.13"))
     assert CompanyTag("3.13.2").match(CompanyTag("3.13"))
+    assert not CompanyTag("3.13").match(CompanyTag("3.13.0"))
     assert not CompanyTag("3.13").match(CompanyTag("3.13.2"))
 
     assert CompanyTag("PythonCore\\3.13").match(CompanyTag("", ""))

@@ -53,7 +53,7 @@ class Version:
     def __repr__(self):
         return self.s
 
-    def _are_equal(self, other, prefix_match=None, other_prefix_match = None, prerelease_match=None):
+    def _are_equal(self, other, prefix_match=None, other_prefix_match=None, prerelease_match=None):
         if other is None:
             return False
         if isinstance(other, str):
@@ -63,10 +63,12 @@ class Version:
         if self.sortkey == other.sortkey:
             return True
         if prefix_match is not None and prefix_match or self.prefix_match:
-            if self.sortkey[:self.sortkey[-3]] == other.sortkey[:self.sortkey[-3]]:
+            if (self.sortkey[-3] <= other.sortkey[-3]
+                and self.sortkey[:self.sortkey[-3]] == other.sortkey[:self.sortkey[-3]]):
                 return True
         elif other_prefix_match is not None and other_prefix_match or other.prefix_match:
-            if self.sortkey[:other.sortkey[-3]] == other.sortkey[:other.sortkey[-3]]:
+            if (self.sortkey[-3] >= other.sortkey[-3]
+                and self.sortkey[:other.sortkey[-3]] == other.sortkey[:other.sortkey[-3]]):
                 return True
         if prerelease_match is not None and prerelease_match or self.prerelease_match:
             if self.sortkey[:-3] == other.sortkey[:-3]:
