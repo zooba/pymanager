@@ -261,7 +261,7 @@ def _read_one_unmanaged_install(company_name, tag_name, is_core, tag):
         i["run-for"].append({"tag": tag_name, "target": exew, "windowed": 1})
         if exew_arg:
             from .scriptutils import split_args
-            i["run-for"][-1]["args"] = exew_arg
+            i["run-for"][-1]["args"] = split_args(exew_arg)
     return i
 
 
