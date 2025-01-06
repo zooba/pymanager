@@ -21,8 +21,8 @@ NAME = get_output_name(DIRS)
 VERSION = get_msix_version(DIRS)
 
 # Package into MSI
-pydllname = [p.stem for p in LAYOUT.glob("python*.dll")][0]
-pydsuffix = [p.name.partition(".")[-1] for p in LAYOUT.glob("manage*.pyd")][0]
+pydllname = [p.stem for p in (LAYOUT / "runtime").glob("python*.dll")][0]
+pydsuffix = [p.name.partition(".")[-1] for p in (LAYOUT / "runtime").glob("manage*.pyd")][0]
 
 run([
     *MSBUILD_CMD,

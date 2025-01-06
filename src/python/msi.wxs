@@ -19,6 +19,7 @@
     <StandardDirectory Id="ProgramFiles64Folder">
       <Directory Id="INSTALLFOLDER" Name="PyManager">
         <Directory Id="BUNDLED" Name="bundled" />
+        <Directory Id="RUNTIME" Name="runtime" />
         <Directory Id="TEMPLATES" Name="templates" />
       </Directory>
     </StandardDirectory>
@@ -26,6 +27,7 @@
     <Feature Id="Core">
       <ComponentRef Id="ProductComponent" />
       <ComponentRef Id="BundledComponent" />
+      <ComponentRef Id="RuntimeComponent" />
       <ComponentRef Id="TemplatesComponent" />
     </Feature>
 
@@ -40,14 +42,7 @@
       <File Source="pyw-manage.exe" Name="pyw.exe" />
       <File Source="pymanager.json" />
 
-      <File Source="$(var.pythondllname).dll" />
-      <File Source="$(var.pythondllname).zip" />
-      <File Source="$(var.pythondllname)._pth" />
       <File Source="version.txt" />
-      <File Source="_native.$(var.pydsuffix)" />
-      <File Source="manage.$(var.pydsuffix)" />
-      <File Source="vcruntime140.dll" />
-      <File Source="vcruntime140_1.dll" />
       <Environment Id="PATH" Action="set" Name="PATH" Part="last" System="yes" Value="[INSTALLFOLDER]" />
 
       <File Source="_resources\py.ico" Name="py.ico" Id="py.ico" />
@@ -88,6 +83,16 @@
       <!-- HACK: Included for test purposes only -->
       <File Source="bundled\index.json" Name="index.json" />
       <File Source="bundled\index-legacy.json" Name="index-legacy.json" />
+    </Component>
+
+    <Component Id="RuntimeComponent" Directory="RUNTIME" Guid="5F682EE9-7D21-4B67-9F63-D85758A45836">
+      <File Source="runtime\manage.$(var.pydsuffix)" />
+      <File Source="runtime\_native.$(var.pydsuffix)" />
+      <File Source="runtime\$(var.pythondllname).dll" />
+      <File Source="runtime\$(var.pythondllname).zip" />
+      <File Source="runtime\$(var.pythondllname)._pth" />
+      <File Source="runtime\vcruntime140.dll" />
+      <File Source="runtime\vcruntime140_1.dll" />
     </Component>
 
     <Component Id="TemplatesComponent" Directory="TEMPLATES" Guid="3ACC110C-5C33-45C8-9843-A446718930A0">

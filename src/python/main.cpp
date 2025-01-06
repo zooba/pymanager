@@ -33,9 +33,26 @@ struct {
 } manage = {NULL};
 
 static std::wstring
-get_root()
+get_exe_directory()
 {
     std::wstring path;
+    while (true) {
+        path.resize(path.size() + 260);
+        DWORD path_len = GetModuleFileNameW(NULL, path.data(), path.size());
+        if (!path_len) {
+            break;
+        }
+        if (path_len <= path.size()) {
+            path.resize(path.find_last_of(L"/\\", path_len, 2));
+            return path;
+        }
+    }
+    return std::wstring();
+}
+
+static std::wstring
+get_root()
+{
     try {
         const auto appData = winrt::Windows::Storage::ApplicationData::Current();
         if (appData) {
@@ -47,21 +64,7 @@ get_root()
     } catch (...) {
     }
 
-    if (path.empty()) {
-        while (true) {
-            path.resize(path.size() + 260);
-            DWORD path_len = GetModuleFileNameW(NULL, path.data(), path.size());
-            if (!path_len) {
-                break;
-            }
-            if (path_len <= path.size()) {
-                path.resize(path.find_last_of(L"/\\", path_len, 2));
-                return path;
-            }
-        }
-    }
-
-    return std::wstring();
+    return get_exe_directory();
 }
 
 
@@ -164,6 +167,13 @@ init_python()
             | LOAD_LIBRARY_SEARCH_APPLICATION_DIR)) {
         return HRESULT_FROM_WIN32(GetLastError());
     }
+
+    std::wstring exe_dir = get_exe_directory();
+    if (exe_dir.empty()) {
+        return HRESULT_FROM_WIN32(GetLastError());
+    }
+    exe_dir += L"\\runtime";
+    AddDllDirectory(exe_dir.c_str());
 
     PyStatus status;
     PyConfig config;

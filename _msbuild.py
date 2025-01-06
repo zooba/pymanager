@@ -21,25 +21,115 @@ METADATA = {
 }
 
 
+# Define additional file type so we can specify .rc files
 class ResourceFile(CSourceFile):
     _ITEMNAME = "ResourceCompile"
 
 
+# Default C++ compiler settings
+CPP_SETTINGS = ItemDefinition(
+    'ClCompile',
+    # Support C++20
+    LanguageStandard='stdcpp20',
+    # Statically link the C Runtime
+    RuntimeLibrary='MultiThreaded',
+)
+
+# AdditionalIncludes will be set during init_PACKAGE
+INCLUDE_TMPDIR = ItemDefinition("ClCompile")
+
+
+MANAGE_PYD = DllPackage(
+    'manage',
+    VersionInfo(FileDescription="Implementation of PyManager"),
+    PyFile('*.py'),
+    source='src/manage',
+    RootNamespace='manage',
+)
+
+
+NATIVE_PYD = DllPackage(
+    '_native',
+    VersionInfo(FileDescription="Native helper functions for PyManager"),
+    PyFile('__init__.py'),
+    ItemDefinition('ClCompile', LanguageStandard="stdcpp20"),
+    IncludeFile('*.h'),
+    CSourceFile('*.cpp'),
+    CFunction('coinitialize'),
+    CFunction('bits_connect'),
+    CFunction('bits_begin'),
+    CFunction('bits_cancel'),
+    CFunction('bits_get_progress'),
+    CFunction('bits_find_job'),
+    CFunction('bits_serialize_job'),
+    CFunction('winhttp_urlopen'),
+    CFunction('winhttp_isconnected'),
+    CFunction('file_url_to_path'),
+    CFunction('package_get_root'),
+    CFunction('shortcut_create'),
+    CFunction('shortcut_get_start_programs'),
+    CFunction('hide_file'),
+    source='src/_native',
+    RootNamespace='_native',
+)
+
+
+MAIN_EXE = CProject('py-manage',
+    VersionInfo(FileDescription="Python Install Manager"),
+    CPP_SETTINGS,
+    INCLUDE_TMPDIR,
+    ItemDefinition('Link', SubSystem='CONSOLE'),
+    Manifest('python.manifest'),
+    ResourceFile('python.rc'),
+    CSourceFile('main.cpp'),
+    CSourceFile('_launch.cpp'),
+    IncludeFile('*.h'),
+    CSourceFile('../_native/helpers.cpp'),
+    IncludeFile('../_native/helpers.h'),
+    source='src/python',
+    ConfigurationType='Application',
+)
+
+
+MAINW_EXE = CProject('pyw-manage',
+    VersionInfo(FileDescription="Python Install Manager (windowed)"),
+    CPP_SETTINGS,
+    INCLUDE_TMPDIR,
+    ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend("PY_WINDOWED=1;")),
+    ItemDefinition('Link', SubSystem='WINDOWS'),
+    Manifest('python.manifest'),
+    ResourceFile('pythonw.rc'),
+    CSourceFile('main.cpp'),
+    CSourceFile('_launch.cpp'),
+    IncludeFile('*.h'),
+    CSourceFile('../_native/helpers.cpp'),
+    IncludeFile('../_native/helpers.h'),
+    source='src/python',
+    ConfigurationType='Application',
+)
+
+
 PACKAGE = Package('python-manager',
     PyprojectTomlFile('pyproject.toml'),
+    # MSIX manifest
     File('src/python/appxmanifest.xml', name='appxmanifest.xml'),
+
+    # Default settings
     File('src/pymanager.json'),
+
     # Default index feed, mainly for testing right now
     Package(
         'bundled',
         File('src/index*.json'),
     ),
+
+    # Directory for template files
     Package(
         'templates',
         File('src/python/templates/template.py'),
         CProject('launcher',
             VersionInfo(FileDescription="Python launcher", OriginalFilename="launcher.exe"),
-            ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
+            CPP_SETTINGS,
             ItemDefinition('Link', SubSystem='CONSOLE'),
             Manifest('python.manifest'),
             ResourceFile('python.rc'),
@@ -51,7 +141,7 @@ PACKAGE = Package('python-manager',
         ),
         CProject('launcherw',
             VersionInfo(FileDescription="Python launcher (windowed)", OriginalFilename="launcherw.exe"),
-            ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
+            CPP_SETTINGS,
             ItemDefinition('Link', SubSystem='WINDOWS'),
             Manifest('python.manifest'),
             ResourceFile('pythonw.rc'),
@@ -62,76 +152,40 @@ PACKAGE = Package('python-manager',
             ConfigurationType='Application',
         ),
     ),
+
+    # Directory for MSIX resources
     Package(
         '_resources',
         File('src/python/_resources/*.png'),
         File('src/python/_resources/*.ico'),
     ),
-    DllPackage(
-        'manage',
-        VersionInfo(FileDescription="Implementation of PyManager"),
-        PyFile('*.py'),
-        source='src/manage',
+
+    # Directory for bundled runtime and our modules
+    Package(
+        'runtime',
+        MANAGE_PYD,
+        NATIVE_PYD,
+        # Other files added during init_PACKAGE
     ),
-    DllPackage(
-        '_native',
-        VersionInfo(FileDescription="Native helper functions for PyManager"),
-        PyFile('__init__.py'),
-        ItemDefinition('ClCompile', LanguageStandard="stdcpp20"),
-        IncludeFile('*.h'),
-        CSourceFile('*.cpp'),
-        CFunction('coinitialize'),
-        CFunction('bits_connect'),
-        CFunction('bits_begin'),
-        CFunction('bits_cancel'),
-        CFunction('bits_get_progress'),
-        CFunction('bits_find_job'),
-        CFunction('bits_serialize_job'),
-        CFunction('winhttp_urlopen'),
-        CFunction('winhttp_isconnected'),
-        CFunction('file_url_to_path'),
-        CFunction('package_get_root'),
-        CFunction('shortcut_create'),
-        CFunction('shortcut_get_start_programs'),
-        CFunction('hide_file'),
-        source='src/_native',
-    ),
-    CProject('py-manage',
-        VersionInfo(FileDescription="Python Install Manager"),
-        ItemDefinition('ClCompile', LanguageStandard='stdcpp20'),
-        ItemDefinition('Link', SubSystem='CONSOLE'),
-        Manifest('python.manifest'),
-        ResourceFile('python.rc'),
-        CSourceFile('main.cpp'),
-        CSourceFile('_launch.cpp'),
-        IncludeFile('*.h'),
-        CSourceFile('../_native/helpers.cpp'),
-        IncludeFile('../_native/helpers.h'),
-        File(r'$(VC_CppRuntimeFilesPath_x64)\Microsoft.VC143.CRT\vcruntime140.dll',
-            Name='vcruntime140.dll'),
-        File(r'$(VC_CppRuntimeFilesPath_x64)\Microsoft.VC143.CRT\vcruntime140_1.dll',
-            Name='vcruntime140_1.dll'),
-        source='src/python',
-        ConfigurationType='Application',
-    ),
-    CProject('pyw-manage',
-        VersionInfo(FileDescription="Python Install Manager (windowed)"),
-        ItemDefinition('ClCompile',
-            PreprocessorDefinitions=Prepend("PY_WINDOWED=1;"),
-            LanguageStandard='stdcpp20',
-        ),
-        ItemDefinition('Link', SubSystem='WINDOWS'),
-        Manifest('python.manifest'),
-        ResourceFile('pythonw.rc'),
-        CSourceFile('main.cpp'),
-        CSourceFile('_launch.cpp'),
-        IncludeFile('*.h'),
-        CSourceFile('../_native/helpers.cpp'),
-        IncludeFile('../_native/helpers.h'),
-        source='src/python',
-        ConfigurationType='Application',
-    ),
+
+    # Main entry-point executables
+    MAIN_EXE,
+    MAINW_EXE,
 )
+
+
+DLL_NAMES = {
+    "cp313": "python313",
+    "cp314": "python314",
+}
+
+
+EMBED_URLS = {
+    "cp313-cp313-win_amd64": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-embed-amd64.zip",
+    "cp313-cp313-win_arm64": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-embed-arm64.zip",
+    "cp314-cp314-win_amd64": "https://www.python.org/ftp/python/3.14.0a2/python-3.14.0a2-embed-amd64.zip",
+    "cp314-cp314-win_arm64": "https://www.python.org/ftp/python/3.14.0a2/python-3.14.0a2-embed-arm64.zip",
+}
 
 
 def get_commands():
@@ -156,16 +210,17 @@ def get_commands():
     return [c for c in commands if c[:1] != "_"]
 
 
-def _make_xyzw_version(v):
+def _make_xyzw_version(v, sep="."):
     from packaging.version import parse
     v = parse(v)
     if not v.pre:
-        return "{}.{}.{}.{}".format(v.major, v.minor, v.micro, 0xF0)
-    return "{}.{}.{}.{}".format(
+        return "{0}{4}{1}{4}{2}{4}{3}".format(v.major, v.minor, v.micro, 0xF0, sep)
+    return "{0}{4}{1}{4}{2}{4}{3}".format(
         v.major,
         v.minor,
         v.micro,
-        {"a": 0xA0, "b": 0xB0, "rc": 0xC0}.get(v.pre[0].lower(), 0) | v.pre[1]
+        {"a": 0xA0, "b": 0xB0, "rc": 0xC0}.get(v.pre[0].lower(), 0) | v.pre[1],
+        sep,
     )
 
 
@@ -208,8 +263,11 @@ def init_METADATA():
             pass
 
     PACKAGE.find("pyproject.toml").from_metadata(METADATA)
-    for vi in PACKAGE.findall("*/VersionInfo"):
+
+    fileversion = _make_xyzw_version(METADATA["Version"], ",")
+    for vi in PACKAGE.findall("**/VersionInfo"):
         vi.from_metadata(METADATA)
+        vi.options["FILEVERSION"] = fileversion
 
 
 def init_PACKAGE(tag=None):
@@ -217,11 +275,12 @@ def init_PACKAGE(tag=None):
         return
 
     tmpdir = get_current_build_state().temp_dir
+    INCLUDE_TMPDIR.options["AdditionalIncludeDirectories"] = Prepend(f"{tmpdir};")
 
     # GENERATE _version MODULE
     ver_py = tmpdir / "_version.py"
     update_file(ver_py, f"__version__ = {METADATA['Version']!r}")
-    PACKAGE.find("manage").members.append(PyFile(ver_py))
+    MANAGE_PYD.members.append(PyFile(ver_py))
 
     # GENERATE version.txt
     ver_txt = tmpdir / "version.txt"
@@ -242,40 +301,25 @@ def init_PACKAGE(tag=None):
     cmds_txt = "static const wchar_t *subcommands[] = {" + ", ".join(f'L"{c}"' for c in cmds) + ", NULL};"
     update_file(cmds_h, cmds_txt)
 
-    incl = ItemDefinition("ClCompile", AdditionalIncludeDirectories = Prepend(f"{tmpdir};"))
-    PACKAGE.find("py-manage").members.append(incl)
-    PACKAGE.find("pyw-manage").members.append(incl)
-
     # BUNDLE EMBEDDABLE DISTRO
-    dll_name = {
-        "cp313": "python313.dll",
-        "cp314": "python314.dll",
-    }[tag.partition("-")[0]]
-    PACKAGE.find("py-manage/ItemDefinition(Link)").options["DelayLoadDLLs"] = dll_name
-    PACKAGE.find("pyw-manage/ItemDefinition(Link)").options["DelayLoadDLLs"] = dll_name
+    dll_name = DLL_NAMES[tag.partition("-")[0]]
+    PACKAGE.find("py-manage/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
+    PACKAGE.find("pyw-manage/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
 
-    embed_url = {
-        "cp313-cp313-win_amd64": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-embed-amd64.zip",
-        "cp313-cp313-win_arm64": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-embed-arm64.zip",
-        "cp314-cp314-win_amd64": "https://www.python.org/ftp/python/3.14.0a2/python-3.14.0a2-embed-amd64.zip",
-        "cp314-cp314-win_arm64": "https://www.python.org/ftp/python/3.14.0a2/python-3.14.0a2-embed-arm64.zip",
-    }[tag]
-
-    dll = tmpdir / tag / dll_name
-    stdlibzip = dll.with_suffix(".zip")
-    pth = dll.with_suffix("._pth")
-    if not dll.is_file() or not stdlibzip.is_file() or not pth.is_file():
-        dll.parent.mkdir(exist_ok=True, parents=True)
+    embed_files = [tmpdir / tag / n for n in [
+        f"{dll_name}.dll",
+        f"{dll_name}.zip",
+        f"{dll_name}._pth",
+        "vcruntime140.dll",
+        "vcruntime140_1.dll",
+    ]]
+    if any(not f.is_file() for f in embed_files):
         from urllib.request import urlretrieve
         from zipfile import ZipFile
-        urlretrieve(embed_url, dll.parent / "package.zip")
-        with ZipFile(dll.parent / "package.zip") as zf:
-            dll.write_bytes(zf.read(dll_name))
-            stdlibzip.write_bytes(zf.read(stdlibzip.name))
-            pth.write_bytes(zf.read(pth.name))
-    PACKAGE.members.append(File(dll, dll.name))
-    PACKAGE.members.append(File(stdlibzip, stdlibzip.name))
-    PACKAGE.members.append(File(pth, pth.name))
-
-    # BUNDLE VCRUNTIME
-    # TODO: Bundle vcruntime140 and vcruntime140_1
+        package = tmpdir / tag / "package.zip"
+        package.parent.mkdir(exist_ok=True, parents=True)
+        urlretrieve(EMBED_URLS[tag], package)
+        with ZipFile(package) as zf:
+            for f in embed_files:
+                f.write_bytes(zf.read(f.name))
+    PACKAGE.find("runtime").members.extend(File(f) for f in embed_files)
