@@ -45,9 +45,10 @@ def main(args, root=None):
         LOGGER.debug("TRACEBACK:", exc_info=True)
         return getattr(ex, "winerror", getattr(ex, "errno", 1))
     finally:
-        if LOGGER.file:
-            LOGGER.file.flush()
-            LOGGER.file.close()
+        f, LOGGER.file = LOGGER.file, None
+        if f:
+            f.flush()
+            f.close()
         if delete_log:
             try:
                 delete_log.unlink()
@@ -56,29 +57,16 @@ def main(args, root=None):
     return 0
 
 
-# TODO: Move to a helper module and test
-def _maybe_quote(a):
-    if " " not in a:
-        return a
-    if a.endswith("\\"):
-        c = len(a) - len(a.rstrip("\\"))
-        if c % 1:
-            a += "\\"
-    if a.count('"') % 1:
-        # Odd quotes get double-quoted at end, to include any spaces
-        a += '"'
-    return f'"{a}"'
-
-
 def find_one(root, tag, script, windowed, show_not_found_error):
     try:
         from .commands import load_default_config
+        from .scriptutils import quote_args
         i = None
         cmd = load_default_config(root)
         LOGGER.debug("Finding runtime for '%s' or '%s' %s", tag, script, "(windowed)" if windowed else "")
         i = cmd.get_install_to_run(tag, script, windowed=windowed)
         exe = str(i["executable"])
-        args = " ".join(_maybe_quote(a) for a in i.get("executable_args", ()))
+        args = quote_args(i.get("executable_args", ()))
         LOGGER.debug("Selected %s %s", exe, args)
         return exe, args
     except (NoInstallFoundError, NoInstallsError) as ex:

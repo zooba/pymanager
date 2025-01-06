@@ -50,3 +50,84 @@ def find_install_from_script(cmd, script):
     except NewEncoding as ex:
         encoding = ex.args[0]
     return _read_script(cmd, script, encoding)
+
+
+def _maybe_quote(a):
+    if a[:1] == a[-1:] == '"':
+        a = a[1:-1]
+    if " " not in a and '"' not in a:
+        return a
+    if a.endswith("\\"):
+        c = len(a) - len(a.rstrip("\\"))
+        a += "\\" * c
+    if '"' in a:
+        bits = []
+        for b in a.split('"'):
+            if bits:
+                bits.append('\\"')
+            bits.append(b)
+            if b[-1:] == "\\":
+                bits.append("\\" * (len(b) - len(b.rstrip("\\"))))
+        print(a.split('"'), bits)
+        a = ''.join(bits)
+    return f'"{a}"' if ' ' in a else a
+
+
+def quote_args(args):
+    """Quotes the provided sequence of arguments preserving all characters.
+
+All backslashes and quotes in the existing arguments will be preserved and will
+round-trip through CreateProcess to another Python instance (or another app
+using the same parsing rules).
+
+When an argument already starts and ends with a double quote ('"'), they will be
+removed and only replaced if necessary.
+"""
+    return " ".join(_maybe_quote(a) for a in args)
+
+
+def split_args(arg_string, argv0=False):
+    """Splits a single argument string into separate unquoted items.
+
+If argv0 is True, the first argument is parsed as if it is the executable name.
+"""
+    args = []
+    if argv0 and arg_string[:1] == '"':
+        a, _, arg_string = arg_string[1:].partition('"')
+        args.append(a)
+
+    arg_buffer = None
+    quoted_arg = []
+    bits = arg_string.strip().split(' ')
+    while bits:
+        a = bits.pop(0)
+        pre, quot, post = a.partition('"')
+        if arg_buffer:
+            pre = arg_buffer + pre
+            arg_buffer = None
+        if not quot:
+            if quoted_arg:
+                quoted_arg.append(pre)
+                quoted_arg.append(' ')
+            else:
+                args.append(pre.replace('\\\\', '\\'))
+            continue
+        if pre[-1:] == '\\' and (len(pre) - len(pre.rstrip('\\'))) % 2 == 1:
+            arg_buffer = pre[:-1] + quot
+            if post:
+                bits.insert(0, post)
+            continue
+        elif quoted_arg:
+            quoted_arg.append(pre)
+            args.append(''.join(quoted_arg).replace('\\\\', '\\'))
+            quoted_arg.clear()
+            continue
+
+        quoted_arg.append(pre)
+        if pre:
+            quoted_arg.append(quot)
+        if post:
+            bits.insert(0, post)
+    if quoted_arg:
+        args.append(''.join(quoted_arg))
+    return args

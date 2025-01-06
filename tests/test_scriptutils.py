@@ -1,8 +1,19 @@
+import base64
 import pytest
+import subprocess
+import sys
+import textwrap
 
 from pathlib import PurePath
 
-from manage.scriptutils import find_install_from_script, _read_script, NewEncoding
+from manage.scriptutils import (
+    find_install_from_script,
+    _read_script,
+    NewEncoding,
+    _maybe_quote,
+    quote_args,
+    split_args
+)
 
 def _fake_install(v, **kwargs):
     return {
@@ -72,3 +83,76 @@ def test_read_coding_comment(fake_config, tmp_path, script, expect):
         assert not expect
     else:
         assert not expect
+
+
+@pytest.mark.parametrize("arg, expect", [pytest.param(*a, id=a[0]) for a in [
+    ('abc', 'abc'),
+    ('a b c', '"a b c"'),
+    ('abc ', '"abc "'),
+    (' abc', '" abc"'),
+    ('a1\\b\\c', 'a1\\b\\c'),
+    ('a2\\ b', '"a2\\ b"'),
+    ('a3\\b\\', 'a3\\b\\'),
+    ('a4 b\\', '"a4 b\\\\"'),
+    ('a5 b\\\\', '"a5 b\\\\\\\\"'),
+    ('a1"b', 'a1\\"b'),
+    ('a2\\"b', 'a2\\\\\\"b'),
+    ('a3\\\\"b', 'a3\\\\\\\\\\"b'),
+    ('a4\\\\\\"b', 'a4\\\\\\\\\\\\\\"b'),
+    ('a5 "b', '"a5 \\"b"'),
+    ('a6\\ "b', '"a6\\ \\"b"'),
+    ('a7 \\"b', '"a7 \\\\\\"b"'),
+]])
+def test_quote_one_arg(arg, expect):
+    # Test our expected result by passing it to Python and checking what it sees
+    test_cmd = (
+        'python -c "import base64, sys; '
+        'expect = base64.b64decode(\'{}\').decode(); '
+        'print(\'Expect:\', repr(expect), \' Actual:\', repr(sys.argv[1])); '
+        'sys.exit(0 if expect == sys.argv[1] else 1)" {} END_OF_ARGS'
+    ).format(base64.b64encode(arg.encode()).decode("ascii"), expect)
+    subprocess.check_call(test_cmd, executable=sys.executable)
+    # Test that our quote function produces the expected result
+    assert expect == _maybe_quote(arg)
+
+
+@pytest.mark.parametrize("arg, expect, expect_call", [pytest.param(*a, id=a[0]) for a in [
+    ('"a1 b"', '"a1 b"', 'a1 b'),
+    ('"a2" b"', '"a2\\" b"', 'a2" b'),
+]])
+def test_quote_one_quoted_arg(arg, expect, expect_call):
+    # Test our expected result by passing it to Python and checking what it sees
+    test_cmd = (
+        'python -c "import base64, sys; '
+        'expect = base64.b64decode(\'{}\').decode(); '
+        'print(\'Expect:\', repr(expect), \' Actual:\', repr(sys.argv[1])); '
+        'sys.exit(0 if expect == sys.argv[1] else 1)" {} END_OF_ARGS'
+    ).format(base64.b64encode(expect_call.encode()).decode("ascii"), expect)
+    subprocess.check_call(test_cmd, executable=sys.executable)
+    # Test that our quote function produces the expected result
+    assert expect == _maybe_quote(arg)
+
+
+# We're not going to try too hard here - most of the tricky logic is covered
+# by the previous couple of tests.
+@pytest.mark.parametrize("args, expect", [pytest.param(*a, id=a[1]) for a in [
+    (["a1", "b", "c"], 'a1 b c'),
+    (["a2 b", "c d"], '"a2 b" "c d"'),
+    (['a3"b', 'c"d', 'e f'], 'a3\\"b c\\"d "e f"'),
+    (['a4"b c"d', 'e f'], '"a4\\"b c\\"d" "e f"'),
+    (['a5\\b\\', 'c\\d'], 'a5\\b\\ c\\d'),
+    (['a6\\b\\ c\\', 'd\\e'], '"a6\\b\\ c\\\\" d\\e'),
+]])
+def test_quote_args(args, expect):
+    # Test our expected result by passing it to Python and checking what it sees
+    test_cmd = (
+        'python -c "import base64, sys; '
+        'expect = base64.b64decode(\'{}\').decode().split(\'\\0\'); '
+        'print(\'Expect:\', repr(expect), \' Actual:\', repr(sys.argv)); '
+        'sys.exit(0 if expect == sys.argv[1:-1] else 1)" {} END_OF_ARGS'
+    ).format(base64.b64encode('\0'.join(args).encode()).decode("ascii"), expect)
+    subprocess.check_call(test_cmd, executable=sys.executable)
+    # Test that our quote function produces the expected result
+    assert expect == quote_args(args)
+    # Test that our split function produces the same result
+    assert args == split_args(expect), expect
