@@ -417,7 +417,7 @@ def _install_one(cmd, install, *, target=None):
             "source": sanitise_url(cmd.source),
         }, f, default=str)
 
-    LOGGER.debug("Install complete")
+    LOGGER.verbose("Install complete")
 
 
 def execute(cmd):
@@ -469,20 +469,25 @@ def execute(cmd):
         try:
             if not cmd.args:
                 if cmd.repair:
-                    LOGGER.debug("No tags provided, repairing all installs:")
+                    LOGGER.verbose("No tags provided, repairing all installs:")
                     for install in installed:
                         _install_one(cmd, install)
                     # Fallthrough is safe - cmd.args is empty
                 elif cmd.update:
-                    LOGGER.debug("No tags provided, updating all installs:")
+                    LOGGER.verbose("No tags provided, updating all installs:")
                     for install in installed:
                         update = _find_one(cmd, install['id'], by_id=True)
-                        # TODO: Verify that we're updating the right thing?
-                        # Should be fine, the id match is all we can check.
-                        _install_one(cmd, update)
+                        if update:
+                            if update['sort-version'] > install['sort-version']:
+                                _install_one(cmd, update)
+                            else:
+                                LOGGER.verbose("%s is already up to date.", install['displayName'])
+                        else:
+                            LOGGER.verbose("Could not find update for %s.",
+                                install['displayName'], install['id'])
                     # Fallthrough is safe - cmd.args is empty
                 else:
-                    LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
+                    LOGGER.verbose("No tags provided, installing default tag %s", cmd.default_tag)
                     cmd.args = [cmd.default_tag]
 
             for spec in cmd.args:
