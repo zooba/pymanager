@@ -65,7 +65,10 @@ def load_config(root, override_file, schema):
         ("additional_config", False),
     ]:
         try:
-            file = cfg[source]
+            try:
+                file = reg_cfg[source]
+            except LookupError:
+                file = cfg[source]
         except LookupError:
             pass
         else:
