@@ -53,7 +53,7 @@ class _Request:
 
 def _bits_urlretrieve(request):
     from _native import (coinitialize, bits_connect, bits_begin, bits_cancel,
-        bits_get_progress, bits_find_job, bits_serialize_job)
+        bits_get_progress, bits_retry_with_auth, bits_find_job, bits_serialize_job)
 
     assert request.outfile
     LOGGER.debug("_bits_urlretrieve: %s", request)
@@ -65,6 +65,7 @@ def _bits_urlretrieve(request):
     job = None
     jobfile = outfile.with_suffix(".job")
     last_progress = None
+    tried_auth = False
     try:
         job_id = jobfile.read_bytes()
     except OSError:
@@ -84,16 +85,25 @@ def _bits_urlretrieve(request):
         if not job:
             LOGGER.debug("Starting new BITS job: %s -> %s", request, outfile)
             ensure_tree(outfile)
-            # TODO: Apply auth after failed un-authed attempt?
-            auth = request.on_auth_request() or (None, None)
-            job = bits_begin(bits, PurePath(outfile).name, request.url, outfile, *auth)
+            job = bits_begin(bits, PurePath(outfile).name, request.url, outfile)
             LOGGER.debug("Writing %s", jobfile)
             jobfile.write_bytes(bits_serialize_job(bits, job))
 
         LOGGER.debug("Downloading %s", request)
         last_progress = -1
         while last_progress < 100:
-            progress = bits_get_progress(bits, job)
+            try:
+                progress = bits_get_progress(bits, job)
+            except OSError as ex:
+                if ex.winerror & 0xFFFFFFFF == 0x80190191:
+                    # Returned HTTP status 401 (0x191)
+                    if not tried_auth:
+                        auth = request.on_auth_request()
+                        if auth:
+                            tried_auth = True
+                            bits_retry_with_auth(bits, job, *auth)
+                            continue
+                raise
             if progress > last_progress:
                 request.on_progress(progress)
             last_progress = progress

@@ -30,6 +30,7 @@ PACKAGE = Package('src',
         CFunction('bits_begin'),
         CFunction('bits_cancel'),
         CFunction('bits_get_progress'),
+        CFunction('bits_retry_with_auth'),
         CFunction('bits_find_job'),
         CFunction('bits_serialize_job'),
         CFunction('bits_inject_error'), # only in tests

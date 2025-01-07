@@ -350,6 +350,43 @@ PyObject *bits_get_progress(PyObject *, PyObject *args, PyObject *kwargs) {
     return Py_BuildValue("i", progress);
 }
 
+
+// (conn, job, username, password) -> job
+PyObject *bits_retry_with_auth(PyObject *, PyObject *args, PyObject *kwargs) {
+    static const char * keywords[] = {"conn", "job", "username", "password", NULL};
+    IBackgroundCopyManager *bcm = NULL;
+    IBackgroundCopyJob* job = NULL;
+    wchar_t *username = NULL;
+    wchar_t *password = NULL;
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "O&O&O&O&:bits_retry_with_auth", keywords,
+        from_capsule<IBackgroundCopyManager>, &bcm, from_capsule<IBackgroundCopyJob>, &job,
+        as_utf16, &username, as_utf16, &password
+    )) {
+        return NULL;
+    }
+
+    HRESULT hr;
+    PyObject *r = NULL;
+
+    if (FAILED(hr = _job_setcredentials(job, username, password))) {
+        error_from_bits_hr(bcm, hr, "Adding basic credentials to download job");
+        goto done;
+    }
+    if (FAILED(hr = job->Resume())) {
+        error_from_bits_hr(bcm, hr, "Starting download job");
+        goto done;
+    }
+
+    r = Py_GetConstant(Py_CONSTANT_NONE);
+
+done:
+    PyMem_Free(username);
+    PyMem_Free(password);
+
+    return r;
+}
+
+
 #ifdef BITS_INJECT_ERROR
 
 PyObject *bits_inject_error(PyObject *, PyObject *args, PyObject *kwargs) {

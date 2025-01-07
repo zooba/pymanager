@@ -60,6 +60,7 @@ NATIVE_PYD = DllPackage(
     CFunction('bits_begin'),
     CFunction('bits_cancel'),
     CFunction('bits_get_progress'),
+    CFunction('bits_retry_with_auth'),
     CFunction('bits_find_job'),
     CFunction('bits_serialize_job'),
     CFunction('winhttp_urlopen'),
