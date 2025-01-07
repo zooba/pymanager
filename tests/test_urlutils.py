@@ -115,6 +115,17 @@ def test_powershell_urlopen(local_1kb):
     assert sorted(progress) == progress
 
 
+def test_powershell_urlretrieve_auth(local_withauth, tmp_path):
+    local_withauth.outfile = dest = tmp_path / "read.txt"
+    creds = {
+        local_withauth.url: ("placeholder", "placeholder"),
+    }
+    local_withauth._on_auth_request = creds.__getitem__
+    UU._powershell_urlretrieve(local_withauth)
+    assert dest.is_file()
+    assert dest.read_bytes() == b"Basic placeholder:placeholder"
+
+
 def test_urllib_auth(local_withauth):
     import base64
     with pytest.raises(Exception) as ex:

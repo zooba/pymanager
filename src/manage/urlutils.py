@@ -229,11 +229,26 @@ def _powershell_urlopen(request):
 def _powershell_urlretrieve(request):
     from base64 import b64encode
     import subprocess
+
+    headers = request.headers
+    if "Authorization" not in headers:
+        auth = extract_url_auth(request.url)
+        if not auth:
+            auth = request.on_auth_request(request.url)
+        if auth:
+            headers = {**headers, "Authorization": _basic_auth_header(*auth)}
+
+    def _f(v):
+        if isinstance(v, str):
+            return "'" + v.replace("'", "''") + "'"
+        return str(v)
+
+    ps_headers = " ".join(f"{k!r}={_f(v)};" for k, v in headers.items())
+
     powershell = Path(os.getenv("SystemRoot")) / "System32/WindowsPowerShell/v1.0/powershell.exe"
     script = fr"""$ProgressPreference = "SilentlyContinue"
-$headers = @{{ {''.join(f'"{k}"={v};' for k, v in request.headers.items())} }}
-# TODO: Get credentials from environment
-$r = Invoke-WebRequest "{request.url}" -UseBasicParsing `
+$headers = @{{ {ps_headers} }}
+$r = Invoke-WebRequest '{request.url}' -UseBasicParsing `
     -Headers $headers `
     -UseDefaultCredentials `
     -Method "{request.method}" `
@@ -251,8 +266,6 @@ $r = Invoke-WebRequest "{request.url}" -UseBasicParsing `
         creationflags=subprocess.CREATE_NO_WINDOW,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
-        # TODO: Pass credentials in environment
-        env={**os.environ},
     ) as p:
         request.on_progress(0)
         start = time.time()
