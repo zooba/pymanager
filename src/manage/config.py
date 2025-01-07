@@ -10,7 +10,6 @@ from .logging import LOGGER
 
 
 DEFAULT_CONFIG_NAME = "pymanager.json"
-ENV_VAR = "PYTHON_MANAGE_CONFIG"
 
 
 def config_append(x, y):

@@ -100,6 +100,8 @@ CLI_SCHEMA = {
         "source": ("source", _NEXT),
         "t": ("target", _NEXT),
         "target": ("target", _NEXT),
+        "d": ("download", _NEXT),
+        "download": ("download", _NEXT),
         "f": ("force", True),
         "force": ("force", True),
         "u": ("update", True),
@@ -496,6 +498,8 @@ Install options:
                      Specify index.json to use (install.source=...)
     -t, --target=<PATH>
                      Extract runtime to location instead of installing
+    -d, --download=<PATH>
+                     Prepare an offline index with one or more runtimes
     -f, --force      Re-download and overwrite existing install
     -u, --update     Overwrite existing install if a newer version is available.
     --dry-run        Choose runtime but do not install
@@ -513,10 +517,14 @@ EXAMPLE: Clean reinstall of 3.13
 
 EXAMPLE: Refresh and replace all shortcuts
 > python install --refresh
+
+EXAMPLE: Prepare an offline index with multiple versions
+> python install --download=.\pkgs 3.12 3.12-arm64 3.13 3.13-arm64
 """
 
     source = None
     target = None
+    download = None
     force = False
     update = False
     repair = False

@@ -438,6 +438,8 @@ def execute(cmd):
     if cmd.automatic:
         LOGGER.info("*" * CONSOLE_WIDTH)
 
+    download_index = {"versions": []}
+
     try:
         if cmd.target:
             if len(cmd.args) > 1:
@@ -493,12 +495,26 @@ def execute(cmd):
             for spec in cmd.args:
                 tag = tag_or_range(spec) if spec else None
                 install = _find_one(cmd, tag, installed=installed)
-                if install:
+                if not install:
+                    continue
+                if cmd.download:
+                    # TODO: Download to cmd.download
+                    download_index["versions"].append({
+                        **install,
+                        "url": "TODO: Use actual filename",
+                    })
+                else:
                     _install_one(cmd, install)
         except Exception as ex:
             LOGGER.error("Install failed. Please check any output above and try again.")
             LOGGER.debug("ERROR", exc_info=True)
             raise SilentError(getattr(ex, "errno", 0) or 1) from ex
+
+        if cmd.download:
+            with open(cmd.download / "index.json", "w", encoding="utf-8") as f:
+                json.dump(download_index, f, indent=2, default=str)
+            LOGGER.info("Generated offline index at %s.", cmd.download)
+            LOGGER.info("Use 'python install -s .\\%s [tags ...]' to install from this index.", cmd.download.name)
         else:
             update_all_shortcuts(cmd)
             print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
