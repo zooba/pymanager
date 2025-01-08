@@ -44,6 +44,7 @@ class _CompanyKey:
         return not (self < other)
 
 
+
 class _PlatformKey:
     _SUFFIXES = {
         "-32": 1,
@@ -101,6 +102,22 @@ class _PlatformKey:
 _PlatformKey.DEFAULT = _PlatformKey("")
 
 
+class _DescendingVersion(Version):
+    def __gt__(self, other):
+        if other is None:
+            return True
+        if isinstance(other, str):
+            other = type(self)(other)
+        return self.sortkey < other.sortkey
+
+    def __lt__(self, other):
+        if other is None:
+            return False
+        if isinstance(other, str):
+            other = type(self)(other)
+        return self.sortkey > other.sortkey
+
+
 def _sort_tag(tag):
     import re
     key = []
@@ -112,7 +129,7 @@ def _sort_tag(tag):
         if text:
             key.append(bit.casefold())
         else:
-            key.append(Version(bit))
+            key.append(_DescendingVersion(bit))
         text = not text
     return tuple(key)
 
@@ -198,7 +215,7 @@ class CompanyTag:
         if self._company != other._company:
             return self._company > other._company
         if self._sortkey != other._sortkey:
-            return self._sortkey < other._sortkey
+            return self._sortkey > other._sortkey
         if self._platform != other._platform:
             return self._platform < other._platform
         return False
@@ -243,7 +260,7 @@ class CompanyTag:
         if self._company != other._company:
             return self._company < other._company
         if self._sortkey != other._sortkey:
-            return self._sortkey > other._sortkey
+            return self._sortkey < other._sortkey
         if self._platform != other._platform:
             return self._platform > other._platform
         return False

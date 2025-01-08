@@ -44,6 +44,12 @@ def test_tag_match():
 
 def test_tag_order():
     assert CompanyTag("3.13.2") < CompanyTag("3.13")
+    assert CompanyTag("3.13.1") < CompanyTag("3.13.1-32")
+    assert CompanyTag("3.13.1") < CompanyTag("3.13.1-arm64")
+    assert CompanyTag("3.13.1") < CompanyTag("a3.13.1")
+    assert CompanyTag("a3.13.1") < CompanyTag("b3.13.1")
+    assert CompanyTag("3.13.1a") < CompanyTag("3.13.1b")
+    assert CompanyTag("3.13.1a") < CompanyTag("3.13.1b")
 
 
 def test_tag_sort():
