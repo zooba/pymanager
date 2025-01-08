@@ -399,6 +399,7 @@ Install subcommand
 ```
 python install [-s|--source <URL>] [-f|--force] [-u|--upgrade] [tag ...]
 python install [-s|--source <URL>] [-t|--target <DIR>] [tag ...]
+python install [-s|--source <URL>] [-d|--download <DIR>] [tag ...]
 python install --refresh
 ```
 
@@ -457,7 +458,10 @@ install (or generating aliases or shortcuts). This is intended to cover
 embedding cases, or downloading the files for incompatible platforms. Passing
 multiple tags with ``--target`` is an error.
 
-TODO: Some kind of --list or --search option?
+If the ``--download <DIR>`` option is passed, runtimes will be downloaded to the
+specified directory as their source packages, and an ``index.json`` will be
+created referencing these files. This index can be referenced later to perform
+offline installs with ``python install --source <index.json> [tag ...]``.
 
 
 Uninstall subcommand
@@ -480,7 +484,8 @@ List subcommand
 ---------------
 
 ```
-python list [-f|--format <FMT>] [-1|--one] [-u|--unmanaged] [tag ...]
+python list [-f|--format <FMT>] [-1|--one] [--only-managed]
+            [--online] [--source <URL>] [tag ...]
 ```
 
 This subcommand will list any or all installs matching the specified tags or
@@ -491,17 +496,19 @@ The default format is user-friendly. Other formats will include machine-readable
 and single string formats (e.g. ``--format=prefix`` simply prints ``sys.prefix``
 on a line by itself). The exact list of formats is left to implementation.
 
-The ``--unmanaged`` option enables listing runtimes that are discovered using a
-regular PEP 514 lookup. This may include runtimes that cannot be managed by
-PyManager, and would be an error if provided to other commands. Unmanaged
-installs will be distinguishable from managed installs if permitted by the
-selected format.
+The ``--managed-only`` option omits runtimes that were discovered but are not
+managed by PyManager, for example, those found using a regular PEP 514 lookup.
+
+Passing ``--source`` (or ``--online`` to implicitly pass the default source)
+will search an online index rather than currently installed runtimes. The option
+is here rather than on the ``install`` subcommand because the filtering and
+formatting options are already available on ``list``.
 
 Additionally, the legacy ``--list``, ``--list-paths``, ``-0`` and ``-0p``
 arguments supported by the ``py.exe`` launcher will also be provided. However,
 they will not support the new options listed here, and are limited to
 reproducing the output from the existing launcher. Unmanaged installs are
-included by default.
+always included, and are not distinguishable in the listing.
 
 
 Help subcommand
@@ -529,12 +536,12 @@ Replacing other installers
 --------------------------
 
 Our intent is to immediately stop publishing individual versions to the Windows
-Store, and to deprecate and phase out the traditional installer and Nuget
-packages over a period of time (TBD). The embeddable distro would remain, but
-its listing on python.org download pages would be phased out and it would be
+Store, and to deprecate and phase out the traditional installer by 3.16 and the
+Nuget packages over a period of time (TBD). The embeddable distro would remain,
+but its listing on python.org download pages would be phased out and it will be
 available only through PyManager.
 
-PyManager can be made available as an app package downloadable manually from
+PyManager will be made available as an app package downloadable manually from
 python.org, and the double-click install experience is generally smooth.
 We can also make it available as a trivial MSI, with no user interface or
 options, to enable some automated deployment scenarios that do not work with the
@@ -543,7 +550,8 @@ listed on python.org download pages.
 
 It's worth noting that there is no way to make the MSI install fully compatible
 with a Store install, and users with both will likely encounter confusion or
-problems. However, denying them the option is overall worse.
+problems. It is anticipated that only users without Store app support will use
+the MSI.
 
 Our release processes will start publishing plain ZIP packages to python.org.
 These will be available from the FTP pages, but will not be listed directly on
@@ -554,8 +562,7 @@ welcome to use ours, though will be expected to be the initial point of contact
 for their users requiring support.
 
 PyManager will be able to launch other installs if they have provided a PEP 514
-registration. However, it cannot manage these, and they will not be listed by
-default
+registration.
 
 
 Project ownership and development
@@ -573,9 +580,6 @@ the PyManager release manager is whoever is the build manager for Windows.
 Rationale
 =========
 
-TODO: What other decisions are controversial enough to need explicit rationales?
-
-
 The python.exe command
 ----------------------
 
@@ -589,7 +593,8 @@ provide that.
 We are not proposing modifying the default ``Programs/python.c`` and thereby
 affecting all builds of CPython. The program contained in PyManager will be in
 an entirely separate repository - it's only an alias, and only for the case
-where a user has installed PyManager from the Windows Store.
+where a user has installed PyManager from the Windows Store. Users can disable
+the new ``python`` command if they prefer to get errors instead.
 
 
 Interaction with py.exe
@@ -609,18 +614,12 @@ will be the registration details specified by PEP 514 and used by the ``py.exe``
 launcher to locate installs. As a result, a runtime installed with PyManager
 will be found and launched correctly by ``py.exe``.
 
-Because PyManager provides some equivalent functionality to ``py.exe``, it may
-be useful to provide ``py`` as an alias for PyManager. This allows users to
-continue to use a familiar command while also having direct access to the new
-functionality. Differences in shebang handling, configuration, and behaviour
-inside active virtual environments may require some transition, and users may
-prefer to retain the old ``py.exe``.
-
 Due to how the existing ``py.exe`` launcher configures itself, and how the MSIX
 package for PyManager is constrained, it is not possible for PyManager's ``py``
 alias to override the launcher. As a result, users who install the launcher will
 always find ``py`` resolving to the launcher. Ultimately, the only way to
-resolve this in favour of PyManager is to uninstall the launcher.
+resolve this in favour of PyManager is to uninstall the launcher, which can be
+done through the standard Installed Apps control panel.
 
 
 Interaction with venv
@@ -647,35 +646,30 @@ environment, because the preferred alias will use it as intended.
 Were we to change the decision to use ``python`` as the primary alias, we would
 have to design and implement interaction modes that enable PyManager to find and
 use virtual environments, including those that are not created or managed by
-PyManager itself. This is a significant expansion of scope, and carries
-significant risk, as the current proposal is entirely constrained to PyManager
+PyManager itself. This is a significant expansion of scope, and carries greater
+risk, as the current proposal is entirely constrained to PyManager
 being aware of and responsible for all of its installs.
 
 
 Interaction with existing installs
 ----------------------------------
 
-As proposed, PyManager is not aware of existing Python installs, or those
-installed by any other method. While it is technically possible to discover some
-of them (specifically, those that follow PEP 514), it is not possible to provide
-equivalent behaviour.
+As proposed, PyManager is only aware of existing Python installs when launching.
+If the user requests installation of a version of Python that was installed
+independently, PyManager will intentionally install its own copy and prefer it.
 
-As users of existing installs are already able to use them, and the only
-scenario where PyManager may interfere is when users have manually configured
-their ``PATH`` environment to deprioritise the existing install, we believe that
-no action is required here.
+As users of existing installs are assumed to be already able to use them, and
+the only scenario where PyManager may interfere is when users have manually
+configured their ``PATH`` environment to deprioritise the existing install, we
+believe that no action is required here.
 
-As many past versions of CPython for which we still have installers or binaries
-available may be added to the official python.org feed, allowing users to
-migrate all past installs to PyManager if they wish.
-
-Future work may include commands or options to register existing installs with
-PyManager. None are proposed for the initial release.
+We have installers and binaries available for many past versions of CPython,
+which may be added to the official python.org feed, allowing users to migrate
+all past installs to PyManager if they wish.
 
 
 Specification
 =============
-
 
 Global Aliases
 --------------
@@ -693,14 +687,16 @@ The following aliases are created:
 * ``PyManager.exe`` - the full name should be available as an alias, so that it
   can be accessed when ``python`` is overridden (e.g. virtual environments)
 * ``py.exe`` - a short alias to mimic the existing launcher
-* ``PywManager.exe`` - same executable without forcing a console
-* ``pythonw.exe`` - same executable without forcing a console
-* ``pyw.exe`` - same executable without forcing a console
+* ``python3.exe`` - a default alias to catch initial launches
+* ``PywManager.exe``
+* ``pythonw.exe``
+* ``pyw.exe``
+* ``pythonw3.exe``
 
-The windowed versions are only able to launch existing installs, and will simply
-fail if no suitable install is found. The explicit management commands will
-work, allowing silent installs to be triggered by other applications, but will
-not automatically install.
+The windowed ``"w"`` versions are only able to launch existing installs, and
+will simply fail if no suitable install is found. The explicit management
+commands will work, allowing silent installs to be triggered by other
+applications, but will not automatically install.
 
 The use of ``python.exe`` as a global alias, despite this command being more
 functional than a typical runtime, is essential for the smooth flow of a user
@@ -711,12 +707,21 @@ simply avoid it by using the other entry points described in later sections.
 Further discussion about the decision to use ``python.exe`` as a global alias
 can be found in the Rejected Ideas section.
 
+The ``python3[w].exe`` alias is present because the preinstalled redirector
+includes it, and we need to provide a functional alternative. By default, this
+alias will only launch the default runtime, installing one if necessary. If a
+user adds the global aliases directory to their ``PATH``, this alias will be
+overridden.
+
 
 Start Menu Shortcuts
 --------------------
 
 A Start Menu shortcut will be added to launch PyManager documentation in the
 user's default web browser. No applications are added to the Start Menu.
+
+When installing Python runtimes, the install definition may specify Start Menu
+shortcuts to create for the install.
 
 
 Environment Variables
@@ -753,7 +758,9 @@ In ascending order of priority, these will be located:
 
 * within the app package
 * specified by admin-only configuration (see below)
-* under ``%AppData%\\Python\\PyManager``
+* in the ``base_config`` setting (default: none)
+* in the ``user_config`` setting (default: ``%AppData%\\Python\\PyManager.json``)
+* in the ``additional_config`` setting (default: ``%PYTHON_MANAGER_CONFIG%``)
 * specified with the ``-c`` command line option
 
 The specific behaviour of each configuration option is left to implementation.
@@ -764,6 +771,13 @@ applications or packages. For example, an alternative distribution may want to
 include PyManager but have it locate installs from their own index. The app
 package configuration allows reusing our build and overriding the default
 settings.
+
+The ``user_config`` and ``additional_config`` settings are pre-configured in
+earlier configuration files, allowing them to be overridden by admin-only
+configuration or an alternate root configuration. If a configuration file
+overwrites the setting that caused the file to be loaded, it is ignored.
+The ``base_config`` setting is similar, but starts empty and is intended for
+easy overriding through admin configuration.
 
 Admin-only configuration is provided to allow administrators to manage systems
 under their control using existing tools, such as group policy or registry
@@ -1017,59 +1031,37 @@ is also out of scope.
 
 The typical risk introduced by an installer is that an elevated install may make
 changes to a system that allow a low-privileged user to later affect a
-high-privilege user. For example, by inappropriately setting access control on
-shared folders. For PyManager, this risk only exists in the initial installation
-of the manager itself. Once installer, the manager only operates as the same
-privilege level as the user, and therefore cannot introduce any escalation path.
+high-privilege user, for example, by inappropriately setting access control on
+shared folders. PyManager only operates as the same privilege level as the user,
+and therefore cannot introduce any escalation path.
 
-The proposed PyManager has two install options that are fundamentally
-equivalent, with a third potential option that introduces some additional and
-typically unnecessary risks.
+An install using the MSI described earlier may introduce additional risks, due
+to using older installer technology. Typical users are directed towards the MSIX
+or Windows Store install paths, which are safe, and it is assumed that users
+of the MSI are capable of ensuring the security of their install process (for
+example, by correctly quoting their commands to launch the installer and
+ensuring the initial system configuration is suitable).
 
-The first two options are to download and install using the Microsoft Store app,
-or to download and install the MSIX from python.org. In both of these cases,
-the operating system is responsible for the actual install, as well as managing
-sandboxing and isolation of the running application. The greatest risk here is
-that a user installs the incorrect application, which may occur due to an
-imitation page in the Store, or a fake download site containing another
-installer. Users have the opportunity to verify the publisher before installing
-any MSIX, and the publisher is verified cryptographically for a direct MSIX
-install, and through third-party business verification for the Store.
-
-The third potential install option is the trivial MSI described earlier in
-"Replacing other installers". This installer would require running as a
-high-privilege user in order to install into the Program Files directory and
-modify the system ``PATH`` environment variable to include the installed
-aliases. Each user has their own configuration and install location, including
-the generated aliases, and so this installer does not affect any per-user
-settings.
-
-Hence, all files installed by the PyManager installers are restricted to either
-Administrator or Trusted Installer, and all state, including installed runtimes,
-are stored in per-user directories.
-
-Once PyManager is installed on a machine, it is likely that a malicious user may
-attempt to use it to install Python. The admin-only configuration described
-earlier in "Configuration" is intended to control these scenarios. Ultimately,
-though, an attacker is able to do whatever a user may do, and only a complete
-application whitelisting approach can prevent the use of Python.
+Once PyManager is installed on a machine, it is likely that malicious users will
+use it to install Python. The admin-only configuration described earlier in
+"Configuration" is intended to control these scenarios. Ultimately though, an
+attacker who can run PyManager is able to do whatever the user can do, and only
+a complete application whitelisting approach can prevent the use of Python.
 
 Runtime installs by PyManager are fully accessible by, and modifiable by, the
 current user. This is equivalent to typical installs using the traditional
 installer or a Nuget package, but is more vulnerable to tampering than a Store
 install or a per-machine install with the traditional installer. It is not
-possible to fully protect an install from the user who installed it, but it may
-be valuable to consider removing modify permissions after install (though the
-user may, of course, restore them). This at least increases the difficulty in
-tampering.
+possible to fully protect an install from the user who installed it.
 
-The shortcuts generated by PyManager when installing a runtime are designed to
+The aliases generated by PyManager when installing a runtime are designed to
 use a signed, unmodified executable that uses an adjacent data file to launch
 the correct target. This can be easily abused to direct the launcher to launch
 an alternative, however, the only way to resolve this would sacrifice the trust
 in the executable itself, making it trivial to replace it instead of the data.
 Such risk already exists, and is equivalent to replacing the script that a user
-may launch, or any part of the standard library.
+may launch, or any part of the standard library. Importantly, since aliases are
+not shared between users, there is no escalation of privilege along this route.
 
 PyManager has no mechanism to perform a per-machine install. This may be useful
 functionality to some users, as it would allow an install to be completely
@@ -1078,8 +1070,6 @@ site folders). Such functionality may be manually imitated by an administrator
 using PyManager and other OS commands, but it is not considered a critical
 workflow. The recommended alternative is for an administrator to provide
 PyManager and override its configuration.
-
-**TODO: More concerns?**
 
 
 How to Teach This
@@ -1094,17 +1084,17 @@ result in something useful happening, and with PyManager we can ensure that
 To explain what is actually happening, we propose the following as introductory
 text:
 
-> Python is managed using an installer tool, known as PyManager. After this tool
-> is installed, you can run ``python`` to launch the interpreter, and it will
+> Python installs on Windows are managed using an installer tool. After it has
+> been installed, you can run ``python`` to launch the interpreter, and it will
 > choose the best version already installed, available online, or referenced by
 > the script you are launching (if any). If you have a preference for a
 > particular version, you can specify it with ``python -V:<version>`` followed
 > by the rest of your command.
-
+>
 > To install a version of Python without running any command, use ``python
 > install <version>``. You can see all of your installs with ``python list`` and
-> remove them with ``python uninstall <version>``. Add ``-?`` to any of these
-> commands to see all the options that are available.
+> remove them with ``python uninstall <version>``. Run ``python help`` to see
+> all the options that are available.
 
 > Because each version of Python will be shared by all your projects, we
 > recommend using virtual environments. This will usually be created for a
@@ -1113,17 +1103,73 @@ text:
 > manager, ``python`` will always launch your virtual environment, and any
 > packages you install are only available while this environment is active. To
 > get access to the manager again, you can ``deactivate`` the environment, or
-> use ``py-manage <command>``.
+> use ``py <command>``.
 
-**TODO: When/how to teach indexes**
+We suggest that indexes only need to be introduced when instructing users to
+install a specialised runtime or distribution. Administrators seeking to provide
+an index are anticipated to actively seek out the relevant information in the
+documentation.
 
-**TODO: When/how to teach configuration files**
+To explain how and when to use an alternate index, we propose text along these
+lines:
 
-**TODO: When/how to teach advanced deployment**
+> Our distribution can be installed on Windows using the Python Install Manager
+> (include link) by referencing our index:
+>
+> ``python install --source <your index URL here> latest``
+>
+> This index contains all our versions. Use ``python list --source <URL>`` to
+> see everything that is available.
 
-**TODO: How to update platform-generic documentation (e.g. on package READMEs)**
+Complete uninstallation is an important topic to cover before a user is likely
+to consider removing the install manager. Due to the range of features expected
+by Python users, including Start Menu shortcuts and registration with IDEs, it
+is not possible in the general case for uninstalling the manager to completely
+clean up.
 
-**TODO: How to uninstall runtimes/everything**
+We suggest an explanation like this:
+
+> Before you uninstall the Python install manager, you'll want to uninstall any
+> runtimes that you added. This can be done easily with the "purge" option:
+>
+> ``python uninstall --purge``
+>
+> This will remove all installs and any shortcuts that would otherwise be left
+> behind. If you already removed the manager, you can reinstall it and run the
+> above uninstall command again to clean up. Individual runtimes can be
+> uninstalled by replacing the ``--purge`` option with the tag, found by looking
+> at ``python list``.
+
+Configuration files are a common feature that will be documented, but do not
+need to be taught to regular users. Similarly, advanced deployment options, such
+as those that might be used by system administrators or organisations wanting
+their users to use a preferred index, are best covered in reference material.
+
+Many Python projects include information about how to launch their projects as
+part of their own README files. Historically, such information has been
+complicated due to the range of options available to users. We propose that,
+after the install manager is published, such guidance could be written along
+these lines:
+
+> To install and use our application, first install Python following the
+> guidance for your operating system at https://docs.python.org/using/. Then,
+> create a virtual environment and use 'pip' to install.
+>
+> ``python3 -m venv .venv``
+> ``source .venv/bin/activate`` or ``.venv\Scripts\Activate`` (on Windows)
+> ``python -m pip install OurAwesomePackage``
+> ...
+
+If instructions will not include information about virtual environments, then
+the ``python`` or ``python3`` command can be shown, and on Windows both will
+operate as intended for users with the install manager.
+
+Instructions currently referring to ``py`` for Windows can continue to do so, as
+the install manager provides a practically equivalent command. Projects that
+wish to provide Windows-specific instructions, such as by using the ``-V:``
+option or relying on inline script metadata to install the correct version,
+should also link to the https://docs.python.org/using/windows.html documentation
+as guidance for ensuring that the install manager is installed.
 
 
 Reference Implementation
