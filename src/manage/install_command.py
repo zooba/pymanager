@@ -448,6 +448,7 @@ def execute(cmd):
                 spec = cmd.args[0]
             except IndexError:
                 LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
+                # TODO: What if the index has been overridden and the default tag isn't there?
                 spec = cmd.default_tag
 
             try:
