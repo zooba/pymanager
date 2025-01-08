@@ -108,7 +108,7 @@ class Unstringable:
     {"versionlist": []}, {"versionlist": [{"version": 1, "y": 2}]},
 ])
 def test_schema_parse_valid(value):
-    assert iu._one(value, TEST_SCHEMA) == value
+    assert iu._validate_one(value, TEST_SCHEMA) == value
 
 
 @pytest.mark.parametrize("value, expect", [
@@ -123,7 +123,7 @@ def test_schema_parse_valid(value):
     ({"versionlist": {"version": 2, "x": 1, "y": 2}}, {"versionlist": [{"version": 2, "x": "1", "y": "2"}]}),
 ])
 def test_schema_parse_valid_2(value, expect):
-    assert iu._one(value, TEST_SCHEMA) == expect
+    assert iu._validate_one(value, TEST_SCHEMA) == expect
 
 
 @pytest.mark.parametrize("value, key", [
@@ -137,13 +137,13 @@ def test_schema_parse_valid_2(value, expect):
 ])
 def test_schema_parse_invalid(value, key):
     with pytest.raises(InvalidFeedError) as ex:
-        iu._one(value, TEST_SCHEMA)
+        iu._validate_one(value, TEST_SCHEMA)
     assert key in str(ex.value)
 
 
 def test_v1_package():
     # Ensure we don't change the schema for v1 packages
-    iu._one(EXAMPLE_V1_PACKAGE, iu.SCHEMA)
+    iu._validate_one(EXAMPLE_V1_PACKAGE, iu.SCHEMA)
 
 
 def test_install_lookup():

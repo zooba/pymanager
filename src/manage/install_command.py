@@ -356,6 +356,23 @@ def _find_one(cmd, tag, *, installed=None, by_id=False):
     return None
 
 
+def _download_one(cmd, install, download_dir, *, must_copy=False):
+    package = download_dir / f"{install['id']}-{install['sort-version']}.zip"
+    # Preserve nupkg extensions so we can directly reference Nuget packages
+    if install["url"].casefold().endswith(".nupkg".casefold()):
+        package = package.with_suffix(".nupkg")
+
+    with ProgressPrinter("Downloading", maxwidth=CONSOLE_WIDTH) as on_progress:
+        package = download_package(cmd, install, package, DOWNLOAD_CACHE, on_progress=on_progress)
+    validate_package(install, package)
+    if must_copy and package.parent != download_dir:
+        import shutil
+        dst = download_dir / package.name
+        shutil.copyfile(package, dst)
+        return dst
+    return package
+
+
 def _install_one(cmd, install, *, target=None):
     if cmd.repair:
         LOGGER.info("Repairing %s.", install['displayName'])
@@ -369,14 +386,7 @@ def _install_one(cmd, install, *, target=None):
         LOGGER.info("Skipping rest of install due to --dry-run")
         return
 
-    package = cmd.download_dir / f"{install['id']}-{install['sort-version']}.zip"
-    # Preserve nupkg extensions so we can directly reference Nuget packages
-    if install["url"].casefold().endswith(".nupkg".casefold()):
-        package = package.with_suffix(".nupkg")
-
-    with ProgressPrinter("Downloading", maxwidth=CONSOLE_WIDTH) as on_progress:
-        package = download_package(cmd, install, package, DOWNLOAD_CACHE, on_progress=on_progress)
-    validate_package(install, package)
+    package = _download_one(cmd, install, cmd.download_dir)
 
     dest = target or (cmd.install_dir / install["id"])
 
@@ -499,15 +509,15 @@ def execute(cmd):
                 if not install:
                     continue
                 if cmd.download:
-                    # TODO: Download to cmd.download
+                    package = _download_one(cmd, install, cmd.download, must_copy=True)
                     download_index["versions"].append({
                         **install,
-                        "url": "TODO: Use actual filename",
+                        "url": package.name,
                     })
                 else:
                     _install_one(cmd, install)
         except Exception as ex:
-            LOGGER.error("Install failed. Please check any output above and try again.")
+            LOGGER.error("An error occurred. Please check any output above and try again.")
             LOGGER.debug("ERROR", exc_info=True)
             raise SilentError(getattr(ex, "errno", 0) or 1) from ex
 

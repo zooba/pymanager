@@ -75,7 +75,7 @@ def _version_error(actual, expect, ctxt):
     ))
 
 
-def _one_dict_match(d, expect):
+def _validate_one_dict_match(d, expect):
     if not isinstance(d, dict):
         return True
     if not isinstance(expect, dict):
@@ -101,15 +101,15 @@ def _one_dict_match(d, expect):
     return True
     
 
-def _one_or_list(d, expects, ctxt):
+def _validate_one_or_list(d, expects, ctxt):
     if not isinstance(d, list):
         d = [d]
     ctxt.append("[]")
     for i, e in enumerate(d):
         ctxt[-1] = f"[{i}]"
         for expect in expects:
-            if _one_dict_match(e, expect):
-                yield _one(e, expect, ctxt)
+            if _validate_one_dict_match(e, expect):
+                yield _validate_one(e, expect, ctxt)
                 break
         else:
             raise InvalidFeedError("No matching item format at {}".format(
@@ -118,7 +118,7 @@ def _one_or_list(d, expects, ctxt):
     del ctxt[-1]
 
 
-def _one(d, expect, ctxt=None):
+def _validate_one(d, expect, ctxt=None):
     if ctxt is None:
         ctxt = []
     if expect is None:
@@ -128,7 +128,7 @@ def _one(d, expect, ctxt=None):
             raise _version_error(d, expect, ctxt)
         return d
     if isinstance(expect, list):
-        return list(_one_or_list(d, expect, ctxt))
+        return list(_validate_one_or_list(d, expect, ctxt))
     if expect is ...:
         # Allow ... value for arbitrary value types
         return d
@@ -145,7 +145,7 @@ def _one(d, expect, ctxt=None):
                         expect2 = expect[...]
                     except LookupError:
                         raise InvalidFeedError("Unexpected key {}".format(".".join(ctxt))) from None
-                d2[k] = _one(v, expect2, ctxt)
+                d2[k] = _validate_one(v, expect2, ctxt)
                 del ctxt[-1]
             return d2
         raise _schema_error(dict, expect, ctxt)
@@ -157,16 +157,39 @@ def _one(d, expect, ctxt=None):
         raise _schema_error(d, expect, ctxt) from ex
 
 
+def _patch_schema_1(source_url, v):
+    try:
+        url = v["url"]
+    except LookupError:
+        pass
+    else:
+        from .urlutils import urljoin
+        if "://" not in url:
+            v["url"] = urljoin(source_url, url, to_parent=True)
+
+    return v
+
+
+_SCHEMA_PATCHES = {
+    1: _patch_schema_1,
+}
+
+
+def _patch(source_url, v):
+    return _SCHEMA_PATCHES.get(v.get("schema"), lambda _, v: v)(source_url, v)
+
+
 class Index:
     def __init__(self, source_url, d):
         try:
-            validated = _one(d, SCHEMA)
+            validated = _validate_one(d, SCHEMA)
         except InvalidFeedError as ex:
             LOGGER.debug("ERROR:", exc_info=True)
             raise InvalidFeedError(feed_url=source_url) from ex
         self.source_url = source_url
         self.next_url = validated.get("next")
-        self.versions = sorted(validated["versions"], key=lambda v: v["sort-version"], reverse=True)
+        versions = [_patch(source_url, v) for v in validated["versions"]]
+        self.versions = sorted(versions, key=lambda v: v["sort-version"], reverse=True)
 
     def __repr__(self):
         return "<Index({!r}, next={!r}, versions=[...{} entries])>".format(

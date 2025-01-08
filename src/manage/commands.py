@@ -549,6 +549,10 @@ EXAMPLE: Prepare an offline index with multiple versions
                 self.source = Path(self.source).absolute().as_uri()
             except Exception as ex:
                 raise ArgumentError("Source feed is not a valid path or URL") from ex
+        if self.target:
+            self.target = Path(self.target).absolute()
+        if self.download:
+            self.download = Path(self.download).absolute()
 
     def execute(self):
         from .install_command import execute
