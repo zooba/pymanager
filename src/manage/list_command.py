@@ -7,7 +7,7 @@ from .logging import LOGGER
 
 def format_table(installs):
     columns = {
-        "company": "Publisher",
+        "company": "Managed By",
         "tag": "Tag",
         "displayName": "Name",
         "sort-version": "Version",
@@ -34,8 +34,6 @@ def format_table(installs):
         if not i.get("unmanaged"):
             for c in columns:
                 v = i.get(c, "")
-                if c == "company" and v == "PythonCore":
-                    v = "CPython"
                 print(v.ljust(cwidth[c]), end="  ", flush=False)
             print()
             any_shown=True
