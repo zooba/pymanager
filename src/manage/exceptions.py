@@ -70,3 +70,10 @@ class SilentError(Exception):
             return self.args[0]
         except IndexError:
             return 1
+
+class AutomaticInstallDisabledError(Exception):
+    exitcode = 0xA0000006 # ERROR_AUTO_INSTALL_DISABLED
+
+    def __init__(self):
+        super().__init__("Automatic installation has been disabled. "
+                         'Please run "python install" directly.')

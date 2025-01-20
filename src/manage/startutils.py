@@ -11,6 +11,13 @@ def _unprefix(p, prefix):
         return None
     if p.startswith("%PREFIX%"):
         return prefix / p[8:]
+    if p.startswith("%WINDIR%"):
+        import os
+        windir = os.getenv("WINDIR")
+        if windir:
+            return Path(windir) / p[8:]
+        # If the variable is missing, we should be able to rely on PATH
+        return p[8:]
     return p
 
 

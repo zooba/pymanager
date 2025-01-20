@@ -21,6 +21,7 @@
 // HRESULT-compatible error codes
 #define ERROR_NO_MATCHING_INSTALL   0xA0000004
 #define ERROR_NO_INSTALLS           0xA0000005
+#define ERROR_AUTO_INSTALL_DISABLED 0xA0000006
 
 #ifndef PY_WINDOWED
 #define PY_WINDOWED 0
@@ -30,6 +31,7 @@ struct {
     PyObject *mod;
     PyObject *no_install_found_error;
     PyObject *no_installs_error;
+    PyObject *auto_install_disabled_error;
 } manage = {NULL};
 
 static std::wstring
@@ -54,6 +56,7 @@ static std::wstring
 get_root()
 {
     try {
+        // TODO: Store outside of app cache so that installed runtimes aren't lost on uninstall
         const auto appData = winrt::Windows::Storage::ApplicationData::Current();
         if (appData) {
             const auto localCache = appData.LocalCacheFolder();
@@ -77,7 +80,7 @@ is_env_var_set(const wchar_t *name)
 }
 
 
-static int
+static bool
 should_run_commands(const wchar_t *argv0)
 {
     size_t n = wcslen(argv0);
@@ -89,9 +92,30 @@ should_run_commands(const wchar_t *argv0)
     }
     int cch = dot > n ? (int)(dot - n) : -1;
     if (CompareStringOrdinal(&argv0[n], cch, L"python3", -1, TRUE) == CSTR_EQUAL) {
-        return 0;   // no commands supported for python3
+        return false;   // no commands supported for python3
     }
-    return 1;
+    if (CompareStringOrdinal(&argv0[n], cch, L"python", -1, TRUE) == CSTR_EQUAL) {
+        return is_env_var_set(L"PYTHON_DISABLE_SUBCOMMANDS");
+    }
+    return true;
+}
+
+
+static const wchar_t *
+default_command(const wchar_t *argv0)
+{
+    size_t n = wcslen(argv0);
+    size_t dot = 0;
+    while (n > 0 && argv0[--n] != L'\\' && argv0[n] != L'/') {
+        if (!dot && argv0[n] == L'.') {
+            dot = n;
+        }
+    }
+    int cch = dot > n ? (int)(dot - n) : -1;
+    if (CompareStringOrdinal(&argv0[n], cch, L"pymanager", -1, TRUE) == CSTR_EQUAL) {
+        return L"help";
+    }
+    return NULL;
 }
 
 
@@ -206,6 +230,11 @@ init_python()
         PyErr_Print();
         return -1;
     }
+    manage.auto_install_disabled_error = PyObject_GetAttrString(manage.mod, "AutomaticInstallDisabledError");
+    if (!manage.auto_install_disabled_error) {
+        PyErr_Print();
+        return -1;
+    }
     return 0;
 }
 
@@ -216,6 +245,7 @@ close_python()
     assert(manage.mod);
     Py_CLEAR(manage.no_installs_error);
     Py_CLEAR(manage.no_install_found_error);
+    Py_CLEAR(manage.auto_install_disabled_error);
     Py_CLEAR(manage.mod);
     Py_Finalize();
 }
@@ -293,6 +323,34 @@ done:
 
 
 static int
+run_simple_command(const wchar_t *cmd)
+{
+    int exitCode = 1;
+    auto root_str = get_root();
+    PyObject *args = NULL;
+    PyObject *root = NULL;
+    PyObject *r = NULL;
+
+    args = Py_BuildValue("(u)", cmd);
+    if (!args) goto python_fail;
+    root = PyUnicode_FromWideChar(root_str.c_str(), -1);
+    if (!root) goto python_fail;
+    r = PyObject_CallMethod(manage.mod, "main", "OO", args, root);
+    if (r) {
+        exitCode = PyLong_AsLong(r);
+        goto done;
+    }
+python_fail:
+    PyErr_Print();
+done:
+    Py_XDECREF(r);
+    Py_XDECREF(root);
+    Py_XDECREF(args);
+    return exitCode;
+}
+
+
+static int
 auto_install_runtime(
     const wchar_t *argv0,
     const std::wstring &tag,
@@ -302,10 +360,6 @@ auto_install_runtime(
 {
     int err = 0;
     const wchar_t *new_argv[] = { argv0, NULL, NULL, NULL, NULL };
-
-    if (is_env_var_set(L"PYMANAGER_NO_AUTO_INSTALL")) {
-        return err_cause;
-    }
 
     new_argv[1] = L"install";
     new_argv[2] = L"--automatic";
@@ -342,6 +396,8 @@ locate_runtime(
             exitCode = ERROR_NO_INSTALLS;
         } else if (PyErr_ExceptionMatches(manage.no_install_found_error)) {
             exitCode = ERROR_NO_MATCHING_INSTALL;
+        } else if (PyErr_ExceptionMatches(manage.auto_install_disabled_error)) {
+            exitCode = ERROR_AUTO_INSTALL_DISABLED;
         }
         // Other errors should already have been printed
         PyErr_Clear();
@@ -388,6 +444,11 @@ wmain(int argc, wchar_t **argv)
             }
         }
 
+        const wchar_t *default_cmd = default_command(argv[0]);
+        if (default_cmd) {
+            return run_simple_command(default_cmd);
+        }
+
         if (read_tag_from_argv(argv[1], tag)) {
             skip_argc += 1;
         } else {
@@ -405,12 +466,15 @@ wmain(int argc, wchar_t **argv)
         if (!err) {
             err = locate_runtime(tag, script, executable, args, 1);
         }
-        if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
-            // Error has already been displayed
-            goto error;
-        }
     }
 #endif
+    if (err == ERROR_NO_MATCHING_INSTALL
+        || err == ERROR_NO_INSTALLS
+        || err == ERROR_AUTO_INSTALL_DISABLED
+    ) {
+        // Error has already been displayed
+        goto error;
+    }
 
     if (err) {
         // Most 'not found' errors have been handled above. These are genuine

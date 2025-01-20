@@ -1,4 +1,10 @@
-from .exceptions import ArgumentError, NoInstallFoundError, NoInstallsError, SilentError
+from .exceptions import (
+    ArgumentError,
+    AutomaticInstallDisabledError,
+    NoInstallFoundError,
+    NoInstallsError,
+    SilentError,
+)
 from .logging import LOGGER
 
 try:
@@ -37,6 +43,9 @@ def main(args, root=None):
         cmd.execute()
         if not cmd.keep_log:
             delete_log = log_file
+    except AutomaticInstallDisabledError as ex:
+        LOGGER.error("%s", ex)
+        return ex.exitcode
     except SilentError as ex:
         LOGGER.debug("SILENCED ERROR", exc_info=True)
         return ex.exitcode
@@ -58,11 +67,13 @@ def main(args, root=None):
 
 
 def find_one(root, tag, script, windowed, show_not_found_error):
+    autoinstall_permitted = False
     try:
         from .commands import load_default_config
         from .scriptutils import quote_args
         i = None
         cmd = load_default_config(root)
+        autoinstall_permitted = cmd.automatic_install
         LOGGER.debug("Finding runtime for '%s' or '%s' %s", tag, script, "(windowed)" if windowed else "")
         i = cmd.get_install_to_run(tag, script, windowed=windowed)
         exe = str(i["executable"])
@@ -70,6 +81,9 @@ def find_one(root, tag, script, windowed, show_not_found_error):
         LOGGER.debug("Selected %s %s", exe, args)
         return exe, args
     except (NoInstallFoundError, NoInstallsError) as ex:
+        if not autoinstall_permitted:
+            LOGGER.error("%s", ex)
+            raise AutomaticInstallDisabledError() from ex
         if show_not_found_error:
             LOGGER.error("%s", ex)
             LOGGER.debug("TRACEBACK:", exc_info=True)

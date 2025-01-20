@@ -3,7 +3,13 @@ import os
 
 from pathlib import Path, PurePath
 
-from .exceptions import ArgumentError, HashMismatchError, SilentError
+from .exceptions import (
+    ArgumentError,
+    AutomaticInstallDisabledError,
+    HashMismatchError,
+    NoInstallFoundError,
+    SilentError,
+)
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
 from .logging import LOGGER, ProgressPrinter
@@ -407,6 +413,21 @@ def _install_one(cmd, install, *, target=None):
     with ProgressPrinter("Installing", maxwidth=CONSOLE_WIDTH) as on_progress:
         extract_package(package, dest, on_progress=on_progress, repair=cmd.repair)
 
+    try:
+        with open(dest / "__install__.json", "r", encoding="utf-8") as f:
+            LOGGER.debug("Updating from __install__.json in %s", dest)
+            for k, v in json.load(f).items():
+                if not install.setdefault(k, v):
+                    install[k] = v
+    except FileNotFoundError:
+        pass
+    except (TypeError, ValueError):
+        LOGGER.warn(
+            "Invalid data found in bundled install data. " +
+            "Please report this to the provider of your package."
+        )
+        raise
+
     if "shortcuts" in install:
         # This saves our original set of shortcuts, so a later repair operation
         # can enable those that were originally disabled.
@@ -446,6 +467,9 @@ def execute(cmd):
         cmd.update = False
 
     if cmd.automatic:
+        if not cmd.automatic_install:
+            LOGGER.debug("automatic_install is not set - exiting")
+            raise AutomaticInstallDisabledError()
         LOGGER.info("*" * CONSOLE_WIDTH)
 
     download_index = {"versions": []}
@@ -505,7 +529,11 @@ def execute(cmd):
 
             for spec in cmd.args:
                 tag = tag_or_range(spec) if spec else None
-                install = _find_one(cmd, tag, installed=installed)
+                try:
+                    install = _find_one(cmd, tag, installed=installed)
+                except LookupError:
+                    LOGGER.error("Failed to find a suitable install for '%s'.", tag)
+                    raise NoInstallFoundError()
                 if not install:
                     continue
                 if cmd.download:

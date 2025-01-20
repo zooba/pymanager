@@ -4,6 +4,8 @@
     },
     "registry_override_key": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager",
 
+    "automatic_install": "%PYTHON_MANAGER_AUTOMATIC_INSTALL%",
+
     "bundled_dir": "./bundled",
     "logs_dir": "%PYTHON_MANAGER_LOGS%",
 

@@ -141,6 +141,7 @@ CONFIG_SCHEMA = {
     "logs_dir": (str, None, "env", "path"),
 
     "default_tag": (str, None, "env"),
+    "automatic_install": (config_bool, None, "env"),
 
     "list": {
         "format": (str, None, "env"),
@@ -203,6 +204,7 @@ class BaseCommand:
     config_file = None
     confirm = True
     default_tag = None
+    automatic_install = True
     log_file = None
 
     _create_log_file = True
