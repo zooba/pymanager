@@ -319,7 +319,7 @@ Overview of PyManager
 ("PyManager" name open for bikeshedding)
 
 PyManager is the internal name of our proposed replacement installer tool. It
-will be distributed both in the Windows Store andon python.org as an MSIX
+will be distributed both in the Windows Store and on python.org as an MSIX
 package. Downloading from either source will get an identical package, and
 both will support automatic updates (through the Store) for new releases.
 
@@ -358,7 +358,7 @@ automatically install runtimes (by default). If one is requested but is not
 installed, users will just get an error. The ``py run ...`` subcommand, however,
 will install automatically, and supports the same options as bare ``py``.
 
-These commands are added very low priority in the user's ``PATH`` by the OS.
+These commands are added at very low priority in the user's ``PATH`` by the OS.
 Every existing configuration we may have created on a user's machine will take
 precedence over these commands, and so these are a last resort in place of an
 error message. As a result, we can generally assume that a user is launching
@@ -584,7 +584,7 @@ List subcommand
 
 ```
 py list [-f|--format <FMT>] [-1|--one] [--only-managed] [tag ...]
-py list [-f] [-1] [--online] [--source <URL>] [tag ...]
+py list [-f|--format <FMT>] [-1|--one] [--online] [--source <URL>] [tag ...]
 py [--list|-0]
 py [--list-paths|-0p]
 ```
