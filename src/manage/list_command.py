@@ -26,30 +26,25 @@ def format_table(installs):
                 cwidth[k] = max(cwidth[k], len(v))
             except LookupError:
                 pass
-    for c in columns:
-        print(columns[c].ljust(cwidth[c]), end="  ", flush=False)
-    print()
+    LOGGER.print("!B!%s!W!", "  ".join(columns[c].ljust(cwidth[c]) for c in columns))
+
     any_shown = False
     for i in installs:
         if not i.get("unmanaged"):
-            for c in columns:
-                v = i.get(c, "")
-                print(v.ljust(cwidth[c]), end="  ", flush=False)
-            print()
-            any_shown=True
+            clr = "!G!" if i.get("default") else ""
+            LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns))
+            any_shown = True
     if not any_shown:
-        print("-- No runtimes. Use 'py install <version>' to install one. --")
+        LOGGER.print("!Y!-- No runtimes. Use 'py install <version>' to install one. --!W!")
     shown_header = False
     for i in installs:
         if i.get("unmanaged"):
             if not shown_header:
-                print()
-                print("* These runtimes may be run, but cannot be updated or uninstalled. *")
+                LOGGER.print()
+                LOGGER.print("!B!* These runtimes may be run, but cannot be updated or uninstalled. *!W!")
                 shown_header = True
-            for c in columns:
-                v = i.get(c, "")
-                print(v.ljust(cwidth[c]), end="  ", flush=False)
-            print()
+            clr = "!G!" if i.get("default") else ""
+            LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns))
 
 
 CSV_EXCLUDE = {

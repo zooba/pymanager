@@ -47,6 +47,7 @@ def _get_venv_install(virtual_env):
     ver = [v.strip() for k, _, v in (s.partition("=") for s in pyvenv_cfg.splitlines())
            if k.strip().casefold() == "version".casefold()]
     return {
+        "id": "__active-virtual-env",
         "displayName": "Active virtual environment",
         "sort-version": ver[0] if ver else "0.0",
         "company": "<venv>",

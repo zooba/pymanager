@@ -106,7 +106,7 @@ class AuthFinder:
 
 def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
     if not cmd.force and dest.is_file():
-        LOGGER.info("Download was found in the cache. (Pass --force to ignore cached downloads.)")
+        LOGGER.verbose("Download was found in the cache. (Pass --force to ignore cached downloads.)")
         try:
             validate_package(install, dest, delete=False)
         except HashMismatchError:
@@ -307,8 +307,9 @@ def update_all_shortcuts(cmd, path_warning=True):
         try:
             if not any(cmd.global_dir.match(p) for p in os.getenv("PATH", "").split(os.pathsep) if p):
                 LOGGER.info("")
-                LOGGER.info("Global shortcuts directory is not on PATH. Add it for global commands.")
-                LOGGER.info("Directory to add: %s", cmd.global_dir)
+                LOGGER.info("!B!Global shortcuts directory is not on PATH. " +
+                            "Add it for easy access to global Python commands.!W!")
+                LOGGER.info("!B!Directory to add: !Y!%s!W!", cmd.global_dir)
                 LOGGER.info("")
         except Exception:
             LOGGER.debug("Failed to display PATH warning", exc_info=True)
@@ -325,7 +326,7 @@ def print_cli_shortcuts(cmd, tags):
                 else:
                     LOGGER.info("Installed %s to %s", i["displayName"], i["prefix"])
                 if i.get("default"):
-                    LOGGER.info("This will be launched by default when you run 'python'.")
+                    LOGGER.info("This version will be launched by default when you run '!G!python!W!'.")
                 break
 
 
@@ -346,7 +347,7 @@ def _find_one(cmd, tag, *, installed=None, by_id=False):
         return install
 
     if cmd.force:
-        LOGGER.info("Overwriting existing %s install because of --force.", existing[0]["displayName"])
+        LOGGER.warn("Overwriting existing %s install because of --force.", existing[0]["displayName"])
         return install
 
     if cmd.repair:
@@ -403,14 +404,14 @@ def _install_one(cmd, install, *, target=None):
                          "Ensure Python is not running, and continue to wait " +
                          "or press Ctrl+C to abort.")
         except FileExistsError:
-            LOGGER.warn(
+            LOGGER.error(
                 "Unable to remove previous install. " +
                 "Please check your packages directory at %s for issues.",
                 dest.parent
             )
             raise
 
-    with ProgressPrinter("Installing", maxwidth=CONSOLE_WIDTH) as on_progress:
+    with ProgressPrinter("Extracting", maxwidth=CONSOLE_WIDTH) as on_progress:
         extract_package(package, dest, on_progress=on_progress, repair=cmd.repair)
 
     try:
@@ -422,7 +423,7 @@ def _install_one(cmd, install, *, target=None):
     except FileNotFoundError:
         pass
     except (TypeError, ValueError):
-        LOGGER.warn(
+        LOGGER.error(
             "Invalid data found in bundled install data. " +
             "Please report this to the provider of your package."
         )
@@ -453,6 +454,10 @@ def _install_one(cmd, install, *, target=None):
 
 def execute(cmd):
     LOGGER.debug("BEGIN install_command.execute: %r", cmd.args)
+
+    if cmd.virtual_env:
+        LOGGER.debug("Clearing virtual_env setting to avoid conflicts during installation.")
+        cmd.virtual_env = None
 
     if cmd.refresh:
         if cmd.args:
@@ -552,8 +557,11 @@ def execute(cmd):
         if cmd.download:
             with open(cmd.download / "index.json", "w", encoding="utf-8") as f:
                 json.dump(download_index, f, indent=2, default=str)
-            LOGGER.info("Generated offline index at %s.", cmd.download)
-            LOGGER.info("Use 'python install -s .\\%s [tags ...]' to install from this index.", cmd.download.name)
+            LOGGER.info("Offline index has been generated at <yellow>%s</yellow>.", cmd.download)
+            LOGGER.info(
+                "!B!Use 'python install -s .\\%s [tags ...]' to install from this index.!B!",
+                cmd.download.name
+            )
         else:
             update_all_shortcuts(cmd)
             print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))

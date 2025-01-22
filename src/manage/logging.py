@@ -9,20 +9,46 @@ WARN = 30
 ERROR = 40
 
 
+COLOURS = {
+    "!W!": "\033[0m",
+    "!R!": "\033[31m",
+    "!G!": "\033[32m",
+    "!B!": "\033[36m",
+    "!Y!": "\033[33m",
+}
+
+
+CONSOLE_PREFIX = {
+    DEBUG: "!B!# {}!W!",
+    VERBOSE: "!G!{}!W!",
+    WARN: "!Y![WARNING] {}!W!",
+    ERROR: "!R![ERROR] {}!W!",
+}
+
+
+FILE_PREFIX = {
+    VERBOSE: ">> {}",
+    INFO: ">  {}",
+    WARN: "!  {}",
+    ERROR: "!! {}",
+}
+
+
+def supports_colour(stream):
+    if os.getenv("PYTHON_COLORS", "").lower() in ("0", "no", "false"):
+        return False
+    try:
+        stream = stream.buffer
+    except AttributeError:
+        pass
+    try:
+        stream = stream.raw
+    except AttributeError:
+        pass
+    return type(stream).__name__ == "_WindowsConsoleIO"
+
+
 class Logger:
-    CONSOLE_PREFIX = {
-        DEBUG: "# ",
-        WARN: "[WARNING] ",
-        ERROR: "[ERROR] ",
-    }
-
-    FILE_PREFIX = {
-        VERBOSE: ">> ",
-        INFO: ">  ",
-        WARN: "!  ",
-        ERROR: "!! ",
-    }
-
     def __init__(self):
         if os.getenv("PYMANAGER_DEBUG"):
             self.level = DEBUG
@@ -31,6 +57,7 @@ class Logger:
         else:
             self.level = INFO
         self.console = sys.stderr
+        self.console_colour = supports_colour(self.console)
         self.file = None
         self._list = None
 
@@ -68,23 +95,56 @@ class Logger:
             self._list.append((msg, args))
         if not ((level >= self.level) or self.file is not None):
             return
+        
         msg = msg % args
         if level >= self.level:
-            print(self.CONSOLE_PREFIX.get(level, ""), msg, sep="", file=self.console)
+            try:
+                cm = CONSOLE_PREFIX[level].replace("{}", msg)
+            except LookupError:
+                cm = msg
+            if self.console_colour:
+                for k in COLOURS:
+                    cm = cm.replace(k, COLOURS[k])
+            else:
+                for k in COLOURS:
+                    cm = cm.replace(k, "")
+            print(cm, file=self.console)
         if self.file is not None:
-            print(self.FILE_PREFIX.get(level, ""), msg, sep="", file=self.file)
+            try:
+                fm = FILE_PREFIX[level].replace("{}", msg)
+            except LookupError:
+                fm = msg
+            for k in COLOURS:
+                fm = fm.replace(k, "")
+            print(fm, file=self.file)
         if exc_info:
             import traceback
             exc = traceback.format_exc()
             if level >= self.level:
-                print(exc, file=self.console)
+                if self.console_colour:
+                    print(COLOURS["!B!"], exc, COLOURS["!W!"], sep="", file=self.console)
+                else:
+                    print(exc, file=self.console)
             if self.file is not None:
                 print(exc, file=self.file)
 
-    def print(self, *args, **kwargs):
+    def print(self, msg=None, *args, **kwargs):
         if kwargs.pop("level", INFO) < self.level:
             return
-        print(*args, **kwargs, file=self.console)
+        if msg:
+            if self.console_colour:
+                for k in COLOURS:
+                    msg = msg.replace(k, COLOURS[k])
+            else:
+                for k in COLOURS:
+                    msg = msg.replace(k, "")
+            if args:
+                msg = msg % args
+        elif args:
+            msg = str(args[0])
+        else:
+            msg = ""
+        print(msg, **kwargs, file=self.console)
 
 
 LOGGER = Logger()
@@ -123,7 +183,7 @@ class ProgressPrinter:
             return
 
         if not self._started:
-            LOGGER.print(self.operation, ": ", sep="", end="", flush=True)
+            LOGGER.print("%s: ", self.operation, end="", flush=True)
             self._started = True
             self._need_newline = True
 
@@ -132,7 +192,7 @@ class ProgressPrinter:
             return
 
         self._dots_shown += dot_count
-        LOGGER.print("." * dot_count, end="", flush=True)
+        LOGGER.print(None, "." * dot_count, end="", flush=True)
         self._need_newline = True
         if progress >= 100:
             LOGGER.print("✅", flush=True)
