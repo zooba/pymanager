@@ -144,6 +144,7 @@ CONFIG_SCHEMA = {
     "automatic_install": (config_bool, None, "env"),
     "include_unmanaged": (config_bool, None, "env"),
     "shebang_can_run_anything": (config_bool, None, "env"),
+    "shebang_can_run_anything_silently": (config_bool, None, "env"),
     # Typically configured to '%VIRTUAL_ENV%' to pick up the active environment
     "virtual_env": (str, None, "env", "path"),
 
@@ -212,6 +213,7 @@ class BaseCommand:
     include_unmanaged = True
     virtual_env = None
     shebang_can_run_anything = True
+    shebang_can_run_anything_silently = False
 
     log_file = None
     _create_log_file = True

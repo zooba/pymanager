@@ -34,7 +34,7 @@ def config_bool(v):
         return False
     if isinstance(v, str):
         return v.lower().startswith(("t", "y", "1"))
-    return True
+    return bool(v)
 
 def _global_file():
     try:
@@ -162,7 +162,7 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
             continue
 
         kind, merge, *opts = subschema
-        if "env" in opts:
+        if "env" in opts and isinstance(v, str):
             try:
                 v = _expand_vars(v, os.environ)
             except TypeError:

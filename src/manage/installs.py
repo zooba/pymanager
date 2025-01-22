@@ -44,7 +44,7 @@ def _get_venv_install(virtual_env):
         pyvenv_cfg = (venv / "pyvenv.cfg").read_text("utf-8", "ignore")
     except OSError as ex:
         raise LookupError from ex
-    ver = [v.strip() for k, _, v in (l.partition("=") for l in pyvenv_cfg.splitlines())
+    ver = [v.strip() for k, _, v in (s.partition("=") for s in pyvenv_cfg.splitlines())
            if k.strip().casefold() == "version".casefold()]
     return {
         "displayName": "Active virtual environment",
@@ -63,7 +63,7 @@ def _get_venv_install(virtual_env):
             {"tag": "<>", "target": r"Scripts\pythonw.exe", "windowed": 1},
         ],
         "prefix": Path(virtual_env),
-        "executable": r"Scripts\python.exe",
+        "executable": Path(virtual_env) / r"Scripts\python.exe",
     }
 
 
@@ -81,12 +81,12 @@ def get_installs(install_dir, default_tag, include_unmanaged=True, virtual_env=N
             installs.extend(um_installs)
             installs.sort(key=_make_sort_key)
 
-        if virtual_env:
-            try:
-                installs.insert(0, _get_venv_install(virtual_env))
-                default_tag = None
-            except LookupError:
-                pass
+    if virtual_env:
+        try:
+            installs.insert(0, _get_venv_install(virtual_env))
+            default_tag = None
+        except LookupError:
+            pass
 
     seen_alias = set()
     for i in installs:
