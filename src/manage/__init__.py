@@ -66,7 +66,7 @@ def main(args, root=None):
     return 0
 
 
-def find_one(root, tag, script, windowed, show_not_found_error):
+def find_one(root, tag, script, windowed, allow_autoinstall, show_not_found_error):
     autoinstall_permitted = False
     try:
         from .commands import load_default_config
@@ -75,13 +75,18 @@ def find_one(root, tag, script, windowed, show_not_found_error):
         cmd = load_default_config(root)
         autoinstall_permitted = cmd.automatic_install
         LOGGER.debug("Finding runtime for '%s' or '%s' %s", tag, script, "(windowed)" if windowed else "")
-        i = cmd.get_install_to_run(tag, script, windowed=windowed)
+        try:
+            i = cmd.get_install_to_run(tag, script, windowed=windowed)
+        except NoInstallsError:
+            # We always allow autoinstall when there are no runtimes at all
+            allow_autoinstall = True
+            raise
         exe = str(i["executable"])
         args = quote_args(i.get("executable_args", ()))
         LOGGER.debug("Selected %s %s", exe, args)
         return exe, args
     except (NoInstallFoundError, NoInstallsError) as ex:
-        if not autoinstall_permitted:
+        if not autoinstall_permitted or not allow_autoinstall:
             LOGGER.error("%s", ex)
             raise AutomaticInstallDisabledError() from ex
         if show_not_found_error:

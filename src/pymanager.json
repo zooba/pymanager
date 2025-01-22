@@ -5,6 +5,9 @@
     "registry_override_key": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager",
 
     "automatic_install": "%PYTHON_MANAGER_AUTOMATIC_INSTALL%",
+    "include_unmanaged": "%PYTHON_MANAGER_INCLUDE_UNMANAGED%",
+    "virtual_env": "%VIRTUAL_ENV%",
+    "shebang_can_run_anything": "%PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING%",
 
     "bundled_dir": "./bundled",
     "logs_dir": "%PYTHON_MANAGER_LOGS%",

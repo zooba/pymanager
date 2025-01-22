@@ -80,48 +80,66 @@ is_env_var_set(const wchar_t *name)
 }
 
 
-static bool
-should_run_commands(const wchar_t *argv0)
-{
+static void
+per_exe_settings(
+    int argc,
+    wchar_t **argv,
+    const wchar_t **default_command,
+    bool *commands,
+    bool *cli_tag,
+    bool *shebangs,
+    bool *autoinstall
+) {
+    const wchar_t *argv0 = argv[0];
     size_t n = wcslen(argv0);
     size_t dot = 0;
-    while (n > 0 && argv0[--n] != L'\\' && argv0[n] != L'/') {
+    while (n > 0 && argv0[n - 1] != L'\\' && argv0[n - 1] != L'/') {
+        --n;
         if (!dot && argv0[n] == L'.') {
             dot = n;
         }
     }
     int cch = dot > n ? (int)(dot - n) : -1;
-    if (CompareStringOrdinal(&argv0[n], cch, L"python3", -1, TRUE) == CSTR_EQUAL) {
-        return false;   // no commands supported for python3
-    }
     if (CompareStringOrdinal(&argv0[n], cch, L"python", -1, TRUE) == CSTR_EQUAL) {
-        return is_env_var_set(L"PYTHON_DISABLE_SUBCOMMANDS");
+        *default_command = NULL;
+        *commands = false;
+        *cli_tag = false;
+        *shebangs = argc >= 2;
+        *autoinstall = false;
+        return;
     }
-    return true;
-}
-
-
-static const wchar_t *
-default_command(const wchar_t *argv0)
-{
-    size_t n = wcslen(argv0);
-    size_t dot = 0;
-    while (n > 0 && argv0[--n] != L'\\' && argv0[n] != L'/') {
-        if (!dot && argv0[n] == L'.') {
-            dot = n;
-        }
+    if (CompareStringOrdinal(&argv0[n], cch, L"python3", -1, TRUE) == CSTR_EQUAL) {
+        *default_command = NULL;
+        *commands = false;
+        *cli_tag = false;
+        *shebangs = argc >= 2;
+        *autoinstall = false;
+        return;
     }
-    int cch = dot > n ? (int)(dot - n) : -1;
-    if (CompareStringOrdinal(&argv0[n], cch, L"pymanager", -1, TRUE) == CSTR_EQUAL) {
-        return L"help";
+    if (CompareStringOrdinal(&argv0[n], cch, L"py", -1, TRUE) == CSTR_EQUAL) {
+        *default_command = NULL;
+        *commands = argc >= 2;
+        *cli_tag = argc >= 2;
+        *shebangs = argc >= 2;
+        *autoinstall = argc >= 2 && !wcscmp(argv[1], L"exec");
+        return;
     }
-    return NULL;
+    *default_command = L"help";
+    *commands = argc >= 2;
+    *cli_tag = false;
+    *shebangs = false;
+    *autoinstall = argc >= 2 && !wcscmp(argv[1], L"exec");
 }
 
 
 static int
-read_tag_from_argv(std::wstring arg, std::wstring &tag)
+read_tag_from_argv(int argc, const wchar_t **argv, int skip_argc, std::wstring &tag)
 {
+    if (1 + skip_argc >= argc) {
+        return 0;
+    }
+
+    std::wstring arg = argv[1 + skip_argc];
     if (arg[0] != L'-' && arg[0] != L'/') {
         return 0;
     }
@@ -161,9 +179,9 @@ args_to_skip(const wchar_t *arg)
 }
 
 static void
-read_script_from_argv(int argc, const wchar_t **argv, std::wstring &script)
+read_script_from_argv(int argc, const wchar_t **argv, int skip_argc, std::wstring &script)
 {
-    int skip = 0;
+    int skip = skip_argc;
     for (int i = 1; i < argc; ++i) {
         if (skip > 0) {
             --skip;
@@ -383,14 +401,15 @@ locate_runtime(
     const std::wstring &script,
     std::wstring &executable,
     std::wstring &args,
+    int autoinstall_permitted,
     int print_not_found_error
 ) {
     int exitCode = 1;
     auto root_str = get_root();
     PyObject *r = NULL;
 
-    r = PyObject_CallMethod(manage.mod, "find_one", "uuuii",
-        root_str.c_str(), tag.c_str(), script.c_str(), PY_WINDOWED, print_not_found_error);
+    r = PyObject_CallMethod(manage.mod, "find_one", "uuuiii",
+        root_str.c_str(), tag.c_str(), script.c_str(), PY_WINDOWED, autoinstall_permitted, print_not_found_error);
     if (!r) {
         if (PyErr_ExceptionMatches(manage.no_installs_error)) {
             exitCode = ERROR_NO_INSTALLS;
@@ -433,41 +452,52 @@ wmain(int argc, wchar_t **argv)
         return err;
     }
 
-    bool use_commands = argc >= 2 && should_run_commands(argv[0]);
+    const wchar_t *default_cmd;
+    bool use_commands, use_cli_tag, use_shebangs, use_autoinstall;
+    per_exe_settings(argc, argv, &default_cmd, &use_commands, &use_cli_tag, &use_shebangs, &use_autoinstall);
 
     if (use_commands) {
         // Subcommands list is generated at sdist/build time and stored
         // in commands.g.h
         for (const wchar_t **cmd_name = subcommands; *cmd_name; ++cmd_name) {
             if (!wcscmp(argv[1], *cmd_name)) {
-                return run_command(argc, (const wchar_t**)argv);
+                err = run_command(argc, (const wchar_t **)argv);
+                goto error;
             }
         }
 
-        const wchar_t *default_cmd = default_command(argv[0]);
+        // We handle 'exec' in native code, so it won't be in the above list
+        if (!wcscmp(argv[1], L"exec")) {
+            skip_argc += 1;
+            use_cli_tag = argc >= 3;
+            use_shebangs = argc >= 3;
+            default_cmd = NULL;
+        }
+
+        // Use the default command if we have one
         if (default_cmd) {
             return run_simple_command(default_cmd);
         }
-
-        if (read_tag_from_argv(argv[1], tag)) {
-            skip_argc += 1;
-        } else {
-            read_script_from_argv(argc, (const wchar_t **)argv, script);
-        }
-    } else if (argc >= 2) {
-        read_script_from_argv(argc, (const wchar_t **)argv, script);
     }
 
-    err = locate_runtime(tag, script, executable, args, 0);
-#if !PY_WINDOWED
-    // No implicit install when there's no console UI
+    if (use_cli_tag && read_tag_from_argv(argc, (const wchar_t **)argv, skip_argc, tag)) {
+        skip_argc += 1;
+        use_shebangs = false;
+    }
+
+    if (use_shebangs) {
+        read_script_from_argv(argc, (const wchar_t **)argv, skip_argc, script);
+    }
+
+    err = locate_runtime(tag, script, executable, args, use_autoinstall ? 1 : 0, 0);
+
     if (err == ERROR_NO_MATCHING_INSTALL || err == ERROR_NO_INSTALLS) {
         err = auto_install_runtime(argv[0], tag, script, err);
         if (!err) {
-            err = locate_runtime(tag, script, executable, args, 1);
+            err = locate_runtime(tag, script, executable, args, 1, 1);
         }
     }
-#endif
+
     if (err == ERROR_NO_MATCHING_INSTALL
         || err == ERROR_NO_INSTALLS
         || err == ERROR_AUTO_INSTALL_DISABLED
@@ -477,10 +507,13 @@ wmain(int argc, wchar_t **argv)
     }
 
     if (err) {
-        // Most 'not found' errors have been handled above. These are genuine
+        // Most 'not found' errors have been handled above. These are internal
         fprintf(stderr, "INTERNAL ERROR 0x%08X. Please report to https://github.com/zooba/pymanager\n", err);
         goto error;
     }
+
+    // Theoretically shouldn't matter, but might help reduce memory usage.
+    close_python();
 
     err = launch(executable.c_str(), args.c_str(), skip_argc, &exitCode);
     if (err) {
@@ -489,6 +522,7 @@ wmain(int argc, wchar_t **argv)
     } else {
         err = (int)exitCode;
     }
+    return err;
 
 error:
     close_python();

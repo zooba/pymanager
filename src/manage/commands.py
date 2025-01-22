@@ -142,6 +142,9 @@ CONFIG_SCHEMA = {
 
     "default_tag": (str, None, "env"),
     "automatic_install": (config_bool, None, "env"),
+    "include_unmanaged": (config_bool, None, "env"),
+    "virtual_env": (str, None, "env", "path"),
+    "shebang_can_run_anything": (config_bool, None, "env"),
 
     "list": {
         "format": (str, None, "env"),
@@ -205,8 +208,12 @@ class BaseCommand:
     confirm = True
     default_tag = None
     automatic_install = True
-    log_file = None
+    include_unmanaged = True
+    # TODO: Use virtual_env value if it has been set
+    virtual_env = None
+    shebang_can_run_anything = True
 
+    log_file = None
     _create_log_file = True
     keep_log = True
 
@@ -407,7 +414,11 @@ Global options:
 
     def get_installs(self, *, include_unmanaged=False):
         from .installs import get_installs
-        return get_installs(self.install_dir, self.default_tag, include_unmanaged=include_unmanaged)
+        return get_installs(
+            self.install_dir,
+            self.default_tag,
+            include_unmanaged=include_unmanaged and self.include_unmanaged,
+        )
 
     def get_install_to_run(self, tag=None, script=None, *, windowed=False):
         if script and not tag:
@@ -417,7 +428,13 @@ Global options:
             except LookupError:
                 pass
         from .installs import get_install_to_run
-        return get_install_to_run(self.install_dir, self.default_tag, tag, windowed=windowed)
+        return get_install_to_run(
+            self.install_dir,
+            self.default_tag,
+            tag,
+            windowed=windowed,
+            include_unmanaged=self.include_unmanaged,
+        )
 
 
 class ListCommand(BaseCommand):

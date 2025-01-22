@@ -55,14 +55,16 @@ def get_installs(install_dir, default_tag, include_unmanaged=True):
     seen_alias = set()
     for i in installs:
         i_tag = CompanyTag.from_dict(i)
-        aliases = i.setdefault("alias", ())
-        if aliases:
-            new_aliases = [a for a in aliases if a["name"].casefold() not in seen_alias]
-            seen_alias.update(a["name"].casefold() for a in aliases)
-            i["alias"] = new_aliases
         if default_tag and not i.get("unmanaged") and i_tag.match(default_tag):
             default_tag = None
             i["default"] = True
+        aliases = i.setdefault("alias", ())
+        if aliases:
+            new_aliases = [a for a in aliases if a["name"].casefold() not in seen_alias]
+            if i.get("default"):
+                new_aliases.insert(0, {"name": "python.exe", "target": i["executable"]})
+            seen_alias.update(a["name"].casefold() for a in aliases)
+            i["alias"] = new_aliases
     return installs
 
 
@@ -76,18 +78,7 @@ def _patch_install_to_run(i, run_for):
 def get_install_to_run(install_dir, default_tag, tag, include_unmanaged=True, windowed=False):
     """Returns the first install matching 'tag'.
     """
-    installs = get_installs(install_dir, default_tag)
-
-    if include_unmanaged:
-        from .pep514utils import get_unmanaged_installs
-        try:
-            um_installs = get_unmanaged_installs()
-        except Exception as ex:
-            LOGGER.warn("Failed to read unmanaged installs: %s", ex)
-            LOGGER.debug("TRACEBACK:", exc_info=True)
-        else:
-            installs.extend(um_installs)
-            installs.sort(key=_make_sort_key)
+    installs = get_installs(install_dir, default_tag, include_unmanaged=include_unmanaged)
 
     if not installs:
         raise NoInstallsError

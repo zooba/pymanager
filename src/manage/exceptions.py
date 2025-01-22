@@ -11,7 +11,7 @@ class HashMismatchError(Exception):
 
 class NoInstallsError(Exception):
     def __init__(self):
-        super().__init__("""No runtimes are installed. Try running "python install" first.""")
+        super().__init__("""No runtimes are installed. Try running "py install" first.""")
 
 
 class NoInstallFoundError(Exception):
@@ -21,9 +21,9 @@ class NoInstallFoundError(Exception):
         if script:
             msg = f"No runtime installed that can launch {script}"
         elif tag:
-            msg = f"""No runtime installed that matches {tag}. Try running "python install {tag}"."""
+            msg = f"""No runtime installed that matches {tag}. Try running "py install {tag}"."""
         else:
-            msg = """No suitable runtime installed. Try running "python install"."""
+            msg = """No suitable runtime installed. Try running "py install"."""
         super().__init__(msg)
 
 
@@ -71,9 +71,10 @@ class SilentError(Exception):
         except IndexError:
             return 1
 
+
 class AutomaticInstallDisabledError(Exception):
     exitcode = 0xA0000006 # ERROR_AUTO_INSTALL_DISABLED
 
     def __init__(self):
         super().__init__("Automatic installation has been disabled. "
-                         'Please run "python install" directly.')
+                         'Please run "py install" directly.')

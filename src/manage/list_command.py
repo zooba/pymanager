@@ -38,7 +38,7 @@ def format_table(installs):
             print()
             any_shown=True
     if not any_shown:
-        print("-- No runtimes. Use 'python install <version>' to install one. --")
+        print("-- No runtimes. Use 'py install <version>' to install one. --")
     shown_header = False
     for i in installs:
         if i.get("unmanaged"):
@@ -194,7 +194,6 @@ def execute(cmd):
 
     if cmd.one:
         installs = installs[:1]
-    if installs:
-        formatter(installs)
+    formatter(installs)
 
     LOGGER.debug("END list_command.execute")
