@@ -2,6 +2,7 @@ import sys
 
 from pathlib import Path
 
+from . import __version__
 from .config import (
     load_config,
     config_append,
@@ -13,6 +14,11 @@ from .exceptions import ArgumentError
 
 from . import logging
 LOGGER = logging.LOGGER
+
+COPYRIGHT = f"""Python installation manager {__version__}
+Copyright (c) Python Software Foundation. All Rights Reserved.
+"""
+
 
 """
 Command-line arguments are defined in CLI_SCHEMA as a mapping from argument
@@ -218,6 +224,7 @@ class BaseCommand:
     log_file = None
     _create_log_file = True
     keep_log = True
+    _log_file = None
 
     root = None
     download_dir = None
@@ -370,47 +377,48 @@ class BaseCommand:
             self.keep_log = True
             return self.log_file
 
+        if self._log_file:
+            return self._log_file
+
         logs_dir = self.logs_dir
         if not logs_dir:
             import tempfile
             logs_dir = Path(tempfile.gettempdir())
         import datetime
         import os
-        return logs_dir / "python_{}_{}_{}.log".format(
+        self._log_file = logs_dir / "python_{}_{}_{}.log".format(
             self.CMD, datetime.datetime.now().strftime("%Y%m%d%H%M%S"), os.getpid()
         )
+        return self._log_file
 
     def execute(self):
         raise NotImplementedError(f"'{type(self).__name__}' does not implement 'execute()'")
 
     @classmethod
     def help_text(self):
-        from . import __version__
         cmd_help = [
             "    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", ""))
             for cmd in sorted(COMMANDS)
             if cmd[:1].isalpha()
         ]
         return fr"""
-Python intallation manager {__version__}
-Copyright (c) 2001-2024 Python Software Foundation. All Rights Reserved.
-
-Subcommands:
+!G!Subcommands:!W!
 {'\n'.join(cmd_help)}
 
-Global options:
-    -v, --verbose    Increased output (log_level={logging.INFO})
-    -vv              Further increased output (log_level={logging.DEBUG})
-    -q, --quiet      Less output (log_level={logging.WARN})
-    -qq              Even less output (log_level={logging.ERROR})
-    -y, --yes        Always confirm prompts (confirm=False)
-    --config=PATH    Override configuration with JSON file
+!G!Global options:!W!
+    -v, --verbose    Increased output (!B!log_level={logging.INFO}!W!)
+    -vv              Further increased output (!B!log_level={logging.DEBUG}!W!)
+    -q, --quiet      Less output (!B!log_level={logging.WARN}!W!)
+    -qq              Even less output (!B!log_level={logging.ERROR}!W!)
+    -y, --yes        Always confirm prompts (!B!confirm=false!W!)
+    --config=!B!<PATH>!W!
+                     Override configuration with JSON file
 """.lstrip().replace("\r\n", "\n")
 
     def help(self):
-        print(self.help_text())
+        LOGGER.print(self.help_text())
         try:
-            print(self.HELP_TEXT.lstrip())
+            LOGGER.print(self.HELP_TEXT.lstrip())
         except AttributeError:
             pass
 
@@ -445,27 +453,27 @@ class ListCommand(BaseCommand):
     CMD = "list"
     HELP_LINE = "Shows all installed Python runtimes"
     HELP_TEXT = r"""
-List options:
-    -f, --format=<table,json,jsonl,exe,prefix>
-                     Specify output formatting (list.format=...)
+!G!List options:!W!
+    -f, --format=!B!<table,json,jsonl,exe,prefix>!W!
+                     Specify output formatting (!B!list.format=...!W!)
     -1, --one        Only display first result
     --online         List runtimes available to install from the default index
-    -s, --source=<URL>
+    -s, --source=!B!<URL>!W!
                      List runtimes from a particular index
-    --only-managed   Only list Python installs managed by the tool
+    --only-managed   Only list Python installs managed by the tool (!B!list.unmanaged=false!W!)
     <TAG>            Filter results (Company\Tag or constraint format)
 
-EXAMPLE: List all installed runtimes
-> python list
+!B!EXAMPLE:!W! List all installed runtimes
+> py list
 
-EXAMPLE: Display executable of default runtime
-> python list --one -f=exe
+!B!EXAMPLE:!W! Display executable of default runtime
+> py list --one -f=exe
 
-EXAMPLE: Show JSON details for all installs since 3.10
-> python list -f=jsonl >=3.10
+!B!EXAMPLE:!W! Show JSON details for all installs since 3.10
+> py list -f=jsonl >=3.10
 
-EXAMPLE: Find 3.12 runtimes available for install
-> python list --online 3.12
+!B!EXAMPLE:!W! Find 3.12 runtimes available for install
+> py list --online 3.12
 """
 
     format = "table"
@@ -477,6 +485,7 @@ EXAMPLE: Find 3.12 runtimes available for install
 
     def execute(self):
         from .list_command import execute
+        LOGGER.verbose("!W!%s", COPYRIGHT)
         if self.default_source:
             LOGGER.debug("Loading 'install' command to get source")
             inst_cmd = COMMANDS["install"](["install"], self.root)
@@ -516,32 +525,32 @@ class InstallCommand(BaseCommand):
     CMD = "install"
     HELP_LINE = "Download new Python runtimes"
     HELP_TEXT = r"""
-Install options:
-    -s, --source=<URI>
-                     Specify index.json to use (install.source=...)
-    -t, --target=<PATH>
+!G!Install options:!W!
+    -s, --source=!B!<URI>!W!
+                     Specify index.json to use (!B!install.source=...!W!)
+    -t, --target=!B!<PATH>!W!
                      Extract runtime to location instead of installing
-    -d, --download=<PATH>
+    -d, --download=!B!<PATH>!W!
                      Prepare an offline index with one or more runtimes
     -f, --force      Re-download and overwrite existing install
     -u, --update     Overwrite existing install if a newer version is available.
     --dry-run        Choose runtime but do not install
     --refresh        Update shortcuts and aliases for all installed versions.
-    <TAG> <TAG> ...  One or more tags to install (Company\Tag format)
+    !B!<TAG> <TAG>!W! ...  One or more tags to install (Company\Tag format)
 
-EXAMPLE: Install the latest Python 3 version
+!B!EXAMPLE:!W! Install the latest Python 3 version
 > python install 3
 
-EXAMPLE: Extract Python 3.13 ARM64 to a directory
+!B!EXAMPLE:!W! Extract Python 3.13 ARM64 to a directory
 > python install --target=.\runtime 3.13-arm64
 
-EXAMPLE: Clean reinstall of 3.13
+!B!EXAMPLE:!W! Clean reinstall of 3.13
 > python install --force 3.13
 
-EXAMPLE: Refresh and replace all shortcuts
+!B!EXAMPLE:!W! Refresh and replace all shortcuts
 > python install --refresh
 
-EXAMPLE: Prepare an offline index with multiple versions
+!B!EXAMPLE:!W! Prepare an offline index with multiple versions
 > python install --download=.\pkgs 3.12 3.12-arm64 3.13 3.13-arm64
 """
 
@@ -579,6 +588,7 @@ EXAMPLE: Prepare an offline index with multiple versions
 
     def execute(self):
         from .install_command import execute
+        LOGGER.verbose("!W!%s", COPYRIGHT)
         execute(self)
 
 
@@ -586,14 +596,14 @@ class UninstallCommand(BaseCommand):
     CMD = "uninstall"
     HELP_LINE = "Remove runtimes from your machine"
     HELP_TEXT = r"""
-Uninstall options:
+!G!Uninstall options:!W!
     --purge          Remove all runtimes, shortcuts, and cached files. Ignores tags.
-    <TAG> <TAG> ...  One or more runtimes to uninstall (Company\Tag format)
+    !B!<TAG> <TAG>!W! ...  One or more runtimes to uninstall (Company\Tag format)
 
-EXAMPLE: Uninstall Python 3.12 32-bit
+!B!EXAMPLE:!W! Uninstall Python 3.12 32-bit
 > python uninstall 3.12-32
 
-EXAMPLE: Uninstall all runtimes without confirmation
+!B!EXAMPLE:!W! Uninstall all runtimes without confirmation
 > python uninstall --yes --purge
 """
 
@@ -606,6 +616,7 @@ EXAMPLE: Uninstall all runtimes without confirmation
 
     def execute(self):
         from .uninstall_command import execute
+        LOGGER.verbose("!W!%s", COPYRIGHT)
         execute(self)
 
 
@@ -618,15 +629,16 @@ class HelpCommand(BaseCommand):
     CMD = "help"
     HELP_LINE = "Show help for Python installation manager commands"
     HELP_TEXT = r"""
-Help options:
-    <CMD> ...       One or more commands to show help for. If omitted, lists
+!G!Help options:!W!
+    !B!<CMD>!W! ...       One or more commands to show help for. If omitted, lists
                     commands and global options only.
 """
 
     _create_log_file = False
 
     def execute(self):
-        print(BaseCommand.help_text())
+        LOGGER.print(COPYRIGHT)
+        LOGGER.print(BaseCommand.help_text())
         for a in self.args:
             try:
                 cls = COMMANDS[a.lower()]
@@ -634,7 +646,7 @@ Help options:
                 LOGGER.warn("Command %s is not known.", a)
                 continue
             try:
-                print(cls.HELP_TEXT.lstrip())
+                LOGGER.print(cls.HELP_TEXT.lstrip())
             except AttributeError:
                 pass
 
@@ -671,4 +683,5 @@ def show_help(args):
 
         cls([cls.CMD, "-?"]).help()
         return
-    BaseCommand().help()
+    LOGGER.print(COPYRIGHT)
+    LOGGER.print(BaseCommand.help_text())

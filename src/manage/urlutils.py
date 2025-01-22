@@ -103,6 +103,9 @@ def _bits_urlretrieve(request):
                             tried_auth = True
                             bits_retry_with_auth(bits, job, *auth)
                             continue
+                if ex.winerror & 0xFFFFFFFF == 0x80190194:
+                    # Returned HTTP status 404 (0x194)
+                    raise FileNotFoundError() from ex
                 raise
             if progress > last_progress:
                 request.on_progress(progress)
@@ -134,6 +137,9 @@ def _winhttp_urlopen(request):
             LOGGER.debug("winhttp_isconnected: %s", winhttp_isconnected())
             if not winhttp_isconnected():
                 raise NoInternetError() from ex
+        if ex.winerror & 0xFFFFFFFF == 0x80190194:
+            # Returned HTTP status 404 (0x194)
+            raise FileNotFoundError() from ex
         raise
     if data[:3] == b"\xEF\xBB\xBF":
         data = data[3:]
@@ -168,6 +174,8 @@ def _urllib_urlopen(request):
                     raise
                 req.headers["Authorization"] = _basic_auth_header(*auth)
                 r = urlopen(req)
+            elif ex.status == 404:
+                raise FileNotFoundError from ex
             else:
                 raise
         with r:
@@ -298,6 +306,8 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
     request._on_progress = on_progress
     request._on_auth_request = on_auth_request
 
+    first_error = None
+
     if ENABLE_WINHTTP:
         try:
             return _winhttp_urlopen(request)
@@ -309,10 +319,14 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
             request.on_progress(None)
             LOGGER.error("Failed to download. Please connect to the internet and try again.")
             raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
-        except OSError:
+        except FileNotFoundError:
+            # Indicates a successful 404, so let it bubble out
+            raise
+        except OSError as ex:
             request.on_progress(None)
             LOGGER.verbose("Failed to download using WinHTTP. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
+            first_error = ex
 
     if ENABLE_URLLIB:
         try:
@@ -322,21 +336,28 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
         except (AttributeError, TypeError, ValueError):
             # Blame the caller for these errors and let them bubble out
             raise
-        except Exception:
+        except FileNotFoundError:
+            # Indicates a successful 404, so let it bubble out
+            raise
+        except Exception as ex:
             request.on_progress(None)
             LOGGER.verbose("Failed to download using urllib. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
+            first_error = first_error or ex
 
     if ENABLE_POWERSHELL:
         try:
             return _powershell_urlopen(request)
         except FileNotFoundError:
             LOGGER.debug("PowerShell download unavailable - using fallback")
-        except Exception:
+        except Exception as ex:
             request.on_progress(None)
             LOGGER.verbose("Failed to download using PowerShell. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
-        pass
+            first_error = first_error or ex
+
+    if first_error:
+        raise first_error
 
     raise RuntimeError("Unable to download from the internet")
 
@@ -354,6 +375,8 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
     request.chunksize = chunksize
     request._on_progress = on_progress
     request._on_auth_request = on_auth_request
+
+    first_error = None
 
     if ENABLE_BITS and method.upper() == "GET":
         try:
@@ -373,10 +396,14 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
 
             LOGGER.verbose("Failed to download using BITS, " +
                 "possibly due to no internet. Retrying with fallback method.")
-        except OSError:
+        except FileNotFoundError:
+            # Indicates a successful 404, so let it bubble out
+            raise
+        except OSError as ex:
             request.on_progress(None)
             LOGGER.verbose("Failed to download using BITS. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
+            first_error = ex
 
     if ENABLE_WINHTTP:
         try:
@@ -389,10 +416,14 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             request.on_progress(None)
             LOGGER.error("Failed to download. Please connect to the internet and try again.")
             raise RuntimeError("Failed to download. Please connect to the internet and try again.") from ex
-        except OSError:
+        except FileNotFoundError:
+            # Indicates a successful 404, so let it bubble out
+            raise
+        except OSError as ex:
             request.on_progress(None)
             LOGGER.verbose("Failed to download using WinHTTP. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
+            first_error = first_error or ex
 
     if ENABLE_URLLIB:
         try:
@@ -402,10 +433,14 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
         except (AttributeError, TypeError, ValueError):
             # Blame the caller for these errors and let them bubble out
             raise
-        except Exception:
+        except FileNotFoundError:
+            # Indicates a successful 404, so let it bubble out
+            raise
+        except Exception as ex:
             request.on_progress(None)
             LOGGER.verbose("Failed to download using urllib. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
+            first_error = first_error or ex
 
     if ENABLE_POWERSHELL:
         try:
@@ -416,6 +451,10 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             request.on_progress(None)
             LOGGER.verbose("Failed to download using PowerShell. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
+            first_error = first_error or ex
+
+    if first_error:
+        raise first_error
 
     raise RuntimeError("Unable to download from the internet")
 

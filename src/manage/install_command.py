@@ -76,7 +76,24 @@ def select_package(cmd, tag, cache, *, urlopen=_urlopen, by_id=False):
             index = cache[url]
             LOGGER.debug("Used cached: %r", index)
         except LookupError:
-            index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
+            index = None
+
+        if index is None:
+            try:
+                index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
+            except FileNotFoundError: # includes 404
+                LOGGER.error("Unable to find runtime index at %s", sanitise_url(url))
+                raise
+            except OSError as ex:
+                LOGGER.error(
+                    "Unable to access runtime index at %s: %s",
+                    sanitise_url(url),
+                    ex.args[1] if len(ex.args) >= 2 else ex
+                )
+                raise
+            except RuntimeError as ex:
+                LOGGER.error("An unexpected error occurred while downloading the index: %s", ex)
+                raise
             LOGGER.debug("Downloaded: %r", index)
             cache[url] = index
 
@@ -155,7 +172,6 @@ def validate_package(install, dest, *, delete=True):
         except HashMismatchError as ex:
             if not delete:
                 raise
-            LOGGER.debug("ERROR:", exc_info=True)
             unlink(dest, "Deleting downloaded files is taking some time. " +
                          "Please continue to wait, or press Ctrl+C to abort.")
             raise HashMismatchError() from ex
@@ -452,12 +468,27 @@ def _install_one(cmd, install, *, target=None):
     LOGGER.verbose("Install complete")
 
 
+def _fatal_install_error(cmd, ex):
+    logfile = cmd.get_log_file()
+    if logfile:
+        LOGGER.error("An error occurred. Please check any output above, "
+                     "or the log file, and try again.")
+        LOGGER.info("Log file for this session: !Y!%s!W!", logfile)
+        # TODO: Update issues URL to actual repository
+        LOGGER.info("If you cannot resolve it yourself, please report the error with "
+                    "your log file at https://discuss.python.org/t/77900/ (during testing).")
+    else:
+        LOGGER.error("An error occurred. Please check any output above, "
+                     "and try again with -vv for more information.")
+        # TODO: Update issues URL to actual repository
+        LOGGER.info("If you cannot resolve it yourself, please report the error with "
+                    "verbose output file at https://discuss.python.org/t/77900/ (during testing).")
+    LOGGER.debug("TRACEBACK:", exc_info=True)
+    raise SilentError(getattr(ex, "errno", 0) or 1) from ex
+
+
 def execute(cmd):
     LOGGER.debug("BEGIN install_command.execute: %r", cmd.args)
-
-    if cmd.virtual_env:
-        LOGGER.debug("Clearing virtual_env setting to avoid conflicts during installation.")
-        cmd.virtual_env = None
 
     if cmd.refresh:
         if cmd.args:
@@ -495,10 +526,9 @@ def execute(cmd):
                 install = _find_one(cmd, tag)
                 if install:
                     _install_one(cmd, tag, target=Path(cmd.target))
-            except Exception:
-                LOGGER.error("Install failed. Please check any output above and try again.")
-                LOGGER.debug("ERROR", exc_info=True)
-            return
+                return
+            except Exception as ex:
+                return _fatal_install_error(cmd, ex)
 
         if cmd.from_script:
             from .scriptutils import find_install_from_script
@@ -506,6 +536,9 @@ def execute(cmd):
             if spec:
                 cmd.args.append(spec)
 
+        if cmd.virtual_env:
+            LOGGER.debug("Clearing virtual_env setting to avoid conflicts during install.")
+            cmd.virtual_env = None
         installed = list(cmd.get_installs())
 
         try:
@@ -550,14 +583,12 @@ def execute(cmd):
                 else:
                     _install_one(cmd, install)
         except Exception as ex:
-            LOGGER.error("An error occurred. Please check any output above and try again.")
-            LOGGER.debug("ERROR", exc_info=True)
-            raise SilentError(getattr(ex, "errno", 0) or 1) from ex
+            return _fatal_install_error(cmd, ex)
 
         if cmd.download:
             with open(cmd.download / "index.json", "w", encoding="utf-8") as f:
                 json.dump(download_index, f, indent=2, default=str)
-            LOGGER.info("Offline index has been generated at <yellow>%s</yellow>.", cmd.download)
+            LOGGER.info("Offline index has been generated at !Y!%s!W!.", cmd.download)
             LOGGER.info(
                 "!B!Use 'python install -s .\\%s [tags ...]' to install from this index.!B!",
                 cmd.download.name

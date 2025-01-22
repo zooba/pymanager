@@ -74,30 +74,7 @@ static void http_error(HINTERNET hRequest) {
     if (!read_header(hRequest, WINHTTP_QUERY_STATUS_CODE, &status)) {
         return;
     }
-
-    WinHttpQueryHeaders(hRequest, WINHTTP_QUERY_STATUS_TEXT, WINHTTP_HEADER_NAME_BY_INDEX,
-                        WINHTTP_NO_OUTPUT_BUFFER, &reason_len, WINHTTP_NO_HEADER_INDEX);
-    if (GetLastError() != ERROR_INSUFFICIENT_BUFFER) {
-        winhttp_error();
-        return;
-    }
-    if (!reason_len) {
-        PyErr_Format(PyExc_RuntimeError, "HTTP request return status %d", status);
-        return;
-    }
-    // reason_len is in bytes, including null terminator
-    reason = (wchar_t*)PyMem_Malloc(reason_len);
-    if (!reason) {
-        PyErr_NoMemory();
-        return;
-    }
-    if (!WinHttpQueryHeaders(hRequest, WINHTTP_QUERY_STATUS_TEXT, WINHTTP_HEADER_NAME_BY_INDEX,
-                             reason, &reason_len, WINHTTP_NO_HEADER_INDEX)) {
-        winhttp_error();
-        return;
-    }
-    PyErr_Format(PyExc_RuntimeError, "HTTP status %d: %ls", status, reason);
-    PyMem_Free(reason);
+    err_SetFromWindowsErrWithMessage(0x80190000 | status, NULL, NULL);
 }
 
 

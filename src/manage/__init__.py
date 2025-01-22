@@ -27,9 +27,13 @@ def main(args, root=None):
 
         try:
             cmd = find_command(args[1:], root)
-        except ArgumentError:
+        except LookupError:
+            cmd = show_help([])
+            return 1
+        except ArgumentError as ex:
             cmd = show_help(args[1:])
-            return 0
+            LOGGER.error("%s", ex)
+            return 1
 
         if cmd.show_help:
             cmd.help()
