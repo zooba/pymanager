@@ -143,8 +143,9 @@ CONFIG_SCHEMA = {
     "default_tag": (str, None, "env"),
     "automatic_install": (config_bool, None, "env"),
     "include_unmanaged": (config_bool, None, "env"),
-    "virtual_env": (str, None, "env", "path"),
     "shebang_can_run_anything": (config_bool, None, "env"),
+    # Typically configured to '%VIRTUAL_ENV%' to pick up the active environment
+    "virtual_env": (str, None, "env", "path"),
 
     "list": {
         "format": (str, None, "env"),
@@ -209,7 +210,6 @@ class BaseCommand:
     default_tag = None
     automatic_install = True
     include_unmanaged = True
-    # TODO: Use virtual_env value if it has been set
     virtual_env = None
     shebang_can_run_anything = True
 
@@ -418,6 +418,7 @@ Global options:
             self.install_dir,
             self.default_tag,
             include_unmanaged=include_unmanaged and self.include_unmanaged,
+            virtual_env=self.virtual_env,
         )
 
     def get_install_to_run(self, tag=None, script=None, *, windowed=False):
@@ -434,6 +435,7 @@ Global options:
             tag,
             windowed=windowed,
             include_unmanaged=self.include_unmanaged,
+            virtual_env=self.virtual_env,
         )
 
 
