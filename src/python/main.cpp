@@ -473,11 +473,11 @@ wmain(int argc, wchar_t **argv)
             use_shebangs = argc >= 3;
             default_cmd = NULL;
         }
+    }
 
-        // Use the default command if we have one
-        if (default_cmd) {
-            return run_simple_command(default_cmd);
-        }
+    // Use the default command if we have one
+    if (default_cmd) {
+        return run_simple_command(default_cmd);
     }
 
     if (use_cli_tag && read_tag_from_argv(argc, (const wchar_t **)argv, skip_argc, tag)) {

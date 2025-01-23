@@ -13,7 +13,7 @@
     "bundled_dir": "./bundled",
     "logs_dir": "%PYTHON_MANAGER_LOGS%",
 
-    "default_tag": "3",
+    "default_tag": "%PYTHON_MANAGER_DEFAULT%",
     "user_config": "%AppData%\\Python\\PyManager.json",
     "additional_config": "%PYTHON_MANAGER_CONFIG%",
 

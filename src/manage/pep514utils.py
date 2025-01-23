@@ -262,6 +262,9 @@ def _read_one_unmanaged_install(company_name, tag_name, is_core, tag):
         if exew_arg:
             from .scriptutils import split_args
             i["run-for"][-1]["args"] = split_args(exew_arg)
+    if "." in tag_name:
+        short_tag = tag_name.partition(".")[0]
+        i["run-for"].extend([{**j, "tag": short_tag} for j in i["run-for"]])
     return i
 
 
@@ -300,6 +303,9 @@ def _get_store_installs():
                 "tag": tag,
                 "run-for": [
                     {"tag": tag, "target": "python.exe"},
+                    {"tag": tag, "target": "pythonw.exe"},
+                    {"tag": "3", "target": "python.exe"},
+                    {"tag": "3", "target": "pythonw.exe"},
                 ],
                 "displayName": f"Python {tag} (Store)",
                 "prefix": prefix,

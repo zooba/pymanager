@@ -144,7 +144,7 @@ class CompanyTag:
         if tag is not None:
             company = company_or_tag
         else:
-            company, _, tag = company_or_tag.replace("/", "\\").rpartition("\\")
+            company, _, tag = (company_or_tag or "").replace("/", "\\").rpartition("\\")
         self._company = _CompanyKey(company, allow_prefix=loose_company)
         self.tag = tag
         if self.is_core:

@@ -90,11 +90,13 @@ def get_installs(install_dir, default_tag, include_unmanaged=True, virtual_env=N
             pass
 
     seen_alias = set()
+    seen_default = False
     for i in installs:
         i_tag = CompanyTag.from_dict(i)
-        if default_tag and not i.get("unmanaged") and i_tag.match(default_tag):
+        if not seen_default and not i.get("unmanaged") and (not default_tag or i_tag.match(default_tag)):
             default_tag = None
             i["default"] = True
+            seen_default = True
         aliases = i.setdefault("alias", ())
         if aliases:
             new_aliases = [a for a in aliases if a["name"].casefold() not in seen_alias]
@@ -146,7 +148,10 @@ def get_install_to_run(
                 if best_non_windowed:
                     return best_non_windowed
                 break
-        raise NoInstallFoundError()
+        # It's legitimate to have no default runtime, but we're going to treat
+        # it as if you have none at all. That way we get useful auto-install
+        # behaviour.
+        raise NoInstallsError
 
     tag = CompanyTag(tag)
 

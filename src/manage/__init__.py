@@ -78,11 +78,12 @@ def find_one(root, tag, script, windowed, allow_autoinstall, show_not_found_erro
         i = None
         cmd = load_default_config(root)
         autoinstall_permitted = cmd.automatic_install
-        LOGGER.debug("Finding runtime for '%s' or '%s' %s", tag, script, "(windowed)" if windowed else "")
+        LOGGER.debug("Finding runtime for '%s' or '%s'%s", tag, script, " (windowed)" if windowed else "")
         try:
             i = cmd.get_install_to_run(tag, script, windowed=windowed)
         except NoInstallsError:
             # We always allow autoinstall when there are no runtimes at all
+            # (Noting that user preference may still prevent it)
             allow_autoinstall = True
             raise
         exe = str(i["executable"])
