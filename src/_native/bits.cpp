@@ -20,8 +20,8 @@ error_from_bits_hr(IBackgroundCopyManager *bcm, HRESULT hr, const char *operatio
     HRESULT hr2;
     if (FAILED(hr2 = _inject_hr[2])
         || FAILED(hr2 = bcm->GetErrorDescription(hr, LANGIDFROMLCID(GetThreadLocale()), &err))) {
-        err_SetFromWindowsErrWithMessage(hr, operation, NULL);
-        err_SetFromWindowsErrWithMessage(hr2, "Retrieving error message", NULL);
+        err_SetFromWindowsErrWithMessage(hr, operation);
+        err_SetFromWindowsErrWithMessage(hr2, "Retrieving error message");
         return NULL;
     }
 
@@ -52,7 +52,7 @@ error_from_bits_job(IBackgroundCopyJob *job)
             error->Release();
         }
         PyErr_SetString(PyExc_OSError, "Unidentified download error");
-        err_SetFromWindowsErrWithMessage(hr, "Retrieving download error", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Retrieving download error");
         return NULL;
     }
 
@@ -61,8 +61,8 @@ error_from_bits_job(IBackgroundCopyJob *job)
     ) {
         error->Release();
         //PyErr_SetFromWindowsErr(hr_error);
-        //err_SetFromWindowsErrWithMessage(hr, "Retrieving error message", NULL);
-        err_SetFromWindowsErrWithMessage(hr_error, "Could not retrieve message", NULL);
+        //err_SetFromWindowsErrWithMessage(hr, "Retrieving error message");
+        err_SetFromWindowsErrWithMessage(hr_error, "Could not retrieve message");
         return NULL;
     }
 

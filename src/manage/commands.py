@@ -490,6 +490,11 @@ class ListCommand(BaseCommand):
             LOGGER.debug("Loading 'install' command to get source")
             inst_cmd = COMMANDS["install"](["install"], self.root)
             self.source = inst_cmd.source
+        if self.source and "://" not in self.source:
+            try:
+                pass#self.source = Path(self.source).absolute().as_uri()
+            except Exception as ex:
+                raise ArgumentError("Source feed is not a valid path or URL") from ex
         execute(self)
 
 

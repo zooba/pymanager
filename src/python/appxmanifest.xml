@@ -20,6 +20,7 @@
         <Description>Installs and launches Python runtimes.</Description>
         <Logo>_resources/pythonx50.png</Logo>
         <desktop6:RegistryWriteVirtualization>disabled</desktop6:RegistryWriteVirtualization>
+        <desktop6:FileSystemWriteVirtualization>disabled</desktop6:FileSystemWriteVirtualization>
     </Properties>
     <Resources>
         <Resource Language="en-US" />

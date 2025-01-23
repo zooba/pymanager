@@ -1,8 +1,20 @@
 import json
 import sys
 
-from .exceptions import ArgumentError
+from .exceptions import ArgumentError, SilentError
 from .logging import LOGGER
+
+
+def _format_alias(i):
+    try:
+        alias = i["alias"]
+    except KeyError:
+        return ""
+    if not alias:
+        return ""
+    if len(alias) == 1:
+        return i["alias"][0]["name"]
+    return i["alias"][0]["name"] + ", ..."
 
 
 def format_table(installs):
@@ -15,7 +27,7 @@ def format_table(installs):
     }
     installs = [{
         **i,
-        "alias": ", ".join(a["name"] for a in i.get("alias", ())),
+        "alias": _format_alias(i),
         "sort-version": str(i['sort-version']),
     } for i in installs]
 
@@ -50,7 +62,7 @@ def format_table(installs):
 CSV_EXCLUDE = {
     "schema", "unmanaged",
     # Complex columns of limited value
-    "install-for", "shortcuts",
+    "install-for", "shortcuts", "__original-shortcuts",
     "executable", "executable_args",
 }
 
@@ -80,7 +92,7 @@ def format_csv(installs):
 
 
 def format_json(installs):
-    print(json.dumps({"installs": installs}, default=str))
+    print(json.dumps({"versions": installs}, default=str))
 
 
 def format_json_lines(installs):
@@ -175,7 +187,11 @@ def execute(cmd):
     if cmd.source:
         from .urlutils import sanitise_url
         LOGGER.debug("Reading potential installs from %s", sanitise_url(cmd.source))
-        installs = _get_installs_from_index(cmd.source, tags)
+        try:
+            installs = _get_installs_from_index(cmd.source, tags)
+        except OSError as ex:
+            LOGGER.error("Unable to read the index at %s", sanitise_url(cmd.source))
+            raise SilentError from ex
     elif cmd.install_dir:
         LOGGER.debug("Reading installs from %s", cmd.install_dir)
         try:
@@ -188,7 +204,7 @@ def execute(cmd):
         raise ArgumentError("Configuration file does not specify install directory.")
 
     if cmd.one:
-        installs = installs[:1]
+        installs = [i for i in installs if i.get("default")][:1] or installs[:1]
     formatter(installs)
 
     LOGGER.debug("END list_command.execute")

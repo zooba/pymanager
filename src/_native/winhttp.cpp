@@ -8,34 +8,7 @@
 #pragma comment(lib, "winhttp.lib")
 
 static void _winhttp_error(const char *location) {
-    DWORD err = GetLastError();
-    LPWSTR message;
-    DWORD message_len = FormatMessageW(
-        FORMAT_MESSAGE_ALLOCATE_BUFFER
-        | FORMAT_MESSAGE_FROM_HMODULE
-        | FORMAT_MESSAGE_FROM_SYSTEM
-        | FORMAT_MESSAGE_IGNORE_INSERTS,
-        GetModuleHandleW(L"winhttp"),
-        err,
-        0,
-        (LPWSTR)&message,
-        0,
-        NULL
-    );
-    if (message_len) {
-        while (message_len > 0 && wcschr(L"\r\n\t ", message[--message_len])) {
-            message[message_len] = L'\0';
-        }
-
-        if (location) {
-            PyErr_Format(PyExc_OSError, "%ls (0x%08X) at %s", message, err, location);
-        } else {
-            PyErr_Format(PyExc_OSError, "%ls (0x%08X)", message, err);
-        }
-        LocalFree((void *)message);
-    } else {
-        PyErr_SetFromWindowsErr(err);
-    }
+    err_SetFromWindowsErrWithMessage(GetLastError(), location, NULL, GetModuleHandleW(L"winhttp"));
 }
 
 #ifdef ERROR_LOCATIONS
@@ -74,7 +47,7 @@ static void http_error(HINTERNET hRequest) {
     if (!read_header(hRequest, WINHTTP_QUERY_STATUS_CODE, &status)) {
         return;
     }
-    err_SetFromWindowsErrWithMessage(0x80190000 | status, NULL, NULL);
+    err_SetFromWindowsErrWithMessage(0x80190000 | status);
 }
 
 
@@ -439,11 +412,11 @@ PyObject *winhttp_isconnected(PyObject *, PyObject *, PyObject *) {
         (LPVOID*)&nlm
     );
     if (FAILED(hr)) {
-        err_SetFromWindowsErrWithMessage(hr, "Getting network list manager", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Getting network list manager");
         return NULL;
     }
     if (FAILED(hr = nlm->get_IsConnectedToInternet(&connected))) {
-        err_SetFromWindowsErrWithMessage(hr, "Checking internet access", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Checking internet access");
         nlm->Release();
         return NULL;
     }

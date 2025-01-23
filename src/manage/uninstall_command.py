@@ -21,6 +21,14 @@ def ask_yn(*prompt):
     return not resp or resp.startswith("y")
 
 
+def _iterdir(p):
+    try:
+        return list(p.iterdir())
+    except FileNotFoundError:
+        LOGGER.debug("Skipping %s because it does not exist", p)
+        return []
+
+
 def execute(cmd):
     LOGGER.debug("BEGIN uninstall_command.execute: %r", cmd.args)
 
@@ -30,7 +38,11 @@ def execute(cmd):
         "Ensure no Python interpreters are running, and continue to wait " +
         "or press Ctrl+C to abort.")
 
+    # Clear any active venv so we don't try to delete it
+    # (we'll succeed... ask me how I know...)
+    cmd.virtual_env = None
     installed = list(cmd.get_installs())
+
     if cmd.purge:
         if not cmd.confirm or ask_yn("Uninstall all runtimes?"):
             for i in installed:
@@ -38,11 +50,13 @@ def execute(cmd):
                 unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["displayName"]))
                 rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["displayName"]))
             LOGGER.info("Purging saved downloads")
-            for f in cmd.install_dir.iterdir():
+            for f in _iterdir(cmd.install_dir):
                 rmtree(f, after_5s_warning=warn_msg.format("cached downloads"))
             LOGGER.info("Purging global commands")
-            for f in cmd.global_dir.iterdir():
+            for f in _iterdir(cmd.global_dir):
                 rmtree(f, after_5s_warning=warn_msg.format("global commands"))
+        LOGGER.debug("END uninstall_command.execute")
+        return
 
     for tag in cmd.args:
         company, _, tag = tag.casefold().replace("/", "\\").rpartition("\\")

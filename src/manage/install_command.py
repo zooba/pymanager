@@ -306,7 +306,7 @@ def update_all_shortcuts(cmd, path_warning=True):
                 create(cmd, i, s)
                 shortcut_written.setdefault(s["kind"], []).append((i, s))
 
-    if cmd.global_dir and cmd.launcher_exe:
+    if cmd.global_dir and cmd.global_dir.is_dir() and cmd.launcher_exe:
         for target in cmd.global_dir.glob("*.exe.__target__"):
             alias = target.with_suffix("")
             if alias.name.casefold() not in alias_written:
@@ -319,7 +319,7 @@ def update_all_shortcuts(cmd, path_warning=True):
     for k, (_, cleanup) in SHORTCUT_HANDLERS.items():
         cleanup(cmd, shortcut_written.get(k, []))
 
-    if path_warning and any(cmd.global_dir.glob("*.exe")):
+    if path_warning and cmd.global_dir and cmd.global_dir.is_dir() and any(cmd.global_dir.glob("*.exe")):
         try:
             if not any(cmd.global_dir.match(p) for p in os.getenv("PATH", "").split(os.pathsep) if p):
                 LOGGER.info("")
@@ -590,7 +590,7 @@ def execute(cmd):
                 json.dump(download_index, f, indent=2, default=str)
             LOGGER.info("Offline index has been generated at !Y!%s!W!.", cmd.download)
             LOGGER.info(
-                "Use '!G!python install -s .\\%s [tags ...]!W!' to install from this index.",
+                "Use '!G!py install -s .\\%s [tags ...]!W!' to install from this index.",
                 cmd.download.name
             )
         else:

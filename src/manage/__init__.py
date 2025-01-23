@@ -56,7 +56,7 @@ def main(args, root=None):
     except Exception as ex:
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
         LOGGER.debug("TRACEBACK:", exc_info=True)
-        return getattr(ex, "winerror", getattr(ex, "errno", 1))
+        return getattr(ex, "winerror", 0) or getattr(ex, "errno", 1)
     finally:
         f, LOGGER.file = LOGGER.file, None
         if f:

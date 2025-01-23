@@ -54,7 +54,11 @@ def _find_on_path(cmd, full_cmd):
 
 
 def _read_script(cmd, script, encoding):
-    with open(script, "r", encoding=encoding, errors="replace") as f:
+    try:
+        f = open(script, "r", encoding=encoding, errors="replace")
+    except OSError as ex:
+        raise LookupError(script) from ex
+    with f:
         first_line = next(f).rstrip()
         # For /usr[/local]/bin, we look for a matching alias name.
         shebang = re.match(r"#!\s*/usr/(?:local/)?bin/(?!env\b)([^\\/\s]+).*", first_line)

@@ -95,7 +95,7 @@ def _bits_urlretrieve(request):
             try:
                 progress = bits_get_progress(bits, job)
             except OSError as ex:
-                if ex.winerror & 0xFFFFFFFF == 0x80190191:
+                if (ex.winerror or 0) & 0xFFFFFFFF == 0x80190191:
                     # Returned HTTP status 401 (0x191)
                     if not tried_auth:
                         auth = request.on_auth_request()
@@ -103,7 +103,7 @@ def _bits_urlretrieve(request):
                             tried_auth = True
                             bits_retry_with_auth(bits, job, *auth)
                             continue
-                if ex.winerror & 0xFFFFFFFF == 0x80190194:
+                if (ex.winerror or 0) & 0xFFFFFFFF == 0x80190194:
                     # Returned HTTP status 404 (0x194)
                     raise FileNotFoundError() from ex
                 raise
@@ -116,7 +116,7 @@ def _bits_urlretrieve(request):
             bits_cancel(bits, job)
         if jobfile.is_file():
             unlink(jobfile)
-        if ex.winerror & 0xFFFFFFFF == 0x80200010:
+        if (ex.winerror or 0) & 0xFFFFFFFF == 0x80200010:
             raise NoInternetError() from ex
         raise
     unlink(jobfile)
@@ -137,7 +137,7 @@ def _winhttp_urlopen(request):
             LOGGER.debug("winhttp_isconnected: %s", winhttp_isconnected())
             if not winhttp_isconnected():
                 raise NoInternetError() from ex
-        if ex.winerror & 0xFFFFFFFF == 0x80190194:
+        if (ex.winerror or 0) & 0xFFFFFFFF == 0x80190194:
             # Returned HTTP status 404 (0x194)
             raise FileNotFoundError() from ex
         raise

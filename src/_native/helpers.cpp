@@ -43,7 +43,7 @@ int as_utf16(PyObject *obj, wchar_t **address) {
 }
 
 
-void err_SetFromWindowsErrWithMessage(int error, const char *message, const wchar_t *os_message) {
+void err_SetFromWindowsErrWithMessage(int error, const char *message, const wchar_t *os_message, void *hModule) {
     LPWSTR os_message_buffer = NULL;
     PyObject *cause = NULL;
     if (PyErr_Occurred()) {
@@ -53,8 +53,11 @@ void err_SetFromWindowsErrWithMessage(int error, const char *message, const wcha
     if (!os_message) {
         DWORD len = FormatMessageW(
             /* Error API error */
-            FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-            NULL,
+            FORMAT_MESSAGE_ALLOCATE_BUFFER
+            | FORMAT_MESSAGE_FROM_SYSTEM
+            | (hModule ? FORMAT_MESSAGE_FROM_HMODULE : 0)
+            | FORMAT_MESSAGE_IGNORE_INSERTS,
+            hModule,
             error,
             MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
             (LPWSTR)&os_message_buffer,

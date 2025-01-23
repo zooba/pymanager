@@ -36,28 +36,28 @@ shortcut_create(PyObject *, PyObject *args, PyObject *kwargs)
         IID_IShellLinkW, (void **)&lnk);
 
     if (FAILED(hr)) {
-        err_SetFromWindowsErrWithMessage(hr, "Creating system shortcut", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Creating system shortcut");
         goto done;
     }
     if (FAILED(hr = lnk->SetPath(target))) {
-        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut target", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut target");
         goto done;
     }
     if (arguments && *arguments && FAILED(hr = lnk->SetArguments(arguments))) {
-        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut arguments", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut arguments");
         goto done;
     }
     if (workingDirectory && *workingDirectory && FAILED(hr = lnk->SetWorkingDirectory(workingDirectory))) {
-        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut working directory", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut working directory");
         goto done;
     }
     if (iconPath && *iconPath && FAILED(hr = lnk->SetIconLocation(iconPath, iconIndex))) {
-        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut icon", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Setting shortcut icon");
         goto done;
     }
     if (FAILED(hr = lnk->QueryInterface(&persist)) ||
         FAILED(hr = persist->Save(path, 0))) {
-        err_SetFromWindowsErrWithMessage(hr, "Writing shortcut", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Writing shortcut");
         goto done;
     }
 
@@ -90,7 +90,7 @@ shortcut_get_start_programs(PyObject *, PyObject *, PyObject *)
         &path
     );
     if (FAILED(hr)) {
-        err_SetFromWindowsErrWithMessage(hr, "Obtaining Start Menu location", NULL);
+        err_SetFromWindowsErrWithMessage(hr, "Obtaining Start Menu location");
         return NULL;
     }
     PyObject *r = PyUnicode_FromWideChar(path, -1);
@@ -111,7 +111,7 @@ hide_file(PyObject *, PyObject *args, PyObject *kwargs)
     PyObject *r = NULL;
     DWORD attr = GetFileAttributesW(path);
     if (attr == INVALID_FILE_ATTRIBUTES) {
-        err_SetFromWindowsErrWithMessage(GetLastError(), "Reading file attributes", NULL);
+        err_SetFromWindowsErrWithMessage(GetLastError(), "Reading file attributes");
         goto done;
     }
     if (hidden) {
@@ -120,7 +120,7 @@ hide_file(PyObject *, PyObject *args, PyObject *kwargs)
         attr &= ~FILE_ATTRIBUTE_HIDDEN;
     }
     if (!SetFileAttributesW(path, attr)) {
-        err_SetFromWindowsErrWithMessage(GetLastError(), "Setting file attributes", NULL);
+        err_SetFromWindowsErrWithMessage(GetLastError(), "Setting file attributes");
         goto done;
     }
 

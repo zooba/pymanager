@@ -10,6 +10,9 @@
     "shebang_can_run_anything": 0,
     "shebang_can_run_anything_silently": "%PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING_SILENTLY%",
 
+    "install_dir": "%LocalAppData%\\Python",
+    "download_dir": "%LocalAppData%\\Python\\_cache",
+    "global_dir": "%LocalAppData%\\Python\\bin",
     "bundled_dir": "./bundled",
     "logs_dir": "%PYTHON_MANAGER_LOGS%",
 
