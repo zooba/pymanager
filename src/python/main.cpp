@@ -100,6 +100,9 @@ per_exe_settings(
         }
     }
     int cch = dot > n ? (int)(dot - n) : -1;
+    if (cch > 1 && (argv0[n + cch - 1] == L'w' || argv0[n + cch - 1] == L'W')) {
+        --cch;
+    }
     if (CompareStringOrdinal(&argv0[n], cch, L"python", -1, TRUE) == CSTR_EQUAL) {
         *default_command = NULL;
         *commands = false;
@@ -124,11 +127,21 @@ per_exe_settings(
         *autoinstall = argc >= 2 && !wcscmp(argv[1], L"exec");
         return;
     }
-    *default_command = L"help";
+    if (CompareStringOrdinal(&argv0[n], cch, L"pymanager", -1, TRUE) == CSTR_EQUAL) {
+        *default_command = L"help";
+        *commands = argc >= 2;
+        *cli_tag = false;
+        *shebangs = false;
+        *autoinstall = argc >= 2 && !wcscmp(argv[1], L"exec");
+        return;
+    }
+    // This case is for direct launches (including first run), Start menu
+    // launch, or via file associations.
+    *default_command = NULL;
     *commands = argc >= 2;
-    *cli_tag = false;
-    *shebangs = false;
-    *autoinstall = argc >= 2 && !wcscmp(argv[1], L"exec");
+    *cli_tag = true;
+    *shebangs = true;
+    *autoinstall = true;
 }
 
 

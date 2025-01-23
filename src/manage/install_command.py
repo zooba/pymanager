@@ -133,15 +133,15 @@ def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_ur
             return dest
 
     if cmd.bundled_dir:
-        bundled = list(cmd.bundled_dir.glob(install["id"] + ".*"))
-        if bundled:
+        bundled = cmd.bundled_dir / dest.name
+        if bundled.is_file():
             try:
-                validate_package(install, bundled[0], delete=False)
+                validate_package(install, bundled, delete=False)
             except HashMismatchError:
-                LOGGER.debug("Bundled file at %s did not match expected hash.", bundled[0])
+                LOGGER.debug("Bundled file at %s did not match expected hash.", bundled)
             else:
-                LOGGER.verbose("Using bundled file at %s", bundled[0])
-                return bundled[0]
+                LOGGER.verbose("Using bundled file at %s", bundled)
+                return bundled
 
     unlink(dest, "Removing old download is taking some time. " + 
                  "Please continue to wait, or press Ctrl+C to abort.")
@@ -506,7 +506,7 @@ def execute(cmd):
         if not cmd.automatic_install:
             LOGGER.debug("automatic_install is not set - exiting")
             raise AutomaticInstallDisabledError()
-        LOGGER.info("*" * CONSOLE_WIDTH)
+        LOGGER.info("!B!" + "*" * CONSOLE_WIDTH + "!W!")
 
     download_index = {"versions": []}
 
@@ -590,7 +590,7 @@ def execute(cmd):
                 json.dump(download_index, f, indent=2, default=str)
             LOGGER.info("Offline index has been generated at !Y!%s!W!.", cmd.download)
             LOGGER.info(
-                "!B!Use 'python install -s .\\%s [tags ...]' to install from this index.!B!",
+                "Use '!G!python install -s .\\%s [tags ...]!W!' to install from this index.",
                 cmd.download.name
             )
         else:
@@ -599,7 +599,7 @@ def execute(cmd):
 
     finally:
         if cmd.automatic:
-            LOGGER.info("To see all available commands, run 'python help'")
-            LOGGER.info("*" * CONSOLE_WIDTH)
+            LOGGER.info("To see all available commands, run '!G!py help!W!'")
+            LOGGER.info("!B!" + "*" * CONSOLE_WIDTH + "!W!")
 
         LOGGER.debug("END install_command.execute")
