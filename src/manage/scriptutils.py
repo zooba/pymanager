@@ -111,6 +111,12 @@ def _read_script(cmd, script, encoding):
         shebang = re.match(r"#!\s*(.+)\S*$", first_line)
         if shebang:
             full_cmd = shebang.group(1)
+            # A regular lookup will handle the case where the entire shebang is
+            # a valid alias.
+            try:
+                return _find_shebang_command(cmd, full_cmd)
+            except LookupError:
+                pass
             if cmd.shebang_can_run_anything or cmd.shebang_can_run_anything_silently:
                 if not cmd.shebang_can_run_anything_silently:
                     LOGGER.warn("A shebang '%s' was found, but does not match any "

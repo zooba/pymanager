@@ -63,6 +63,8 @@ def localserver():
 class FakeConfig:
     def __init__(self, installs=[]):
         self.installs = list(installs)
+        self.shebang_can_run_anything = True
+        self.shebang_can_run_anything_silently = False
 
     def get_installs(self):
         return self.installs
