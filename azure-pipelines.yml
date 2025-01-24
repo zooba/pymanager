@@ -1,4 +1,4 @@
-name: $(Year:yyyy)-$(Month:mm)-$(Day:dd).$(Rev:r)
+name: $(Date:yyyyMMdd).$(Rev:r)
 
 parameters:
 - name: Sign
