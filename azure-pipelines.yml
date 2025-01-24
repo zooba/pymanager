@@ -60,7 +60,7 @@ jobs:
 
   - powershell: |
       nuget install -o host_python -x -noninteractive python
-      Write-Host "##vso[task.prependpath](gi host_python\python\tools)"
+      Write-Host "##vso[task.prependpath]$(gi host_python\python\tools)"
     displayName: 'Install host Python'
     workingDirectory: $(Build.BinariesDirectory)
 
