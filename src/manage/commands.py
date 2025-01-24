@@ -577,7 +577,10 @@ class InstallCommand(BaseCommand):
         super().__init__(args, root)
 
         if not self.source:
-            raise ArgumentError("No source feed specified.")
+            # HACK: For testing until we get a reasonable default feed
+            self.source = "./bundled/index.json"
+            if not Path(self.source).is_file():
+                raise ArgumentError("No source feed specified.")
         elif "://" not in self.source:
             try:
                 self.source = Path(self.source).absolute().as_uri()

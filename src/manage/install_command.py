@@ -430,40 +430,47 @@ def _install_one(cmd, source, install, *, target=None):
     with ProgressPrinter("Extracting", maxwidth=CONSOLE_WIDTH) as on_progress:
         extract_package(package, dest, on_progress=on_progress, repair=cmd.repair)
 
-    try:
-        with open(dest / "__install__.json", "r", encoding="utf-8") as f:
-            LOGGER.debug("Updating from __install__.json in %s", dest)
-            for k, v in json.load(f).items():
-                if not install.setdefault(k, v):
-                    install[k] = v
-    except FileNotFoundError:
-        pass
-    except (TypeError, ValueError):
-        LOGGER.error(
-            "Invalid data found in bundled install data. " +
-            "Please report this to the provider of your package."
+    if target:
+        unlink(
+            dest / "__install__.json",
+            "Removing metadata from the install is taking some time. Please " +
+            "continue to wait, or press Ctrl+C to abort."
         )
-        raise
+    else:
+        try:
+            with open(dest / "__install__.json", "r", encoding="utf-8") as f:
+                LOGGER.debug("Updating from __install__.json in %s", dest)
+                for k, v in json.load(f).items():
+                    if not install.setdefault(k, v):
+                        install[k] = v
+        except FileNotFoundError:
+            pass
+        except (TypeError, ValueError):
+            LOGGER.error(
+                "Invalid data found in bundled install data. " +
+                "Please report this to the provider of your package."
+            )
+            raise
 
-    if "shortcuts" in install:
-        # This saves our original set of shortcuts, so a later repair operation
-        # can enable those that were originally disabled.
-        shortcuts = install.setdefault("__original-shortcuts", install["shortcuts"])
-        if cmd.enable_shortcut_kinds:
-            shortcuts = [s for s in shortcuts
-                         if s["kind"] in cmd.enable_shortcut_kinds]
-        if cmd.disable_shortcut_kinds:
-            shortcuts = [s for s in shortcuts
-                         if s["kind"] not in cmd.disable_shortcut_kinds]
-        install["shortcuts"] = shortcuts
+        if "shortcuts" in install:
+            # This saves our original set of shortcuts, so a later repair operation
+            # can enable those that were originally disabled.
+            shortcuts = install.setdefault("__original-shortcuts", install["shortcuts"])
+            if cmd.enable_shortcut_kinds:
+                shortcuts = [s for s in shortcuts
+                             if s["kind"] in cmd.enable_shortcut_kinds]
+            if cmd.disable_shortcut_kinds:
+                shortcuts = [s for s in shortcuts
+                             if s["kind"] not in cmd.disable_shortcut_kinds]
+            install["shortcuts"] = shortcuts
 
-    LOGGER.debug("Write __install__.json to %s", dest)
-    with open(dest / "__install__.json", "w", encoding="utf-8") as f:
-        json.dump({
-            **install,
-            "url": sanitise_url(install["url"]),
-            "source": sanitise_url(source),
-        }, f, default=str)
+        LOGGER.debug("Write __install__.json to %s", dest)
+        with open(dest / "__install__.json", "w", encoding="utf-8") as f:
+            json.dump({
+                **install,
+                "url": sanitise_url(install["url"]),
+                "source": sanitise_url(source),
+            }, f, default=str)
 
     LOGGER.verbose("Install complete")
 

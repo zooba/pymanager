@@ -1,15 +1,19 @@
 {
     "install": {
-        "source": "./bundled/index.json",
+        "source": "%PYTHON_MANAGER_SOURCE_URL%",
         "fallback_source": "./bundled/fallback-index.json"
+    },
+    "list": {
+        "format": "%PYTHON_MANAGER_LIST_FORMAT%"
     },
     "registry_override_key": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager",
 
+    "confirm": "%PYTHON_MANAGER_CONFIRM%",
     "automatic_install": "%PYTHON_MANAGER_AUTOMATIC_INSTALL%",
     "include_unmanaged": "%PYTHON_MANAGER_INCLUDE_UNMANAGED%",
     "virtual_env": "%VIRTUAL_ENV%",
-    "shebang_can_run_anything": 0,
-    "shebang_can_run_anything_silently": "%PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING_SILENTLY%",
+    "shebang_can_run_anything": "%PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING%",
+    "shebang_can_run_anything_silently": false,
 
     "install_dir": "%LocalAppData%\\Python",
     "download_dir": "%LocalAppData%\\Python\\_cache",
