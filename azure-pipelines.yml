@@ -20,6 +20,7 @@ parameters:
 - name: OverrideRef
   displayName: "Force version (else uses tag)"
   type: string
+  default: (tag)
 - name: TestSign
   displayName: "Test Signed"
   type: boolean
@@ -38,7 +39,7 @@ variables:
   DIST_DIR: $(Build.ArtifactStagingDirectory)
   LAYOUT_DIR: $(Build.BinariesDirectory)\layout
   PYMANAGER_PUBLISH_URL: https://example.com
-  ${{ if parameters.OverrideRef }}:
+  ${{ if ne(parameters.OverrideRef, '(tag)') }}:
     OVERRIDE_REF: refs/tags/${{ parameters.OverrideRef }}
 
 
