@@ -36,8 +36,12 @@ variables:
   LAYOUT_DIR: $(Build.BinariesDirectory)\layout
   PYMANAGER_PUBLISH_URL: https://example.com
 
+
 jobs:
 - job: Build
+
+  pool:
+    vmImage: 'windows-latest'
 
   variables:
   - ${{ if eq(parameters.Sign, 'true') }}:
