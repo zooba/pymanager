@@ -81,7 +81,7 @@ jobs:
         python -m pytest -vv
       displayName: 'Run pre-test'
 
-  - ${{ if eq(parameters.Sign, 'true') }}:
+  - ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
     - powershell: |
         dotnet tool install sign --global
         cd (mkdir -Force signing)
@@ -100,9 +100,10 @@ jobs:
     env:
       PYMSBUILD_LAYOUT_DIR: $(LAYOUT_DIR)
       PYMSBUILD_DIST_DIR: $(DIST_DIR)
-      PYMANAGER_APPX_PUBLISHER: $(TrustedSigningCertificateSubject)
+      ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
+        PYMANAGER_APPX_PUBLISHER: $(TrustedSigningCertificateSubject)
 
-  - ${{ if eq(parameters.Sign, 'true') }}:
+  - ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
     - powershell: >
         dir -r *.exe, *.pyd | %{
         sign code trusted-signing "$_"
@@ -120,7 +121,8 @@ jobs:
     env:
       PYMSBUILD_LAYOUT_DIR: $(LAYOUT_DIR)
       PYMSBUILD_DIST_DIR: $(DIST_DIR)
-      PYMANAGER_APPX_PUBLISHER: $(TrustedSigningCertificateSubject)
+      ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
+        PYMANAGER_APPX_PUBLISHER: $(TrustedSigningCertificateSubject)
 
   - powershell: |
       python make-msi.py
@@ -128,9 +130,10 @@ jobs:
     env:
       PYMSBUILD_LAYOUT_DIR: $(LAYOUT_DIR)
       PYMSBUILD_DIST_DIR: $(DIST_DIR)
-      PYMANAGER_APPX_PUBLISHER: $(TrustedSigningCertificateSubject)
+      ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
+        PYMANAGER_APPX_PUBLISHER: $(TrustedSigningCertificateSubject)
 
-  - ${{ if eq(parameters.Sign, 'true') }}:
+  - ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
     - powershell: >
         dir *.msix | %{
         sign code trusted-signing "$_"
@@ -162,7 +165,7 @@ jobs:
         Write-Host "TODO: Post-build tests"
       displayName: 'TODO: Post-build tests'
 
-  - ${{ if eq(parameters.Publish, 'true') }}:
+  - ${{ if and(eq(parameters.Publish, 'true'), or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true'))) }}:
     - powershell: |
         Write-Host "TODO: Publish packages"
       displayName: 'TODO: Publish packages'
