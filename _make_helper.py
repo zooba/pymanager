@@ -116,6 +116,9 @@ def get_output_name(dirs):
     return f"python-manager-{version}"
 
 
+copyfile = shutil.copyfile
+
+
 def rmtree(path):
     print("Removing", path)
     if not path.is_dir():

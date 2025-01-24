@@ -6,6 +6,7 @@ from pathlib import Path
 from subprocess import check_call as run
 
 from _make_helper import (
+    copyfile,
     get_dirs,
     get_msix_version,
     get_output_name,
@@ -64,6 +65,10 @@ with zipfile.ZipFile(DIST_APPXSYM, "w") as zf:
         zf.write(f, arcname=f.name)
 
 # Pack upload MSIX for Store
+print("Packing Store upload to", DIST_MSIXUPLOAD)
 with zipfile.ZipFile(DIST_MSIXUPLOAD, "w") as zf:
     zf.write(DIST_MSIX, arcname=DIST_MSIX.name)
     zf.write(DIST_APPXSYM, arcname=DIST_APPXSYM.name)
+
+print("Copying appinstaller file to", DIST)
+copyfile(LAYOUT / "pymanager.appinstaller", DIST / "pymanager.appinstaller")
