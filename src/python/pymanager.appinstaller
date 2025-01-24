@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppInstaller
+    xmlns="http://schemas.microsoft.com/appx/appinstaller/2017/2"
+    Version="${VERSION}"
+    Uri="${URL}/pymanager.appinstaller" >
+
+    <MainPackage
+        Name="PythonSoftwareFoundation.PyManager"
+        Publisher="${PUBLISHER}"
+        Version="${VERSION}"
+        Uri="${URL}/${MSIX_FILENAME}" />
+
+    <UpdateURIs>
+        <UpdateURI>${URL}/pymanager.appinstaller</UpdateURI>
+    </UpdateURIs>
+
+    <RepairURIs>
+        <RepairURI>${URL}/pymanager.appinstaller</RepairURI>
+    </RepairURIs>
+
+    <UpdateSettings>
+        <OnLaunch HoursBetweenUpdateChecks="24"/>
+    </UpdateSettings>
+
+</AppInstaller>

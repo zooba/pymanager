@@ -428,6 +428,7 @@ for name, schema in SCHEMA.items():
 for file in map(Path, sys.argv[1:]):
     legacy_name = f"{file.stem}-legacy.json"
     INDEX_CURRENT["next"] = legacy_name
+    file.parent.mkdir(exist_ok=True, parents=True)
     with open(file, "w", encoding="utf-8") as f:
         json.dump(INDEX_CURRENT, f, indent=2)
     with open(file.with_name(legacy_name), "w", encoding="utf-8") as f:

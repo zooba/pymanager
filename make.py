@@ -31,7 +31,9 @@ except subprocess.CalledProcessError:
     pass
 
 # Run main build - this fills in BUILD and LAYOUT
-run([sys.executable, "-m", "pymsbuild"], cwd=DIRS["root"], env={**os.environ, "GITHUB_REF": ref})
+run([sys.executable, "-m", "pymsbuild", "wheel"],
+    cwd=DIRS["root"],
+    env={**os.environ, "GITHUB_REF": ref})
 
 # Overwrite bundled feed. This will be removed eventually
 run([sys.executable, "scripts/generate-nuget-index.py", LAYOUT / "bundled" / "index.json"])

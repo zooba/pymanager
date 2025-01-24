@@ -114,6 +114,7 @@ PACKAGE = Package('python-manager',
     PyprojectTomlFile('pyproject.toml'),
     # MSIX manifest
     File('src/python/appxmanifest.xml', name='appxmanifest.xml'),
+    File('src/python/pymanager.appinstaller', name='pymanager.appinstaller'),
 
     # Default settings
     File('src/pymanager.json'),
@@ -245,6 +246,19 @@ def _patch_appx_identity(source, dest, **new):
         xml.write(f, "utf-8")
 
 
+def _patch_appinstaller(file, tmp):
+    if not file:
+        return
+    with open(file.source, "r", encoding="utf-8") as f:
+        txt = f.read()
+    txt = txt.replace("${VERSION}", _make_xyzw_version(METADATA["Version"]))
+    txt = txt.replace("${URL}", os.getenv("PYMANAGER_PUBLISH_URL", "https://example.com"))
+    txt = txt.replace("${MSIX_FILENAME}", f"python-manager-{METADATA['Version']}.msix")
+    txt = txt.replace("${PUBLISHER}", os.getenv("PYMANAGER_APPX_PUBLISHER", ""))
+    update_file(tmp, txt)
+    file.source = tmp
+
+
 def update_file(file, content):
     if not file.is_file() or file.read_text("utf-8").strip() != content.strip():
         file.parent.mkdir(parents=True, exist_ok=True)
@@ -254,8 +268,8 @@ def update_file(file, content):
 
 def init_METADATA():
     import os, re
-    _, sep, version = os.getenv("GITHUB_REF", "").rpartition("/")
-    if sep:
+    _, sep, version = os.getenv("BUILD_SOURCEBRANCH", os.getenv("GITHUB_REF", "")).rpartition("/")
+    if sep and "." in version:
         from packaging.version import parse
         try:
             # Looks like a version tag
@@ -295,6 +309,9 @@ def init_PACKAGE(tag=None):
         Publisher=os.getenv("PYMANAGER_APPX_PUBLISHER"),
     )
     PACKAGE.find("appxmanifest.xml").source = appx_xml
+
+    # PATCH VERSION INTO pymanager.appinstaller
+    _patch_appinstaller(PACKAGE.find("pymanager.appinstaller"), tmpdir / "pymanager.appinstaller")
 
     # GENERATE SUBCOMMAND LIST
     cmds = get_commands()

@@ -68,16 +68,25 @@ def get_sdk_bins():
     return bins
 
 
+def _envpath_or(var, default):
+    p = os.getenv(var)
+    if p:
+        return Path(p)
+    return default
+
+
 def get_dirs():
-    # TODO: Allow overriding these (and detect PYMSBUILD_* env overrides)
     root = Path.cwd()
     src = root / "src"
-    dist = root / "dist"
-    build = Path.cwd() / "build/bin"
-    temp = Path.cwd() / "build/temp"
-    tools = Path.cwd() / "build/tool"
-    # This directory name somewhat hard-coded in _msbuild.py
-    out = root / "python-manager"
+    dist = _envpath_or("PYMSBUILD_DIST_DIR", root / "dist")
+    _temp = _envpath_or("PYMSBUILD_TEMP_DIR", Path.cwd() / "build")
+    build = _temp / "bin"
+    temp = _temp / "temp"
+    _layout = _envpath_or("PYMSBUILD_LAYOUT_DIR", None)
+    if not _layout:
+        _layout = _temp / "layout"
+        os.environ["PYMSBUILD_LAYOUT_DIR"] = str(_layout)
+    out = _layout / "python-manager"
 
     return dict(
         root=root,
@@ -86,7 +95,6 @@ def get_dirs():
         dist=dist,
         build=build,
         temp=temp,
-        tools=tools,
     )
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Package IgnorableNamespaces="desktop4 desktop6 desktop7"
+<Package IgnorableNamespaces="desktop4 desktop6 desktop7 uap13 uap17"
     xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
     xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
     xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
@@ -9,7 +9,8 @@
     xmlns:desktop7="http://schemas.microsoft.com/appx/manifest/desktop/windows10/7"
     xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
     xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
-    xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10">
+    xmlns:uap13="http://schemas.microsoft.com/appx/manifest/uap/windows10/13"
+    xmlns:uap17="http://schemas.microsoft.com/appx/manifest/uap/windows10/17">
     <Identity Name="PythonSoftwareFoundation.PythonManager"
               Version="1.0.0.2"
               Publisher="CN=4975D53F-AA7E-49A5-8B49-EA4FDC1BB66B"
@@ -21,6 +22,10 @@
         <Logo>_resources/pythonx50.png</Logo>
         <desktop6:RegistryWriteVirtualization>disabled</desktop6:RegistryWriteVirtualization>
         <desktop6:FileSystemWriteVirtualization>disabled</desktop6:FileSystemWriteVirtualization>
+        <uap13:AutoUpdate>
+            <uap13:AppInstaller File="pymanager.appinstaller" />
+        </uap13:AutoUpdate>
+        <uap17:UpdateWhileInUse>defer</uap17:UpdateWhileInUse>
     </Properties>
     <Resources>
         <Resource Language="en-US" />
