@@ -10,10 +10,6 @@
 #include <string>
 #include <vector>
 
-#include <appmodel.h>
-#include <winrt\Windows.ApplicationModel.h>
-#include <winrt\Windows.Storage.h>
-
 #include "_launch.h"
 #include "src\_native\helpers.h"
 #include "commands.g.h"
@@ -34,6 +30,7 @@ struct {
     PyObject *auto_install_disabled_error;
 } manage = {NULL};
 
+
 static std::wstring
 get_exe_directory()
 {
@@ -52,21 +49,10 @@ get_exe_directory()
     return std::wstring();
 }
 
+
 static std::wstring
 get_root()
 {
-    try {
-        // TODO: Store outside of app cache so that installed runtimes aren't lost on uninstall
-        const auto appData = winrt::Windows::Storage::ApplicationData::Current();
-        if (appData) {
-            const auto localCache = appData.LocalCacheFolder();
-            if (localCache) {
-                return localCache.Path().c_str();
-            }
-        }
-    } catch (...) {
-    }
-
     return get_exe_directory();
 }
 

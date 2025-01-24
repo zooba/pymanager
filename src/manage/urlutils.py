@@ -447,7 +447,7 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
             return _powershell_urlretrieve(request)
         except FileNotFoundError:
             LOGGER.debug("PowerShell download unavailable - using fallback")
-        except Exception:
+        except Exception as ex:
             request.on_progress(None)
             LOGGER.verbose("Failed to download using PowerShell. Retrying with fallback method.")
             LOGGER.debug("ERROR:", exc_info=True)
