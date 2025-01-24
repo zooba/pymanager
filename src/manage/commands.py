@@ -161,6 +161,7 @@ CONFIG_SCHEMA = {
 
     "install": {
         "source": (str, None, "env", "path", "uri"),
+        "fallback_source": (str, None, "env", "path", "uri"),
         "enable_shortcut_kinds": (str, config_split_append),
         "disable_shortcut_kinds": (str, config_split_append),
     },
@@ -332,7 +333,7 @@ class BaseCommand:
         except (AttributeError, LookupError):
             pass
         else:
-            arg_names = frozenset(a[0] for a in cmd_args.values())
+            arg_names = frozenset(CONFIG_SCHEMA[self.CMD])
             for k, v in cmd_config.items():
                 if k in arg_names and k not in _set_args:
                     LOGGER.debug("Overriding command option %s with %r", k, v)
@@ -411,8 +412,7 @@ class BaseCommand:
     -q, --quiet      Less output (!B!log_level={logging.WARN}!W!)
     -qq              Even less output (!B!log_level={logging.ERROR}!W!)
     -y, --yes        Always confirm prompts (!B!confirm=false!W!)
-    --config=!B!<PATH>!W!
-                     Override configuration with JSON file
+    --config=!B!<PATH>!W!    Override configuration with JSON file
 """.lstrip().replace("\r\n", "\n")
 
     def help(self):
@@ -560,6 +560,7 @@ class InstallCommand(BaseCommand):
 """
 
     source = None
+    fallback_source = None
     target = None
     download = None
     force = False
@@ -576,16 +577,17 @@ class InstallCommand(BaseCommand):
         super().__init__(args, root)
 
         if not self.source:
-            from importlib.resources import files
-            source = Path(files("manage") / "index.json")
-            if not source.is_file():
-                raise ArgumentError("No source feed specified.")
-            self.source = source.as_uri()
+            raise ArgumentError("No source feed specified.")
         elif "://" not in self.source:
             try:
                 self.source = Path(self.source).absolute().as_uri()
             except Exception as ex:
                 raise ArgumentError("Source feed is not a valid path or URL") from ex
+        if self.fallback_source and "://" not in self.fallback_source:
+            try:
+                self.fallback_source = Path(self.fallback_source).absolute().as_uri()
+            except Exception as ex:
+                raise ArgumentError("Fallback source feed is not a valid path or URL") from ex
         if self.target:
             self.target = Path(self.target).absolute()
         if self.download:

@@ -42,9 +42,8 @@ run([sys.executable, "-m", "pymsbuild", "wheel"],
 # Overwrite bundled feed. This will be removed eventually
 run([sys.executable, "scripts/generate-nuget-index.py", LAYOUT / "bundled" / "index.json"])
 
-# HACK: Bundling 3.13.1 from NuGet for now
-from urllib.request import urlretrieve
-urlretrieve(
-    "https://api.nuget.org/v3-flatcontainer/python/3.13.1/python.3.13.1.nupkg",
-    LAYOUT / "bundled" / "pythoncore-3.13-3.13.1.nupkg",
-)
+# Bundle current latest release
+run([LAYOUT / "py-manage.exe", "install", "-v", "-f", "--download", TEMP / "bundle"])
+(TEMP / "bundle" / "index.json").rename(LAYOUT / "bundled" / "fallback-index.json")
+for f in (TEMP / "bundle").iterdir():
+    f.rename(LAYOUT / "bundled" / f.name)

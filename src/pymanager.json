@@ -1,6 +1,7 @@
 {
     "install": {
-        "source": "./bundled/index.json"
+        "source": "./bundled/index.json",
+        "fallback_source": "./bundled/fallback-index.json"
     },
     "registry_override_key": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager",
 

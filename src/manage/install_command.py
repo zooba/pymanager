@@ -58,7 +58,7 @@ def _expand_versions_by_tag(versions):
                 yield {**v, "tag": t}
 
 
-def select_package(cmd, tag, cache, *, urlopen=_urlopen, by_id=False):
+def select_package(cmd, source, tag, cache, *, urlopen=_urlopen, by_id=False):
     """Finds suitable package from index.json that looks like:
     {"versions": [
       {"id": ..., "company": ..., "tag": ..., "url": ..., "hash": {"sha256": hexdigest}},
@@ -66,7 +66,7 @@ def select_package(cmd, tag, cache, *, urlopen=_urlopen, by_id=False):
     ]}
     tag may be a list of tags that are allowed to match exactly.
     """
-    url = cmd.source.rstrip("/")
+    url = source.rstrip("/")
     if not url.casefold().endswith(".json".casefold()):
         url = f"{url}/index.json"
 
@@ -346,14 +346,14 @@ def print_cli_shortcuts(cmd, tags):
                 break
 
 
-def _find_one(cmd, tag, *, installed=None, by_id=False):
+def _find_one(cmd, source, tag, *, installed=None, by_id=False):
     if by_id:
         LOGGER.debug("Searching for Python with ID %s", tag)
     elif tag:
         LOGGER.verbose("Searching for Python matching %s", tag)
     else:
         LOGGER.verbose("Searching for default Python version")
-    install = select_package(cmd, tag, DOWNLOAD_CACHE, by_id=by_id)
+    install = select_package(cmd, source, tag, DOWNLOAD_CACHE, by_id=by_id)
 
     if by_id:
         return install
@@ -379,7 +379,7 @@ def _find_one(cmd, tag, *, installed=None, by_id=False):
     return None
 
 
-def _download_one(cmd, install, download_dir, *, must_copy=False):
+def _download_one(cmd, source, install, download_dir, *, must_copy=False):
     package = download_dir / f"{install['id']}-{install['sort-version']}.zip"
     # Preserve nupkg extensions so we can directly reference Nuget packages
     if install["url"].casefold().endswith(".nupkg".casefold()):
@@ -396,7 +396,7 @@ def _download_one(cmd, install, download_dir, *, must_copy=False):
     return package
 
 
-def _install_one(cmd, install, *, target=None):
+def _install_one(cmd, source, install, *, target=None):
     if cmd.repair:
         LOGGER.info("Repairing %s.", install['displayName'])
     elif cmd.update:
@@ -409,7 +409,7 @@ def _install_one(cmd, install, *, target=None):
         LOGGER.info("Skipping rest of install due to --dry-run")
         return
 
-    package = _download_one(cmd, install, cmd.download_dir)
+    package = _download_one(cmd, source, install, cmd.download_dir)
 
     dest = target or (cmd.install_dir / install["id"])
 
@@ -462,7 +462,7 @@ def _install_one(cmd, install, *, target=None):
         json.dump({
             **install,
             "url": sanitise_url(install["url"]),
-            "source": sanitise_url(cmd.source),
+            "source": sanitise_url(source),
         }, f, default=str)
 
     LOGGER.verbose("Install complete")
@@ -517,15 +517,35 @@ def execute(cmd):
             try:
                 spec = cmd.args[0]
             except IndexError:
-                LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
-                # TODO: What if the index has been overridden and the default tag isn't there?
-                spec = cmd.default_tag
+                if cmd.default_tag:
+                    LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
+                    spec = cmd.default_tag
+                else:
+                    LOGGER.debug("No tags provided, installing first runtime in feed")
+                    spec = None
 
             try:
                 tag = tag_or_range(spec) if spec else None
-                install = _find_one(cmd, tag)
+                first_exc = None
+                for source in [cmd.source, cmd.fallback_source]:
+                    if not source:
+                        continue
+                    try:
+                        install = _find_one(cmd, source, tag)
+                        break
+                    except LookupError:
+                        LOGGER.error("Failed to find a suitable install for '%s'.", tag)
+                        raise NoInstallFoundError()
+                    except Exception as ex:
+                        LOGGER.debug("Capturing error in case fallbacks fail", exc_info=True)
+                        first_exc = first_exc or ex
+                else:
+                    if first_exc:
+                        raise first_exc
+                    # Reachable if all sources are blank
+                    raise RuntimeError("All install sources failed, nothing can be installed.")
                 if install:
-                    _install_one(cmd, tag, target=Path(cmd.target))
+                    _install_one(cmd, source, tag, target=Path(cmd.target))
                 return
             except Exception as ex:
                 return _fatal_install_error(cmd, ex)
@@ -541,6 +561,13 @@ def execute(cmd):
             cmd.virtual_env = None
         installed = list(cmd.get_installs())
 
+        if cmd.download:
+            if cmd.force:
+                rmtree(cmd.download)
+            cmd.download.mkdir(exist_ok=True, parents=True)
+            # Do not check for existing installs
+            installed = []
+
         try:
             if not cmd.args:
                 if cmd.repair:
@@ -551,7 +578,26 @@ def execute(cmd):
                 elif cmd.update:
                     LOGGER.verbose("No tags provided, updating all installs:")
                     for install in installed:
-                        update = _find_one(cmd, install['id'], by_id=True)
+                        first_exc = None
+                        update = None
+                        for source in [install.get('source'), cmd.source, cmd.fallback_source]:
+                            if not source:
+                                continue
+                            try:
+                                update = _find_one(cmd, install['id'], by_id=True)
+                                if update:
+                                    break
+                            except LookupError:
+                                LOGGER.error("Failed to find a suitable update for '%s'.", install['id'])
+                                raise NoInstallFoundError()
+                            except Exception as ex:
+                                LOGGER.debug("Capturing error in case fallbacks fail", exc_info=True)
+                                first_exc = first_exc or ex
+                        else:
+                            if first_exc:
+                                raise first_exc
+                            # Reachable if all sources are blank
+                            raise RuntimeError("All install sources failed, nothing can be updated.")
                         if update:
                             if update['sort-version'] > install['sort-version']:
                                 _install_one(cmd, update)
@@ -565,23 +611,40 @@ def execute(cmd):
                     LOGGER.verbose("No tags provided, installing default tag %s", cmd.default_tag)
                     cmd.args = [cmd.default_tag]
 
-            for spec in cmd.args:
-                tag = tag_or_range(spec) if spec else None
+            installs = []
+            first_exc = None
+            for source in [cmd.source, cmd.fallback_source]:
+                if not source:
+                    continue
+                LOGGER.debug("Searching %s", source)
                 try:
-                    install = _find_one(cmd, tag, installed=installed)
+                    for spec in cmd.args:
+                        tag = tag_or_range(spec) if spec else None
+                        install = _find_one(cmd, source, tag, installed=installed)
+                        if install:
+                            installs.append(install)
+                    break
                 except LookupError:
                     LOGGER.error("Failed to find a suitable install for '%s'.", tag)
                     raise NoInstallFoundError()
-                if not install:
-                    continue
+                except Exception as ex:
+                    LOGGER.debug("Capturing error in case fallbacks fail", exc_info=True)
+                    first_exc = first_exc or ex
+            else:
+                if first_exc:
+                    raise first_exc
+                # Reachable if all sources are blank
+                raise RuntimeError("All install sources failed, nothing can be installed.")
+            for install in installs:
                 if cmd.download:
-                    package = _download_one(cmd, install, cmd.download, must_copy=True)
+                    LOGGER.info("Downloading %s", install["displayName"])
+                    package = _download_one(cmd, source, install, cmd.download, must_copy=True)
                     download_index["versions"].append({
                         **install,
                         "url": package.name,
                     })
                 else:
-                    _install_one(cmd, install)
+                    _install_one(cmd, source, install)
         except Exception as ex:
             return _fatal_install_error(cmd, ex)
 

@@ -451,6 +451,8 @@ wmain(int argc, wchar_t **argv)
         return err;
     }
 
+    CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+
     const wchar_t *default_cmd;
     bool use_commands, use_cli_tag, use_shebangs, use_autoinstall;
     per_exe_settings(argc, argv, &default_cmd, &use_commands, &use_cli_tag, &use_shebangs, &use_autoinstall);
