@@ -89,7 +89,7 @@ jobs:
 
   - ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
     - powershell: |
-        dotnet tool install sign --global
+        dotnet tool install --global --prerelease sign
         cd (mkdir -Force signing)
         "*.exe", "*.pyd" | Out-File -Encoding UTF8 "signlist1.txt"
         Write-Host "##vso[task.setvariable variable=SIGNLIST1]$(gi signlist1.txt)"
