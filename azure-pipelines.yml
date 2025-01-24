@@ -17,6 +17,9 @@ parameters:
   displayName: "Post test"
   type: boolean
   default: true
+- name: OverrideRef
+  displayName: "Force version (else uses tag)"
+  type: string
 - name: TestSign
   displayName: "Test Signed"
   type: boolean
@@ -35,6 +38,8 @@ variables:
   DIST_DIR: $(Build.ArtifactStagingDirectory)
   LAYOUT_DIR: $(Build.BinariesDirectory)\layout
   PYMANAGER_PUBLISH_URL: https://example.com
+  ${{ if parameters.OverrideRef }}:
+    OVERRIDE_REF: refs/tags/${{ parameters.OverrideRef }}
 
 
 jobs:

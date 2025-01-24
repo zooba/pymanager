@@ -18,14 +18,18 @@ if "-i" not in sys.argv:
 
 ref = "none"
 try:
-    with subprocess.Popen(
-        ["git", "describe", "HEAD", "--tags"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
-    ) as p:
-        out, err = p.communicate()
-    if out:
-        ref = "refs/tags/" + out.decode().strip()
+    if os.getenv("BUILD_SOURCEBRANCH"):
+        ref = os.getenv("BUILD_SOURCEBRANCH")
+    else:
+        with subprocess.Popen(
+            ["git", "describe", "HEAD", "--tags"],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        ) as p:
+            out, err = p.communicate()
+        if out:
+            ref = "refs/tags/" + out.decode().strip()
+    ref = os.getenv("OVERRIDE_REF", ref)
     print("Building for tag", ref)
 except subprocess.CalledProcessError:
     pass
@@ -33,7 +37,7 @@ except subprocess.CalledProcessError:
 # Run main build - this fills in BUILD and LAYOUT
 run([sys.executable, "-m", "pymsbuild", "wheel"],
     cwd=DIRS["root"],
-    env={**os.environ, "GITHUB_REF": ref})
+    env={**os.environ, "BUILD_SOURCEBRANCH": ref})
 
 # Overwrite bundled feed. This will be removed eventually
 run([sys.executable, "scripts/generate-nuget-index.py", LAYOUT / "bundled" / "index.json"])
