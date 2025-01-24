@@ -59,10 +59,10 @@ jobs:
     displayName: 'Install Nuget'
 
   - powershell: |
-      nuget install -o . -x -noninteractive python
-      Write-Host "##vso[task.prependpath](gi python\tools)"
+      nuget install -o host_python -x -noninteractive python
+      Write-Host "##vso[task.prependpath](gi host_python\python\tools)"
     displayName: 'Install host Python'
-    workingDirectory: $(Build.BinariesDirectory)\host_python
+    workingDirectory: $(Build.BinariesDirectory)
 
   - powershell: |
       python -m pip install pymsbuild
@@ -84,6 +84,7 @@ jobs:
   - ${{ if eq(parameters.Sign, 'true') }}:
     - powershell: |
         dotnet tool install sign --global
+        cd (mkdir -Force signing)
         "*.exe", "*.pyd" | Out-File -Encoding UTF8 "signlist1.txt"
         Write-Host "##vso[task.setvariable variable=SIGNLIST1]$(gi signlist1.txt)"
         "*.msix" | Out-File -Encoding UTF8 "signlist2.txt"
@@ -91,7 +92,7 @@ jobs:
         "*.msi" | Out-File -Encoding UTF8 "signlist3.txt"
         Write-Host "##vso[task.setvariable variable=SIGNLIST3]$(gi signlist3.txt)"
       displayName: 'Install signing tool and generate files'
-      workingDirectory: $(Build.BinariesDirectory)\signing
+      workingDirectory: $(Build.BinariesDirectory)
 
   - powershell: |
       python make.py
