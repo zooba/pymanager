@@ -1,6 +1,7 @@
 import os
 import sys
 
+from _native import fd_supports_vt100
 
 DEBUG = 10
 VERBOSE = 15
@@ -45,7 +46,14 @@ def supports_colour(stream):
         stream = stream.raw
     except AttributeError:
         pass
-    return type(stream).__name__ == "_WindowsConsoleIO"
+    if type(stream).__name__ != "_WindowsConsoleIO":
+        return False
+    try:
+        return fd_supports_vt100(stream.fileno())
+    except Exception:
+        if os.getenv("PYMANAGER_DEBUG"):
+            raise
+        return False
 
 
 class Logger:

@@ -131,16 +131,6 @@ static HRESULT get_job_progress(IBackgroundCopyJob *job, int *progress, int *alr
 
 extern "C" {
 
-PyObject *coinitialize(PyObject *, PyObject *args, PyObject *kwargs) {
-    HRESULT hr = CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
-    if (FAILED(hr)) {
-        PyErr_SetFromWindowsErr(hr);
-        return NULL;
-    }
-    Py_RETURN_NONE;
-}
-
-
 // Returns a capsule containing the BackgroundCopyManager instance
 PyObject *bits_connect(PyObject *, PyObject *args, PyObject *kwargs) {
     IBackgroundCopyManager *bcm = NULL;

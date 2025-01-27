@@ -662,6 +662,8 @@ def execute(cmd):
                 else:
                     # TODO: Also upgrade if requested tag was explicit about version
                     _install_one(cmd, source, install)
+        except ArgumentError:
+            raise
         except Exception as ex:
             return _fatal_install_error(cmd, ex)
 

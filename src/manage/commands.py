@@ -458,8 +458,10 @@ class BaseCommand:
 class ListCommand(BaseCommand):
     CMD = "list"
     HELP_LINE = "Shows all installed Python runtimes"
-    HELP_TEXT = r"""
-!G!List options:!W!
+    HELP_TEXT = r"""!G!List command!W!
+> py list !B![options] [<FILTER> ...]!W!
+
+!G!Options:!W!
     -f, --format=!B!<table,json,jsonl,exe,prefix>!W!
                      Specify output formatting (!B!list.format=...!W!)
     -1, --one        Only display first result
@@ -467,7 +469,7 @@ class ListCommand(BaseCommand):
     -s, --source=!B!<URL>!W!
                      List runtimes from a particular index
     --only-managed   Only list Python installs managed by the tool (!B!list.unmanaged=false!W!)
-    <TAG>            Filter results (Company\Tag or constraint format)
+    <FILTER>         Filter results (Company\Tag with optional <, <=, >, >= prefix)
 
 !B!EXAMPLE:!W! List all installed runtimes
 > py list
@@ -535,8 +537,10 @@ class ListPathsLegacyCommand(ListCommand):
 class InstallCommand(BaseCommand):
     CMD = "install"
     HELP_LINE = "Download new Python runtimes"
-    HELP_TEXT = r"""
-!G!Install options:!W!
+    HELP_TEXT = r"""!G!Install command!W!
+> py install !B![options] <TAG> [<TAG>] ...!W!
+
+!G!Options:!W!
     -s, --source=!B!<URI>!W!
                      Specify index.json to use (!B!install.source=...!W!)
     -t, --target=!B!<PATH>!W!
@@ -550,19 +554,19 @@ class InstallCommand(BaseCommand):
     !B!<TAG> <TAG>!W! ...  One or more tags to install (Company\Tag format)
 
 !B!EXAMPLE:!W! Install the latest Python 3 version
-> python install 3
+> py install 3
 
 !B!EXAMPLE:!W! Extract Python 3.13 ARM64 to a directory
-> python install --target=.\runtime 3.13-arm64
+> py install --target=.\runtime 3.13-arm64
 
 !B!EXAMPLE:!W! Clean reinstall of 3.13
-> python install --force 3.13
+> py install --force 3.13
 
 !B!EXAMPLE:!W! Refresh and replace all shortcuts
-> python install --refresh
+> py install --refresh
 
 !B!EXAMPLE:!W! Prepare an offline index with multiple versions
-> python install --download=.\pkgs 3.12 3.12-arm64 3.13 3.13-arm64
+> py install --download=.\pkgs 3.12 3.12-arm64 3.13 3.13-arm64
 """
 
     source = None
@@ -611,16 +615,18 @@ class InstallCommand(BaseCommand):
 class UninstallCommand(BaseCommand):
     CMD = "uninstall"
     HELP_LINE = "Remove runtimes from your machine"
-    HELP_TEXT = r"""
-!G!Uninstall options:!W!
+    HELP_TEXT = r"""!G!Uninstall command!W!
+> py uninstall !B![options] <TAG> [<TAG>] ...!W!
+
+!G!Options:!W!
     --purge          Remove all runtimes, shortcuts, and cached files. Ignores tags.
     !B!<TAG> <TAG>!W! ...  One or more runtimes to uninstall (Company\Tag format)
 
 !B!EXAMPLE:!W! Uninstall Python 3.12 32-bit
-> python uninstall 3.12-32
+> py uninstall 3.12-32
 
 !B!EXAMPLE:!W! Uninstall all runtimes without confirmation
-> python uninstall --yes --purge
+> py uninstall --yes --purge
 """
 
     confirm = True
@@ -644,8 +650,10 @@ class UninstallCommand(BaseCommand):
 class HelpCommand(BaseCommand):
     CMD = "help"
     HELP_LINE = "Show help for Python installation manager commands"
-    HELP_TEXT = r"""
-!G!Help options:!W!
+    HELP_TEXT = r"""!G!Help command!W!
+> py help !B![<CMD>] ...!W!
+
+!G!Options:!W!
     !B!<CMD>!W! ...       One or more commands to show help for. If omitted, lists
                     commands and global options only.
 """
