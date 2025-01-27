@@ -104,6 +104,13 @@ def get_installs(install_dir, default_tag, include_unmanaged=True, virtual_env=N
                 new_aliases.insert(0, {"name": "python.exe", "target": i["executable"]})
             seen_alias.update(a["name"].casefold() for a in aliases)
             i["alias"] = new_aliases
+    # Second chance to set default - include unmanaged installs this time
+    if not seen_default:
+        for i in installs:
+            i_tag = CompanyTag.from_dict(i)
+            if (not default_tag or i_tag.match(default_tag)):
+                i["default"] = True
+                break
     return installs
 
 

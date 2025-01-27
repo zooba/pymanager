@@ -362,6 +362,10 @@ def install_matches_any(install, tags_or_ranges, *, loose_company=False):
         install_tags.append(own_tag)
 
     for f in tags_or_ranges:
+        if not f:
+            if install.get("default"):
+                return True
+            continue
         if isinstance(f, TagRange):
             if f.satisfied_by(own_tag):
                 return True

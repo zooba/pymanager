@@ -396,7 +396,7 @@ class BaseCommand:
         raise NotImplementedError(f"'{type(self).__name__}' does not implement 'execute()'")
 
     @classmethod
-    def help_text(self):
+    def subcommands_list(cls):
         cmd_help = [
             "    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", ""))
             for cmd in sorted(COMMANDS)
@@ -405,7 +405,11 @@ class BaseCommand:
         return fr"""
 !G!Subcommands:!W!
 {'\n'.join(cmd_help)}
+""".lstrip().replace("\r\n", "\n")
 
+    @classmethod
+    def help_text(cls):
+        return fr"""
 !G!Global options:!W!
     -v, --verbose    Increased output (!B!log_level={logging.INFO}!W!)
     -vv              Further increased output (!B!log_level={logging.DEBUG}!W!)
@@ -416,6 +420,8 @@ class BaseCommand:
 """.lstrip().replace("\r\n", "\n")
 
     def help(self):
+        if type(self) is BaseCommand:
+            LOGGER.print(self.subcommands_list())
         LOGGER.print(self.help_text())
         try:
             LOGGER.print(self.HELP_TEXT.lstrip())
@@ -578,10 +584,10 @@ class InstallCommand(BaseCommand):
 
         if not self.source:
             # HACK: For testing until we get a reasonable default feed
-            self.source = "./bundled/index.json"
+            self.source = str(Path(root) / "./bundled/index.json")
             if not Path(self.source).is_file():
                 raise ArgumentError("No source feed specified.")
-        elif "://" not in self.source:
+        if "://" not in str(self.source):
             try:
                 self.source = Path(self.source).absolute().as_uri()
             except Exception as ex:
@@ -648,6 +654,8 @@ class HelpCommand(BaseCommand):
 
     def execute(self):
         LOGGER.print(COPYRIGHT)
+        if not self.args:
+            LOGGER.print(BaseCommand.subcommands_list())
         LOGGER.print(BaseCommand.help_text())
         for a in self.args:
             try:
@@ -685,13 +693,4 @@ def find_command(args, root):
 
 
 def show_help(args):
-    for a in args:
-        try:
-            cls = COMMANDS[a.lower()]
-        except LookupError:
-            continue
-
-        cls([cls.CMD, "-?"]).help()
-        return
-    LOGGER.print(COPYRIGHT)
-    LOGGER.print(BaseCommand.help_text())
+    HelpCommand(["help", *args]).execute()

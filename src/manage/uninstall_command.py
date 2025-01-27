@@ -1,15 +1,8 @@
 from pathlib import PurePath
 
+from .exceptions import ArgumentError
 from .fsutils import rmtree, unlink
 from .logging import LOGGER
-
-
-def find_install(installed, company, tag):
-    for i in installed:
-        if i["tag"].casefold().startswith(tag):
-            if company and i("company").casefold() != company:
-                continue
-            return i
 
 
 def ask_yn(*prompt):
@@ -33,6 +26,7 @@ def execute(cmd):
     LOGGER.debug("BEGIN uninstall_command.execute: %r", cmd.args)
 
     from .install_command import update_all_shortcuts
+    from .tagutils import install_matches_any, tag_or_range
 
     warn_msg = ("Attempting to remove {} is taking longer than expected. " +
         "Ensure no Python interpreters are running, and continue to wait " +
@@ -58,31 +52,53 @@ def execute(cmd):
         LOGGER.debug("END uninstall_command.execute")
         return
 
-    for tag in cmd.args:
-        company, _, tag = tag.casefold().replace("/", "\\").rpartition("\\")
-        i = find_install(installed, company, tag)
-        if i:
-            LOGGER.debug("Uninstalling %s from %s", i["displayName"], i["prefix"])
-            if cmd.confirm and not ask_yn("Uninstall ", i["displayName"], "?"):
-                break
-            # Remove registration first to avoid stray installs showing up
-            unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["displayName"]))
-            rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["displayName"]))
-            LOGGER.info("Removed %s", i["displayName"])
-            try:
-                for target in cmd.global_dir.glob("*.__target__"):
-                    alias = target.with_suffix("")
-                    entry = target.read_text(encoding="utf-8-sig", errors="strict")
-                    if PurePath(entry).match(i["executable"]):
-                        LOGGER.debug("Unlink %s", alias)
-                        unlink(alias, after_5s_warning=warn_msg.format(alias))
-                        unlink(target, after_5s_warning=warn_msg.format(target))
-            except OSError as ex:
-                LOGGER.warn("Failed to remove alias: %s", ex)
-                LOGGER.debug("TRACEBACK:", exc_info=True)
-        else:
-            LOGGER.warn("No install found matching '%s'", tag)
+    if not cmd.args:
+        raise ArgumentError("Please specify one or more runtimes to uninstall.")
 
-    update_all_shortcuts(cmd, path_warning=False)
+    to_uninstall = []
+    for tag in cmd.args:
+        if tag.casefold() == "default".casefold():
+            tag = cmd.default_tag
+        filters = [tag_or_range(tag) if tag else None]
+        try:
+            i = next(i for i in installed if install_matches_any(i, filters))
+        except StopIteration:
+            LOGGER.warn("No install found matching '%s'", tag)
+            continue
+        to_uninstall.append(i)
+        installed.remove(i)
+
+    if not to_uninstall:
+        LOGGER.info("No runtimes selected to uninstall.")
+        return
+    elif cmd.confirm:
+        if len(to_uninstall) == 1:
+            if not ask_yn("Uninstall ", to_uninstall[0]["displayName"], "?"):
+                return
+        else:
+            msg = ", ".join(i["displayName"] for i in to_uninstall)
+            if not ask_yn("Uninstall these runtimes: ", msg, "?"):
+                return
+
+    for i in to_uninstall:
+        LOGGER.debug("Uninstalling %s from %s", i["displayName"], i["prefix"])
+        # Remove registration first to avoid stray installs showing up
+        unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["displayName"]))
+        rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["displayName"]))
+        LOGGER.info("Removed %s", i["displayName"])
+        try:
+            for target in cmd.global_dir.glob("*.__target__"):
+                alias = target.with_suffix("")
+                entry = target.read_text(encoding="utf-8-sig", errors="strict")
+                if PurePath(entry).match(i["executable"]):
+                    LOGGER.debug("Unlink %s", alias)
+                    unlink(alias, after_5s_warning=warn_msg.format(alias))
+                    unlink(target, after_5s_warning=warn_msg.format(target))
+        except OSError as ex:
+            LOGGER.warn("Failed to remove alias: %s", ex)
+            LOGGER.debug("TRACEBACK:", exc_info=True)
+
+    if to_uninstall:
+        update_all_shortcuts(cmd, path_warning=False)
 
     LOGGER.debug("END uninstall_command.execute")

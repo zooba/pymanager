@@ -178,7 +178,8 @@ def execute(cmd):
         raise ArgumentError(f"'{cmd.format}' is not a valid format; expect one of: {expect}") from None
 
     from .tagutils import tag_or_range, install_matches_any
-    tags = [tag_or_range(arg) for arg in cmd.args]
+    tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
+            for arg in cmd.args]
     if tags:
         LOGGER.debug("Filtering to following items")
         for t in tags:

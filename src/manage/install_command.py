@@ -13,7 +13,7 @@ from .exceptions import (
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
 from .logging import LOGGER, ProgressPrinter
-from .tagutils import CompanyTag, tag_or_range
+from .tagutils import CompanyTag, install_matches_any, tag_or_range
 from .urlutils import (
     sanitise_url,
     urljoin,
@@ -338,7 +338,7 @@ def print_cli_shortcuts(cmd, tags):
             if CompanyTag.from_dict(i).match(tag):
                 aliases = ", ".join(sorted(a["name"] for a in i["alias"]))
                 if aliases:
-                    LOGGER.info("Installed %s as %s", i["displayName"], aliases)
+                    LOGGER.info("%s can be launched with %s", i["displayName"], aliases)
                 else:
                     LOGGER.info("Installed %s to %s", i["displayName"], i["prefix"])
                 if i.get("default"):
@@ -374,6 +374,11 @@ def _find_one(cmd, source, tag, *, installed=None, by_id=False):
             return install
         LOGGER.info("%s is already up to date.", existing[0]["displayName"])
         return None
+
+    # Return the package if it was requested in a way that wouldn't have
+    # selected the existing package (e.g. full version match)
+    if not install_matches_any(existing[0], [tag]):
+        return install
 
     LOGGER.info("%s is already installed.", existing[0]["displayName"])
     return None
@@ -523,6 +528,8 @@ def execute(cmd):
                 raise ArgumentError("Unable to install multiple versions with --target")
             try:
                 spec = cmd.args[0]
+                if spec.casefold() == "default".casefold():
+                    spec = cmd.default_tag
             except IndexError:
                 if cmd.default_tag:
                     LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
@@ -552,7 +559,7 @@ def execute(cmd):
                     # Reachable if all sources are blank
                     raise RuntimeError("All install sources failed, nothing can be installed.")
                 if install:
-                    _install_one(cmd, source, tag, target=Path(cmd.target))
+                    _install_one(cmd, source, install, target=Path(cmd.target))
                 return
             except Exception as ex:
                 return _fatal_install_error(cmd, ex)
@@ -615,8 +622,8 @@ def execute(cmd):
                                 install['displayName'], install['id'])
                     # Fallthrough is safe - cmd.args is empty
                 else:
-                    LOGGER.verbose("No tags provided, installing default tag %s", cmd.default_tag)
-                    cmd.args = [cmd.default_tag]
+                    raise ArgumentError("Specify at least one tag to install, or 'default' for "
+                                        "the configured default version.")
 
             installs = []
             first_exc = None
@@ -626,6 +633,8 @@ def execute(cmd):
                 LOGGER.debug("Searching %s", source)
                 try:
                     for spec in cmd.args:
+                        if spec.casefold() == "default".casefold():
+                            spec = cmd.default_tag
                         tag = tag_or_range(spec) if spec else None
                         install = _find_one(cmd, source, tag, installed=installed)
                         if install:
@@ -651,6 +660,7 @@ def execute(cmd):
                         "url": package.name,
                     })
                 else:
+                    # TODO: Also upgrade if requested tag was explicit about version
                     _install_one(cmd, source, install)
         except Exception as ex:
             return _fatal_install_error(cmd, ex)

@@ -254,7 +254,6 @@ def _patch_appinstaller(file, tmp):
     txt = txt.replace("${VERSION}", _make_xyzw_version(METADATA["Version"]))
     txt = txt.replace("${URL}", os.getenv("PYMANAGER_PUBLISH_URL", "https://example.com"))
     txt = txt.replace("${MSIX_FILENAME}", f"python-manager-{METADATA['Version']}.msix")
-    txt = txt.replace("${PUBLISHER}", os.getenv("PYMANAGER_APPX_PUBLISHER", ""))
     update_file(tmp, txt)
     file.source = tmp
 

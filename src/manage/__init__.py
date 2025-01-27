@@ -17,6 +17,7 @@ __all__ = ["main", "NoInstallFoundError", "NoInstallsError", "find_one"]
 
 
 def main(args, root=None):
+    cmd = None
     delete_log = None
     try:
         from .commands import find_command, show_help
@@ -27,13 +28,8 @@ def main(args, root=None):
 
         try:
             cmd = find_command(args[1:], root)
-        except LookupError:
-            cmd = show_help([])
-            return 1
-        except ArgumentError as ex:
-            cmd = show_help(args[1:])
-            LOGGER.error("%s", ex)
-            return 1
+        except LookupError as ex:
+            raise ArgumentError("Unrecognized command") from ex
 
         if cmd.show_help:
             cmd.help()
@@ -50,6 +46,13 @@ def main(args, root=None):
     except AutomaticInstallDisabledError as ex:
         LOGGER.error("%s", ex)
         return ex.exitcode
+    except ArgumentError as ex:
+        if cmd:
+            cmd.help()
+        else:
+            show_help(args[1:2])
+        LOGGER.error("%s", ex)
+        return 1
     except SilentError as ex:
         LOGGER.debug("SILENCED ERROR", exc_info=True)
         return ex.exitcode
