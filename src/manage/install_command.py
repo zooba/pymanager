@@ -275,6 +275,7 @@ def _cleanup_start_shortcut(cmd, install_shortcut_pairs):
 SHORTCUT_HANDLERS = {
     "pep514": (_create_shortcut_pep514, _cleanup_shortcut_pep514),
     "start": (_create_start_shortcut, _cleanup_start_shortcut),
+    # TODO: "uninstall" shortcut kind for ARP entry
 }
 
 
@@ -598,7 +599,7 @@ def execute(cmd):
                             if not source:
                                 continue
                             try:
-                                update = _find_one(cmd, install['id'], by_id=True)
+                                update = _find_one(cmd, source, install['id'], by_id=True)
                                 if update:
                                     break
                             except LookupError:
