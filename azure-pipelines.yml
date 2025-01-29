@@ -38,7 +38,6 @@ variables:
   PYMSBUILD_TEMP_DIR: $(Build.BinariesDirectory)
   DIST_DIR: $(Build.ArtifactStagingDirectory)
   LAYOUT_DIR: $(Build.BinariesDirectory)\layout
-  PYMANAGER_PUBLISH_URL: https://example.com
   ${{ if ne(parameters.OverrideRef, '(tag)') }}:
     OVERRIDE_REF: refs/tags/${{ parameters.OverrideRef }}
 
