@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AppInstaller
     xmlns="http://schemas.microsoft.com/appx/appinstaller/2017/2"
-    Version="${VERSION}"
-    Uri="${URL}/pymanager.appinstaller">
+    Version="${Version}"
+    Uri="${Url}/pymanager.appinstaller">
 
     <MainPackage
-        Name="PythonSoftwareFoundation.PyManager"
-        Publisher="CN=4975D53F-AA7E-49A5-8B49-EA4FDC1BB66B"
-        Version="${VERSION}"
-        Uri="${URL}/${MSIX_FILENAME}" />
+        Name="PythonSoftwareFoundation.PythonManager"
+        Publisher="${Publisher}"
+        Version="${Version}"
+        Uri="${Url}/${Filename}" />
 
     <UpdateSettings>
         <OnLaunch HoursBetweenUpdateChecks="24"/>

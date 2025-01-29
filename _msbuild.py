@@ -247,16 +247,13 @@ def _patch_appx_identity(source, dest, **new):
         xml.write(f, "utf-8")
 
 
-def _patch_appinstaller(file, tmp):
-    if not file:
-        return
-    with open(file.source, "r", encoding="utf-8") as f:
+def _patch_appinstaller(source, dest, **new):
+    with open(source, "r", encoding="utf-8") as f:
         txt = f.read()
-    txt = txt.replace("${VERSION}", _make_xyzw_version(METADATA["Version"]))
-    txt = txt.replace("${URL}", os.getenv("PYMANAGER_PUBLISH_URL", "https://example.com"))
-    txt = txt.replace("${MSIX_FILENAME}", f"python-manager-{METADATA['Version']}.msix")
-    update_file(tmp, txt)
-    file.source = tmp
+    for k, v in new.items():
+        if v:
+            txt = txt.replace(f"${{{k}}}", v)
+    update_file(dest, txt)
 
 
 def update_file(file, content):
@@ -302,16 +299,27 @@ def init_PACKAGE(tag=None):
     update_file(ver_txt, str(METADATA['Version']))
     PACKAGE.members.append(PyFile(ver_txt))
 
-    # PATCH VERSION INTO appxmanifest.xml
+    # PATCH appxmanifest.xml AND pymanager.appinstaller
+    appx_version = _make_xyzw_version(METADATA["Version"])
+    appx_publisher = os.getenv("PYMANAGER_APPX_PUBLISHER", "CN=00000000-0000-0000-0000-000000000000")
+    appx_url = os.getenv("PYMANAGER_PUBLISH_URL", "https://example.com")
+    appx_filename = f"python-manager-{METADATA['Version']}.msix"
+
     appx_xml = tmpdir / "appxmanifest.xml"
     _patch_appx_identity(PACKAGE.find("appxmanifest.xml").source, appx_xml,
-        Version=_make_xyzw_version(METADATA["Version"]),
+        Version=appx_version,
         Publisher=os.getenv("PYMANAGER_APPX_PUBLISHER"),
     )
     PACKAGE.find("appxmanifest.xml").source = appx_xml
 
-    # PATCH VERSION INTO pymanager.appinstaller
-    _patch_appinstaller(PACKAGE.find("pymanager.appinstaller"), tmpdir / "pymanager.appinstaller")
+    appinstaller = tmpdir / "pymanager.appinstaller"
+    _patch_appinstaller(PACKAGE.find("pymanager.appinstaller").source, appinstaller,
+        Version=appx_version,
+        Publisher=appx_publisher,
+        Url=appx_url,
+        Filename=appx_filename,
+    )
+    PACKAGE.find("pymanager.appinstaller").source = appinstaller
 
     # GENERATE SUBCOMMAND LIST
     cmds = get_commands()

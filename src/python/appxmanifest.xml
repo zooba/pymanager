@@ -12,8 +12,8 @@
     xmlns:uap13="http://schemas.microsoft.com/appx/manifest/uap/windows10/13"
     xmlns:uap17="http://schemas.microsoft.com/appx/manifest/uap/windows10/17">
     <Identity Name="PythonSoftwareFoundation.PythonManager"
-              Version="1.0.0.2"
-              Publisher="CN=4975D53F-AA7E-49A5-8B49-EA4FDC1BB66B"
+              Version="1.0.0.0"
+              Publisher="CN=00000000-0000-0000-0000-000000000000"
               ProcessorArchitecture="x64" />
     <Properties>
         <DisplayName>Python Install Manager</DisplayName>

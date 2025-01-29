@@ -117,6 +117,7 @@ def get_output_name(dirs):
 
 
 copyfile = shutil.copyfile
+copytree = shutil.copytree
 
 
 def rmtree(path):
