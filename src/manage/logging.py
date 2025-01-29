@@ -1,8 +1,6 @@
 import os
 import sys
 
-from _native import fd_supports_vt100
-
 DEBUG = 10
 VERBOSE = 15
 INFO = 20
@@ -49,11 +47,13 @@ def supports_colour(stream):
     if type(stream).__name__ != "_WindowsConsoleIO":
         return False
     try:
+        # Allows us to import logging on its own
+        from _native import fd_supports_vt100
         return fd_supports_vt100(stream.fileno())
     except Exception:
         if os.getenv("PYMANAGER_DEBUG"):
             raise
-        return False
+    return False
 
 
 class Logger:
