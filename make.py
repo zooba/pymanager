@@ -43,7 +43,7 @@ run([sys.executable, "-m", "pymsbuild", "wheel"],
 run([sys.executable, "scripts/generate-nuget-index.py", LAYOUT / "bundled" / "index.json"])
 
 # Bundle current latest release
-run([LAYOUT / "py-manage.exe", "install", "-v", "-f", "--download", TEMP / "bundle"])
+run([LAYOUT / "py-manage.exe", "install", "-v", "-f", "--download", TEMP / "bundle", "default"])
 (TEMP / "bundle" / "index.json").rename(LAYOUT / "bundled" / "fallback-index.json")
 for f in (TEMP / "bundle").iterdir():
     f.rename(LAYOUT / "bundled" / f.name)
