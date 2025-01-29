@@ -11,6 +11,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a4",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14",
           "target": "python.exe"
         },
@@ -91,6 +95,10 @@
         "3.14.0a3"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a3",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14",
           "target": "python.exe"
@@ -173,6 +181,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a2",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14",
           "target": "python.exe"
         },
@@ -253,6 +265,10 @@
         "3.14.0a1"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a1",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14",
           "target": "python.exe"
@@ -337,6 +353,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.1",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -420,6 +440,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -500,6 +524,10 @@
         "3.13.0rc3"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc3",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13",
           "target": "python.exe"
@@ -582,6 +610,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0rc2",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -662,6 +694,10 @@
         "3.13.0rc1"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc1",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13",
           "target": "python.exe"
@@ -744,6 +780,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b4",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -824,6 +864,10 @@
         "3.13.0b3"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b3",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13",
           "target": "python.exe"
@@ -906,6 +950,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b2",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -986,6 +1034,10 @@
         "3.13.0b1"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b1",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13",
           "target": "python.exe"
@@ -1068,6 +1120,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a6",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -1148,6 +1204,10 @@
         "3.13.0a5"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a5",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13",
           "target": "python.exe"
@@ -1230,6 +1290,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a4",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -1310,6 +1374,10 @@
         "3.13.0a3"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a3",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13",
           "target": "python.exe"
@@ -1392,6 +1460,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a2",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13",
           "target": "python.exe"
         },
@@ -1472,6 +1544,10 @@
         "3.13.0a1"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a1",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13",
           "target": "python.exe"
@@ -1556,6 +1632,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.8",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -1638,6 +1718,10 @@
         "3"
       ],
       "run-for": [
+        {
+          "tag": "3.12.7",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -1722,6 +1806,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.6",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -1804,6 +1892,10 @@
         "3"
       ],
       "run-for": [
+        {
+          "tag": "3.12.5",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -1888,6 +1980,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.4",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -1970,6 +2066,10 @@
         "3"
       ],
       "run-for": [
+        {
+          "tag": "3.12.3",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -2054,6 +2154,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.2",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -2136,6 +2240,10 @@
         "3"
       ],
       "run-for": [
+        {
+          "tag": "3.12.1",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -2220,6 +2328,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -2300,6 +2412,10 @@
         "3.12.0rc3"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0rc3",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -2382,6 +2498,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0rc2",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -2462,6 +2582,10 @@
         "3.12.0rc1"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0rc1",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -2544,6 +2668,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0b4",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -2624,6 +2752,10 @@
         "3.12.0b3"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0b3",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -2706,6 +2838,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0b2",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -2786,6 +2922,10 @@
         "3.12.0b1"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0b1",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -2868,6 +3008,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a7",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -2948,6 +3092,10 @@
         "3.12.0a6"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a6",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -3030,6 +3178,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a5",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -3110,6 +3262,10 @@
         "3.12.0a4"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a4",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -3192,6 +3348,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a3",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -3272,6 +3432,10 @@
         "3.12.0a2"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a2",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12",
           "target": "python.exe"
@@ -3354,6 +3518,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a1",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12",
           "target": "python.exe"
         },
@@ -3434,6 +3602,10 @@
         "3.14.0a4-32"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a4-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14-32",
           "target": "python.exe"
@@ -3516,6 +3688,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a3-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14-32",
           "target": "python.exe"
         },
@@ -3597,6 +3773,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a2-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14-32",
           "target": "python.exe"
         },
@@ -3677,6 +3857,10 @@
         "3.14.0a1-32"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a1-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14-32",
           "target": "python.exe"
@@ -3761,6 +3945,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.1-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -3844,6 +4032,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -3924,6 +4116,10 @@
         "3.13.0rc3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc3-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-32",
           "target": "python.exe"
@@ -4006,6 +4202,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0rc2-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -4086,6 +4286,10 @@
         "3.13.0rc1-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc1-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-32",
           "target": "python.exe"
@@ -4168,6 +4372,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b4-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -4248,6 +4456,10 @@
         "3.13.0b3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b3-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-32",
           "target": "python.exe"
@@ -4330,6 +4542,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b2-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -4410,6 +4626,10 @@
         "3.13.0b1-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b1-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-32",
           "target": "python.exe"
@@ -4492,6 +4712,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a6-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -4572,6 +4796,10 @@
         "3.13.0a5-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a5-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-32",
           "target": "python.exe"
@@ -4654,6 +4882,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a4-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -4734,6 +4966,10 @@
         "3.13.0a3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a3-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-32",
           "target": "python.exe"
@@ -4816,6 +5052,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a2-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-32",
           "target": "python.exe"
         },
@@ -4896,6 +5136,10 @@
         "3.13.0a1-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a1-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-32",
           "target": "python.exe"
@@ -4980,6 +5224,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.8-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -5062,6 +5310,10 @@
         "3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.7-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -5146,6 +5398,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.6-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -5228,6 +5484,10 @@
         "3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.5-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -5312,6 +5572,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.4-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -5394,6 +5658,10 @@
         "3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.3-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -5478,6 +5746,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.2-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -5560,6 +5832,10 @@
         "3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.1-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -5644,6 +5920,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -5724,6 +6004,10 @@
         "3.12.0rc3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0rc3-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -5806,6 +6090,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0rc2-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -5886,6 +6174,10 @@
         "3.12.0rc1-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0rc1-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -5968,6 +6260,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0b4-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -6048,6 +6344,10 @@
         "3.12.0b3-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0b3-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -6130,6 +6430,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0b2-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -6210,6 +6514,10 @@
         "3.12.0b1-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0b1-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -6292,6 +6600,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a7-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -6372,6 +6684,10 @@
         "3.12.0a6-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a6-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -6454,6 +6770,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a5-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -6534,6 +6854,10 @@
         "3.12.0a4-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a4-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -6616,6 +6940,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a3-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -6696,6 +7024,10 @@
         "3.12.0a2-32"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a2-32",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-32",
           "target": "python.exe"
@@ -6778,6 +7110,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a1-32",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-32",
           "target": "python.exe"
         },
@@ -6858,6 +7194,10 @@
         "3.14.0a4-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a4-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
@@ -6940,6 +7280,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a3-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14-arm64",
           "target": "python.exe"
         },
@@ -7021,6 +7365,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a2-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14-arm64",
           "target": "python.exe"
         },
@@ -7101,6 +7449,10 @@
         "3.14.0a1-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a1-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
@@ -7185,6 +7537,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.1-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -7268,6 +7624,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -7348,6 +7708,10 @@
         "3.13.0rc3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc3-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
@@ -7430,6 +7794,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0rc2-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -7510,6 +7878,10 @@
         "3.13.0rc1-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc1-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
@@ -7592,6 +7964,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b4-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -7672,6 +8048,10 @@
         "3.13.0b3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b3-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
@@ -7754,6 +8134,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b2-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -7834,6 +8218,10 @@
         "3.13.0b1-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b1-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
@@ -7916,6 +8304,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a6-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -7996,6 +8388,10 @@
         "3.13.0a5-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a5-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
@@ -8078,6 +8474,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a4-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -8158,6 +8558,10 @@
         "3.13.0a3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a3-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
@@ -8240,6 +8644,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a2-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13-arm64",
           "target": "python.exe"
         },
@@ -8320,6 +8728,10 @@
         "3.13.0a1-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a1-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
@@ -8404,6 +8816,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.8-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -8486,6 +8902,10 @@
         "3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.7-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -8570,6 +8990,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.6-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -8652,6 +9076,10 @@
         "3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.5-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -8736,6 +9164,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.4-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -8818,6 +9250,10 @@
         "3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.3-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -8902,6 +9338,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.2-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -8984,6 +9424,10 @@
         "3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.1-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -9068,6 +9512,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -9148,6 +9596,10 @@
         "3.12.0rc3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0rc3-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -9230,6 +9682,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0rc2-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -9310,6 +9766,10 @@
         "3.12.0rc1-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0rc1-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -9392,6 +9852,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0b4-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -9472,6 +9936,10 @@
         "3.12.0b3-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0b3-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -9554,6 +10022,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0b2-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -9634,6 +10106,10 @@
         "3.12.0b1-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0b1-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -9716,6 +10192,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a7-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -9796,6 +10276,10 @@
         "3.12.0a6-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a6-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -9878,6 +10362,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a5-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -9958,6 +10446,10 @@
         "3.12.0a4-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a4-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -10040,6 +10532,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a3-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -10120,6 +10616,10 @@
         "3.12.0a2-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.12.0a2-arm64",
+          "target": "python.exe"
+        },
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
@@ -10202,6 +10702,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.12.0a1-arm64",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.12-arm64",
           "target": "python.exe"
         },
@@ -10282,6 +10786,10 @@
         "3.14.0a4t"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a4t",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14t",
           "target": "python.exe"
@@ -10364,6 +10872,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a3t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14t",
           "target": "python.exe"
         },
@@ -10445,6 +10957,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a2t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.14t",
           "target": "python.exe"
         },
@@ -10525,6 +11041,10 @@
         "3.14.0a1t"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a1t",
+          "target": "python.exe"
+        },
         {
           "tag": "3.14t",
           "target": "python.exe"
@@ -10609,6 +11129,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.1t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13t",
           "target": "python.exe"
         },
@@ -10692,6 +11216,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13t",
           "target": "python.exe"
         },
@@ -10772,6 +11300,10 @@
         "3.13.0rc3t"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc3t",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13t",
           "target": "python.exe"
@@ -10854,6 +11386,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0rc2t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13t",
           "target": "python.exe"
         },
@@ -10934,6 +11470,10 @@
         "3.13.0rc1t"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc1t",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13t",
           "target": "python.exe"
@@ -11016,6 +11556,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b4t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13t",
           "target": "python.exe"
         },
@@ -11096,6 +11640,10 @@
         "3.13.0b3t"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b3t",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13t",
           "target": "python.exe"
@@ -11178,6 +11726,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b2t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13t",
           "target": "python.exe"
         },
@@ -11258,6 +11810,10 @@
         "3.13.0b1t"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b1t",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13t",
           "target": "python.exe"
@@ -11340,6 +11896,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a6t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13t",
           "target": "python.exe"
         },
@@ -11420,6 +11980,10 @@
         "3.13.0a5t"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a5t",
+          "target": "python.exe"
+        },
         {
           "tag": "3.13t",
           "target": "python.exe"
@@ -11502,6 +12066,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a4t",
+          "target": "python.exe"
+        },
+        {
           "tag": "3.13t",
           "target": "python.exe"
         },
@@ -11582,6 +12150,10 @@
         "3.14.0a4t-32"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a4t-32",
+          "target": "python3.14t.exe"
+        },
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
@@ -11664,6 +12236,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a3t-32",
+          "target": "python3.14t.exe"
+        },
+        {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
         },
@@ -11745,6 +12321,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a2t-32",
+          "target": "python3.14t.exe"
+        },
+        {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
         },
@@ -11825,6 +12405,10 @@
         "3.14.0a1t-32"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a1t-32",
+          "target": "python3.14t.exe"
+        },
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
@@ -11909,6 +12493,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.1t-32",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
         },
@@ -11992,6 +12580,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0t-32",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
         },
@@ -12072,6 +12664,10 @@
         "3.13.0rc3t-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc3t-32",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
@@ -12154,6 +12750,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0rc2t-32",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
         },
@@ -12234,6 +12834,10 @@
         "3.13.0rc1t-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc1t-32",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
@@ -12316,6 +12920,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b4t-32",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
         },
@@ -12396,6 +13004,10 @@
         "3.13.0b3t-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b3t-32",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
@@ -12478,6 +13090,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b2t-32",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
         },
@@ -12558,6 +13174,10 @@
         "3.13.0b1t-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b1t-32",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
@@ -12640,6 +13260,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a6t-32",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
         },
@@ -12720,6 +13344,10 @@
         "3.13.0a5t-32"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a5t-32",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
@@ -12802,6 +13430,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a4t-32",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
         },
@@ -12882,6 +13514,10 @@
         "3.14.0a4t-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a4t-arm64",
+          "target": "python3.14t.exe"
+        },
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
@@ -12964,6 +13600,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a3t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
         },
@@ -13045,6 +13685,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.14.0a2t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
         },
@@ -13125,6 +13769,10 @@
         "3.14.0a1t-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.14.0a1t-arm64",
+          "target": "python3.14t.exe"
+        },
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
@@ -13209,6 +13857,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.1t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
         },
@@ -13292,6 +13944,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
         },
@@ -13372,6 +14028,10 @@
         "3.13.0rc3t-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc3t-arm64",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
@@ -13454,6 +14114,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0rc2t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
         },
@@ -13534,6 +14198,10 @@
         "3.13.0rc1t-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0rc1t-arm64",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
@@ -13616,6 +14284,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b4t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
         },
@@ -13696,6 +14368,10 @@
         "3.13.0b3t-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b3t-arm64",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
@@ -13778,6 +14454,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0b2t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
         },
@@ -13858,6 +14538,10 @@
         "3.13.0b1t-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0b1t-arm64",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
@@ -13940,6 +14624,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a6t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
         },
@@ -14021,6 +14709,10 @@
       ],
       "run-for": [
         {
+          "tag": "3.13.0a5t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
         },
@@ -14101,6 +14793,10 @@
         "3.13.0a4t-arm64"
       ],
       "run-for": [
+        {
+          "tag": "3.13.0a4t-arm64",
+          "target": "python3.13t.exe"
+        },
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"

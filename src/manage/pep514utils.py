@@ -303,9 +303,9 @@ def _get_store_installs():
                 "tag": tag,
                 "run-for": [
                     {"tag": tag, "target": "python.exe"},
-                    {"tag": tag, "target": "pythonw.exe"},
+                    {"tag": tag, "target": "pythonw.exe", "windowed": 1},
                     {"tag": "3", "target": "python.exe"},
-                    {"tag": "3", "target": "pythonw.exe"},
+                    {"tag": "3", "target": "pythonw.exe", "windowed": 1},
                 ],
                 "displayName": f"Python {tag} (Store)",
                 "prefix": prefix,

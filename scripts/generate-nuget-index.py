@@ -32,6 +32,7 @@ SCHEMA = {
         "tag": "$FULLVERSION$",
         "install-for": ["$FULLVERSION$", "$XYVERSIONNOPRE$", "$XVERSIONNOPRE$"],
         "run-for": [
+            {"tag": "$FULLVERSION$", "target": "python.exe"},
             {"tag": "$XYVERSION$", "target": "python.exe"},
             {"tag": "$XVERSION$", "target": "python.exe"}
         ],
@@ -91,6 +92,7 @@ SCHEMA = {
         "tag": "$FULLVERSION$-32",
         "install-for": ["$FULLVERSION$-32", "$XYVERSIONNOPRE$-32", "$XVERSIONNOPRE$-32"],
         "run-for": [
+            {"tag": "$FULLVERSION$-32", "target": "python.exe"},
             {"tag": "$XYVERSION$-32", "target": "python.exe"},
             {"tag": "$XVERSION$-32", "target": "python.exe"}
         ],
@@ -150,6 +152,7 @@ SCHEMA = {
         "tag": "$FULLVERSION$-arm64",
         "install-for": ["$FULLVERSION$-arm64", "$XYVERSIONNOPRE$-arm64", "$XVERSIONNOPRE$-arm64"],
         "run-for": [
+            {"tag": "$FULLVERSION$-arm64", "target": "python.exe"},
             {"tag": "$XYVERSION$-arm64", "target": "python.exe"},
             {"tag": "$XVERSION$-arm64", "target": "python.exe"}
         ],
@@ -209,6 +212,7 @@ SCHEMA = {
         "tag": "$FULLVERSION$t",
         "install-for": ["$FULLVERSION$t", "$XYVERSIONNOPRE$t", "$XVERSIONNOPRE$t"],
         "run-for": [
+            {"tag": "$FULLVERSION$t", "target": "python.exe"},
             {"tag": "$XYVERSION$t", "target": "python.exe"},
             {"tag": "$XVERSION$t", "target": "python.exe"}
         ],
@@ -268,6 +272,7 @@ SCHEMA = {
         "tag": "$FULLVERSION$t-32",
         "install-for": ["$FULLVERSION$t-32", "$XYVERSIONNOPRE$t-32", "$XVERSIONNOPRE$t-32"],
         "run-for": [
+            {"tag": "$FULLVERSION$t-32", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-32", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XVERSION$t-32", "target": "python$XYVERSION$t.exe"}
         ],
@@ -327,6 +332,7 @@ SCHEMA = {
         "tag": "$FULLVERSION$t-arm64",
         "install-for": ["$FULLVERSION$t-arm64", "$XYVERSIONNOPRE$t-arm64", "$XVERSIONNOPRE$t-arm64"],
         "run-for": [
+            {"tag": "$FULLVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XVERSION$t-arm64", "target": "python$XYVERSION$t.exe"}
         ],
