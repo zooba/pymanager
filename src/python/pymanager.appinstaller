@@ -8,6 +8,7 @@
         Name="PythonSoftwareFoundation.PythonManager"
         Publisher="${Publisher}"
         Version="${Version}"
+        ProcessorArchitecture="x64"
         Uri="${Url}/${Filename}" />
 
     <UpdateSettings>
