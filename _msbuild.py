@@ -302,7 +302,7 @@ def init_PACKAGE(tag=None):
     # PATCH appxmanifest.xml AND pymanager.appinstaller
     appx_version = _make_xyzw_version(METADATA["Version"])
     appx_publisher = os.getenv("PYMANAGER_APPX_PUBLISHER", "CN=00000000-0000-0000-0000-000000000000")
-    appx_url = os.getenv("PYMANAGER_PUBLISH_URL", "https://example.com")
+    appx_url = os.getenv("PYMANAGER_PUBLISH_URL", "https://example.com").rstrip("/")
     appx_filename = f"python-manager-{METADATA['Version']}.msix"
 
     appx_xml = tmpdir / "appxmanifest.xml"

@@ -246,7 +246,7 @@ def _write_alias(cmd, alias, target):
     launcher = cmd.launcher_exe
     if alias.get("windowed"):
         launcher = cmd.launcherw_exe or launcher
-    LOGGER.debug("Copy %s to %s using %s", alias["name"], target, launcher)
+    LOGGER.debug("Create %s linking to %s using %s", alias["name"], target, launcher)
     if not launcher or not launcher.is_file():
         LOGGER.warn("Skipping %s alias because the launcher template was not found.", alias["name"])
         return

@@ -5,6 +5,19 @@ from .exceptions import ArgumentError, SilentError
 from .logging import LOGGER
 
 
+def _exe_partition(n):
+    n1, sep, n2 = n.rpartition(".")
+    n2 = sep + n2
+    while n1 and n1[-1] in "0123456789.":
+        n2 = n1[-1] + n2
+        n1 = n1[:-1]
+    w = ""
+    if n1 and n1[-1] == "w":
+        w = "w"
+        n1 = n1[:-1]
+    return n1, w, n2
+
+
 def _format_alias(i):
     try:
         alias = i["alias"]
@@ -14,7 +27,14 @@ def _format_alias(i):
         return ""
     if len(alias) == 1:
         return i["alias"][0]["name"]
-    return i["alias"][0]["name"] + ", ..."
+    names = {_exe_partition(a["name"].casefold()): a["name"] for a in alias}
+    for n1, w, n2 in list(names):
+        k = (n1, "", n2)
+        if w and k in names:
+            del names[n1, w, n2]
+            n1, _, n2 = _exe_partition(names[k])
+            names[k] = f"{n1}[w]{n2}"
+    return ", ".join(names[n] for n in sorted(names))
 
 
 def format_table(installs):

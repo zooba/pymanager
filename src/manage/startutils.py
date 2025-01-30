@@ -11,6 +11,11 @@ def _unprefix(p, prefix):
         return None
     if p.startswith("%PREFIX%"):
         return prefix / p[8:]
+    if p.startswith('"%PREFIX%'):
+        p1, sep, p2 = p[9:].partition('"')
+        if sep == '"':
+            return f'"{prefix / p1}"{p2}'
+        return prefix / p[9:]
     if p.startswith("%WINDIR%"):
         import os
         windir = os.getenv("WINDIR")

@@ -416,7 +416,7 @@ class BaseCommand:
     -q, --quiet      Less output (!B!log_level={logging.WARN}!W!)
     -qq              Even less output (!B!log_level={logging.ERROR}!W!)
     -y, --yes        Always confirm prompts (!B!confirm=false!W!)
-    --config=!B!<PATH>!W!    Override configuration with JSON file
+    --config=!B!<PATH>!W!  Override configuration with JSON file
 """.lstrip().replace("\r\n", "\n")
 
     def help(self):
