@@ -340,7 +340,7 @@ done:
 
 
 static int
-run_simple_command(const wchar_t *cmd)
+run_simple_command(const wchar_t *argv0, const wchar_t *cmd)
 {
     int exitCode = 1;
     auto root_str = get_root();
@@ -348,7 +348,7 @@ run_simple_command(const wchar_t *cmd)
     PyObject *root = NULL;
     PyObject *r = NULL;
 
-    args = Py_BuildValue("(u)", cmd);
+    args = Py_BuildValue("(uu)", argv0, cmd);
     if (!args) goto python_fail;
     root = PyUnicode_FromWideChar(root_str.c_str(), -1);
     if (!root) goto python_fail;
@@ -478,7 +478,7 @@ wmain(int argc, wchar_t **argv)
 
     // Use the default command if we have one
     if (default_cmd) {
-        return run_simple_command(default_cmd);
+        return run_simple_command(argv[0], default_cmd);
     }
 
     if (use_cli_tag && read_tag_from_argv(argc, (const wchar_t **)argv, skip_argc, tag)) {
