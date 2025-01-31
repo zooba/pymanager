@@ -66,9 +66,9 @@ Python Install Manager
 Installation
 ------------
 
-The Python Install Manager, henceforth simply "PyManager", can be installed from
-`the Microsoft Store <LINK TBD>`_ or downloaded and installed from
-`python.org <https://www.python.org/downloads>`_. Both versions are identical.
+The Python install manager can be installed from `the Microsoft Store <LINK
+TBD>`_ or downloaded and installed from `python.org
+<https://www.python.org/downloads>`_. Both versions are identical.
 
 To install through the Store, simply click "Install". After it has completed,
 open a terminal and type ``python`` to get started.
@@ -94,6 +94,10 @@ as ``python3.13.exe``) to be available. The directory will be
 administrator. Click Start and search for "Edit environment variables for your
 account" for the system settings page to add the path.
 
+The Python install manager will be automatically updated to new releases. This
+does not affect any installs of Python runtimes. Uninstalling the Python install
+manager does not uninstall any Python runtimes.
+
 If you are not able to install an MSIX in your context, for example, you are
 using automated deployment software that does not support it, please see
 :ref:`pymanager-advancedinstall` below for more information.
@@ -107,9 +111,9 @@ launch the version requested by the script specified, or the default version,
 which will be the latest stable release unless configured otherwise.
 
 However, we recommend that documentation show ``python`` as the standard command
-for launching Python. In these contexts, this command as installed by PyManager
-will work correctly and reliably, just as the ``python`` command behaves inside
-of virtual environments or on other platforms.
+for launching Python. In these contexts, this command as installed by the Python
+install manager will work correctly and reliably, just as the ``python`` command
+behaves inside of virtual environments or on other platforms.
 
 For all scenarios involving multiple versions, the recommended command is
 ``py``. This may be used anywhere in place of ``python`` or ``pymanager``, or in
@@ -119,11 +123,11 @@ as well as subcommands to manage installations. These are detailed below.
 
 With one minor exception, the ``pymanager`` and ``py` commands are synonymous.
 We recommend ``py`` by default for brevity, but suggest that scripts that are
-intending to use PyManager should probably use ``pymanager``, due to the lower
-chance of encountering a conflict with preexisting installs. The only difference
-is when running the commands without any arguments: ``py`` will install and
-launch your default interpreter, while ``pymanager`` will display help
-(``pymanager exec ...`` provides equivalent behaviour to ``py``).
+intending to use Python install manager should probably use ``pymanager``, due
+to the lower chance of encountering a conflict with preexisting installs. The
+only difference is when running the commands without any arguments: ``py`` will
+install and launch your default interpreter, while ``pymanager`` will display
+help (``pymanager exec ...`` provides equivalent behaviour to ``py``).
 
 To launch your default runtime, run ``python`` or ``py`` with the arguments you
 want to be passed to the runtime (such as script files or the module to launch):
@@ -227,9 +231,9 @@ runtime is included, it will be the one. Otherwise, the "best" result is shown
 ("best" is deliberately vaguely defined, but will usually be the most recent
 version).
 
-The ``--only-managed`` option excludes results that were not installed by
-PyManager. This is useful when determining which runtimes may be updated or
-uninstalled through the ``py`` command.
+The ``--only-managed`` option excludes results that were not installed by the
+Python install manager. This is useful when determining which runtimes may be
+updated or uninstalled through the ``py`` command.
 
 The ``--online`` option is short for passing ``--source=<URL>`` with the default
 source. Passing either of these options will search the online index for
@@ -264,7 +268,8 @@ to replace it with the specified one.
 
 Passing ``--update`` will replace existing installs if the new version is newer.
 Otherwise, they will be left. If no tags are provided with ``--update``, all
-installs managed by PyManager will be updated if newer versions are available.
+installs managed by the Python install manager will be updated if newer versions
+are available.
 
 Passing ``--dry-run`` will generate output and logs, but will not modify any
 installs.
@@ -320,9 +325,9 @@ The ``--yes`` option bypasses the confirmation prompt before uninstalling.
    $> py uninstall [-y|--yes] --purge
 
 Instead of passing tags individually, the ``--purge`` option may be specified.
-This will remove all runtimes managed by PyManager, including cleaning up the
-Start menu, registry, and any download caches. Runtimes that were not installed
-by PyManager will not be impacted.
+This will remove all runtimes managed by the Python install manager, including
+cleaning up the Start menu, registry, and any download caches. Runtimes that
+were not installed by PyManager will not be impacted.
 
 
 .. _pymanager-config
@@ -330,8 +335,8 @@ by PyManager will not be impacted.
 Configuration
 -------------
 
-PyManager is configured with a hierarchy of configuration files, environment
-variables, command-line options, and registry settings. In general,
+Python install manager is configured with a hierarchy of configuration files,
+environment variables, command-line options, and registry settings. In general,
 configuration files have the ability to configure everything, including the
 location of other configuration files, while registry settings are administrator
 only and override all other settings. Command-line options will override
@@ -368,15 +373,16 @@ customization.
    By default, true.
    "
    ``include_unmanaged``,:envvar:`PYTHON_MANAGER_INCLUDE_UNMANAGED`,"True to
-   allow listing and launching runtimes that were not installed by PyManager.
-   By default, true.
+   allow listing and launching runtimes that were not installed by the Python
+   install manager. By default, true.
    "
-   ``shebang_can_run_anything``,:envvar:`PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING`,"True
-   to allow shebangs in :file:`.py` files to launch applications other than
+   ``shebang_can_run_anything``,":envvar:`PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING`
+   ","True to allow shebangs in ``.py`` files to launch applications other than
    Python runtimes. By default, true.
    "
    ``log_level``,":envvar:`PYMANAGER_VERBOSE`, :envvar:`PYMANAGER_DEBUG`","Set
-   the default level of output (0-50) By default, 20.
+   the default level of output (0-50) By default, 20. Lower values produce more
+   output.
    "
    ``confirm``,:envvar:`PYTHON_MANAGER_CONFIRM`,"True to confirm certain actions
    before taking them (such as uninstall); false to skip the confirmation. By
@@ -445,13 +451,14 @@ which the path to the script and any additional arguments will be appended.
 
 .. note:
 
-   The behaviour of shebangs in PyManager is subtly different from the previous
-   ``py.exe`` launcher, and the old configuration options no longer apply. If
-   you are specifically reliant on the old behaviour or configuration, we
-   recommend keeping the old launcher. It may be `downloaded independently
-   <https://www.python.org/ftp/python/3.13.1/win32/launcher.msi>`_ and installed
-   on its own. The launcher's ``py`` command will override PyManager's one, and
-   you will need to use ``pymanager`` commands for installing and uninstalling.
+   The behaviour of shebangs in the Python install manager is subtly different
+   from the previous    ``py.exe`` launcher, and the old configuration options
+   no longer apply. If    you are specifically reliant on the old behaviour or
+   configuration, we    recommend keeping the old launcher. It may be
+   `downloaded independently <https://www.python.org/ftp/python/3.13.1/win32/launcher.msi>`_
+   and installed on its own. The launcher's ``py`` command will override
+   PyManager's one, and you will need to use ``pymanager`` commands for
+   installing and uninstalling.
 
 
 .. _pymanager-advancedinstall:
@@ -476,18 +483,19 @@ Administrative Configuration
 ----------------------------
 
 There are a number of options that may be useful for administrators to override
-configuration of PyManager. These can be used to enforce local caching, disable
-certain shortcut types, override bundled content. All of the above configuration
-options may be set, as well as those below.
+configuration of the Python install manager. These can be used to provide local
+caching, disable certain shortcut types, override bundled content. All of the
+above configuration options may be set, as well as those below.
 
 Configuration options may be overridden in the registry by setting values under
 :file:`HKEY_LOCAL_MACHINE\Software\Policies\Python\PyManager`, where the value
 name matches the configuration key and the value type is ``REG_SZ``. Note that
 this key can itself be customized, but only by modifying the core config file
-distributed with PyManager itself. We recommend, however, that registry values
-are used only to set ``base_config`` to a JSON file containing the full set of
-overrides. Registry key overrides will replace any other configured setting,
-while ``base_config`` allows users to further modify settings they may need.
+distributed with the Python install manager. We recommend, however, that
+registry values are used only to set ``base_config`` to a JSON file containing
+the full set of overrides. Registry key overrides will replace any other
+configured setting, while ``base_config`` allows users to further modify
+settings they may need.
 
 Note that most settings with environment variables support those variables
 because their default setting specifies the variable. If you override them, the
@@ -580,7 +588,7 @@ issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
    :widths: 1, 1
 
    "``python`` gives me a ""command not found"" error when I type it in my
-   terminal.", "Did you :ref:`install Python Install Manager <pymanager>`?
+   terminal.", "Did you :ref:`install the Python install manager <pymanager>`?
    "
    "", "Click Start, open ""Manage app execution aliases"", and check that your
    ``python.exe`` alias is set to ""Python (default)"".
@@ -588,7 +596,7 @@ issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
    "", "Check that the ``py`` and ``pymanager`` commands work.
    "
    "``py`` gives me a ""command not found"" error when I type it in my
-   terminal.","Did you :ref:`install Python Install Manager <pymanager>`?
+   terminal.","Did you :ref:`install the Python install manager <pymanager>`?
    "
    "", "Click Start, open ""Manage app execution aliases"", and check that your
    ``py.exe`` alias is set to ""Python install manager"".
@@ -603,6 +611,14 @@ issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
    "
    "", "Click Start, open ""Manage app execution aliases"", and check that your
    ``python.exe`` alias is set to ""Python (default)""
+   "
+   "``python`` and ``py`` don't launch the runtime I expect", "Check your
+   :envvar:`PYTHON_MANAGER_DEFAULT` or ``default_tag`` configuration.
+   "
+   "", "Prerelease and experimental installs that are not managed by the Python
+   install manager may be chosen ahead of stable releases. Configure your
+   default tag or uninstall the prerelease runtime and reinstall using ``py
+   install``.
    "
    "``pythonw`` or ``pyw`` don't launch the same runtime as ``python`` or
    ``py``","Click Start, open ""Manage app execution aliases"", and check that
