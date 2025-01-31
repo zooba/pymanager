@@ -102,26 +102,31 @@ using automated deployment software that does not support it, please see
 Basic Use
 ---------
 
-The recommended command for all scenarios is ``py``. This may be used anywhere
-in place of ``python`` or ``pymanager``, or in place of the older ``py.exe``
-launcher.
+The recommended command for launching Python is ``python``, which will either
+launch the version requested by the script specified, or the default version,
+which will be the latest stable release unless configured otherwise.
 
 However, we recommend that documentation show ``python`` as the standard command
 for launching Python. In these contexts, this command as installed by PyManager
 will work correctly and reliably, just as the ``python`` command behaves inside
 of virtual environments or on other platforms.
 
-With one minor exception, the ``pymanager`` and ``py` commands are synonymous.
-We use ``py`` by default for brevity, but recommend that scripts that are
-attempting to install and use PyManager should probably use ``pymanager``, due
-to the lower chance of encountering a conflict with preexisting installs. The
-only difference is when running the commands without any arguments: ``py`` will
-install and launch your default interpreter, while ``pymanager`` will display
-help (``pymanager exec ...`` provides equivalent behaviour to ``py``).
+For all scenarios involving multiple versions, the recommended command is
+``py``. This may be used anywhere in place of ``python`` or ``pymanager``, or in
+place of the older ``py.exe`` launcher. By default, ``py`` matches the behaviour
+of ``python``, but also allows command line options to select a specific version
+as well as subcommands to manage installations. These are detailed below.
 
-To launch your default runtime, run ``py`` or ``python`` without arguments, or
-with the arguments you want to be passed to the runtime (such as script files or
-the module to launch):
+With one minor exception, the ``pymanager`` and ``py` commands are synonymous.
+We recommend ``py`` by default for brevity, but suggest that scripts that are
+intending to use PyManager should probably use ``pymanager``, due to the lower
+chance of encountering a conflict with preexisting installs. The only difference
+is when running the commands without any arguments: ``py`` will install and
+launch your default interpreter, while ``pymanager`` will display help
+(``pymanager exec ...`` provides equivalent behaviour to ``py``).
+
+To launch your default runtime, run ``python`` or ``py`` with the arguments you
+want to be passed to the runtime (such as script files or the module to launch):
 
 .. code: shell
 
@@ -136,7 +141,8 @@ To launch a specific runtime, the ``py`` command accepts a ``-V:<TAG>`` option.
 This option must be specified before any others. The tag is part or all of the
 identifier for the runtime; for those from the CPython team, it looks like the
 version, potentially with the platform. For compatibility, the ``V:`` may be
-omitted in cases where the tag starts with ``3``.
+omitted in cases where the tag refers to an official release and starts with
+``3``.
 
 .. code: shell
 
@@ -186,6 +192,17 @@ help, or its name passed to ``py help``.
    $> py help
    $> py help install
    $> py install /?
+
+
+All commands support some common options, which will be shown by ``py help``.
+These options must be specified after any subcommand. Specifying ``-v`` or
+``--verbose`` will increase the amount of output shown, and ``-vv`` will
+increase it further for debugging purposes. Passing ``-q`` or ``--quiet`` will
+reduce output, and ``-qq`` will reduce it further.
+
+The ``--config=<PATH>`` option allows specifying a configuration file to
+override multiple settings at once. See :ref:`pymanager-config` below for more
+information about these files.
 
 
 Listing Runtimes
@@ -249,7 +266,8 @@ Passing ``--update`` will replace existing installs if the new version is newer.
 Otherwise, they will be left. If no tags are provided with ``--update``, all
 installs managed by PyManager will be updated if newer versions are available.
 
-Passing ``--dry-run`` will generate logs, but will not modify any installs.
+Passing ``--dry-run`` will generate output and logs, but will not modify any
+installs.
 
 .. code: shell
 
@@ -307,6 +325,8 @@ Start menu, registry, and any download caches. Runtimes that were not installed
 by PyManager will not be impacted.
 
 
+.. _pymanager-config
+
 Configuration
 -------------
 
@@ -332,36 +352,42 @@ The following settings are those that are considered likely to be modified in
 normal use. Later sections list those that are intended for administrative
 customization.
 
-+------------+----------------------+-------------+
-| Config Key | Environment Variable | Description |
-+============+======================+=============+
-| ``default_tag`` | :envvar:`PYTHON_MANAGER_DEFAULT` | The preferred default version to launch or install. |
-| | | By default, this is interpreted as the most recent non-prerelease version from the CPython team. |
-+------------+----------------------+-------------+
-| ``logs_dir`` | :envvar:`PYTHON_MANAGER_LOGS` | The location where log files are written. |
-| | | By default, :file:`%TEMP%`. |
-+------------+----------------------+-------------+
-| ``automatic_install`` | :envvar:`PYTHON_MANAGER_AUTOMATIC_INSTALL` | True to allow automatic installs |
-| | | when specifying a particular runtime to launch. By default, true. |
-+------------+----------------------+-------------+
-| ``include_unmanaged`` | :envvar:`PYTHON_MANAGER_INCLUDE_UNMANAGED` | True to allow listing and launching |
-| | | runtimes that were not installed by PyManager. By default, true. |
-+------------+----------------------+-------------+
-| ``shebang_can_run_anything`` | :envvar:`PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING` | True to allow shebangs |
-| | | in :file:`.py` files to launch applications other than Python runtimes. |
-| | | By default, true. |
-+------------+----------------------+-------------+
-| ``log_level`` | :envvar:`PYMANAGER_VERBOSE`, :envvar:`PYMANAGER_DEBUG` | Set the default level of output (0-50) |
-| | | By default, 20. |
-+------------+----------------------+-------------+
-| ``confirm`` | :envvar:`PYTHON_MANAGER_CONFIRM` | True to confirm certain actions before taking them (such |
-| | | as uninstall); false to skip the confirmation. By default, true. |
-+------------+----------------------+-------------+
-| ``install.source`` | :envvar:`PYTHON_MANAGER_SOURCE_URL` | Override the index feed to obtain new installs from. |
-+------------+----------------------+-------------+
-| ``list.format`` | :envvar:`PYTHON_MANAGER_LIST_FORMAT` | Specify the default format used by the ``py list`` |
-| | | command. By default, ``table``. |
-+------------+----------------------+-------------+
+.. csv-table:: Standard configuration options
+   :header: "Config Key", "Environment Variable", "Description"
+   :widths: 2, 2, 4
+
+   ``default_tag``,:envvar:`PYTHON_MANAGER_DEFAULT`,"The preferred default
+   version to launch or install. By default, this is interpreted as the most
+   recent non-prerelease version from the CPython team.
+   "
+   ``logs_dir``,:envvar:`PYTHON_MANAGER_LOGS`,"The location where log files are
+   written. By default, :file:`%TEMP%`.
+   "
+   ``automatic_install``,:envvar:`PYTHON_MANAGER_AUTOMATIC_INSTALL`,"True to
+   allow automatic installs when specifying a particular runtime to launch.
+   By default, true.
+   "
+   ``include_unmanaged``,:envvar:`PYTHON_MANAGER_INCLUDE_UNMANAGED`,"True to
+   allow listing and launching runtimes that were not installed by PyManager.
+   By default, true.
+   "
+   ``shebang_can_run_anything``,:envvar:`PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING`,"True
+   to allow shebangs in :file:`.py` files to launch applications other than
+   Python runtimes. By default, true.
+   "
+   ``log_level``,":envvar:`PYMANAGER_VERBOSE`, :envvar:`PYMANAGER_DEBUG`","Set
+   the default level of output (0-50) By default, 20.
+   "
+   ``confirm``,:envvar:`PYTHON_MANAGER_CONFIRM`,"True to confirm certain actions
+   before taking them (such as uninstall); false to skip the confirmation. By
+   default, true.
+   "
+   ``install.source``,:envvar:`PYTHON_MANAGER_SOURCE_URL`,"Override the index
+   feed to obtain new installs from.
+   "
+   ``list.format``,:envvar:`PYTHON_MANAGER_LIST_FORMAT`,"Specify the default
+   format used by the ``py list`` command. By default, ``table``.
+   "
 
 Dotted names should be nested inside JSON objects, for example, ``list.format``
 would be specified as ``{"list": {"format": "table"}}``.
@@ -475,43 +501,44 @@ variable will be used instead.
 Configuration settings that are paths are interpreted as relative to the
 directory containing the configuration file that specified them.
 
-+------------+-------------+
-| Config Key | Description |
-+============+=============+
-| ``base_config`` | The highest priority configuration file to read. Note that |
-| | only the built-in configuration file and the registry can modify this |
-| | setting. |
-+------------+-------------+
-| ``user_config`` | The second configuration file to read. |
-+------------+-------------+
-| ``additional_config`` | The third configuration file to read. |
-+------------+-------------+
-| ``registry_override_key`` | Registry location to check for overrides. Note |
-| | that only the built-in configuration file can modify this setting. |
-+------------+-------------+
-| ``bundled_dir`` | Read-only directory containing locally cached files. |
-+------------+-------------+
-| ``install.fallback_source`` | Path or URL to an index to consult when the |
-| | main index cannot be accessed. |
-+------------+-------------+
-| ``install.enable_shortcut_kinds`` | Comma-separated list of shortcut kinds |
-| | to allow (e.g. ``"pep514,start"``). |
-+------------+-------------+
-| ``install.disable_shortcut_kinds`` | Comma-separated list of shortcut kinds |
-| | to exclude (e.g. ``"pep514,start"``). Disable is stronger than enable. |
-+------------+-------------+
-| ``pep514_root`` | Registry location to read and write PEP 514 entries into. |
-| | By default, :file:`HKEY_CURRENT_USER\Software\Python`. |
-+------------+-------------+
-| ``start_folder`` | Start menu folder to write shortcuts into. By default, |
-| | ``Python``. This path is relative to the user's Programs folder. |
-+------------+-------------+
-| ``virtual_env`` | Path to the active virtual environment. By default, this |
-| | is ``%VIRTUAL_ENV%``, but may be set empty to disable venv detection. |
-+------------+-------------+
-| ``shebang_can_run_anything_silently`` | True to suppress visible warnings |
-| | when a shebang launches an application other than a Python runtime. |
-+------------+-------------+
+.. csv-table:: Troubleshooting
+   :header: "Config Key", "Description"
+   :widths: 1, 4
+
+   ``base_config``,"The highest priority configuration file to read. Note that
+   only the built-in configuration file and the registry can modify this
+   setting.
+   "
+   ``user_config``,"The second configuration file to read.
+   "
+   ``additional_config``,"The third configuration file to read.
+   "
+   ``registry_override_key``,"Registry location to check for overrides. Note
+   that only the built-in configuration file can modify this setting.
+   "
+   ``bundled_dir``,"Read-only directory containing locally cached files.
+   "
+   ``install.fallback_source``,"Path or URL to an index to consult when the
+   main index cannot be accessed.
+   "
+   ``install.enable_shortcut_kinds``,"Comma-separated list of shortcut kinds
+   to allow (e.g. ``"pep514,start"``).
+   "
+   ``install.disable_shortcut_kinds``,"Comma-separated list of shortcut kinds
+   to exclude (e.g. ``"pep514,start"``). Disable is stronger than enable.
+   "
+   ``pep514_root``,"Registry location to read and write PEP 514 entries into.
+   By default, :file:`HKEY_CURRENT_USER\Software\Python`.
+   "
+   ``start_folder``,"Start menu folder to write shortcuts into. By default,
+   ``Python``. This path is relative to the user's Programs folder.
+   "
+   ``virtual_env``,"Path to the active virtual environment. By default, this
+   is ``%VIRTUAL_ENV%``, but may be set empty to disable venv detection.
+   "
+   ``shebang_can_run_anything_silently``,"True to suppress visible warnings
+   when a shebang launches an application other than a Python runtime.
+   "
 
 .. _install-freethreaded-windows:
 
@@ -548,38 +575,40 @@ If your Python Install Manager does not seem to be working correctly, please
 work through these tests and fixes to see if it helps. If not, please report an
 issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
 
-+---------+---------------+
-| Symptom | Things to try |
-+=========+===============+
-| ``python`` gives me a "command not found" error when I type it in my terminal. | |
-| | Did you :ref:`install Python Install Manager <pymanager>`? |
-+---------+---------------+
-| | Click Start, open "Manage app execution aliases", and check that your |
-| | ``python.exe`` alias is set to "Python (default)" |
-+---------+---------------+
-| | Check that the ``py`` and ``pymanager`` commands work. |
-+---------+---------------+
-| ``py`` gives me a "command not found" error when I type it in my terminal. | |
-| | Did you :ref:`install Python Install Manager <pymanager>`? |
-+---------+---------------+
-| | Click Start, open "Manage app execution aliases", and check that your |
-| | ``py.exe`` alias is set to "Python install manager" |
-+---------+---------------+
-| ``py`` gives me a "can't open file" error when I type commands in my terminal. | |
-| | Click Start, open "Installed apps", search for "Python launcher" and |
-| | uninstall it. |
-+---------+---------------+
-| ``python`` doesn't launch the same runtime as ``py`` | |
-| | Click Start, open "Installed apps", look for any existing Python runtimes, |
-| | and either remove them or Modify and disable the :envvar:`PATH` options. |
-+---------+---------------+
-| | Click Start, open "Manage app execution aliases", and check that your |
-| | ``python.exe`` alias is set to "Python (default)" |
-+---------+---------------+
-| ``pythonw`` or ``pyw`` don't launch the same runtime as ``python`` or ``py`` | |
-| | Click Start, open "Manage app execution aliases", and check that your |
-| | ``pythonw.exe`` and ``pyw.exe`` aliases are consistent with your others. |
-+---------+---------------+
+.. csv-table:: Troubleshooting
+   :header: "Symptom", "Things to try"
+   :widths: 1, 1
+
+   "``python`` gives me a \"command not found\" error when I type it in my
+   terminal.", "Did you :ref:`install Python Install Manager <pymanager>`?
+   "
+   "", "Click Start, open \"Manage app execution aliases\", and check that your
+   ``python.exe`` alias is set to \"Python (default)\"
+   "
+   "", "Check that the ``py`` and ``pymanager`` commands work.
+   "
+   "``py`` gives me a "command not found" error when I type it in my
+   terminal.","Did you :ref:`install Python Install Manager <pymanager>`?
+   "
+   "", "Click Start, open \"Manage app execution aliases\", and check that your
+   ``py.exe`` alias is set to \"Python install manager\"
+   "
+   "``py`` gives me a "can't open file" error when I type commands in my
+   terminal.", "Click Start, open \"Installed apps\", search for \"Python
+   launcher\" and uninstall it.
+   "
+   "``python`` doesn't launch the same runtime as ``py``", "Click Start, open
+   \"Installed apps\", look for any existing Python runtimes, and either remove
+   them or Modify and disable the :envvar:`PATH` options.
+   "
+   "", "Click Start, open \"Manage app execution aliases\", and check that your
+   ``python.exe`` alias is set to \"Python (default)\"
+   "
+   "``pythonw`` or ``pyw`` don't launch the same runtime as ``python`` or
+   ``py``","Click Start, open \"Manage app execution aliases\", and check that
+   your ``pythonw.exe`` and ``pyw.exe`` aliases are consistent with your
+   others.
+   "
 
 
 .. _windows-embeddable:
@@ -1016,7 +1045,7 @@ The full installer (deprecated)
 .. deprecated:: 3.14
 
    This installer is deprecated since 3.14 and will not be produced for Python
-   3.16 or later. See :ref:<pymanager> for the modern installer.
+   3.16 or later. See :ref:`pymanager` for the modern installer.
 
 
 Installation steps
