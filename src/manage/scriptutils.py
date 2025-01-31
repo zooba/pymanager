@@ -9,6 +9,10 @@ class NewEncoding(Exception):
     pass
 
 
+class NotAShebang(Exception):
+    pass
+
+
 def _find_shebang_command(cmd, full_cmd):
     sh_cmd = PurePath(full_cmd)
     # HACK: Assuming alias/executable suffix is '.exe' here
@@ -53,6 +57,80 @@ def _find_on_path(cmd, full_cmd):
     }
 
 
+def _parse_shebang(cmd, line):
+    # For /usr[/local]/bin, we look for a matching alias name.
+    shebang = re.match(r"#!\s*/usr/(?:local/)?bin/(?!env\b)([^\\/\s]+).*", line)
+    if shebang:
+        # Handle the /usr[/local]/bin/python cases
+        full_cmd = shebang.group(1)
+        LOGGER.debug("Matching shebang: %s", full_cmd)
+        try:
+            return _find_shebang_command(cmd, full_cmd)
+        except LookupError:
+            LOGGER.warn("A shebang '%s' was found, but could not be matched "
+                        "to an installed runtime.", full_cmd)
+            LOGGER.warn('If the script does not behave properly, try '
+                        'installing the correct runtime with "py install".')
+            raise
+
+    # For /usr/bin/env, we look for a matching alias, followed by PATH search.
+    # We warn about the PATH search, because we don't know we'll be launching
+    # Python at all in this case.
+    shebang = re.match(r"#!\s*/usr/bin/env\s+(?:-S\s+)?([^\\/\s]+).*", line)
+    if shebang:
+        # First do regular install lookup for /usr/bin/env shebangs
+        full_cmd = shebang.group(1)
+        try:
+            return _find_shebang_command(cmd, full_cmd)
+        except LookupError:
+            pass
+        # If not, warn and do regular PATH search
+        if cmd.shebang_can_run_anything or cmd.shebang_can_run_anything_silently:
+            i = _find_on_path(cmd, full_cmd)
+            if not cmd.shebang_can_run_anything_silently:
+                LOGGER.warn("A shebang '%s' was found, but could not be matched "
+                            "to an installed runtime.", full_cmd)
+                LOGGER.warn("Arbitrary command was found on PATH instead. Configure "
+                            "'shebang_can_run_anything' to disable this.")
+            return i
+                
+        else:
+            LOGGER.warn("A shebang '%s' was found, but could not be matched "
+                        "to an installed runtime.", full_cmd)
+            LOGGER.warn("Arbitrary command execution is disabled. Reconfigure "
+                        "'shebang_can_run_anything' to enable it. "
+                        "Launching with default runtime.")
+            raise LookupError
+
+    # All other shebangs get treated as arbitrary commands. We warn about
+    # this case, because we don't know we'll be launching Python at all.
+    shebang = re.match(r"#!\s*(.+)\S*$", line)
+    if shebang:
+        full_cmd = shebang.group(1)
+        # A regular lookup will handle the case where the entire shebang is
+        # a valid alias.
+        try:
+            return _find_shebang_command(cmd, full_cmd)
+        except LookupError:
+            pass
+        if cmd.shebang_can_run_anything or cmd.shebang_can_run_anything_silently:
+            if not cmd.shebang_can_run_anything_silently:
+                LOGGER.warn("A shebang '%s' was found, but does not match any "
+                            "supported template (e.g. '/usr/bin/python').", full_cmd)
+                LOGGER.warn("Using the shebang as an arbitrary command instead. "
+                            "Configure 'shebang_can_run_anything' to disable this.")
+            return _find_on_path(cmd, full_cmd)
+        else:
+            LOGGER.warn("A shebang '%s' was found, but could not be matched "
+                        "to an installed runtime.", full_cmd)
+            LOGGER.warn("Arbitrary command execution is disabled. Reconfigure "
+                        "'shebang_can_run_anything' to enable it. "
+                        "Launching with default runtime.")
+            raise LookupError
+
+    raise NotAShebang
+
+
 def _read_script(cmd, script, encoding):
     try:
         f = open(script, "r", encoding=encoding, errors="replace")
@@ -60,77 +138,13 @@ def _read_script(cmd, script, encoding):
         raise LookupError(script) from ex
     with f:
         first_line = next(f).rstrip()
-        # For /usr[/local]/bin, we look for a matching alias name.
-        shebang = re.match(r"#!\s*/usr/(?:local/)?bin/(?!env\b)([^\\/\s]+).*", first_line)
-        if shebang:
-            # Handle the /usr[/local]/bin/python cases
-            full_cmd = shebang.group(1)
-            LOGGER.debug("Matching shebang: %s", full_cmd)
+        if first_line.startswith("#!"):
             try:
-                return _find_shebang_command(cmd, full_cmd)
+                return _parse_shebang(cmd, first_line)
             except LookupError:
-                LOGGER.warn("A shebang '%s' was found, but could not be matched "
-                            "to an installed runtime.", full_cmd)
-                LOGGER.warn('If the script does not behave properly, try '
-                            'installing the correct runtime with "py install".')
                 raise LookupError(script) from None
-
-        # For /usr/bin/env, we look for a matching alias, followed by PATH search.
-        # We warn about the PATH search, because we don't know we'll be launching
-        # Python at all in this case.
-        shebang = re.match(r"#!\s*/usr/bin/env\s+([^\\/\s]+).*", first_line)
-        if shebang:
-            # First do regular install lookup for /usr/bin/env shebangs
-            full_cmd = shebang.group(1)
-            try:
-                return _find_shebang_command(cmd, full_cmd)
-            except LookupError:
+            except NotAShebang:
                 pass
-            # If not, warn and do regular PATH search
-            if cmd.shebang_can_run_anything or cmd.shebang_can_run_anything_silently:
-                try:
-                    i = _find_on_path(cmd, full_cmd)
-                    if not cmd.shebang_can_run_anything_silently:
-                        LOGGER.warn("A shebang '%s' was found, but could not be matched "
-                                    "to an installed runtime.", full_cmd)
-                        LOGGER.warn("Arbitrary command was found on PATH instead. Configure "
-                                    "'shebang_can_run_anything' to disable this.")
-                    return i
-                except LookupError:
-                    raise LookupError(script) from None
-            else:
-                LOGGER.warn("A shebang '%s' was found, but could not be matched "
-                            "to an installed runtime.", full_cmd)
-                LOGGER.warn("Arbitrary command execution is disabled. Reconfigure "
-                            "'shebang_can_run_anything' to enable it. "
-                            "Launching with default runtime.")
-                raise LookupError(script)
-
-        # All other shebangs get treated as arbitrary commands. We warn about
-        # this case, because we don't know we'll be launching Python at all.
-        shebang = re.match(r"#!\s*(.+)\S*$", first_line)
-        if shebang:
-            full_cmd = shebang.group(1)
-            # A regular lookup will handle the case where the entire shebang is
-            # a valid alias.
-            try:
-                return _find_shebang_command(cmd, full_cmd)
-            except LookupError:
-                pass
-            if cmd.shebang_can_run_anything or cmd.shebang_can_run_anything_silently:
-                if not cmd.shebang_can_run_anything_silently:
-                    LOGGER.warn("A shebang '%s' was found, but does not match any "
-                                "supported template (e.g. '/usr/bin/python').", full_cmd)
-                    LOGGER.warn("Using the shebang as an arbitrary command instead. "
-                                "Configure 'shebang_can_run_anything' to disable this.")
-                return _find_on_path(cmd, full_cmd)
-            else:
-                LOGGER.warn("A shebang '%s' was found, but could not be matched "
-                            "to an installed runtime.", full_cmd)
-                LOGGER.warn("Arbitrary command execution is disabled. Reconfigure "
-                            "'shebang_can_run_anything' to enable it. "
-                            "Launching with default runtime.")
-                raise LookupError(script)
 
         coding = re.match(r"\s*#.*coding[=:]\s*([-\w.]+)", first_line)
         if coding and coding.group(1) != encoding:

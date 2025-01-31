@@ -44,6 +44,7 @@ INSTALLS = [
     ("#!.\\pkgs\\test-1.0\\test-binary-1.1.exe\n", None),
     ("#! /usr/bin/env test1.0\n", "1.0"),
     ("#! /usr/bin/env test2.0\n", "2.0"),
+    ("#! /usr/bin/env -S test2.0\n", "2.0"),
 ])
 def test_read_shebang(fake_config, tmp_path, script, expect):
     fake_config.installs.extend(INSTALLS)
