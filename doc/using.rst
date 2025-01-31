@@ -501,7 +501,7 @@ variable will be used instead.
 Configuration settings that are paths are interpreted as relative to the
 directory containing the configuration file that specified them.
 
-.. csv-table:: Troubleshooting
+.. csv-table:: Administrative configuration options
    :header: "Config Key", "Description"
    :widths: 1, 4
 
@@ -522,10 +522,10 @@ directory containing the configuration file that specified them.
    main index cannot be accessed.
    "
    ``install.enable_shortcut_kinds``,"Comma-separated list of shortcut kinds
-   to allow (e.g. ``"pep514,start"``).
+   to allow (e.g. ``'pep514,start'``).
    "
    ``install.disable_shortcut_kinds``,"Comma-separated list of shortcut kinds
-   to exclude (e.g. ``"pep514,start"``). Disable is stronger than enable.
+   to exclude (e.g. ``'pep514,start'``). Disable is stronger than enable.
    "
    ``pep514_root``,"Registry location to read and write PEP 514 entries into.
    By default, :file:`HKEY_CURRENT_USER\Software\Python`.
@@ -583,17 +583,17 @@ issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
    terminal.", "Did you :ref:`install Python Install Manager <pymanager>`?
    "
    "", "Click Start, open \"Manage app execution aliases\", and check that your
-   ``python.exe`` alias is set to \"Python (default)\"
+   ``python.exe`` alias is set to \"Python (default)\".
    "
    "", "Check that the ``py`` and ``pymanager`` commands work.
    "
-   "``py`` gives me a "command not found" error when I type it in my
+   "``py`` gives me a \"command not found\" error when I type it in my
    terminal.","Did you :ref:`install Python Install Manager <pymanager>`?
    "
    "", "Click Start, open \"Manage app execution aliases\", and check that your
-   ``py.exe`` alias is set to \"Python install manager\"
+   ``py.exe`` alias is set to \"Python install manager\".
    "
-   "``py`` gives me a "can't open file" error when I type commands in my
+   "``py`` gives me a \"can't open file\" error when I type commands in my
    terminal.", "Click Start, open \"Installed apps\", search for \"Python
    launcher\" and uninstall it.
    "
