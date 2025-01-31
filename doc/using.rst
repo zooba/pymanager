@@ -31,26 +31,23 @@ command can be used from any terminal to launch your current latest version of
 Python. This version may change over time as you add or remove different
 versions, and the ``py list`` command will show which is current.
 
-In general, we recommend that you create a :ref:`virtual environment <REF TBD>`
-for each project and run ``.env\Scripts\Activate`` in your terminal to use it.
+In general, we recommend that you create a :ref:`virtual environment <tut-venv>`
+for each project and run ``<env>\Scripts\Activate`` in your terminal to use it.
 This provides isolation between projects, consistency over time, and ensures
 that additional commands added by packages are also available in your session.
-Create a virtual environment using ``python -m venv .env``.
+Create a virtual environment using ``python -m venv <env path>``.
 
-If either the ``python`` or ``py`` commands do not seem to be working, please
-see the :ref:`Troubleshooting <pymanager-troublshoot>` section below. There are
+If the ``python`` or ``py`` commands do not seem to be working, please see the
+:ref:`Troubleshooting <pymanager-troubleshoot>` section below. There are
 sometimes additional manual steps required to configure your PC.
 
-The following sections describe the use of the Python Install Manager in detail,
-along with workflow recommendations and troubleshooting steps.
-
-Apart from using the Python Install Manager, Python can also be obtained as
+Apart from using the Python install manager, Python can also be obtained as
 NuGet packages. See :ref:`windows-nuget` below for more information on these
 packages.
 
 The embeddable distros are minimal packages of Python suitable for embedding
-into larger applications. They can be installed using the Python Install
-Manager. See :ref:`windows-embeddable` below for more information on these
+into larger applications. They can be installed using the Python install
+manager. See :ref:`windows-embeddable` below for more information on these
 packages.
 
 
@@ -66,8 +63,8 @@ Python Install Manager
 Installation
 ------------
 
-The Python install manager can be installed from `the Microsoft Store <LINK
-TBD>`_ or downloaded and installed from `python.org
+The Python install manager can be installed from `the Microsoft Store <TODO
+LINK>`_ or downloaded and installed from `python.org
 <https://www.python.org/downloads>`_. Both versions are identical.
 
 To install through the Store, simply click "Install". After it has completed,
@@ -113,20 +110,20 @@ release unless configured otherwise. If no version is specifically requested and
 no runtimes are installed at all, the current latest release will be installed
 automatically.
 
-For all scenarios involving multiple versions, the recommended command is
-``py``. This may be used anywhere in place of ``python`` or the older ``py.exe``
-launcher. By default, ``py`` matches the behaviour of ``python``, but also
-allows command line options to select a specific version as well as subcommands
-to manage installations. These are detailed below.
+For all scenarios involving multiple runtime versions, the recommended command
+is ``py``. This may be used anywhere in place of ``python`` or the older
+``py.exe`` launcher. By default, ``py`` matches the behaviour of ``python``, but
+also allows command line options to select a specific version as well as
+subcommands to manage installations. These are detailed below.
 
-Because the ``py`` command may already be taken by the previous version, we also
-provide an unambiguous ``pymanager`` command. Scripted installs that are
-intending to use Python install manager should probably use ``pymanager``, due
+Because the ``py`` command may already be taken by the previous version, there
+is also an unambiguous ``pymanager`` command. Scripted installs that are
+intending to use Python install manager should consider using ``pymanager``, due
 to the lower chance of encountering a conflict with existing installs. The only
 difference between the two commands is when running without any arguments:
 ``py`` will install and launch your default interpreter, while ``pymanager``
 will display help (``pymanager exec ...`` provides equivalent behaviour to
-``py``).
+``py ...``).
 
 Each of these commands also has a windowed version that avoids creating a
 console window. These are ``pyw``, ``pythonw`` and ``pymanagerw``. A ``python3``
@@ -137,7 +134,7 @@ to be widely used or recommended.
 To launch your default runtime, run ``python`` or ``py`` with the arguments you
 want to be passed to the runtime (such as script files or the module to launch):
 
-.. code: shell
+.. code::
 
    $> py
    ...
@@ -153,7 +150,7 @@ version, potentially with the platform. For compatibility, the ``V:`` may be
 omitted in cases where the tag refers to an official release and starts with
 ``3``.
 
-.. code: shell
+.. code::
 
    $> py -V:3.13 ...
    $> py -V:3-arm64 ...
@@ -164,7 +161,7 @@ Specifying the company is optional when it is ``PythonCore``, and specifying the
 tag is optional (but not the slash) when you want the latest release from a
 specific company.
 
-.. code: shell
+.. code::
 
    $> py -V:Distributor\1.0 ...
    $> py -V:distrib/ ...
@@ -185,8 +182,8 @@ When you launch either ``python`` or ``py`` but do not have any runtimes
 installed, and the requested version is the default, it will be installed
 automatically and then launched. Otherwise, the requested version will be
 installed if automatic installation is configured (most likely by setting
-:envvar:`PYTHON_MANAGER_AUTOMATIC_INSTALL` to ``true``), or if the ``py exec``
-or ``pymanager exec`` forms of the command were used.
+``PYTHON_MANAGER_AUTOMATIC_INSTALL`` to ``true``), or if the ``py exec`` or
+``pymanager exec`` forms of the command were used.
 
 
 Command Help
@@ -196,7 +193,7 @@ The ``py help`` command will display the full list of supported commands, along
 with their options. Any command may be passed the ``-?`` option to display its
 help, or its name passed to ``py help``.
 
-.. code: shell
+.. code::
 
    $> py help
    $> py help install
@@ -217,7 +214,7 @@ information about these files.
 Listing Runtimes
 ----------------
 
-.. code: shell
+.. code::
 
    $> py list [-f=|--format=<FMT>] [-1|--one] [--online|-s=|--source=<URL>] [<TAG>...]
 
@@ -234,7 +231,8 @@ prefix path).
 The ``--one`` or ``-1`` option only displays a single result. If the default
 runtime is included, it will be the one. Otherwise, the "best" result is shown
 ("best" is deliberately vaguely defined, but will usually be the most recent
-version).
+version). The result shown by ``py list --one <TAG>`` will match the runtime
+that would be launched by ``py -V:<TAG>``.
 
 The ``--only-managed`` option excludes results that were not installed by the
 Python install manager. This is useful when determining which runtimes may be
@@ -242,9 +240,10 @@ updated or uninstalled through the ``py`` command.
 
 The ``--online`` option is short for passing ``--source=<URL>`` with the default
 source. Passing either of these options will search the online index for
-runtimes that can be installed.
+runtimes that can be installed. The result shown by ``py list --online --one
+<TAG>`` will match the runtime that would be installed by ``py install <TAG>``.
 
-.. code: shell
+.. code::
 
    $> py list --online 3.13
 
@@ -256,13 +255,13 @@ additional options, and will produce legacy formatted output.
 Installing Runtimes
 -------------------
 
-.. code: shell
+.. code::
 
    $> py install [-s=|--source=<URL>] [-f|--force] [-u|--update] [--dry-run] [<TAG>...]
 
 New runtime versions may be added using ``py install``. One or more tags may be
-specified, and if omitted the default runtime will be installed. Ranges are not
-supported here.
+specified, and the special tag ``default`` may be used to select the default.
+Ranges are not supported for installation.
 
 The ``--source=<URL>`` option allows overriding the online index that is used to
 obtain runtimes. This may be used with an offline index, as shown in
@@ -274,21 +273,23 @@ to replace it with the specified one.
 Passing ``--update`` will replace existing installs if the new version is newer.
 Otherwise, they will be left. If no tags are provided with ``--update``, all
 installs managed by the Python install manager will be updated if newer versions
-are available.
+are available. Updates will remove any modifications made to the install,
+including globally installed packages, but virtual environments will continue to
+work.
 
 Passing ``--dry-run`` will generate output and logs, but will not modify any
 installs.
-
-.. code: shell
-
-   $> py install ... [-t=|--target=<PATH>] <TAG>
 
 In addition to the above options, the ``--target`` option will extract the
 runtime to the specified directory instead of doing a normal install. This is
 useful for embedding runtimes into larger applications.
 
+.. code::
 
-.. _pymanager-offline
+   $> py install ... [-t=|--target=<PATH>] <TAG>
+
+
+.. _pymanager-offline:
 
 Offline Installs
 ----------------
@@ -296,7 +297,7 @@ Offline Installs
 To perform offline installs of Python, you will need to first create an offline
 index on a machine that has network access.
 
-.. code: shell
+.. code::
 
    $> py install --download=<PATH> ... <TAG>...
 
@@ -305,18 +306,27 @@ and create a directory containing them and an ``index.json`` file suitable for
 later installation. This entire directory can be moved to the offline machine
 and used to install one or more of the bundled runtimes:
 
-.. code: shell
+.. code::
 
    $> py install --source="<PATH>\index.json" <TAG>...
 
-In this way, Python runtimes can be managed on a machine without accessing the
-internet.
+The Python install manager can be installed by downloading its installer and
+moving it to another machine before installing.
+
+Alternatively, the ZIP files in an offline index directory can simply be
+transferred to another machine and extracted. This will not register the install
+in any way, and so it must be launched by directly referencing the executables
+in the extracted directory, but it is sometimes a preferable approach in cases
+where installing the Python install manager is not possible or convenient.
+
+In this way, Python runtimes can be installed and managed on a machine without
+access to the internet.
 
 
 Uninstalling Runtimes
 ---------------------
 
-.. code: shell
+.. code::
 
    $> py uninstall [-y|--yes] <TAG>...
 
@@ -325,17 +335,24 @@ must be specified. Ranges are not supported here.
 
 The ``--yes`` option bypasses the confirmation prompt before uninstalling.
 
-.. code: shell
-
-   $> py uninstall [-y|--yes] --purge
-
 Instead of passing tags individually, the ``--purge`` option may be specified.
 This will remove all runtimes managed by the Python install manager, including
 cleaning up the Start menu, registry, and any download caches. Runtimes that
-were not installed by PyManager will not be impacted.
+were not installed by the Python install manager will not be impacted, and
+neither will manually created configuration files.
 
+.. code::
 
-.. _pymanager-config
+   $> py uninstall [-y|--yes] --purge
+
+The Python install manager can be uninstalled through the Windows "Installed
+apps" settings page. This does not remove any runtimes, and they will still be
+usable, though the global ``python`` and ``py`` commands will be removed.
+Reinstalling the Python install manager will allow you to manage these runtimes
+again. To completely clean up all Python runtimes, run with ``--purge`` before
+uninstalling the Python install manager.
+
+.. _pymanager-config:
 
 Configuration
 -------------
@@ -343,20 +360,19 @@ Configuration
 Python install manager is configured with a hierarchy of configuration files,
 environment variables, command-line options, and registry settings. In general,
 configuration files have the ability to configure everything, including the
-location of other configuration files, while registry settings are administrator
-only and override all other settings. Command-line options will override
-configuration file settings, but are more limited in the range of supported
-options.
+location of other configuration files, while registry settings are
+administrator-only and will override configuration files. Command-line options
+override all other settings, but not every option is available.
 
 This section will describe the defaults, but be aware that modified or
 overridden installs may resolve settings differently.
 
 A global configuration file may be configured by an administrator, and would be
 read first. The user configuration file is stored at
-:file:`%AppData%\Python\pymanager.json` (by default) and is read next,
+:file:`%AppData%\\Python\\pymanager.json` (by default) and is read next,
 overwriting any settings from earlier files. An additional configuration file
-may be specified as the :envvar:`PYTHON_MANAGER_CONFIG` environment variable or
-the ``--config`` command line option (but not both).
+may be specified as the ``PYTHON_MANAGER_CONFIG`` environment variable or the
+``--config`` command line option (but not both).
 
 The following settings are those that are considered likely to be modified in
 normal use. Later sections list those that are intended for administrative
@@ -366,44 +382,45 @@ customization.
    :header: "Config Key", "Environment Variable", "Description"
    :widths: 2, 2, 4
 
-   ``default_tag``,:envvar:`PYTHON_MANAGER_DEFAULT`,"The preferred default
+   ``default_tag``,``PYTHON_MANAGER_DEFAULT``,"The preferred default
    version to launch or install. By default, this is interpreted as the most
    recent non-prerelease version from the CPython team.
    "
-   ``logs_dir``,:envvar:`PYTHON_MANAGER_LOGS`,"The location where log files are
+   ``logs_dir``,``PYTHON_MANAGER_LOGS``,"The location where log files are
    written. By default, :file:`%TEMP%`.
    "
-   ``automatic_install``,:envvar:`PYTHON_MANAGER_AUTOMATIC_INSTALL`,"True to
+   ``automatic_install``,``PYTHON_MANAGER_AUTOMATIC_INSTALL``,"True to
    allow automatic installs when specifying a particular runtime to launch.
    By default, true.
    "
-   ``include_unmanaged``,:envvar:`PYTHON_MANAGER_INCLUDE_UNMANAGED`,"True to
+   ``include_unmanaged``,``PYTHON_MANAGER_INCLUDE_UNMANAGED``,"True to
    allow listing and launching runtimes that were not installed by the Python
-   install manager. By default, true.
+   install manager, or false to exclude them. By default, true.
    "
-   ``shebang_can_run_anything``,":envvar:`PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING`
+   ``shebang_can_run_anything``,"``PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING``
    ","True to allow shebangs in ``.py`` files to launch applications other than
-   Python runtimes. By default, true.
+   Python runtimes, or false to prevent it. By default, true.
    "
-   ``log_level``,":envvar:`PYMANAGER_VERBOSE`, :envvar:`PYMANAGER_DEBUG`","Set
+   ``log_level``,"``PYMANAGER_VERBOSE``, ``PYMANAGER_DEBUG``","Set
    the default level of output (0-50) By default, 20. Lower values produce more
-   output.
+   output. The environment variables are boolean, and may produce additional
+   output during startup that is later suppressed by other configuration.
    "
-   ``confirm``,:envvar:`PYTHON_MANAGER_CONFIRM`,"True to confirm certain actions
-   before taking them (such as uninstall); false to skip the confirmation. By
+   ``confirm``,``PYTHON_MANAGER_CONFIRM``,"True to confirm certain actions
+   before taking them (such as uninstall), or false to skip the confirmation. By
    default, true.
    "
-   ``install.source``,:envvar:`PYTHON_MANAGER_SOURCE_URL`,"Override the index
+   ``install.source``,``PYTHON_MANAGER_SOURCE_URL``,"Override the index
    feed to obtain new installs from.
    "
-   ``list.format``,:envvar:`PYTHON_MANAGER_LIST_FORMAT`,"Specify the default
+   ``list.format``,``PYTHON_MANAGER_LIST_FORMAT``,"Specify the default
    format used by the ``py list`` command. By default, ``table``.
    "
 
 Dotted names should be nested inside JSON objects, for example, ``list.format``
 would be specified as ``{"list": {"format": "table"}}``.
 
-.. _pymanager-shebang
+.. _pymanager-shebang:
 
 Shebang lines
 -------------
@@ -411,18 +428,18 @@ Shebang lines
 If the first line of a script file starts with ``#!``, it is known as a
 "shebang" line.  Linux and other Unix like operating systems have native
 support for such lines and they are commonly used on such systems to indicate
-how a script should be executed.  This launcher allows the same facilities to
-be used with Python scripts on Windows and the examples above demonstrate their
-use.
+how a script should be executed. The ``python`` and ``py`` commands allow the
+same facilities to be used with Python scripts on Windows.
 
 To allow shebang lines in Python scripts to be portable between Unix and
-Windows, this launcher supports a number of 'virtual' commands to specify
-which interpreter to use.  The supported virtual commands are:
+Windows, a number of 'virtual' commands are supported to specify which
+interpreter to use.  The supported virtual commands are:
 
-* ``/usr/bin/env``
-* ``/usr/bin/python``
-* ``/usr/local/bin/python``
-* ``python``
+* ``/usr/bin/env <ALIAS>``
+* ``/usr/bin/env -S <ALIAS>``
+* ``/usr/bin/<ALIAS>``
+* ``/usr/local/bin/<ALIAS>``
+* ``<ALIAS>``
 
 For example, if the first line of your script starts with
 
@@ -436,32 +453,36 @@ you should find these scripts can be used by the launcher without modification.
 If you are writing a new script on Windows which you hope will be useful on
 Unix, you should use one of the shebang lines starting with ``/usr``.
 
-Any of the above virtual commands can have ``python`` replaced by an alias from
+Any of the above virtual commands can have ``<ALIAS>`` replaced by an alias from
 an installed runtime. That is, any command generated in the global aliases
-directory (which you may have added to your :envvar:`PATH`) can be used in a
-shebang. This allows 
+directory (which you may have added to your :envvar:`PATH` environment variable)
+can be used in a shebang, even if it is not on your :envvar:`PATH`. This allows
+the use of shebangs like ``/usr/bin/python3.12`` to select a particular runtime.
 
-The ``/usr/bin/env`` form of shebang line will also search :envvar:`PATH` for
-unrecognized commands. This corresponds to the behaviour of the Unix ``env``
-program, which performs a :envvar:`PATH` search, but prefers launching known
-Python commands. A warning may be displayed when searching for arbitrary
-executables.
+The ``/usr/bin/env`` form of shebang line will also search the :envvar:`PATH` 
+environment variable for unrecognized commands. This corresponds to the
+behaviour of the Unix ``env`` program, which performs the same search, but
+prefers launching known Python commands. A warning may be displayed when
+searching for arbitrary executables, and this search may be disabled by the
+``shebang_can_run_anything`` configuration option.
 
-Shebang lines that do not match any of patterns are treated as **Windows**
+Shebang lines that do not match any of patterns are treated as *Windows*
 executable paths that are absolute or relative to the directory containing the
 script file. This is a convenience for Windows-only scripts, such as those
 generated by an installer, since the behavior is not compatible with Unix-style
 shells. These paths may be quoted, and may include multiple arguments, after
 which the path to the script and any additional arguments will be appended.
+This functionality may be disabled by the ``shebang_can_run_anything``
+configuration option.
 
 .. note:
 
    The behaviour of shebangs in the Python install manager is subtly different
-   from the previous    ``py.exe`` launcher, and the old configuration options
-   no longer apply. If    you are specifically reliant on the old behaviour or
-   configuration, we    recommend keeping the old launcher. It may be
+   from the previous ``py.exe`` launcher, and the old configuration options no
+   longer apply. If you are specifically reliant on the old behaviour or
+   configuration, we recommend keeping the legacy launcher. It may be
    `downloaded independently <https://www.python.org/ftp/python/3.13.1/win32/launcher.msi>`_
-   and installed on its own. The launcher's ``py`` command will override
+   and installed on its own. The legacy launcher's ``py`` command will override
    PyManager's one, and you will need to use ``pymanager`` commands for
    installing and uninstalling.
 
@@ -472,26 +493,34 @@ Advanced Installation
 ---------------------
 
 For situations where an MSIX cannot be installed, such as some older
-administrative distribution platforms, there is an MSI available from
-`python.org <https://www.python.org/downloads>`_. This MSI has no user
-interface, and can only perform per machine installs to its default location in
-Program Files. It will attempt to modify the system :envvar:`PATH` to include
-this install location, but be sure to validate this on your configuration.
+administrative distribution platforms, there is an MSI available from the
+python.org downloads page. This MSI has no user interface, and can only perform
+per-machine installs to its default location in Program Files. It will attempt
+to modify the system :envvar:`PATH` environment variable to include this install
+location, but be sure to validate this on your configuration.
 
 Be aware that the MSI package does not bundle any runtimes, and so is not
-suitable for installs into offline environments. See the later sections on
-offline installs and administrative configuration for information on handling
-these scenarios.
+suitable for installs into offline environments without also creating an offline
+install index. See :ref:`pymanager-offline` and :ref:`pymanager-admin-config`
+for information on handling these scenarios.
 
-When the MSIX is installed, but commands are not available on :envvar:`PATH`,
-they can be found under
-:file:`%LocalAppData%\Microsoft\WindowsApps\PythonSoftwareFoundation.PythonManager_3847v3x7pw1km`
+Runtimes installed by the MSI are shared with those installed by the MSIX, and
+are all per-user only. The Python install manager does not support installing
+runtimes per-machine. To emulate a per-machine install, you can use ``py install
+--target=<shared location>`` as administrator and add your own system-wide
+modifications to :envvar:`PATH`, the registry, or the Start menu.
+
+When the MSIX is installed, but commands are not available in the :envvar:`PATH`
+environment variable, they can be found under
+:file:`%LocalAppData%\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.PythonManager_3847v3x7pw1km`
 or
-:file:`%LocalAppData%\Microsoft\WindowsApps\PythonSoftwareFoundation.PythonManager_qbz5n2kfra8p0`,
+:file:`%LocalAppData%\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.PythonManager_qbz5n2kfra8p0`,
 depending on whether it was installed from python.org or through the Windows
 Store. Attempting to run the executable directly from Program Files is not
 recommended.
 
+
+.. _pymanager-admin-config:
 
 Administrative Configuration
 ----------------------------
@@ -502,10 +531,10 @@ caching, disable certain shortcut types, override bundled content. All of the
 above configuration options may be set, as well as those below.
 
 Configuration options may be overridden in the registry by setting values under
-:file:`HKEY_LOCAL_MACHINE\Software\Policies\Python\PyManager`, where the value
-name matches the configuration key and the value type is ``REG_SZ``. Note that
-this key can itself be customized, but only by modifying the core config file
-distributed with the Python install manager. We recommend, however, that
+:file:`HKEY_LOCAL_MACHINE\\Software\\Policies\\Python\\PyManager`, where the
+value name matches the configuration key and the value type is ``REG_SZ``. Note
+that this key can itself be customized, but only by modifying the core config
+file distributed with the Python install manager. We recommend, however, that
 registry values are used only to set ``base_config`` to a JSON file containing
 the full set of overrides. Registry key overrides will replace any other
 configured setting, while ``base_config`` allows users to further modify
@@ -544,13 +573,15 @@ directory containing the configuration file that specified them.
    main index cannot be accessed.
    "
    ``install.enable_shortcut_kinds``,"Comma-separated list of shortcut kinds
-   to allow (e.g. ``'pep514,start'``).
+   to allow (e.g. ``""pep514,start""``). Enabled shortcuts may still be disabled
+   by ``disable_shortcut_kinds``.
    "
    ``install.disable_shortcut_kinds``,"Comma-separated list of shortcut kinds
-   to exclude (e.g. ``'pep514,start'``). Disable is stronger than enable.
+   to exclude (e.g. ``""pep514,start""``). Disabled shortcuts are not
+   reactivated by ``enable_shortcut_kinds``.
    "
    ``pep514_root``,"Registry location to read and write PEP 514 entries into.
-   By default, :file:`HKEY_CURRENT_USER\Software\Python`.
+   By default, :file:`HKEY_CURRENT_USER\\Software\\Python`.
    "
    ``start_folder``,"Start menu folder to write shortcuts into. By default,
    ``Python``. This path is relative to the user's Programs folder.
@@ -577,7 +608,7 @@ Installing Free-threaded Binaries
 Pre-built distributions of the experimental free-threaded build are available
 by installing tags with the ``t`` suffix.
 
-.. code: shell
+.. code::
 
    $> py install 3.13t
    $> py install 3.13t-arm64
@@ -586,16 +617,18 @@ by installing tags with the ``t`` suffix.
 This will install and register as normal. If you have no other runtimes
 installed, then ``python`` will launch this one. Otherwise, you will need to use
 ``py -V:3.13t ...`` or, if you have added the global aliases directory to your
-:envvar:`PATH`, the ``python3.13t.exe`` commands.
+:envvar:`PATH` environment variable, the ``python3.13t.exe`` commands.
 
-.. _pymanager-troubleshoot
+.. _pymanager-troubleshoot:
 
 Troubleshooting
 ---------------
 
-If your Python Install Manager does not seem to be working correctly, please
+If your Python install manager does not seem to be working correctly, please
 work through these tests and fixes to see if it helps. If not, please report an
-issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
+issue at `our bug tracker <https://github.com/python/cpython/issues>`_,
+including any relevant log files (written to your :file:`%TEMP%` directory by
+default).
 
 .. csv-table:: Troubleshooting
    :header: "Symptom", "Things to try"
@@ -616,8 +649,9 @@ issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
    ``py.exe`` alias is set to ""Python install manager"".
    "
    "``py`` gives me a ""can't open file"" error when I type commands in my
-   terminal.", "Click Start, open ""Installed apps"", search for ""Python
-   launcher"" and uninstall it.
+   terminal.", "This usually means you have the legacy launcher installed and it
+   has priority over the Python install manager. To remove, click Start, open
+   ""Installed apps"", search for ""Python launcher"" and uninstall it.
    "
    "``python`` doesn't launch the same runtime as ``py``", "Click Start, open
    ""Installed apps"", look for any existing Python runtimes, and either remove
@@ -627,7 +661,12 @@ issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
    ``python.exe`` alias is set to ""Python (default)""
    "
    "``python`` and ``py`` don't launch the runtime I expect", "Check your
-   :envvar:`PYTHON_MANAGER_DEFAULT` or ``default_tag`` configuration.
+   ``PYTHON_MANAGER_DEFAULT`` environment variable or ``default_tag``
+   configuration.
+   "
+   "", "Installs that are managed by the Python install manager will be chosen
+   ahead of unmanaged installs. Use ``py install`` to install the runtime you
+   expect, or configure your default tag.
    "
    "", "Prerelease and experimental installs that are not managed by the Python
    install manager may be chosen ahead of stable releases. Configure your
@@ -655,7 +694,7 @@ directly accessed by end-users.
 To install an embedded distribution, we recommend using ``py install`` with the
 ``--target`` option:
 
-.. code: shell
+.. code::
 
    $> py install 3.13-embed --target=runtime
 
@@ -855,7 +894,8 @@ key ``HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem``.
 This allows the :func:`open` function, the :mod:`os` module and most other
 path functionality to accept and return paths longer than 260 characters.
 
-After changing the above option, no further configuration is required.
+After changing the above option and rebooting, no further configuration is
+required.
 
 
 .. _win-utf8-mode:
