@@ -107,27 +107,32 @@ Basic Use
 ---------
 
 The recommended command for launching Python is ``python``, which will either
-launch the version requested by the script specified, or the default version,
-which will be the latest stable release unless configured otherwise.
-
-However, we recommend that documentation show ``python`` as the standard command
-for launching Python. In these contexts, this command as installed by the Python
-install manager will work correctly and reliably, just as the ``python`` command
-behaves inside of virtual environments or on other platforms.
+launch the version requested by the script being launched, an active virtual
+environment, or the default installed version, which will be the latest stable
+release unless configured otherwise. If no version is specifically requested and
+no runtimes are installed at all, the current latest release will be installed
+automatically.
 
 For all scenarios involving multiple versions, the recommended command is
-``py``. This may be used anywhere in place of ``python`` or ``pymanager``, or in
-place of the older ``py.exe`` launcher. By default, ``py`` matches the behaviour
-of ``python``, but also allows command line options to select a specific version
-as well as subcommands to manage installations. These are detailed below.
+``py``. This may be used anywhere in place of ``python`` or the older ``py.exe``
+launcher. By default, ``py`` matches the behaviour of ``python``, but also
+allows command line options to select a specific version as well as subcommands
+to manage installations. These are detailed below.
 
-With one minor exception, the ``pymanager`` and ``py` commands are synonymous.
-We recommend ``py`` by default for brevity, but suggest that scripts that are
+Because the ``py`` command may already be taken by the previous version, we also
+provide an unambiguous ``pymanager`` command. Scripted installs that are
 intending to use Python install manager should probably use ``pymanager``, due
-to the lower chance of encountering a conflict with preexisting installs. The
-only difference is when running the commands without any arguments: ``py`` will
-install and launch your default interpreter, while ``pymanager`` will display
-help (``pymanager exec ...`` provides equivalent behaviour to ``py``).
+to the lower chance of encountering a conflict with existing installs. The only
+difference between the two commands is when running without any arguments:
+``py`` will install and launch your default interpreter, while ``pymanager``
+will display help (``pymanager exec ...`` provides equivalent behaviour to
+``py``).
+
+Each of these commands also has a windowed version that avoids creating a
+console window. These are ``pyw``, ``pythonw`` and ``pymanagerw``. A ``python3``
+command is also included that mimics the ``python`` command. It is intended to
+catch accidental uses of the typical POSIX command on Windows, but is not meant
+to be widely used or recommended.
 
 To launch your default runtime, run ``python`` or ``py`` with the arguments you
 want to be passed to the runtime (such as script files or the module to launch):
@@ -477,6 +482,15 @@ Be aware that the MSI package does not bundle any runtimes, and so is not
 suitable for installs into offline environments. See the later sections on
 offline installs and administrative configuration for information on handling
 these scenarios.
+
+When the MSIX is installed, but commands are not available on :envvar:`PATH`,
+they can be found under
+:file:`%LocalAppData%\Microsoft\WindowsApps\PythonSoftwareFoundation.PythonManager_3847v3x7pw1km`
+or
+:file:`%LocalAppData%\Microsoft\WindowsApps\PythonSoftwareFoundation.PythonManager_qbz5n2kfra8p0`,
+depending on whether it was installed from python.org or through the Windows
+Store. Attempting to run the executable directly from Program Files is not
+recommended.
 
 
 Administrative Configuration

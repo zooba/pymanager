@@ -120,7 +120,6 @@
                 <uap5:Extension Category="windows.appExecutionAlias">
                     <uap5:AppExecutionAlias desktop4:Subsystem="windows">
                         <uap5:ExecutionAlias Alias="pythonw.exe" />
-                        <uap5:ExecutionAlias Alias="pythonw3.exe" />
                     </uap5:AppExecutionAlias>
                 </uap5:Extension>
                 <uap:Extension Category="windows.fileTypeAssociation">

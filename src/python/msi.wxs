@@ -35,10 +35,11 @@
 
     <Component Id="ProductComponent" Directory="INSTALLFOLDER" Guid="8BEC1259-B220-499B-9656-DC59B7F5BE24">
       <File KeyPath="yes" Source="py-manage.exe" Name="python.exe" Id="python.exe" />
-      <File Source="py-manage.exe" Name="pymanage.exe" />
+      <File Source="py-manage.exe" Name="pymanager.exe" />
       <File Source="py-manage.exe" Name="py.exe" />
+      <File Source="py-manage.exe" Name="python3.exe" />
       <File Source="pyw-manage.exe" Name="pythonw.exe" Id="pythonw.exe" />
-      <File Source="pyw-manage.exe" Name="pywmanage.exe" />
+      <File Source="pyw-manage.exe" Name="pywmanager.exe" />
       <File Source="pyw-manage.exe" Name="pyw.exe" />
       <File Source="pymanager.json" />
 
