@@ -579,33 +579,33 @@ issue at `our bug tracker <https://github.com/python/cpython/issues>`_.
    :header: "Symptom", "Things to try"
    :widths: 1, 1
 
-   "``python`` gives me a \"command not found\" error when I type it in my
+   "``python`` gives me a ""command not found"" error when I type it in my
    terminal.", "Did you :ref:`install Python Install Manager <pymanager>`?
    "
-   "", "Click Start, open \"Manage app execution aliases\", and check that your
-   ``python.exe`` alias is set to \"Python (default)\".
+   "", "Click Start, open ""Manage app execution aliases"", and check that your
+   ``python.exe`` alias is set to ""Python (default)"".
    "
    "", "Check that the ``py`` and ``pymanager`` commands work.
    "
-   "``py`` gives me a \"command not found\" error when I type it in my
+   "``py`` gives me a ""command not found"" error when I type it in my
    terminal.","Did you :ref:`install Python Install Manager <pymanager>`?
    "
-   "", "Click Start, open \"Manage app execution aliases\", and check that your
-   ``py.exe`` alias is set to \"Python install manager\".
+   "", "Click Start, open ""Manage app execution aliases"", and check that your
+   ``py.exe`` alias is set to ""Python install manager"".
    "
-   "``py`` gives me a \"can't open file\" error when I type commands in my
-   terminal.", "Click Start, open \"Installed apps\", search for \"Python
-   launcher\" and uninstall it.
+   "``py`` gives me a ""can't open file"" error when I type commands in my
+   terminal.", "Click Start, open ""Installed apps"", search for ""Python
+   launcher"" and uninstall it.
    "
    "``python`` doesn't launch the same runtime as ``py``", "Click Start, open
-   \"Installed apps\", look for any existing Python runtimes, and either remove
+   ""Installed apps"", look for any existing Python runtimes, and either remove
    them or Modify and disable the :envvar:`PATH` options.
    "
-   "", "Click Start, open \"Manage app execution aliases\", and check that your
-   ``python.exe`` alias is set to \"Python (default)\"
+   "", "Click Start, open ""Manage app execution aliases"", and check that your
+   ``python.exe`` alias is set to ""Python (default)""
    "
    "``pythonw`` or ``pyw`` don't launch the same runtime as ``python`` or
-   ``py``","Click Start, open \"Manage app execution aliases\", and check that
+   ``py``","Click Start, open ""Manage app execution aliases"", and check that
    your ``pythonw.exe`` and ``pyw.exe`` aliases are consistent with your
    others.
    "
