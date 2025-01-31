@@ -9,7 +9,7 @@ class NewEncoding(Exception):
     pass
 
 
-class NotAShebang(Exception):
+class NoShebang(Exception):
     pass
 
 
@@ -128,7 +128,7 @@ def _parse_shebang(cmd, line):
                         "Launching with default runtime.")
             raise LookupError
 
-    raise NotAShebang
+    raise NoShebang
 
 
 def _read_script(cmd, script, encoding):
@@ -143,7 +143,7 @@ def _read_script(cmd, script, encoding):
                 return _parse_shebang(cmd, first_line)
             except LookupError:
                 raise LookupError(script) from None
-            except NotAShebang:
+            except NoShebang:
                 pass
 
         coding = re.match(r"\s*#.*coding[=:]\s*([-\w.]+)", first_line)
