@@ -8,7 +8,7 @@ from .logging import LOGGER
 def _exe_partition(n):
     n1, sep, n2 = n.rpartition(".")
     n2 = sep + n2
-    while n1 and n1[-1] in "0123456789.":
+    while n1 and n1[-1] in "0123456789.-":
         n2 = n1[-1] + n2
         n1 = n1[:-1]
     w = ""
@@ -37,6 +37,12 @@ def _format_alias(i):
     return ", ".join(names[n] for n in sorted(names))
 
 
+def _ljust(s, n):
+    if len(s) <= n:
+        return s.ljust(n)
+    return s[:n - 3] + "..."
+
+
 def format_table(installs):
     columns = {
         "company": "Managed By",
@@ -58,13 +64,25 @@ def format_table(installs):
                 cwidth[k] = max(cwidth[k], len(v))
             except LookupError:
                 pass
+
+    # Maximum column widths
+    show_truncated_warning = False
+    mwidth = {"company": 30, "tag": 30, "name": 60, "version": 15, "alias": 50}
+    for k in list(cwidth):
+        try:
+            if cwidth[k] > mwidth[k]:
+                cwidth[k] = mwidth[k]
+                show_truncated_warning = True
+        except LookupError:
+            pass
+
     LOGGER.print("!B!%s!W!", "  ".join(columns[c].ljust(cwidth[c]) for c in columns))
 
     any_shown = False
     for i in installs:
         if not i.get("unmanaged"):
             clr = "!G!" if i.get("default") else ""
-            LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns))
+            LOGGER.print(f"{clr}%s!W!", "  ".join(_ljust(i.get(c, ""), cwidth[c]) for c in columns))
             any_shown = True
     if not any_shown:
         LOGGER.print("!Y!-- No runtimes. Use 'py install <version>' to install one. --!W!")
@@ -77,6 +95,10 @@ def format_table(installs):
                 shown_header = True
             clr = "!G!" if i.get("default") else ""
             LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns))
+
+    if show_truncated_warning:
+        LOGGER.print("!B!Some columns were truncated. Use '!G!--format=json!B!'"
+                     " or '!G!--format=jsonl!B!' for full information.!W!")
 
 
 CSV_EXCLUDE = {

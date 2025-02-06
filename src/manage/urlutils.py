@@ -17,6 +17,7 @@ ENABLE_WINHTTP = os.getenv("PYMANAGER_ENABLE_WINHTTP_DOWNLOAD", "1").lower()[:1]
 ENABLE_URLLIB = os.getenv("PYMANAGER_ENABLE_URLLIB_DOWNLOAD", "1").lower()[:1] in "1yt"
 ENABLE_POWERSHELL = os.getenv("PYMANAGER_ENABLE_POWERSHELL_DOWNLOAD", "1").lower()[:1] in "1yt"
 
+SUPPORTED_SCHEMES = "http".casefold(), "https".casefold(), "file".casefold()
 
 class NoInternetError(Exception):
     pass
@@ -298,8 +299,15 @@ $r = Invoke-WebRequest '{request.url}' -UseBasicParsing `
 
 
 def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=None):
-    if url.casefold().startswith("file://".casefold()):
-        with open(file_url_to_path(url), "rb") as f:
+    scheme, sep, path = url.partition("://")
+    if not sep:
+        scheme = "file"
+        path = Path.cwd() / url
+    if scheme.casefold() not in SUPPORTED_SCHEMES:
+        raise ValueError(f"Unsupported scheme: {scheme}")
+
+    if scheme.casefold() == "file".casefold():
+        with open(Path.cwd() / url, "rb") as f:
             return f.read()
 
     request = _Request(url, method=method, headers=headers)
@@ -363,11 +371,30 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
 
 
 def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_progress=None, on_auth_request=None):
-    if url.casefold().startswith("file://".casefold()):
+    scheme, sep, path = url.partition("://")
+    if not sep:
+        scheme = "file"
+        path = Path.cwd() / url
+    if scheme.casefold() not in SUPPORTED_SCHEMES:
+        raise ValueError(f"Unsupported scheme: {scheme}")
+
+    if scheme.casefold() == "file".casefold():
+        if on_progress is None:
+            def on_progress(_): pass
+
         with open(file_url_to_path(url), "rb") as r:
+            if r.seekable:
+                total = r.seek(0, os.SEEK_END)
+                r.seek(0, os.SEEK_SET)
+            else:
+                total = None
+            on_progress(0)
             with open(outfile, "wb") as f:
                 for chunk in iter(lambda: r.read(chunksize), b""):
                     f.write(chunk)
+                    if total:
+                        on_progress((100 * f.tell()) // total)
+            on_progress(100)
         return
 
     request = _Request(url, method=method, headers=headers)
