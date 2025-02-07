@@ -302,12 +302,12 @@ def urlopen(url, method="GET", headers={}, on_progress=None, on_auth_request=Non
     scheme, sep, path = url.partition("://")
     if not sep:
         scheme = "file"
-        path = Path.cwd() / url
-    if scheme.casefold() not in SUPPORTED_SCHEMES:
+        url = Path(url).absolute().as_uri()
+    elif scheme.casefold() not in SUPPORTED_SCHEMES:
         raise ValueError(f"Unsupported scheme: {scheme}")
 
     if scheme.casefold() == "file".casefold():
-        with open(Path.cwd() / url, "rb") as f:
+        with open(file_url_to_path(url), "rb") as f:
             return f.read()
 
     request = _Request(url, method=method, headers=headers)
@@ -374,8 +374,8 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
     scheme, sep, path = url.partition("://")
     if not sep:
         scheme = "file"
-        path = Path.cwd() / url
-    if scheme.casefold() not in SUPPORTED_SCHEMES:
+        url = Path(url).absolute().as_uri()
+    elif scheme.casefold() not in SUPPORTED_SCHEMES:
         raise ValueError(f"Unsupported scheme: {scheme}")
 
     if scheme.casefold() == "file".casefold():

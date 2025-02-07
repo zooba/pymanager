@@ -665,6 +665,8 @@ def execute(cmd):
                     _install_one(cmd, source, install)
         except ArgumentError:
             raise
+        except NoInstallFoundError as ex:
+            raise SilentError(1) from ex
         except Exception as ex:
             return _fatal_install_error(cmd, ex)
 

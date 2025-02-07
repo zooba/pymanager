@@ -97,6 +97,7 @@ def format_table(installs):
             LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns))
 
     if show_truncated_warning:
+        LOGGER.print()
         LOGGER.print("!B!Some columns were truncated. Use '!G!--format=json!B!'"
                      " or '!G!--format=jsonl!B!' for full information.!W!")
 
@@ -196,7 +197,7 @@ def _get_installs_from_index(source, filters):
         index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
 
         count = 0
-        for i in index.find_all(filters, seen_ids=seen_ids):
+        for i in index.find_all(filters, seen_ids=seen_ids, with_prerelease=True):
             installs.append(i)
             count += 1
         LOGGER.debug("Fetched %i installs from %s", count, sanitise_url(url))
