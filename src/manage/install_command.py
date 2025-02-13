@@ -13,7 +13,7 @@ from .exceptions import (
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
 from .logging import LOGGER, ProgressPrinter
-from .tagutils import CompanyTag, install_matches_any, tag_or_range
+from .tagutils import install_matches_any, tag_or_range
 from .urlutils import (
     sanitise_url,
     urljoin,
@@ -332,19 +332,17 @@ def update_all_shortcuts(cmd, path_warning=True):
             LOGGER.debug("Failed to display PATH warning", exc_info=True)
 
 
-def print_cli_shortcuts(cmd, tags):
+def print_cli_shortcuts(cmd):
     installs = cmd.get_installs()
-    for tag in tags:
-        for i in installs:
-            if CompanyTag.from_dict(i).match(tag):
-                aliases = ", ".join(sorted(a["name"] for a in i["alias"]))
-                if aliases:
-                    LOGGER.info("%s can be launched with %s", i["displayName"], aliases)
-                else:
-                    LOGGER.info("Installed %s to %s", i["displayName"], i["prefix"])
-                if i.get("default"):
-                    LOGGER.info("This version will be launched by default when you run '!G!python!W!'.")
-                break
+    installs = [i for i in installs if install_matches_any(i, cmd.tags)]
+    for i in installs:
+        aliases = ", ".join(sorted(a["name"] for a in i["alias"]))
+        if aliases:
+            LOGGER.info("%s can be launched with %s", i["displayName"], aliases)
+        else:
+            LOGGER.info("Installed %s to %s", i["displayName"], i["prefix"])
+        if i.get("default"):
+            LOGGER.info("This version will be launched by default when you run '!G!python!W!'.")
 
 
 def _find_one(cmd, source, tag, *, installed=None, by_id=False):
@@ -523,24 +521,24 @@ def execute(cmd):
 
     download_index = {"versions": []}
 
+    cmd.tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
+                for arg in cmd.args]
+
     try:
         if cmd.target:
-            if len(cmd.args) > 1:
+            if len(cmd.tags) > 1:
                 raise ArgumentError("Unable to install multiple versions with --target")
             try:
-                spec = cmd.args[0]
-                if spec.casefold() == "default".casefold():
-                    spec = cmd.default_tag
+                tag = cmd.tags[0]
             except IndexError:
                 if cmd.default_tag:
                     LOGGER.debug("No tags provided, installing default tag %s", cmd.default_tag)
-                    spec = cmd.default_tag
+                    tag = cmd.default_tag
                 else:
                     LOGGER.debug("No tags provided, installing first runtime in feed")
-                    spec = None
+                    tag = None
 
             try:
-                tag = tag_or_range(spec) if spec else None
                 first_exc = None
                 for source in [cmd.source, cmd.fallback_source]:
                     if not source:
@@ -569,7 +567,9 @@ def execute(cmd):
             from .scriptutils import find_install_from_script
             spec = find_install_from_script(cmd, cmd.from_script)
             if spec:
-                cmd.args.append(spec)
+                cmd.tags.append(tag_or_range(spec))
+            else:
+                cmd.tags.append(tag_or_range(cmd.default_tag))
 
         if cmd.virtual_env:
             LOGGER.debug("Clearing virtual_env setting to avoid conflicts during install.")
@@ -584,12 +584,12 @@ def execute(cmd):
             installed = []
 
         try:
-            if not cmd.args:
+            if not cmd.tags:
                 if cmd.repair:
                     LOGGER.verbose("No tags provided, repairing all installs:")
                     for install in installed:
                         _install_one(cmd, install)
-                    # Fallthrough is safe - cmd.args is empty
+                    # Fallthrough is safe - cmd.tags is empty
                 elif cmd.update:
                     LOGGER.verbose("No tags provided, updating all installs:")
                     for install in installed:
@@ -621,7 +621,7 @@ def execute(cmd):
                         else:
                             LOGGER.verbose("Could not find update for %s.",
                                 install['displayName'], install['id'])
-                    # Fallthrough is safe - cmd.args is empty
+                    # Fallthrough is safe - cmd.tags is empty
                 else:
                     raise ArgumentError("Specify at least one tag to install, or 'default' for "
                                         "the configured default version.")
@@ -633,10 +633,7 @@ def execute(cmd):
                     continue
                 LOGGER.debug("Searching %s", source)
                 try:
-                    for spec in cmd.args:
-                        if spec.casefold() == "default".casefold():
-                            spec = cmd.default_tag
-                        tag = tag_or_range(spec) if spec else None
+                    for tag in cmd.tags:
                         install = _find_one(cmd, source, tag, installed=installed)
                         if install:
                             installs.append(install)
@@ -680,7 +677,7 @@ def execute(cmd):
             )
         else:
             update_all_shortcuts(cmd)
-            print_cli_shortcuts(cmd, tags=map(CompanyTag, cmd.args))
+            print_cli_shortcuts(cmd)
 
     finally:
         if cmd.automatic:

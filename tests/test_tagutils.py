@@ -42,6 +42,13 @@ def test_tag_match():
     assert not CompanyTag("PythonCore\\4.56").match(CompanyTag("", "3"))
 
 
+def test_tag_platform_match():
+    assert CompanyTag("3.10-64").match(CompanyTag("3.10"))
+    assert CompanyTag("3.10-64").match(CompanyTag("3.10-64"))
+    assert not CompanyTag("3.10").match(CompanyTag("3.10-64"))
+    assert not CompanyTag("3.10-arm64").match(CompanyTag("3.10-64"))
+
+
 def test_tag_order():
     assert CompanyTag("3.13.2") < CompanyTag("3.13")
     assert CompanyTag("3.13.1") < CompanyTag("3.13.1-32")
@@ -91,6 +98,15 @@ def test_simple_tag_range():
     assert not TagRange("<3.10").satisfied_by(CompanyTag("3.10.1"))
     assert TagRange("<3.10").satisfied_by(CompanyTag("3.9"))
 
+    assert TagRange("=3.10").satisfied_by(CompanyTag("3.10"))
+    assert TagRange("=3.10").satisfied_by(CompanyTag("3.10.1"))
+    assert not TagRange("=3.10").satisfied_by(CompanyTag("3.9"))
+    assert not TagRange("=3.10").satisfied_by(CompanyTag("3.11"))
+    assert TagRange("~=3.10").satisfied_by(CompanyTag("3.10"))
+    assert TagRange("~=3.10").satisfied_by(CompanyTag("3.10.1"))
+    assert not TagRange("~=3.10").satisfied_by(CompanyTag("3.9"))
+    assert not TagRange("~=3.10").satisfied_by(CompanyTag("3.11"))
+
 
 def test_tag_range_platforms():
     assert TagRange(">=3.10-32").satisfied_by(CompanyTag("3.10-32"))
@@ -101,6 +117,15 @@ def test_tag_range_platforms():
 
 
 def test_tag_range_suffixes():
-    assert not TagRange(">=3.10").satisfied_by(CompanyTag("3.10-embed"))
+    assert TagRange(">=3.10").satisfied_by(CompanyTag("3.10-embed"))
     assert not TagRange(">=3.10-embed").satisfied_by(CompanyTag("3.10"))
     assert TagRange(">=3.10-embed").satisfied_by(CompanyTag("3.10-embed"))
+
+
+def test_tag_range_company():
+    assert TagRange(r">=Company\3.10").satisfied_by(CompanyTag("Company", "3.10"))
+    assert TagRange(r">=Company\3.10").satisfied_by(CompanyTag("Company", "3.11"))
+    assert not TagRange(r">=Company\3.10").satisfied_by(CompanyTag("Company", "3.9"))
+    assert not TagRange(r">=Company\3.10").satisfied_by(CompanyTag("OtherCompany", "3.10"))
+
+    assert TagRange("=Company\\").satisfied_by(CompanyTag("Company", "3.11"))

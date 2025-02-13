@@ -44,54 +44,34 @@ class _CompanyKey:
         return not (self < other)
 
 
-
-class _PlatformKey:
-    _SUFFIXES = {
-        "-32": 1,
-        "-64": 2,
-        "-arm64": 3,
-    }
-    _ANY = 1000
-
-    DEFAULT = None
-
-    def __init__(self, tag):
-        for suffix, level in self._SUFFIXES.items():
-            if tag.endswith(suffix):
-                tag = tag[:-len(suffix)]
-                break
-        else:
-            suffix = "-*"
-            level = self._ANY
-        self.tag = tag
-        self.suffix = suffix
-        self.level = level
-
-    def __repr__(self):
-        return f"<Platform({self.suffix!r})>"
+class _AscendingText:
+    def __init__(self, s):
+        self.s = s.casefold()
 
     def startswith(self, other):
         if not isinstance(other, type(self)):
-            raise TypeError("expected '{}', got '{}'".format(
-                type(self).__name__, type(other).__name__
-            ))
-        return self.level == other.level or other.level == self._ANY
+            return False
+        if not other.s:
+            return not self.s
+        return self.s.startswith(other.s)
 
     def __eq__(self, other):
         if not isinstance(other, type(self)):
             return False
-        return self.level == other.level
-
-    def __lt__(self, other):
-        if not isinstance(other, type(self)):
-            return False
-        return self.level < other.level
+        return self.s == other.s
 
     def __ne__(self, other):
         return not (self == other)
 
+    def __lt__(self, other):
+        if other is None:
+            return False
+        if not isinstance(other, type(self)):
+            return False
+        return self.s < other.s
+
     def __le__(self, other):
-        return self < other or self == other
+        return self == other or self < other
 
     def __gt__(self, other):
         return not (self <= other)
@@ -99,44 +79,50 @@ class _PlatformKey:
     def __ge__(self, other):
         return not (self < other)
 
-_PlatformKey.DEFAULT = _PlatformKey("")
+    def __repr__(self):
+        return repr(self.s)
+
+    def __str__(self):
+        return self.s
 
 
 class _DescendingVersion(Version):
     def __gt__(self, other):
         if other is None:
             return True
-        if isinstance(other, str):
-            other = type(self)(other)
+        if not isinstance(other, type(self)):
+            if isinstance(other, str):
+                other = type(self)(other)
+            else:
+                return False
         return self.sortkey < other.sortkey
 
     def __lt__(self, other):
         if other is None:
             return False
-        if isinstance(other, str):
-            other = type(self)(other)
+        if not isinstance(other, type(self)):
+            if isinstance(other, str):
+                other = type(self)(other)
+            else:
+                return True
         return self.sortkey > other.sortkey
 
 
 def _sort_tag(tag):
     import re
     key = []
-    text = True
+
     if not tag:
         return ()
 
-    for bit in re.split(r"(\d+(?:\.\d+)*)", tag):
-        if text:
-            key.append(bit.casefold())
+    for bit in tag.split("-"):
+        m = re.match(r"^(\d+(?:\.\d+)*)(.*)$", bit)
+        if m:
+            key.append(_DescendingVersion(m.group(1)))
+            key.append(_AscendingText(m.group(2)))
         else:
-            key.append(_DescendingVersion(bit))
-        text = not text
+            key.append(_AscendingText(bit))
     return tuple(key)
-
-
-def _sort_tag_with_platform(tag):
-    platform = _PlatformKey(tag)
-    return _sort_tag(platform.tag), platform
 
 
 class CompanyTag:
@@ -147,11 +133,7 @@ class CompanyTag:
             company, _, tag = (company_or_tag or "").replace("/", "\\").rpartition("\\")
         self._company = _CompanyKey(company, allow_prefix=loose_company)
         self.tag = tag
-        if self.is_core:
-            self._sortkey, self._platform = _sort_tag_with_platform(tag)
-        else:
-            self._sortkey = _sort_tag(tag)
-            self._platform = _PlatformKey.DEFAULT
+        self._sortkey = _sort_tag(tag)
 
     @property
     def company(self):
@@ -161,21 +143,12 @@ class CompanyTag:
     def is_core(self):
         return self._company.is_core
 
-    @classmethod
-    def from_dict(cls, d, default=None):
-        try:
-            return cls(d["company"], d["tag"])
-        except LookupError:
-            return default
-
     def match(self, pattern):
         if isinstance(pattern, str):
             other = type(self)(pattern)
         else:
             other = pattern
         if not self._company.startswith(other._company):
-            return False
-        if not self._platform.startswith(other._platform):
             return False
         if len(self._sortkey) < len(other._sortkey):
             return False
@@ -203,8 +176,6 @@ class CompanyTag:
             return False
         if self._company != other._company:
             return False
-        if self._platform != other._platform:
-            return False
         if self._sortkey != other._sortkey:
             return False
         return True
@@ -216,8 +187,6 @@ class CompanyTag:
             return self._company > other._company
         if self._sortkey != other._sortkey:
             return self._sortkey > other._sortkey
-        if self._platform != other._platform:
-            return self._platform < other._platform
         return False
 
     def matches_bound(self, other):
@@ -225,9 +194,7 @@ class CompanyTag:
             return True
         if not self._company.startswith(other._company):
             return False
-        if not self._platform.startswith(other._platform):
-            return False
-        if len(self._sortkey) != len(other._sortkey):
+        if len(self._sortkey) < len(other._sortkey):
             return False
         for x, y in zip(self._sortkey, other._sortkey):
             if isinstance(x, Version):
@@ -242,9 +209,7 @@ class CompanyTag:
             return True
         if not self._company.startswith(other._company):
             return False
-        if not self._platform.startswith(other._platform):
-            return False
-        if len(self._sortkey) != len(other._sortkey):
+        if len(self._sortkey) < len(other._sortkey):
             return False
         for x, y in zip(self._sortkey, other._sortkey):
             if isinstance(x, Version):
@@ -261,8 +226,6 @@ class CompanyTag:
             return self._company < other._company
         if self._sortkey != other._sortkey:
             return self._sortkey < other._sortkey
-        if self._platform != other._platform:
-            return self._platform > other._platform
         return False
 
     def below_upper_bound(self, other):
@@ -270,9 +233,7 @@ class CompanyTag:
             return True
         if not self._company.startswith(other._company):
             return False
-        if not self._platform.startswith(other._platform):
-            return False
-        if len(self._sortkey) != len(other._sortkey):
+        if len(self._sortkey) > len(other._sortkey):
             return False
         for x, y in zip(self._sortkey, other._sortkey):
             if isinstance(x, Version):
@@ -313,6 +274,28 @@ class TagRange:
 
         def __repr__(self):
             return f"{self.OP}{self.tag}"
+
+    class RangeEqual(Range):
+        OP = "="
+        def __call__(self, other):
+            return other.matches_bound(self.tag)
+
+    class RangeEqualEqual(Range):
+        # Same as =, but provided for people who type it out of habit
+        OP = "=="
+        def __call__(self, other):
+            return other.matches_bound(self.tag)
+
+    class RangeRoughlyEqual(Range):
+        # Same as =, but provided for people who type it out of habit
+        OP = "~="
+        def __call__(self, other):
+            return other.matches_bound(self.tag)
+
+    class RangeGreaterEqual(Range):
+        OP = ">="
+        def __call__(self, other):
+            return other.matches_bound(self.tag) or other.above_lower_bound(self.tag)
 
     class RangeGreaterEqual(Range):
         OP = ">="

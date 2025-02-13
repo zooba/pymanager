@@ -4,7 +4,7 @@ from pathlib import Path
 
 from .exceptions import NoInstallFoundError, NoInstallsError
 from .logging import LOGGER
-from .tagutils import CompanyTag
+from .tagutils import CompanyTag, tag_or_range
 from .verutils import Version
 
 
@@ -38,7 +38,19 @@ def _get_installs(install_dir):
             continue
 
 
+def _get_unmanaged_installs():
+    from .pep514utils import get_unmanaged_installs
+    try:
+        return get_unmanaged_installs()
+    except Exception as ex:
+        LOGGER.warn("Failed to read unmanaged installs: %s", ex)
+        LOGGER.debug("TRACEBACK:", exc_info=True)
+    return []
+
+
 def _get_venv_install(virtual_env):
+    if not virtual_env:
+        raise LookupError
     venv = Path(virtual_env)
     try:
         pyvenv_cfg = (venv / "pyvenv.cfg").read_text("utf-8", "ignore")
@@ -68,49 +80,25 @@ def _get_venv_install(virtual_env):
     }
 
 
-def get_installs(install_dir, default_tag, include_unmanaged=True, virtual_env=None):
-    installs = sorted(_get_installs(install_dir), key=_make_sort_key)
+def get_installs(
+    install_dir,
+    include_unmanaged=True,
+    virtual_env=None,
+):
+    installs = list(_get_installs(install_dir))
 
     if include_unmanaged:
-        from .pep514utils import get_unmanaged_installs
-        try:
-            um_installs = get_unmanaged_installs()
-        except Exception as ex:
-            LOGGER.warn("Failed to read unmanaged installs: %s", ex)
-            LOGGER.debug("TRACEBACK:", exc_info=True)
-        else:
-            installs.extend(um_installs)
-            installs.sort(key=_make_sort_key)
+        um_installs = _get_unmanaged_installs()
+        installs.extend(um_installs)
+
+    installs.sort(key=_make_sort_key)
 
     if virtual_env:
         try:
             installs.insert(0, _get_venv_install(virtual_env))
-            default_tag = None
         except LookupError:
             pass
 
-    seen_alias = set()
-    seen_default = False
-    for i in installs:
-        i_tag = CompanyTag.from_dict(i)
-        if not seen_default and not i.get("unmanaged") and (not default_tag or i_tag.match(default_tag)):
-            default_tag = None
-            i["default"] = True
-            seen_default = True
-        aliases = i.setdefault("alias", ())
-        if aliases:
-            new_aliases = [a for a in aliases if a["name"].casefold() not in seen_alias]
-            if i.get("default") and not any(a["name"].casefold() == "python.exe".casefold() for a in aliases):
-                new_aliases.insert(0, {"name": "python.exe", "target": i["executable"]})
-            seen_alias.update(a["name"].casefold() for a in aliases)
-            i["alias"] = new_aliases
-    # Second chance to set default - include unmanaged installs this time
-    if not seen_default:
-        for i in installs:
-            i_tag = CompanyTag.from_dict(i)
-            if (not default_tag or i_tag.match(default_tag)):
-                i["default"] = True
-                break
     return installs
 
 
@@ -122,6 +110,60 @@ def _patch_install_to_run(i, run_for):
     }
 
 
+def get_matching_install_tags(
+    installs,
+    tag,
+    windowed=None,
+    default_platform=None,
+    single_tag=False,
+):
+    exact_matches = []
+    core_matches = []
+    matches = []
+    unmanaged_matches = []
+
+    # Installs are in the correct order, so we'll first collect all the matches.
+    for i in installs:
+        for t in i.get("run-for", ()):
+            ct = CompanyTag(i["company"], t["tag"])
+            if tag and ct == tag:
+                exact_matches.append((i, t))
+            elif not tag or tag.satisfied_by(ct):
+                if i.get("unmanaged"):
+                    unmanaged_matches.append((i, t))
+                elif ct.is_core:
+                    core_matches.append((i, t))
+                else:
+                    matches.append((i, t))
+            if single_tag:
+                break
+
+    matches = [*core_matches, *matches, *unmanaged_matches]
+
+    LOGGER.debug("Tag %s matched %s installs exactly, %s core installs by "
+                 "prefix, %s other installs by prefix, and %s unmanaged.",
+                 tag, len(exact_matches), len(core_matches), len(matches),
+                 len(unmanaged_matches))
+
+    best = [*exact_matches, *core_matches, *matches, *unmanaged_matches]
+
+    # Filter for 'windowed' matches. If none, keep them all
+    if windowed is not None:
+        windowed = bool(windowed)
+        best = [(i, t) for i, t in best if windowed == bool(t.get("windowed"))] or best
+        LOGGER.debug("%s left after filtering for windowed = %s", len(best), windowed)
+
+    # Filter for default_platform matches (by tag suffix). If none, keep them all
+    if default_platform:
+        default_platform = default_platform.casefold()
+        best = [(i, t) for i, t in best
+                if t["tag"].casefold().endswith(default_platform)] or best
+        LOGGER.debug("%s left after filtering for default_platform = %s",
+                     len(best), default_platform)
+
+    return best
+
+
 def get_install_to_run(
     install_dir,
     default_tag,
@@ -129,12 +171,12 @@ def get_install_to_run(
     include_unmanaged=True,
     windowed=False,
     virtual_env=None,
+    default_platform=None,
 ):
     """Returns the first install matching 'tag'.
     """
     installs = get_installs(
         install_dir,
-        default_tag,
         include_unmanaged=include_unmanaged,
         virtual_env=virtual_env,
     )
@@ -142,46 +184,27 @@ def get_install_to_run(
     if not installs:
         raise NoInstallsError
 
-    best_non_windowed = None
-
     if not tag:
-        for i in installs:
-            if i.get("default"):
-                for t in i.get("run-for", ()):
-                    if bool(windowed) == bool(t.get("windowed")):
-                        return _patch_install_to_run(i, t)
-                    if not best_non_windowed:
-                        best_non_windowed = _patch_install_to_run(i, t)
-                if best_non_windowed:
-                    return best_non_windowed
-                break
+        tag = tag_or_range(default_tag)
+        used_default = True
+    else:
+        tag = tag_or_range(tag)
+        used_default = False
+
+    best = get_matching_install_tags(
+        installs,
+        tag,
+        windowed=windowed,
+        default_platform=default_platform,
+    )
+
+    if best:
+        return _patch_install_to_run(*best[0])
+
+    if used_default:
         # It's legitimate to have no default runtime, but we're going to treat
         # it as if you have none at all. That way we get useful auto-install
         # behaviour.
         raise NoInstallsError
-
-    tag = CompanyTag(tag)
-
-    # Exact match search
-    for i in installs:
-        for t in i.get("run-for", ()):
-            if CompanyTag(i["company"], t["tag"]) == tag:
-                if bool(windowed) == bool(t.get("windowed")):
-                    return _patch_install_to_run(i, t)
-                if not best_non_windowed:
-                    best_non_windowed = _patch_install_to_run(i, t)
-
-    # Prefix match search
-    for i in installs:
-        for t in i.get("run-for", ()):
-            if CompanyTag(i["company"], t["tag"]).match(tag):
-                if bool(windowed) == bool(t.get("windowed")):
-                    return _patch_install_to_run(i, t)
-                if not best_non_windowed:
-                    best_non_windowed = _patch_install_to_run(i, t)
-
-    # No matches found for correct windowed mode, so pick the best non-match
-    if best_non_windowed:
-        return best_non_windowed
 
     raise NoInstallFoundError(tag=tag)

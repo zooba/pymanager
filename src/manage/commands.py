@@ -147,6 +147,7 @@ CONFIG_SCHEMA = {
     "logs_dir": (str, None, "env", "path"),
 
     "default_tag": (str, None, "env"),
+    "default_platform": (str, None, "env"),
     "automatic_install": (config_bool, None, "env"),
     "include_unmanaged": (config_bool, None, "env"),
     "shebang_can_run_anything": (config_bool, None, "env"),
@@ -216,6 +217,7 @@ class BaseCommand:
     config_file = None
     confirm = True
     default_tag = None
+    default_platform = None
     automatic_install = True
     include_unmanaged = True
     virtual_env = None
@@ -326,6 +328,10 @@ class BaseCommand:
                 setattr(self, k, v)
                 _set_args.add(k)
 
+        if not self.default_platform:
+            # Currently, we always default to -64.
+            self.default_platform = "-64"
+
         # If our command has any config, load them to override anything that
         # wasn't set on the command line.
         try:
@@ -428,14 +434,27 @@ class BaseCommand:
         except AttributeError:
             pass
 
-    def get_installs(self, *, include_unmanaged=False):
-        from .installs import get_installs
-        return get_installs(
+    def get_installs(self, *, include_unmanaged=False, set_default=True):
+        from .installs import get_installs, get_matching_install_tags
+        installs = get_installs(
             self.install_dir,
-            self.default_tag,
             include_unmanaged=include_unmanaged and self.include_unmanaged,
             virtual_env=self.virtual_env,
         )
+        if set_default and not any(i.get("default") for i in installs):
+            LOGGER.debug("Calculating default install")
+            matching = get_matching_install_tags(
+                installs,
+                self.default_tag,
+                default_platform=self.default_platform,
+                single_tag=True,
+            )
+            if matching:
+                if matching[0][0] not in installs:
+                    raise RuntimeError("get_matching_install_tags returned value from wrong list")
+                LOGGER.debug("Selected %s as default install", matching[0][0]["id"])
+                matching[0][0]["default"] = True
+        return installs
 
     def get_install_to_run(self, tag=None, script=None, *, windowed=False):
         if script and not tag:
@@ -452,6 +471,7 @@ class BaseCommand:
             windowed=windowed,
             include_unmanaged=self.include_unmanaged,
             virtual_env=self.virtual_env,
+            default_platform=self.default_platform,
         )
 
 

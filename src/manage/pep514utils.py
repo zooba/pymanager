@@ -304,6 +304,8 @@ def _get_store_installs():
                 "run-for": [
                     {"tag": tag, "target": "python.exe"},
                     {"tag": tag, "target": "pythonw.exe", "windowed": 1},
+                    {"tag": f"{tag}-64", "target": "python.exe"},
+                    {"tag": f"{tag}-64", "target": "pythonw.exe", "windowed": 1},
                     {"tag": "3", "target": "python.exe"},
                     {"tag": "3", "target": "pythonw.exe", "windowed": 1},
                 ],

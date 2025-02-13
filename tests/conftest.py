@@ -17,6 +17,9 @@ if not hasattr(_native, "coinitialize"):
             setattr(_native, k, getattr(_native_test, k))
 
 
+from manage.logging import LOGGER, DEBUG
+LOGGER.level = DEBUG
+
 class LogCaptureHandler(list):
     def __call__(self, *cmp):
         for x, y in zip(self, cmp):
@@ -25,7 +28,6 @@ class LogCaptureHandler(list):
 
 @pytest.fixture
 def assert_log():
-    from manage.logging import LOGGER
     LOGGER._list = capture = LogCaptureHandler()
     try:
         yield capture

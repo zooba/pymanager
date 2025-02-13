@@ -223,10 +223,6 @@ def execute(cmd):
     from .tagutils import tag_or_range, install_matches_any
     tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
             for arg in cmd.args]
-    if tags:
-        LOGGER.debug("Filtering to following items")
-        for t in tags:
-            LOGGER.debug("* %r", t)
 
     if cmd.source:
         from .urlutils import sanitise_url
@@ -243,7 +239,12 @@ def execute(cmd):
         except OSError:
             LOGGER.debug("Unable to read installs", exc_info=True)
             installs = []
-        installs = [i for i in installs if install_matches_any(i, tags)]
+
+        if tags:
+            LOGGER.debug("Filtering to following items")
+            for t in tags:
+                LOGGER.debug("* %r", t)
+            installs = [i for i in installs if install_matches_any(i, tags, loose_company=True)]
     else:
         raise ArgumentError("Configuration file does not specify install directory.")
 
