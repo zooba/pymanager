@@ -25,6 +25,7 @@ class LogCaptureHandler(list):
         for x, y in zip(self, cmp):
             assert re.match(y[0], x[0])
             assert x[1] == y[1]
+        assert len(self) == len(cmp)
 
 @pytest.fixture
 def assert_log():

@@ -550,3 +550,64 @@ def urljoin(base_url, other_url, *, to_parent=False):
         *u1[3:]
     ))
 
+
+class IndexDownloader:
+    def __init__(self, source, index_cls, auth, cache):
+        self.index_cls = index_cls
+        self._url = source.rstrip("/")
+        if not self._url.casefold().endswith(".json".casefold()):
+            self._url += "/index.json"
+        self._auth = auth
+        self._cache = cache
+        self._urlopen = urlopen
+
+    def __iter__(self):
+        return self
+
+    def on_auth(self, url):
+        # TODO: Try looking for parent paths from URL
+        return self._auth[url]
+
+    def __next__(self):
+        if not self._url:
+            raise StopIteration
+
+        import json
+
+        url = self._url
+        LOGGER.debug("Fetching: %s", url)
+        try:
+            data = cache[url]
+            LOGGER.debug("Used cached: %r", index)
+        except LookupError:
+            data = None
+
+        if not data:
+            try:
+                data = cache[url] = self._urlopen(
+                    url,
+                    "GET",
+                    {"Accepts": "application/json"},
+                    on_auth_request=self.on_auth,
+                )
+            except FileNotFoundError: # includes 404
+                LOGGER.error("Unable to find runtime index at %s", sanitise_url(url))
+                raise
+            except OSError as ex:
+                LOGGER.error(
+                    "Unable to access runtime index at %s: %s",
+                    sanitise_url(url),
+                    ex.args[1] if len(ex.args) >= 2 else ex
+                )
+                raise
+            except RuntimeError as ex:
+                LOGGER.error("An unexpected error occurred while downloading the index: %s", ex)
+                raise
+
+        index = self.index_cls(self._url, json.loads(data))
+
+        if index.next_url:
+            self._url = urljoin(url, index.next_url, to_parent=True)
+        else:
+            self._url = None
+        return index

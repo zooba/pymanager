@@ -47,7 +47,7 @@ def format_table(installs):
     columns = {
         "company": "Managed By",
         "tag": "Tag",
-        "displayName": "Name",
+        "display-name": "Name",
         "sort-version": "Version",
         "alias": "Alias",
     }
@@ -67,7 +67,7 @@ def format_table(installs):
 
     # Maximum column widths
     show_truncated_warning = False
-    mwidth = {"company": 30, "tag": 30, "name": 60, "version": 15, "alias": 50}
+    mwidth = {"company": 30, "tag": 30, "display-name": 60, "sort-version": 15, "alias": 50}
     for k in list(cwidth):
         try:
             if cwidth[k] > mwidth[k]:
@@ -169,7 +169,7 @@ def format_legacy(installs, paths=False):
             tag = f" -V:{i['tag']}"
         if i.get("default"):
             tag = f"{tag} *"
-        print(tag.ljust(17), i["executable"] if paths else i["displayName"])
+        print(tag.ljust(17), i["executable"] if paths else i["display-name"])
 
 
 FORMATTERS = {
@@ -185,27 +185,18 @@ FORMATTERS = {
 }
 
 
-def _get_installs_from_index(source, filters):
-    from .indexutils import Index
-    from .urlutils import sanitise_url, urljoin, urlopen
+def _get_installs_from_index(indexes, filters):
+    from .urlutils import sanitise_url
 
     installs = []
     seen_ids = set()
 
-    url = source
-    while url:
-        index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
-
+    for index in indexes:
         count = 0
         for i in index.find_all(filters, seen_ids=seen_ids, with_prerelease=True):
             installs.append(i)
             count += 1
-        LOGGER.debug("Fetched %i installs from %s", count, sanitise_url(url))
-
-        if index.next_url:
-            url = urljoin(url, index.next_url, to_parent=True)
-        else:
-            url = None
+        LOGGER.debug("Fetched %i installs from %s", count, sanitise_url(index.source_url))
 
     return installs
 
@@ -225,10 +216,10 @@ def execute(cmd):
             for arg in cmd.args]
 
     if cmd.source:
-        from .urlutils import sanitise_url
+        from .urlutils import IndexDownloader, sanitise_url
         LOGGER.debug("Reading potential installs from %s", sanitise_url(cmd.source))
         try:
-            installs = _get_installs_from_index(cmd.source, tags)
+            installs = _get_installs_from_index(IndexDownloader(cmd.source), tags)
         except OSError as ex:
             LOGGER.error("Unable to read the index at %s", sanitise_url(cmd.source))
             raise SilentError from ex

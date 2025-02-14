@@ -19,6 +19,7 @@ from .urlutils import (
     urljoin,
     urlopen as _urlopen,
     urlretrieve as _urlretrieve,
+    IndexDownloader,
 )
 
 
@@ -66,37 +67,9 @@ def select_package(cmd, source, tag, cache, *, urlopen=_urlopen, by_id=False):
     ]}
     tag may be a list of tags that are allowed to match exactly.
     """
-    url = source.rstrip("/")
-    if not url.casefold().endswith(".json".casefold()):
-        url = f"{url}/index.json"
 
-    while url:
-        LOGGER.debug("Fetching: %s", url)
-        try:
-            index = cache[url]
-            LOGGER.debug("Used cached: %r", index)
-        except LookupError:
-            index = None
-
-        if index is None:
-            try:
-                index = Index(url, json.loads(urlopen(url, "GET", {"Accepts": "application/json"})))
-            except FileNotFoundError: # includes 404
-                LOGGER.error("Unable to find runtime index at %s", sanitise_url(url))
-                raise
-            except OSError as ex:
-                LOGGER.error(
-                    "Unable to access runtime index at %s: %s",
-                    sanitise_url(url),
-                    ex.args[1] if len(ex.args) >= 2 else ex
-                )
-                raise
-            except RuntimeError as ex:
-                LOGGER.error("An unexpected error occurred while downloading the index: %s", ex)
-                raise
-            LOGGER.debug("Downloaded: %r", index)
-            cache[url] = index
-
+    first_exc = None
+    for index in IndexDownloader(cmd.source, Index, {}, cache):
         try:
             if by_id:
                 for v in index.versions:
@@ -106,19 +79,14 @@ def select_package(cmd, source, tag, cache, *, urlopen=_urlopen, by_id=False):
                     tag, sanitise_url(index.source_url)
                 ))
             return index.find_to_install(tag)
-        except LookupError:
-            if not index.next_url:
-                raise
-            url = urljoin(url, index.next_url, to_parent=True)
+        except LookupError as ex:
+            first_exc = ex
+
+    if first_exc:
+        raise first_exc
 
     assert False, "unreachable code"
     raise RuntimeError("End of select_package reached")
-
-
-class AuthFinder:
-    def __init__(self, source):
-        self.source = source
-
 
 
 def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
@@ -338,9 +306,9 @@ def print_cli_shortcuts(cmd):
     for i in installs:
         aliases = ", ".join(sorted(a["name"] for a in i["alias"]))
         if aliases:
-            LOGGER.info("%s can be launched with %s", i["displayName"], aliases)
+            LOGGER.info("%s can be launched with %s", i["display-name"], aliases)
         else:
-            LOGGER.info("Installed %s to %s", i["displayName"], i["prefix"])
+            LOGGER.info("Installed %s to %s", i["display-name"], i["prefix"])
         if i.get("default"):
             LOGGER.info("This version will be launched by default when you run '!G!python!W!'.")
 
@@ -362,7 +330,7 @@ def _find_one(cmd, source, tag, *, installed=None, by_id=False):
         return install
 
     if cmd.force:
-        LOGGER.warn("Overwriting existing %s install because of --force.", existing[0]["displayName"])
+        LOGGER.warn("Overwriting existing %s install because of --force.", existing[0]["display-name"])
         return install
 
     if cmd.repair:
@@ -371,7 +339,7 @@ def _find_one(cmd, source, tag, *, installed=None, by_id=False):
     if cmd.update:
         if install["sort-version"] > existing[0]["sort-version"]:
             return install
-        LOGGER.info("%s is already up to date.", existing[0]["displayName"])
+        LOGGER.info("%s is already up to date.", existing[0]["display-name"])
         return None
 
     # Return the package if it was requested in a way that wouldn't have
@@ -379,7 +347,7 @@ def _find_one(cmd, source, tag, *, installed=None, by_id=False):
     if not install_matches_any(existing[0], [tag]):
         return install
 
-    LOGGER.info("%s is already installed.", existing[0]["displayName"])
+    LOGGER.info("%s is already installed.", existing[0]["display-name"])
     return None
 
 
@@ -402,11 +370,11 @@ def _download_one(cmd, source, install, download_dir, *, must_copy=False):
 
 def _install_one(cmd, source, install, *, target=None):
     if cmd.repair:
-        LOGGER.info("Repairing %s.", install['displayName'])
+        LOGGER.info("Repairing %s.", install['display-name'])
     elif cmd.update:
-        LOGGER.info("Updating to %s.", install['displayName'])
+        LOGGER.info("Updating to %s.", install['display-name'])
     else:
-        LOGGER.info("Installing %s.", install['displayName'])
+        LOGGER.info("Installing %s.", install['display-name'])
     LOGGER.verbose("Tag: %s\\%s", install['company'], install['tag'])
 
     if cmd.dry_run:
@@ -617,10 +585,10 @@ def execute(cmd):
                             if update['sort-version'] > install['sort-version']:
                                 _install_one(cmd, update)
                             else:
-                                LOGGER.verbose("%s is already up to date.", install['displayName'])
+                                LOGGER.verbose("%s is already up to date.", install['display-name'])
                         else:
                             LOGGER.verbose("Could not find update for %s.",
-                                install['displayName'], install['id'])
+                                install['display-name'], install['id'])
                     # Fallthrough is safe - cmd.tags is empty
                 else:
                     raise ArgumentError("Specify at least one tag to install, or 'default' for "
@@ -651,7 +619,7 @@ def execute(cmd):
                 raise RuntimeError("All install sources failed, nothing can be installed.")
             for install in installs:
                 if cmd.download:
-                    LOGGER.info("Downloading %s", install["displayName"])
+                    LOGGER.info("Downloading %s", install["display-name"])
                     package = _download_one(cmd, source, install, cmd.download, must_copy=True)
                     download_index["versions"].append({
                         **install,

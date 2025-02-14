@@ -40,9 +40,9 @@ def execute(cmd):
     if cmd.purge:
         if not cmd.confirm or ask_yn("Uninstall all runtimes?"):
             for i in installed:
-                LOGGER.info("Purging %s from %s", i["displayName"], i["prefix"])
-                unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["displayName"]))
-                rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["displayName"]))
+                LOGGER.info("Purging %s from %s", i["display-name"], i["prefix"])
+                unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["display-name"]))
+                rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["display-name"]))
             LOGGER.info("Purging saved downloads")
             for f in _iterdir(cmd.install_dir):
                 rmtree(f, after_5s_warning=warn_msg.format("cached downloads"))
@@ -73,19 +73,19 @@ def execute(cmd):
         return
     elif cmd.confirm:
         if len(to_uninstall) == 1:
-            if not ask_yn("Uninstall ", to_uninstall[0]["displayName"], "?"):
+            if not ask_yn("Uninstall ", to_uninstall[0]["display-name"], "?"):
                 return
         else:
-            msg = ", ".join(i["displayName"] for i in to_uninstall)
+            msg = ", ".join(i["display-name"] for i in to_uninstall)
             if not ask_yn("Uninstall these runtimes: ", msg, "?"):
                 return
 
     for i in to_uninstall:
-        LOGGER.debug("Uninstalling %s from %s", i["displayName"], i["prefix"])
+        LOGGER.debug("Uninstalling %s from %s", i["display-name"], i["prefix"])
         # Remove registration first to avoid stray installs showing up
-        unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["displayName"]))
-        rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["displayName"]))
-        LOGGER.info("Removed %s", i["displayName"])
+        unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["display-name"]))
+        rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["display-name"]))
+        LOGGER.info("Removed %s", i["display-name"])
         try:
             for target in cmd.global_dir.glob("*.__target__"):
                 alias = target.with_suffix("")

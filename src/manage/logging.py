@@ -137,6 +137,8 @@ class Logger:
                 print(exc, file=self.file)
 
     def print(self, msg=None, *args, **kwargs):
+        if self._list is not None:
+            self._list.append(((msg or "") % args, ()))
         if kwargs.pop("level", INFO) < self.level:
             return
         if msg:

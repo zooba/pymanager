@@ -80,7 +80,7 @@ SCHEMA = {
                 ],
             },
         ],
-        "displayName": "Python $FULLVERSION$",
+        "display-name": "Python $FULLVERSION$",
         "executable": "./python.exe",
         "url": "$PACKAGEURL$"
     },
@@ -140,7 +140,7 @@ SCHEMA = {
                 ],
             },
         ],
-        "displayName": "Python $FULLVERSION$ (32-bit)",
+        "display-name": "Python $FULLVERSION$ (32-bit)",
         "executable": "./python.exe",
         "url": "$PACKAGEURL$"
     },
@@ -200,7 +200,7 @@ SCHEMA = {
                 ],
             },
         ],
-        "displayName": "Python $FULLVERSION$ (ARM64)",
+        "display-name": "Python $FULLVERSION$ (ARM64)",
         "executable": "./python.exe",
         "url": "$PACKAGEURL$"
     },
@@ -260,7 +260,7 @@ SCHEMA = {
                 ],
             },
         ],
-        "displayName": "Python $FULLVERSION$ (free-threaded)",
+        "display-name": "Python $FULLVERSION$ (free-threaded)",
         "executable": "./python$XYVERSION$t.exe",
         "url": "$PACKAGEURL$"
     },
@@ -320,7 +320,7 @@ SCHEMA = {
                 ],
             },
         ],
-        "displayName": "Python $FULLVERSION$ (32-bit, free-threaded)",
+        "display-name": "Python $FULLVERSION$ (32-bit, free-threaded)",
         "executable": "./python$XYVERSION$t.exe",
         "url": "$PACKAGEURL$"
     },
@@ -380,7 +380,7 @@ SCHEMA = {
                 ],
             },
         ],
-        "displayName": "Python $FULLVERSION$ (ARM64, free-threaded)",
+        "display-name": "Python $FULLVERSION$ (ARM64, free-threaded)",
         "executable": "./python$XYVERSION$t.exe",
         "url": "$PACKAGEURL$"
     },

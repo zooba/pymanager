@@ -60,7 +60,7 @@ def _get_venv_install(virtual_env):
            if k.strip().casefold() == "version".casefold()]
     return {
         "id": "__active-virtual-env",
-        "displayName": "Active virtual environment",
+        "display-name": "Active virtual environment",
         "sort-version": ver[0] if ver else "0.0",
         "company": "<venv>",
         "tag": "---",

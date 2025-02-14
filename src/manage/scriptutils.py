@@ -51,7 +51,7 @@ def _find_on_path(cmd, full_cmd):
     if not exe:
         raise LookupError
     return {
-        "displayName": "Shebang command",
+        "display-name": "Shebang command",
         "sort-version": "0.0",
         "executable": Path(exe),
     }

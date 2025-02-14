@@ -30,7 +30,7 @@ SCHEMA = {
             # List of other kinds of shortcuts to create.
             "shortcuts": [{"kind": str, ...: ...}],
             # Name to display in the UI
-            "displayName": str,
+            "display-name": str,
             # [RESERVED] Install prefix. This will always be overwritten, so
             # don't specify it in the index.
             "prefix": None,
@@ -112,7 +112,7 @@ def _validate_one_or_list(d, expects, ctxt):
                 yield _validate_one(e, expect, ctxt)
                 break
         else:
-            raise InvalidFeedError("No matching item format at {}".format(
+            raise InvalidFeedError("No matching 'version' or 'schema' at {}".format(
                 ".".join(ctxt)
             ))
     del ctxt[-1]

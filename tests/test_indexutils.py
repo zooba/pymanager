@@ -63,7 +63,7 @@ EXAMPLE_V1_PACKAGE = {
                     },
                 },
             ],
-            "displayName": "Python 3.13.0",
+            "display-name": "Python 3.13.0",
             "executable": "./python.exe",
             "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0/python.3.13.0.nupkg"
         },
@@ -85,7 +85,7 @@ def fake_install_data(v, company="PythonCore", exe="python.exe"):
             {"tag": v.rpartition(".")[0], "target": exe},
             {"tag": v.partition(".")[0], "target": exe},
         ],
-        "displayName": f"{company} {v}",
+        "display-name": f"{company} {v}",
         "executable": exe,
     }
 
