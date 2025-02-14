@@ -205,9 +205,9 @@ jobs:
         gcm pythonw
       displayName: 'Post-build tests'
 
-      - powershell: |
-          Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
-        displayName: 'Remove MSIX'
+    - powershell: |
+        Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
+      displayName: 'Remove MSIX'
 
   - ${{ if and(eq(parameters.Publish, 'true'), or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true'))) }}:
     - powershell: |
