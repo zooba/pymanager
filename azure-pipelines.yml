@@ -184,6 +184,7 @@ jobs:
       - powershell: |
           $msix = dir "$(DIST_DIR)\*.msix" | ?{ -not ($_.BaseName -match '.+-store') } | select -first 1
           Add-AppxPackage $msix
+          Get-AppxPackage PythonSoftwareFoundation.PythonManager
         displayName: 'Install signed MSIX'
 
     - ${{ else }}:
@@ -192,6 +193,7 @@ jobs:
           cp $msix "${msix}.zip"
           Expand-Archive "${msix}.zip" (mkdir -Force $env:TEST_MSIX)
           Add-AppxPackage -Register "${env:TEST_MSIX}\appxmanifest.xml"
+          Get-AppxPackage PythonSoftwareFoundation.PythonManager
         displayName: 'Register unsigned MSIX'
         env:
           TEST_MSIX: $(TEST_MSIX_DIR)
@@ -218,6 +220,10 @@ jobs:
     - powershell: |
         pymanager list -vv
       displayName: 'List installed runtimes'
+
+    - powershell: |
+        pymanager exec -m site
+      displayName: 'Launch default runtime'
 
     - powershell: |
         Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
