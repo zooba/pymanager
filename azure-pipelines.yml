@@ -180,7 +180,15 @@ jobs:
 
   - ${{ if eq(parameters.PostTest, 'true') }}:
     - powershell: |
-        Write-Host "TODO: Post-build tests"
+        $msix = dir "$(DIST_DIR)\*.msix" | ?{ -not ($_.BaseName -match '.+-store') } | select -first 1
+        Add-AppxPackage $msix
+        gcm pymanager
+        gcm py
+        gcm python
+        gcm pymanagerw
+        gcm pyw
+        gcm pythonw
+        Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
       displayName: 'TODO: Post-build tests'
 
   - ${{ if and(eq(parameters.Publish, 'true'), or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true'))) }}:
