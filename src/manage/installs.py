@@ -24,6 +24,11 @@ def _get_installs(install_dir):
             j = json.load(f)
 
         if j.get("schema", 0) == 1:
+            # HACK: to help transition alpha users from their existing installs
+            try:
+                j["display-name"] = j["displayName"]
+            except LookupError:
+                pass
             yield {
                 **j,
                 "prefix": p.parent,

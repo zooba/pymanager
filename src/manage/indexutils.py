@@ -167,6 +167,12 @@ def _patch_schema_1(source_url, v):
         if "://" not in url:
             v["url"] = urljoin(source_url, url, to_parent=True)
 
+    # HACK: to help transition alpha users from their existing installs
+    try:
+        v["display-name"] = v["displayName"]
+    except LookupError:
+        pass
+
     return v
 
 
