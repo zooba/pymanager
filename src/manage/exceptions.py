@@ -63,15 +63,6 @@ class InvalidConfigurationError(ValueError):
         self.value = value
 
 
-class SilentError(Exception):
-    @property
-    def exitcode(self):
-        try:
-            return self.args[0]
-        except IndexError:
-            return 1
-
-
 class AutomaticInstallDisabledError(Exception):
     exitcode = 0xA0000006 # ERROR_AUTO_INSTALL_DISABLED
 

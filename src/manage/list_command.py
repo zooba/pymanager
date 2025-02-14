@@ -1,7 +1,7 @@
 import json
 import sys
 
-from .exceptions import ArgumentError, SilentError
+from .exceptions import ArgumentError
 from .logging import LOGGER
 
 
@@ -216,15 +216,16 @@ def execute(cmd):
             for arg in cmd.args]
 
     if cmd.source:
-        from .urlutils import IndexDownloader, sanitise_url
-        LOGGER.debug("Reading potential installs from %s", sanitise_url(cmd.source))
+        from .indexutils import Index
+        from .urlutils import IndexDownloader
         try:
-            installs = _get_installs_from_index(IndexDownloader(cmd.source), tags)
+            installs = _get_installs_from_index(
+                IndexDownloader(cmd.source, Index),
+                tags,
+            )
         except OSError as ex:
-            LOGGER.error("Unable to read the index at %s", sanitise_url(cmd.source))
-            raise SilentError from ex
+            raise SystemExit(1) from ex
     elif cmd.install_dir:
-        LOGGER.debug("Reading installs from %s", cmd.install_dir)
         try:
             installs = cmd.get_installs(include_unmanaged=cmd.unmanaged)
         except OSError:

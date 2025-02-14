@@ -3,7 +3,6 @@ from .exceptions import (
     AutomaticInstallDisabledError,
     NoInstallFoundError,
     NoInstallsError,
-    SilentError,
 )
 from .logging import LOGGER
 
@@ -53,13 +52,13 @@ def main(args, root=None):
             show_help(args[1:2])
         LOGGER.error("%s", ex)
         return 1
-    except SilentError as ex:
-        LOGGER.debug("SILENCED ERROR", exc_info=True)
-        return ex.exitcode
     except Exception as ex:
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
         LOGGER.debug("TRACEBACK:", exc_info=True)
         return getattr(ex, "winerror", 0) or getattr(ex, "errno", 1)
+    except SystemExit as ex:
+        LOGGER.debug("SILENCED ERROR", exc_info=True)
+        return ex.code
     finally:
         f, LOGGER.file = LOGGER.file, None
         if f:
@@ -101,10 +100,10 @@ def find_one(root, tag, script, windowed, allow_autoinstall, show_not_found_erro
             LOGGER.error("%s", ex)
             LOGGER.debug("TRACEBACK:", exc_info=True)
         raise
-    except SilentError:
-        LOGGER.debug("SILENCED ERROR", exc_info=True)
-        raise
     except Exception as ex:
         LOGGER.error("INTERNAL ERROR: %s: %s", type(ex).__name__, ex)
         LOGGER.debug("TRACEBACK:", exc_info=True)
+        raise
+    except SystemExit:
+        LOGGER.debug("SILENCED ERROR", exc_info=True)
         raise

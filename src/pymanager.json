@@ -22,6 +22,7 @@
     "logs_dir": "%PYTHON_MANAGER_LOGS%",
 
     "default_tag": "%PYTHON_MANAGER_DEFAULT%",
+    "default_platform": "%PYTHON_MANAGER_DEFAULT_PLATFORM%",
     "user_config": "%AppData%\\Python\\PyManager.json",
     "additional_config": "%PYTHON_MANAGER_CONFIG%",
 

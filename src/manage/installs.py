@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 
 from .exceptions import NoInstallFoundError, NoInstallsError
-from .logging import LOGGER
+from .logging import DEBUG, LOGGER
 from .tagutils import CompanyTag, tag_or_range
 from .verutils import Version
 
@@ -45,12 +45,7 @@ def _get_installs(install_dir):
 
 def _get_unmanaged_installs():
     from .pep514utils import get_unmanaged_installs
-    try:
-        return get_unmanaged_installs()
-    except Exception as ex:
-        LOGGER.warn("Failed to read unmanaged installs: %s", ex)
-        LOGGER.debug("TRACEBACK:", exc_info=True)
-    return []
+    return get_unmanaged_installs()
 
 
 def _get_venv_install(virtual_env):
@@ -90,19 +85,32 @@ def get_installs(
     include_unmanaged=True,
     virtual_env=None,
 ):
+    LOGGER.debug("Reading installs from %s", install_dir)
     installs = list(_get_installs(install_dir))
+    LOGGER.debug("Found %s %s", len(installs),
+                 "install" if len(installs) == 1 else "installs")
 
     if include_unmanaged:
-        um_installs = _get_unmanaged_installs()
-        installs.extend(um_installs)
+        LOGGER.debug("Reading unmanaged installs")
+        try:
+            um_installs = _get_unmanaged_installs()
+        except Exception as ex:
+            LOGGER.warn("Failed to read unmanaged installs: %s", ex)
+            LOGGER.debug("TRACEBACK:", exc_info=True)
+        else:
+            LOGGER.debug("Found %s %s", len(um_installs),
+                         "install" if len(um_installs) == 1 else "installs")
+            installs.extend(um_installs)
 
     installs.sort(key=_make_sort_key)
 
     if virtual_env:
+        LOGGER.debug("Checking for virtual environment at %s", virtual_env)
         try:
             installs.insert(0, _get_venv_install(virtual_env))
+            LOGGER.debug("Found 1 install")
         except LookupError:
-            pass
+            LOGGER.debug("No virtual environment found")
 
     return installs
 
@@ -128,6 +136,9 @@ def get_matching_install_tags(
     unmanaged_matches = []
 
     # Installs are in the correct order, so we'll first collect all the matches.
+    # If no tag is provided, we still expand out the list by all of 'run-for'
+    if tag:
+        LOGGER.debug("Filtering installs by tag = %s", tag)
     for i in installs:
         for t in i.get("run-for", ()):
             ct = CompanyTag(i["company"], t["tag"])
@@ -140,15 +151,24 @@ def get_matching_install_tags(
                     core_matches.append((i, t))
                 else:
                     matches.append((i, t))
+            elif LOGGER.would_log_to_console(DEBUG):
+                # Don't bother listing all installs unless the user has asked
+                # for console output.
+                LOGGER.debug("Tag excluded %s", i["id"])
             if single_tag:
                 break
 
-    matches = [*core_matches, *matches, *unmanaged_matches]
-
-    LOGGER.debug("Tag %s matched %s installs exactly, %s core installs by "
-                 "prefix, %s other installs by prefix, and %s unmanaged.",
-                 tag, len(exact_matches), len(core_matches), len(matches),
-                 len(unmanaged_matches))
+    if tag:
+        LOGGER.debug("tag '%s' matched %s %s", tag, len(matches),
+                     "install" if len(matches) == 1 else "installs")
+        if exact_matches:
+            LOGGER.debug("- %s exact match(es)", len(exact_matches))
+        if core_matches:
+            LOGGER.debug("- %s core install(s) by prefix", len(core_matches))
+        if matches:
+            LOGGER.debug("- %s non-core install(s) by prefix", len(matches))
+        if unmanaged_matches:
+            LOGGER.debug("- %s unmanaged install(s) by prefix", len(unmanaged_matches))
 
     best = [*exact_matches, *core_matches, *matches, *unmanaged_matches]
 
@@ -156,15 +176,16 @@ def get_matching_install_tags(
     if windowed is not None:
         windowed = bool(windowed)
         best = [(i, t) for i, t in best if windowed == bool(t.get("windowed"))] or best
-        LOGGER.debug("%s left after filtering for windowed = %s", len(best), windowed)
+        LOGGER.debug("windowed = %s matched %s %s", windowed,
+                     len(best), "install" if len(best) == 1 else "installs")
 
     # Filter for default_platform matches (by tag suffix). If none, keep them all
     if default_platform:
         default_platform = default_platform.casefold()
         best = [(i, t) for i, t in best
                 if t["tag"].casefold().endswith(default_platform)] or best
-        LOGGER.debug("%s left after filtering for default_platform = %s",
-                     len(best), default_platform)
+        LOGGER.debug("default_platform '%s' matched %s %s", default_platform,
+                     len(best), "install" if len(best) == 1 else "installs")
 
     return best
 

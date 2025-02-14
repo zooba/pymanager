@@ -8,7 +8,6 @@ from .exceptions import (
     AutomaticInstallDisabledError,
     HashMismatchError,
     NoInstallFoundError,
-    SilentError,
 )
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
@@ -462,7 +461,7 @@ def _fatal_install_error(cmd, ex):
         LOGGER.info("If you cannot resolve it yourself, please report the error with "
                     "verbose output file at https://discuss.python.org/t/77900/ (during testing).")
     LOGGER.debug("TRACEBACK:", exc_info=True)
-    raise SilentError(getattr(ex, "errno", 0) or 1) from ex
+    raise SystemExit(getattr(ex, "winerror", getattr(ex, "errno", 0)) or 1) from ex
 
 
 def execute(cmd):
@@ -630,7 +629,7 @@ def execute(cmd):
         except ArgumentError:
             raise
         except NoInstallFoundError as ex:
-            raise SilentError(1) from ex
+            raise SystemExit(1) from ex
         except Exception as ex:
             return _fatal_install_error(cmd, ex)
 

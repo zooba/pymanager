@@ -552,13 +552,13 @@ def urljoin(base_url, other_url, *, to_parent=False):
 
 
 class IndexDownloader:
-    def __init__(self, source, index_cls, auth, cache):
+    def __init__(self, source, index_cls, auth=None, cache=None):
         self.index_cls = index_cls
         self._url = source.rstrip("/")
         if not self._url.casefold().endswith(".json".casefold()):
             self._url += "/index.json"
-        self._auth = auth
-        self._cache = cache
+        self._auth = auth if auth is not None else {}
+        self._cache = cache if cache is not None else {}
         self._urlopen = urlopen
 
     def __iter__(self):
@@ -591,11 +591,11 @@ class IndexDownloader:
                     on_auth_request=self.on_auth,
                 )
             except FileNotFoundError: # includes 404
-                LOGGER.error("Unable to find runtime index at %s", sanitise_url(url))
+                LOGGER.error("Unable to find runtimes index at %s", sanitise_url(url))
                 raise
             except OSError as ex:
                 LOGGER.error(
-                    "Unable to access runtime index at %s: %s",
+                    "Unable to access runtimes index at %s: %s",
                     sanitise_url(url),
                     ex.args[1] if len(ex.args) >= 2 else ex
                 )
