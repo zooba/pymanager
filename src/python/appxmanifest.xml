@@ -182,7 +182,7 @@
             <Extensions>
                 <uap5:Extension Category="windows.appExecutionAlias">
                     <uap5:AppExecutionAlias desktop4:Subsystem="windows">
-                        <uap5:ExecutionAlias Alias="PywManager.exe" />
+                        <uap5:ExecutionAlias Alias="PyManagerW.exe" />
                         <uap5:ExecutionAlias Alias="pyw.exe" />
                     </uap5:AppExecutionAlias>
                 </uap5:Extension>

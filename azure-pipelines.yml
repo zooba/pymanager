@@ -198,12 +198,26 @@ jobs:
 
     - powershell: |
         gcm pymanager
+        gcm pymanagerw
+        # These are likely present due to the machine configuration,
+        # but we'll check for them anyway.
         gcm py
         gcm python
-        gcm pymanagerw
         gcm pyw
         gcm pythonw
-      displayName: 'Post-build tests'
+      displayName: 'Ensure global commands are present'
+
+    - powershell: |
+        pymanager
+      displayName: 'Show help output'
+
+    - powershell: |
+        pymanager install -vv default
+      displayName: 'Install default runtime'
+
+    - powershell: |
+        pymanager list -vv
+      displayName: 'List installed runtimes'
 
     - powershell: |
         Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
