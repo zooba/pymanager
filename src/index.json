@@ -3,6 +3,91 @@
     {
       "schema": 1,
       "id": "pythoncore-3.14",
+      "sort-version": "3.14.0a5",
+      "company": "PythonCore",
+      "tag": "3.14.0a5",
+      "install-for": [
+        "3.14.0a5"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a5",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.14",
+          "DisplayName": "Python 3.14.0a5",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14",
+          "Items": [
+            {
+              "Name": "Python 3.14",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.14.0a5",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a5/python.3.14.0-a5.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14",
       "sort-version": "3.14.0a4",
       "company": "PythonCore",
       "tag": "3.14.0a4",
@@ -81,7 +166,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a4",
+      "display-name": "Python 3.14.0a4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a4/python.3.14.0-a4.nupkg"
     },
@@ -166,7 +251,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a3",
+      "display-name": "Python 3.14.0a3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a3/python.3.14.0-a3.nupkg"
     },
@@ -251,7 +336,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a2",
+      "display-name": "Python 3.14.0a2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a2/python.3.14.0-a2.nupkg"
     },
@@ -336,9 +421,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a1",
+      "display-name": "Python 3.14.0a1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a1/python.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13",
+      "sort-version": "3.13.2",
+      "company": "PythonCore",
+      "tag": "3.13.2",
+      "install-for": [
+        "3.13.2",
+        "3.13",
+        "3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13.2",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.13",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.13",
+          "DisplayName": "Python 3.13.2",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13",
+          "Items": [
+            {
+              "Name": "Python 3.13",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.13.2",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.2/python.3.13.2.nupkg"
     },
     {
       "schema": 1,
@@ -423,7 +595,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.1",
+      "display-name": "Python 3.13.1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.1/python.3.13.1.nupkg"
     },
@@ -510,7 +682,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0",
+      "display-name": "Python 3.13.0",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0/python.3.13.0.nupkg"
     },
@@ -595,7 +767,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc3",
+      "display-name": "Python 3.13.0rc3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc3/python.3.13.0-rc3.nupkg"
     },
@@ -680,7 +852,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc2",
+      "display-name": "Python 3.13.0rc2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc2/python.3.13.0-rc2.nupkg"
     },
@@ -765,7 +937,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc1",
+      "display-name": "Python 3.13.0rc1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-rc1/python.3.13.0-rc1.nupkg"
     },
@@ -850,7 +1022,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b4",
+      "display-name": "Python 3.13.0b4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b4/python.3.13.0-b4.nupkg"
     },
@@ -935,7 +1107,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b3",
+      "display-name": "Python 3.13.0b3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b3/python.3.13.0-b3.nupkg"
     },
@@ -1020,7 +1192,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b2",
+      "display-name": "Python 3.13.0b2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b2/python.3.13.0-b2.nupkg"
     },
@@ -1105,7 +1277,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b1",
+      "display-name": "Python 3.13.0b1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-b1/python.3.13.0-b1.nupkg"
     },
@@ -1190,7 +1362,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a6",
+      "display-name": "Python 3.13.0a6",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a6/python.3.13.0-a6.nupkg"
     },
@@ -1275,7 +1447,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a5",
+      "display-name": "Python 3.13.0a5",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a5/python.3.13.0-a5.nupkg"
     },
@@ -1360,7 +1532,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a4",
+      "display-name": "Python 3.13.0a4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a4/python.3.13.0-a4.nupkg"
     },
@@ -1445,7 +1617,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a3",
+      "display-name": "Python 3.13.0a3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a3/python.3.13.0-a3.nupkg"
     },
@@ -1530,7 +1702,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a2",
+      "display-name": "Python 3.13.0a2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a2/python.3.13.0-a2.nupkg"
     },
@@ -1615,9 +1787,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a1",
+      "display-name": "Python 3.13.0a1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.13.0-a1/python.3.13.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12",
+      "sort-version": "3.12.9",
+      "company": "PythonCore",
+      "tag": "3.12.9",
+      "install-for": [
+        "3.12.9",
+        "3.12",
+        "3"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12.9",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.12",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.12",
+          "DisplayName": "Python 3.12.9",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.9",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12",
+          "Items": [
+            {
+              "Name": "Python 3.12",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.12.9",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.9/python.3.12.9.nupkg"
     },
     {
       "schema": 1,
@@ -1702,7 +1961,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.8",
+      "display-name": "Python 3.12.8",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.8/python.3.12.8.nupkg"
     },
@@ -1789,7 +2048,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.7",
+      "display-name": "Python 3.12.7",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.7/python.3.12.7.nupkg"
     },
@@ -1876,7 +2135,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.6",
+      "display-name": "Python 3.12.6",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.6/python.3.12.6.nupkg"
     },
@@ -1963,7 +2222,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.5",
+      "display-name": "Python 3.12.5",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.5/python.3.12.5.nupkg"
     },
@@ -2050,7 +2309,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.4",
+      "display-name": "Python 3.12.4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.4/python.3.12.4.nupkg"
     },
@@ -2137,7 +2396,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.3",
+      "display-name": "Python 3.12.3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.3/python.3.12.3.nupkg"
     },
@@ -2224,7 +2483,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.2",
+      "display-name": "Python 3.12.2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.2/python.3.12.2.nupkg"
     },
@@ -2311,7 +2570,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.1",
+      "display-name": "Python 3.12.1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.1/python.3.12.1.nupkg"
     },
@@ -2398,7 +2657,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0",
+      "display-name": "Python 3.12.0",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0/python.3.12.0.nupkg"
     },
@@ -2483,7 +2742,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc3",
+      "display-name": "Python 3.12.0rc3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-rc3/python.3.12.0-rc3.nupkg"
     },
@@ -2568,7 +2827,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc2",
+      "display-name": "Python 3.12.0rc2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-rc2/python.3.12.0-rc2.nupkg"
     },
@@ -2653,7 +2912,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc1",
+      "display-name": "Python 3.12.0rc1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-rc1/python.3.12.0-rc1.nupkg"
     },
@@ -2738,7 +2997,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b4",
+      "display-name": "Python 3.12.0b4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b4/python.3.12.0-b4.nupkg"
     },
@@ -2823,7 +3082,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b3",
+      "display-name": "Python 3.12.0b3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b3/python.3.12.0-b3.nupkg"
     },
@@ -2908,7 +3167,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b2",
+      "display-name": "Python 3.12.0b2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b2/python.3.12.0-b2.nupkg"
     },
@@ -2993,7 +3252,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b1",
+      "display-name": "Python 3.12.0b1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-b1/python.3.12.0-b1.nupkg"
     },
@@ -3078,7 +3337,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a7",
+      "display-name": "Python 3.12.0a7",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a7/python.3.12.0-a7.nupkg"
     },
@@ -3163,7 +3422,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a6",
+      "display-name": "Python 3.12.0a6",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a6/python.3.12.0-a6.nupkg"
     },
@@ -3248,7 +3507,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a5",
+      "display-name": "Python 3.12.0a5",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a5/python.3.12.0-a5.nupkg"
     },
@@ -3333,7 +3592,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a4",
+      "display-name": "Python 3.12.0a4",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a4/python.3.12.0-a4.nupkg"
     },
@@ -3418,7 +3677,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a3",
+      "display-name": "Python 3.12.0a3",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a3/python.3.12.0-a3.nupkg"
     },
@@ -3503,7 +3762,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a2",
+      "display-name": "Python 3.12.0a2",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a2/python.3.12.0-a2.nupkg"
     },
@@ -3588,9 +3847,94 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a1",
+      "display-name": "Python 3.12.0a1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a1/python.3.12.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-32",
+      "sort-version": "3.14.0a5",
+      "company": "PythonCore",
+      "tag": "3.14.0a5-32",
+      "install-for": [
+        "3.14.0a5-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a5-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.14-32",
+          "DisplayName": "Python 3.14.0a5 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.14.0a5 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a5/pythonx86.3.14.0-a5.nupkg"
     },
     {
       "schema": 1,
@@ -3673,7 +4017,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a4 (32-bit)",
+      "display-name": "Python 3.14.0a4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a4/pythonx86.3.14.0-a4.nupkg"
     },
@@ -3758,7 +4102,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a3 (32-bit)",
+      "display-name": "Python 3.14.0a3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a3/pythonx86.3.14.0-a3.nupkg"
     },
@@ -3843,7 +4187,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a2 (32-bit)",
+      "display-name": "Python 3.14.0a2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a2/pythonx86.3.14.0-a2.nupkg"
     },
@@ -3928,9 +4272,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a1 (32-bit)",
+      "display-name": "Python 3.14.0a1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a1/pythonx86.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13-32",
+      "sort-version": "3.13.2",
+      "company": "PythonCore",
+      "tag": "3.13.2-32",
+      "install-for": [
+        "3.13.2-32",
+        "3.13-32",
+        "3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13.2-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.13-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.13-32",
+          "DisplayName": "Python 3.13.2 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.13.2 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.2/pythonx86.3.13.2.nupkg"
     },
     {
       "schema": 1,
@@ -4015,7 +4446,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.1 (32-bit)",
+      "display-name": "Python 3.13.1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.1/pythonx86.3.13.1.nupkg"
     },
@@ -4102,7 +4533,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0 (32-bit)",
+      "display-name": "Python 3.13.0 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0/pythonx86.3.13.0.nupkg"
     },
@@ -4187,7 +4618,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc3 (32-bit)",
+      "display-name": "Python 3.13.0rc3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc3/pythonx86.3.13.0-rc3.nupkg"
     },
@@ -4272,7 +4703,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc2 (32-bit)",
+      "display-name": "Python 3.13.0rc2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc2/pythonx86.3.13.0-rc2.nupkg"
     },
@@ -4357,7 +4788,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc1 (32-bit)",
+      "display-name": "Python 3.13.0rc1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-rc1/pythonx86.3.13.0-rc1.nupkg"
     },
@@ -4442,7 +4873,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b4 (32-bit)",
+      "display-name": "Python 3.13.0b4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b4/pythonx86.3.13.0-b4.nupkg"
     },
@@ -4527,7 +4958,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b3 (32-bit)",
+      "display-name": "Python 3.13.0b3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b3/pythonx86.3.13.0-b3.nupkg"
     },
@@ -4612,7 +5043,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b2 (32-bit)",
+      "display-name": "Python 3.13.0b2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b2/pythonx86.3.13.0-b2.nupkg"
     },
@@ -4697,7 +5128,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b1 (32-bit)",
+      "display-name": "Python 3.13.0b1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-b1/pythonx86.3.13.0-b1.nupkg"
     },
@@ -4782,7 +5213,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a6 (32-bit)",
+      "display-name": "Python 3.13.0a6 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a6/pythonx86.3.13.0-a6.nupkg"
     },
@@ -4867,7 +5298,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a5 (32-bit)",
+      "display-name": "Python 3.13.0a5 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a5/pythonx86.3.13.0-a5.nupkg"
     },
@@ -4952,7 +5383,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a4 (32-bit)",
+      "display-name": "Python 3.13.0a4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a4/pythonx86.3.13.0-a4.nupkg"
     },
@@ -5037,7 +5468,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a3 (32-bit)",
+      "display-name": "Python 3.13.0a3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a3/pythonx86.3.13.0-a3.nupkg"
     },
@@ -5122,7 +5553,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a2 (32-bit)",
+      "display-name": "Python 3.13.0a2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a2/pythonx86.3.13.0-a2.nupkg"
     },
@@ -5207,9 +5638,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a1 (32-bit)",
+      "display-name": "Python 3.13.0a1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.13.0-a1/pythonx86.3.13.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12-32",
+      "sort-version": "3.12.9",
+      "company": "PythonCore",
+      "tag": "3.12.9-32",
+      "install-for": [
+        "3.12.9-32",
+        "3.12-32",
+        "3-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12.9-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.12-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.12-32",
+          "DisplayName": "Python 3.12.9 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.9",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.12.9 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.9/pythonx86.3.12.9.nupkg"
     },
     {
       "schema": 1,
@@ -5294,7 +5812,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.8 (32-bit)",
+      "display-name": "Python 3.12.8 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.8/pythonx86.3.12.8.nupkg"
     },
@@ -5381,7 +5899,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.7 (32-bit)",
+      "display-name": "Python 3.12.7 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.7/pythonx86.3.12.7.nupkg"
     },
@@ -5468,7 +5986,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.6 (32-bit)",
+      "display-name": "Python 3.12.6 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.6/pythonx86.3.12.6.nupkg"
     },
@@ -5555,7 +6073,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.5 (32-bit)",
+      "display-name": "Python 3.12.5 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.5/pythonx86.3.12.5.nupkg"
     },
@@ -5642,7 +6160,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.4 (32-bit)",
+      "display-name": "Python 3.12.4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.4/pythonx86.3.12.4.nupkg"
     },
@@ -5729,7 +6247,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.3 (32-bit)",
+      "display-name": "Python 3.12.3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.3/pythonx86.3.12.3.nupkg"
     },
@@ -5816,7 +6334,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.2 (32-bit)",
+      "display-name": "Python 3.12.2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.2/pythonx86.3.12.2.nupkg"
     },
@@ -5903,7 +6421,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.1 (32-bit)",
+      "display-name": "Python 3.12.1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.1/pythonx86.3.12.1.nupkg"
     },
@@ -5990,7 +6508,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0 (32-bit)",
+      "display-name": "Python 3.12.0 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0/pythonx86.3.12.0.nupkg"
     },
@@ -6075,7 +6593,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc3 (32-bit)",
+      "display-name": "Python 3.12.0rc3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-rc3/pythonx86.3.12.0-rc3.nupkg"
     },
@@ -6160,7 +6678,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc2 (32-bit)",
+      "display-name": "Python 3.12.0rc2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-rc2/pythonx86.3.12.0-rc2.nupkg"
     },
@@ -6245,7 +6763,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc1 (32-bit)",
+      "display-name": "Python 3.12.0rc1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-rc1/pythonx86.3.12.0-rc1.nupkg"
     },
@@ -6330,7 +6848,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b4 (32-bit)",
+      "display-name": "Python 3.12.0b4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b4/pythonx86.3.12.0-b4.nupkg"
     },
@@ -6415,7 +6933,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b3 (32-bit)",
+      "display-name": "Python 3.12.0b3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b3/pythonx86.3.12.0-b3.nupkg"
     },
@@ -6500,7 +7018,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b2 (32-bit)",
+      "display-name": "Python 3.12.0b2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b2/pythonx86.3.12.0-b2.nupkg"
     },
@@ -6585,7 +7103,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b1 (32-bit)",
+      "display-name": "Python 3.12.0b1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-b1/pythonx86.3.12.0-b1.nupkg"
     },
@@ -6670,7 +7188,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a7 (32-bit)",
+      "display-name": "Python 3.12.0a7 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a7/pythonx86.3.12.0-a7.nupkg"
     },
@@ -6755,7 +7273,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a6 (32-bit)",
+      "display-name": "Python 3.12.0a6 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a6/pythonx86.3.12.0-a6.nupkg"
     },
@@ -6840,7 +7358,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a5 (32-bit)",
+      "display-name": "Python 3.12.0a5 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a5/pythonx86.3.12.0-a5.nupkg"
     },
@@ -6925,7 +7443,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a4 (32-bit)",
+      "display-name": "Python 3.12.0a4 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a4/pythonx86.3.12.0-a4.nupkg"
     },
@@ -7010,7 +7528,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a3 (32-bit)",
+      "display-name": "Python 3.12.0a3 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a3/pythonx86.3.12.0-a3.nupkg"
     },
@@ -7095,7 +7613,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a2 (32-bit)",
+      "display-name": "Python 3.12.0a2 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a2/pythonx86.3.12.0-a2.nupkg"
     },
@@ -7180,9 +7698,94 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a1 (32-bit)",
+      "display-name": "Python 3.12.0a1 (32-bit)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.12.0-a1/pythonx86.3.12.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-arm64",
+      "sort-version": "3.14.0a5",
+      "company": "PythonCore",
+      "tag": "3.14.0a5-arm64",
+      "install-for": [
+        "3.14.0a5-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a5-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.14-arm64",
+          "DisplayName": "Python 3.14.0a5 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.14.0a5 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a5/pythonarm64.3.14.0-a5.nupkg"
     },
     {
       "schema": 1,
@@ -7265,7 +7868,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a4 (ARM64)",
+      "display-name": "Python 3.14.0a4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a4/pythonarm64.3.14.0-a4.nupkg"
     },
@@ -7350,7 +7953,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a3 (ARM64)",
+      "display-name": "Python 3.14.0a3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a3/pythonarm64.3.14.0-a3.nupkg"
     },
@@ -7435,7 +8038,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a2 (ARM64)",
+      "display-name": "Python 3.14.0a2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a2/pythonarm64.3.14.0-a2.nupkg"
     },
@@ -7520,9 +8123,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a1 (ARM64)",
+      "display-name": "Python 3.14.0a1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a1/pythonarm64.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13-arm64",
+      "sort-version": "3.13.2",
+      "company": "PythonCore",
+      "tag": "3.13.2-arm64",
+      "install-for": [
+        "3.13.2-arm64",
+        "3.13-arm64",
+        "3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13.2-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.13-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.13-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.13-arm64",
+          "DisplayName": "Python 3.13.2 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.13.2 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.2/pythonarm64.3.13.2.nupkg"
     },
     {
       "schema": 1,
@@ -7607,7 +8297,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.1 (ARM64)",
+      "display-name": "Python 3.13.1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.1/pythonarm64.3.13.1.nupkg"
     },
@@ -7694,7 +8384,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0 (ARM64)",
+      "display-name": "Python 3.13.0 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0/pythonarm64.3.13.0.nupkg"
     },
@@ -7779,7 +8469,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc3 (ARM64)",
+      "display-name": "Python 3.13.0rc3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc3/pythonarm64.3.13.0-rc3.nupkg"
     },
@@ -7864,7 +8554,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc2 (ARM64)",
+      "display-name": "Python 3.13.0rc2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc2/pythonarm64.3.13.0-rc2.nupkg"
     },
@@ -7949,7 +8639,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc1 (ARM64)",
+      "display-name": "Python 3.13.0rc1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-rc1/pythonarm64.3.13.0-rc1.nupkg"
     },
@@ -8034,7 +8724,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b4 (ARM64)",
+      "display-name": "Python 3.13.0b4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b4/pythonarm64.3.13.0-b4.nupkg"
     },
@@ -8119,7 +8809,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b3 (ARM64)",
+      "display-name": "Python 3.13.0b3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b3/pythonarm64.3.13.0-b3.nupkg"
     },
@@ -8204,7 +8894,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b2 (ARM64)",
+      "display-name": "Python 3.13.0b2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b2/pythonarm64.3.13.0-b2.nupkg"
     },
@@ -8289,7 +8979,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b1 (ARM64)",
+      "display-name": "Python 3.13.0b1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-b1/pythonarm64.3.13.0-b1.nupkg"
     },
@@ -8374,7 +9064,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a6 (ARM64)",
+      "display-name": "Python 3.13.0a6 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a6/pythonarm64.3.13.0-a6.nupkg"
     },
@@ -8459,7 +9149,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a5 (ARM64)",
+      "display-name": "Python 3.13.0a5 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a5/pythonarm64.3.13.0-a5.nupkg"
     },
@@ -8544,7 +9234,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a4 (ARM64)",
+      "display-name": "Python 3.13.0a4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a4/pythonarm64.3.13.0-a4.nupkg"
     },
@@ -8629,7 +9319,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a3 (ARM64)",
+      "display-name": "Python 3.13.0a3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a3/pythonarm64.3.13.0-a3.nupkg"
     },
@@ -8714,7 +9404,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a2 (ARM64)",
+      "display-name": "Python 3.13.0a2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a2/pythonarm64.3.13.0-a2.nupkg"
     },
@@ -8799,9 +9489,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a1 (ARM64)",
+      "display-name": "Python 3.13.0a1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.13.0-a1/pythonarm64.3.13.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.12-arm64",
+      "sort-version": "3.12.9",
+      "company": "PythonCore",
+      "tag": "3.12.9-arm64",
+      "install-for": [
+        "3.12.9-arm64",
+        "3.12-arm64",
+        "3-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.12.9-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.12-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.12-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.12-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.12-arm64",
+          "DisplayName": "Python 3.12.9 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.12",
+          "Version": "3.12.9",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.12/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.12 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.12 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.12 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.12/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.12.9 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.9/pythonarm64.3.12.9.nupkg"
     },
     {
       "schema": 1,
@@ -8886,7 +9663,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.8 (ARM64)",
+      "display-name": "Python 3.12.8 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.8/pythonarm64.3.12.8.nupkg"
     },
@@ -8973,7 +9750,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.7 (ARM64)",
+      "display-name": "Python 3.12.7 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.7/pythonarm64.3.12.7.nupkg"
     },
@@ -9060,7 +9837,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.6 (ARM64)",
+      "display-name": "Python 3.12.6 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.6/pythonarm64.3.12.6.nupkg"
     },
@@ -9147,7 +9924,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.5 (ARM64)",
+      "display-name": "Python 3.12.5 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.5/pythonarm64.3.12.5.nupkg"
     },
@@ -9234,7 +10011,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.4 (ARM64)",
+      "display-name": "Python 3.12.4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.4/pythonarm64.3.12.4.nupkg"
     },
@@ -9321,7 +10098,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.3 (ARM64)",
+      "display-name": "Python 3.12.3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.3/pythonarm64.3.12.3.nupkg"
     },
@@ -9408,7 +10185,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.2 (ARM64)",
+      "display-name": "Python 3.12.2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.2/pythonarm64.3.12.2.nupkg"
     },
@@ -9495,7 +10272,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.1 (ARM64)",
+      "display-name": "Python 3.12.1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.1/pythonarm64.3.12.1.nupkg"
     },
@@ -9582,7 +10359,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0 (ARM64)",
+      "display-name": "Python 3.12.0 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0/pythonarm64.3.12.0.nupkg"
     },
@@ -9667,7 +10444,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc3 (ARM64)",
+      "display-name": "Python 3.12.0rc3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-rc3/pythonarm64.3.12.0-rc3.nupkg"
     },
@@ -9752,7 +10529,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc2 (ARM64)",
+      "display-name": "Python 3.12.0rc2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-rc2/pythonarm64.3.12.0-rc2.nupkg"
     },
@@ -9837,7 +10614,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0rc1 (ARM64)",
+      "display-name": "Python 3.12.0rc1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-rc1/pythonarm64.3.12.0-rc1.nupkg"
     },
@@ -9922,7 +10699,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b4 (ARM64)",
+      "display-name": "Python 3.12.0b4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b4/pythonarm64.3.12.0-b4.nupkg"
     },
@@ -10007,7 +10784,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b3 (ARM64)",
+      "display-name": "Python 3.12.0b3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b3/pythonarm64.3.12.0-b3.nupkg"
     },
@@ -10092,7 +10869,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b2 (ARM64)",
+      "display-name": "Python 3.12.0b2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b2/pythonarm64.3.12.0-b2.nupkg"
     },
@@ -10177,7 +10954,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0b1 (ARM64)",
+      "display-name": "Python 3.12.0b1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-b1/pythonarm64.3.12.0-b1.nupkg"
     },
@@ -10262,7 +11039,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a7 (ARM64)",
+      "display-name": "Python 3.12.0a7 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a7/pythonarm64.3.12.0-a7.nupkg"
     },
@@ -10347,7 +11124,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a6 (ARM64)",
+      "display-name": "Python 3.12.0a6 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a6/pythonarm64.3.12.0-a6.nupkg"
     },
@@ -10432,7 +11209,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a5 (ARM64)",
+      "display-name": "Python 3.12.0a5 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a5/pythonarm64.3.12.0-a5.nupkg"
     },
@@ -10517,7 +11294,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a4 (ARM64)",
+      "display-name": "Python 3.12.0a4 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a4/pythonarm64.3.12.0-a4.nupkg"
     },
@@ -10602,7 +11379,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a3 (ARM64)",
+      "display-name": "Python 3.12.0a3 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a3/pythonarm64.3.12.0-a3.nupkg"
     },
@@ -10687,7 +11464,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a2 (ARM64)",
+      "display-name": "Python 3.12.0a2 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a2/pythonarm64.3.12.0-a2.nupkg"
     },
@@ -10772,9 +11549,94 @@
           ]
         }
       ],
-      "displayName": "Python 3.12.0a1 (ARM64)",
+      "display-name": "Python 3.12.0a1 (ARM64)",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.12.0-a1/pythonarm64.3.12.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-t",
+      "sort-version": "3.14.0a5",
+      "company": "PythonCore",
+      "tag": "3.14.0a5t",
+      "install-for": [
+        "3.14.0a5t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a5t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.14",
+          "DisplayName": "Python 3.14.0a5 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.14.0a5 (free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a5/python-freethreaded.3.14.0-a5.nupkg"
     },
     {
       "schema": 1,
@@ -10857,7 +11719,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a4 (free-threaded)",
+      "display-name": "Python 3.14.0a4 (free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a4/python-freethreaded.3.14.0-a4.nupkg"
     },
@@ -10942,7 +11804,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a3 (free-threaded)",
+      "display-name": "Python 3.14.0a3 (free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a3/python-freethreaded.3.14.0-a3.nupkg"
     },
@@ -11027,7 +11889,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a2 (free-threaded)",
+      "display-name": "Python 3.14.0a2 (free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a2/python-freethreaded.3.14.0-a2.nupkg"
     },
@@ -11112,9 +11974,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a1 (free-threaded)",
+      "display-name": "Python 3.14.0a1 (free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a1/python-freethreaded.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13-t",
+      "sort-version": "3.13.2",
+      "company": "PythonCore",
+      "tag": "3.13.2t",
+      "install-for": [
+        "3.13.2t",
+        "3.13t",
+        "3t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13.2t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.13t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.13",
+          "DisplayName": "Python 3.13.2 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.13.2 (free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.2/python-freethreaded.3.13.2.nupkg"
     },
     {
       "schema": 1,
@@ -11199,7 +12148,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.1 (free-threaded)",
+      "display-name": "Python 3.13.1 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.1/python-freethreaded.3.13.1.nupkg"
     },
@@ -11286,7 +12235,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0 (free-threaded)",
+      "display-name": "Python 3.13.0 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0/python-freethreaded.3.13.0.nupkg"
     },
@@ -11371,7 +12320,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc3 (free-threaded)",
+      "display-name": "Python 3.13.0rc3 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc3/python-freethreaded.3.13.0-rc3.nupkg"
     },
@@ -11456,7 +12405,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc2 (free-threaded)",
+      "display-name": "Python 3.13.0rc2 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc2/python-freethreaded.3.13.0-rc2.nupkg"
     },
@@ -11541,7 +12490,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc1 (free-threaded)",
+      "display-name": "Python 3.13.0rc1 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-rc1/python-freethreaded.3.13.0-rc1.nupkg"
     },
@@ -11626,7 +12575,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b4 (free-threaded)",
+      "display-name": "Python 3.13.0b4 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b4/python-freethreaded.3.13.0-b4.nupkg"
     },
@@ -11711,7 +12660,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b3 (free-threaded)",
+      "display-name": "Python 3.13.0b3 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b3/python-freethreaded.3.13.0-b3.nupkg"
     },
@@ -11796,7 +12745,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b2 (free-threaded)",
+      "display-name": "Python 3.13.0b2 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b2/python-freethreaded.3.13.0-b2.nupkg"
     },
@@ -11881,7 +12830,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b1 (free-threaded)",
+      "display-name": "Python 3.13.0b1 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-b1/python-freethreaded.3.13.0-b1.nupkg"
     },
@@ -11966,7 +12915,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a6 (free-threaded)",
+      "display-name": "Python 3.13.0a6 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-a6/python-freethreaded.3.13.0-a6.nupkg"
     },
@@ -12051,7 +13000,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a5 (free-threaded)",
+      "display-name": "Python 3.13.0a5 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-a5/python-freethreaded.3.13.0-a5.nupkg"
     },
@@ -12136,9 +13085,94 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a4 (free-threaded)",
+      "display-name": "Python 3.13.0a4 (free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.13.0-a4/python-freethreaded.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-32-t",
+      "sort-version": "3.14.0a5",
+      "company": "PythonCore",
+      "tag": "3.14.0a5t-32",
+      "install-for": [
+        "3.14.0a5t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a5t-32",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3.14t-32",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.14-32",
+          "DisplayName": "Python 3.14.0a5 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.14.0a5 (32-bit, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a5/pythonx86-freethreaded.3.14.0-a5.nupkg"
     },
     {
       "schema": 1,
@@ -12221,7 +13255,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a4 (32-bit, free-threaded)",
+      "display-name": "Python 3.14.0a4 (32-bit, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a4/pythonx86-freethreaded.3.14.0-a4.nupkg"
     },
@@ -12306,7 +13340,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a3 (32-bit, free-threaded)",
+      "display-name": "Python 3.14.0a3 (32-bit, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a3/pythonx86-freethreaded.3.14.0-a3.nupkg"
     },
@@ -12391,7 +13425,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a2 (32-bit, free-threaded)",
+      "display-name": "Python 3.14.0a2 (32-bit, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a2/pythonx86-freethreaded.3.14.0-a2.nupkg"
     },
@@ -12476,9 +13510,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a1 (32-bit, free-threaded)",
+      "display-name": "Python 3.14.0a1 (32-bit, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a1/pythonx86-freethreaded.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13-32-t",
+      "sort-version": "3.13.2",
+      "company": "PythonCore",
+      "tag": "3.13.2t-32",
+      "install-for": [
+        "3.13.2t-32",
+        "3.13t-32",
+        "3t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13.2t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3.13t-32",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.13-32",
+          "DisplayName": "Python 3.13.2 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.13.2 (32-bit, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.2/pythonx86-freethreaded.3.13.2.nupkg"
     },
     {
       "schema": 1,
@@ -12563,7 +13684,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.1 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.1 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.1/pythonx86-freethreaded.3.13.1.nupkg"
     },
@@ -12650,7 +13771,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0/pythonx86-freethreaded.3.13.0.nupkg"
     },
@@ -12735,7 +13856,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc3 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0rc3 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc3/pythonx86-freethreaded.3.13.0-rc3.nupkg"
     },
@@ -12820,7 +13941,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc2 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0rc2 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc2/pythonx86-freethreaded.3.13.0-rc2.nupkg"
     },
@@ -12905,7 +14026,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc1 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0rc1 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-rc1/pythonx86-freethreaded.3.13.0-rc1.nupkg"
     },
@@ -12990,7 +14111,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b4 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0b4 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b4/pythonx86-freethreaded.3.13.0-b4.nupkg"
     },
@@ -13075,7 +14196,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b3 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0b3 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b3/pythonx86-freethreaded.3.13.0-b3.nupkg"
     },
@@ -13160,7 +14281,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b2 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0b2 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b2/pythonx86-freethreaded.3.13.0-b2.nupkg"
     },
@@ -13245,7 +14366,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b1 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0b1 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-b1/pythonx86-freethreaded.3.13.0-b1.nupkg"
     },
@@ -13330,7 +14451,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a6 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0a6 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a6/pythonx86-freethreaded.3.13.0-a6.nupkg"
     },
@@ -13415,7 +14536,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a5 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0a5 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a5/pythonx86-freethreaded.3.13.0-a5.nupkg"
     },
@@ -13500,9 +14621,94 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a4 (32-bit, free-threaded)",
+      "display-name": "Python 3.13.0a4 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a4/pythonx86-freethreaded.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-arm64-t",
+      "sort-version": "3.14.0a5",
+      "company": "PythonCore",
+      "tag": "3.14.0a5t-arm64",
+      "install-for": [
+        "3.14.0a5t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a5t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3.14t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.14-arm64",
+          "DisplayName": "Python 3.14.0a5 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a5",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.14.0a5 (ARM64, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a5/pythonarm64-freethreaded.3.14.0-a5.nupkg"
     },
     {
       "schema": 1,
@@ -13585,7 +14791,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a4 (ARM64, free-threaded)",
+      "display-name": "Python 3.14.0a4 (ARM64, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a4/pythonarm64-freethreaded.3.14.0-a4.nupkg"
     },
@@ -13670,7 +14876,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a3 (ARM64, free-threaded)",
+      "display-name": "Python 3.14.0a3 (ARM64, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a3/pythonarm64-freethreaded.3.14.0-a3.nupkg"
     },
@@ -13755,7 +14961,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a2 (ARM64, free-threaded)",
+      "display-name": "Python 3.14.0a2 (ARM64, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a2/pythonarm64-freethreaded.3.14.0-a2.nupkg"
     },
@@ -13840,9 +15046,96 @@
           ]
         }
       ],
-      "displayName": "Python 3.14.0a1 (ARM64, free-threaded)",
+      "display-name": "Python 3.14.0a1 (ARM64, free-threaded)",
       "executable": "./python3.14t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a1/pythonarm64-freethreaded.3.14.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.13-arm64-t",
+      "sort-version": "3.13.2",
+      "company": "PythonCore",
+      "tag": "3.13.2t-arm64",
+      "install-for": [
+        "3.13.2t-arm64",
+        "3.13t-arm64",
+        "3t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.13.2t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3.13t-arm64",
+          "target": "python3.13t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.13t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.13t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.13t.exe"
+        },
+        {
+          "name": "pythonw3.13t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.13t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.13-arm64",
+          "DisplayName": "Python 3.13.2 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.13",
+          "Version": "3.13.2",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.13/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.13 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.13 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.13 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.13/"
+            }
+          ]
+        }
+      ],
+      "display-name": "Python 3.13.2 (ARM64, free-threaded)",
+      "executable": "./python3.13t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.2/pythonarm64-freethreaded.3.13.2.nupkg"
     },
     {
       "schema": 1,
@@ -13927,7 +15220,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.1 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.1 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.1/pythonarm64-freethreaded.3.13.1.nupkg"
     },
@@ -14014,7 +15307,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0/pythonarm64-freethreaded.3.13.0.nupkg"
     },
@@ -14099,7 +15392,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc3 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0rc3 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc3/pythonarm64-freethreaded.3.13.0-rc3.nupkg"
     },
@@ -14184,7 +15477,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc2 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0rc2 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc2/pythonarm64-freethreaded.3.13.0-rc2.nupkg"
     },
@@ -14269,7 +15562,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0rc1 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0rc1 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-rc1/pythonarm64-freethreaded.3.13.0-rc1.nupkg"
     },
@@ -14354,7 +15647,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b4 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0b4 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b4/pythonarm64-freethreaded.3.13.0-b4.nupkg"
     },
@@ -14439,7 +15732,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b3 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0b3 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b3/pythonarm64-freethreaded.3.13.0-b3.nupkg"
     },
@@ -14524,7 +15817,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b2 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0b2 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b2/pythonarm64-freethreaded.3.13.0-b2.nupkg"
     },
@@ -14609,7 +15902,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0b1 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0b1 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-b1/pythonarm64-freethreaded.3.13.0-b1.nupkg"
     },
@@ -14694,7 +15987,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a6 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0a6 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-a6/pythonarm64-freethreaded.3.13.0-a6.nupkg"
     },
@@ -14779,7 +16072,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a5 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0a5 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-a5/pythonarm64-freethreaded.3.13.0-a5.nupkg"
     },
@@ -14864,7 +16157,7 @@
           ]
         }
       ],
-      "displayName": "Python 3.13.0a4 (ARM64, free-threaded)",
+      "display-name": "Python 3.13.0a4 (ARM64, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.13.0-a4/pythonarm64-freethreaded.3.13.0-a4.nupkg"
     }
