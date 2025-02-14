@@ -38,6 +38,7 @@ variables:
   PYMSBUILD_TEMP_DIR: $(Build.BinariesDirectory)
   DIST_DIR: $(Build.ArtifactStagingDirectory)
   LAYOUT_DIR: $(Build.BinariesDirectory)\layout
+  TEST_MSIX_DIR: $(Build.BinariesDirectory)\test_msix
   ${{ if ne(parameters.OverrideRef, '(tag)') }}:
     OVERRIDE_REF: refs/tags/${{ parameters.OverrideRef }}
 
@@ -179,17 +180,34 @@ jobs:
     displayName: Publish distribution artifacts
 
   - ${{ if eq(parameters.PostTest, 'true') }}:
+    - ${{ if or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true')) }}:
+      - powershell: |
+          $msix = dir "$(DIST_DIR)\*.msix" | ?{ -not ($_.BaseName -match '.+-store') } | select -first 1
+          Add-AppxPackage $msix
+        displayName: 'Install signed MSIX'
+
+    - ${{ else }}:
+      - powershell: |
+          $msix = dir "$(DIST_DIR)\*.msix" | ?{ -not ($_.BaseName -match '.+-store') } | select -first 1
+          cp $msix "${msix}.zip"
+          Expand-Archive "${msix}.zip" (mkdir -Force $env:TEST_MSIX)
+          Add-AppxPackage -Register "${env:TEST_MSIX}\appxmanifest.xml"
+        displayName: 'Register unsigned MSIX'
+        env:
+          TEST_MSIX: $(TEST_MSIX_DIR)
+
     - powershell: |
-        $msix = dir "$(DIST_DIR)\*.msix" | ?{ -not ($_.BaseName -match '.+-store') } | select -first 1
-        Add-AppxPackage $msix
         gcm pymanager
         gcm py
         gcm python
         gcm pymanagerw
         gcm pyw
         gcm pythonw
-        Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
-      displayName: 'TODO: Post-build tests'
+      displayName: 'Post-build tests'
+
+      - powershell: |
+          Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
+        displayName: 'Remove MSIX'
 
   - ${{ if and(eq(parameters.Publish, 'true'), or(eq(parameters.Sign, 'true'), eq(parameters.TestSign, 'true'))) }}:
     - powershell: |
