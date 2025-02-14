@@ -61,6 +61,14 @@ jobs:
   steps:
   - checkout: self
 
+  - powershell: |
+      # Ensure we aren't currently installed
+      $msix = Get-AppxPackage PythonSoftwareFoundation.PythonManager -EA SilentlyContinue
+      if ($msix) {
+        Remove-AppxPackage $msix
+      }
+    displayName: 'Remove existing PyManager install'
+
   - task: NugetToolInstaller@0
     displayName: 'Install Nuget'
 
