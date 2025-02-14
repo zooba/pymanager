@@ -30,11 +30,11 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$",
-        "install-for": ["$FULLVERSION$", "$XYVERSIONNOPRE$", "$XVERSIONNOPRE$"],
+        "install-for": ["$FULLVERSION$-64", "$XYVERSIONNOPRE$-64", "$XVERSIONNOPRE$-64"],
         "run-for": [
-            {"tag": "$FULLVERSION$", "target": "python.exe"},
-            {"tag": "$XYVERSION$", "target": "python.exe"},
-            {"tag": "$XVERSION$", "target": "python.exe"}
+            {"tag": "$FULLVERSION$-64", "target": "python.exe"},
+            {"tag": "$XYVERSION$-64", "target": "python.exe"},
+            {"tag": "$XVERSION$-64", "target": "python.exe"}
         ],
         "alias": [
             {"name": "python$XYVERSION$.exe", "target": "python.exe"},
