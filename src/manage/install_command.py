@@ -16,7 +16,6 @@ from .logging import LOGGER, ProgressPrinter
 from .tagutils import install_matches_any, tag_or_range
 from .urlutils import (
     sanitise_url,
-    urljoin,
     urlopen as _urlopen,
     urlretrieve as _urlretrieve,
     IndexDownloader,

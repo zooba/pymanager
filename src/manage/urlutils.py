@@ -577,14 +577,14 @@ class IndexDownloader:
         url = self._url
         LOGGER.debug("Fetching: %s", url)
         try:
-            data = cache[url]
-            LOGGER.debug("Used cached: %r", index)
+            data = self._cache[url]
+            LOGGER.debug("Fetched from cache")
         except LookupError:
             data = None
 
         if not data:
             try:
-                data = cache[url] = self._urlopen(
+                data = self._cache[url] = self._urlopen(
                     url,
                     "GET",
                     {"Accepts": "application/json"},

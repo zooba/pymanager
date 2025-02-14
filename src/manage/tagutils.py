@@ -297,11 +297,6 @@ class TagRange:
         def __call__(self, other):
             return other.matches_bound(self.tag) or other.above_lower_bound(self.tag)
 
-    class RangeGreaterEqual(Range):
-        OP = ">="
-        def __call__(self, other):
-            return other.matches_bound(self.tag) or other.above_lower_bound(self.tag)
-
     class RangeGreater(Range):
         OP = ">"
         def __call__(self, other):
