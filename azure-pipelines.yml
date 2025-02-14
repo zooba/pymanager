@@ -234,6 +234,13 @@ jobs:
       displayName: 'Launch default runtime'
 
     - powershell: |
+        pymanager list -vv --online 3 3-32 3-64 3-arm64
+        pymanager install -vv --download .\bundle 3 3-32 3-64 3-arm64
+        pymanager list -vv --source .\bundle
+        pymanager install -vv --source .\bundle 3 3-32 3-64 3-arm64
+      displayName: 'Offline bundle download and install'
+
+    - powershell: |
         Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
       displayName: 'Remove MSIX'
 
