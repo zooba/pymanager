@@ -125,6 +125,7 @@ def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_ur
             return auth
         return None
 
+    ensure_tree(dest)
     urlretrieve(install["url"], dest, on_progress=on_progress, on_auth_request=_find_creds)
     LOGGER.debug("Downloaded to %s", dest)
     return dest
