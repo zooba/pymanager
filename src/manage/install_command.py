@@ -491,6 +491,9 @@ def execute(cmd):
     cmd.tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
                 for arg in cmd.args]
 
+    if not cmd.tags and cmd.automatic:
+        cmd.tags = [tag_or_range(cmd.default_tag)]
+
     try:
         if cmd.target:
             if len(cmd.tags) > 1:
