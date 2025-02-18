@@ -239,7 +239,7 @@ jobs:
             install_dir="$i";
             download_dir="$i\_cache";
             global_dir="$i\_bin";
-        } | Out-File $env:PYTHON_MANAGER_CONFIG -Encoding utf-8
+        } | Out-File $env:PYTHON_MANAGER_CONFIG -Encoding utf8
         pymanager exec
       displayName: 'Emulate first launch'
       env:
