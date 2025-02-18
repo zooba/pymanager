@@ -88,7 +88,7 @@ def load_config(root, override_file, schema):
 def load_one_config(cfg, file, schema, *, overwrite=False):
     LOGGER.verbose("Loading configuration from %s", file)
     try:
-        with open(file, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8-sig") as f:
             cfg2 = json.load(f)
     except FileNotFoundError:
         LOGGER.verbose("Skipping configuration at %s because it does not exist", file)

@@ -20,7 +20,7 @@ def _make_sort_key(install):
 
 def _get_installs(install_dir):
     for p in Path(install_dir).glob("*/__install__.json"):
-        with p.open("r", encoding="utf-8") as f:
+        with p.open("r", encoding="utf-8-sig") as f:
             j = json.load(f)
 
         if j.get("schema", 0) == 1:
@@ -53,7 +53,7 @@ def _get_venv_install(virtual_env):
         raise LookupError
     venv = Path(virtual_env)
     try:
-        pyvenv_cfg = (venv / "pyvenv.cfg").read_text("utf-8", "ignore")
+        pyvenv_cfg = (venv / "pyvenv.cfg").read_text("utf-8-sig", "ignore")
     except OSError as ex:
         raise LookupError from ex
     ver = [v.strip() for k, _, v in (s.partition("=") for s in pyvenv_cfg.splitlines())

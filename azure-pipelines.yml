@@ -234,6 +234,19 @@ jobs:
       displayName: 'Launch default runtime'
 
     - powershell: |
+        $i = (mkdir -force test_installs)
+        ConvertTo-Json @{
+            install_dir="$i";
+            download_dir="$i\_cache",
+            global_dir="$i\_bin",
+        } | Out-File $env:PYTHON_MANAGER_CONFIG -Encoding utf-8
+        pymanager exec
+      displayName: 'Emulate first launch'
+      env:
+        PYTHON_MANAGER_INCLUDE_UNMANAGED: false
+        PYTHON_MANAGER_CONFIG: .\test-config.json
+
+    - powershell: |
         pymanager list -vv --online 3 3-32 3-64 3-arm64
         pymanager install -vv --download .\bundle 3 3-32 3-64 3-arm64
         pymanager list -vv --source .\bundle

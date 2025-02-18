@@ -409,7 +409,7 @@ def _install_one(cmd, source, install, *, target=None):
         )
     else:
         try:
-            with open(dest / "__install__.json", "r", encoding="utf-8") as f:
+            with open(dest / "__install__.json", "r", encoding="utf-8-sig") as f:
                 LOGGER.debug("Updating from __install__.json in %s", dest)
                 for k, v in json.load(f).items():
                     if not install.setdefault(k, v):
