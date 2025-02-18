@@ -237,8 +237,8 @@ jobs:
         $i = (mkdir -force test_installs)
         ConvertTo-Json @{
             install_dir="$i";
-            download_dir="$i\_cache",
-            global_dir="$i\_bin",
+            download_dir="$i\_cache";
+            global_dir="$i\_bin";
         } | Out-File $env:PYTHON_MANAGER_CONFIG -Encoding utf-8
         pymanager exec
       displayName: 'Emulate first launch'
