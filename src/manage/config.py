@@ -162,9 +162,12 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
             continue
 
         kind, merge, *opts = subschema
+        from_env = False
         if "env" in opts and isinstance(v, str):
             try:
+                orig_v = v
                 v = _expand_vars(v, os.environ)
+                from_env = orig_v != v
             except TypeError:
                 pass
             if not v:
@@ -175,7 +178,12 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
         except (TypeError, ValueError):
             raise InvalidConfigurationError(source, key_so_far + k, v)
         if v and "path" in opts:
-            v = relative_to / v
+            # Paths from the config file are relative to the config file.
+            # Paths from the environment are relative to the current working dir
+            if not from_env:
+                v = relative_to / v
+            else:
+                v = v.absolute()
         if v and "uri" in opts:
             if hasattr(v, 'as_uri'):
                 v = v.as_uri()
