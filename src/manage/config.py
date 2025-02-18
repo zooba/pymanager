@@ -183,7 +183,7 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
             if not from_env:
                 v = relative_to / v
             else:
-                v = v.absolute()
+                v = type(relative_to)(v).absolute()
         if v and "uri" in opts:
             if hasattr(v, 'as_uri'):
                 v = v.as_uri()
