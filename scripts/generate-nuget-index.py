@@ -82,7 +82,7 @@ SCHEMA = {
             {
                 "kind": "uninstall",
                 "Publisher": "Python Software Foundation",
-                "HelpLink": "https://docs.python.org/$XYVERSION$/using/windows.html",
+                "HelpLink": "https://docs.python.org/$XYVERSION$/",
             },
         ],
         "display-name": "Python $FULLVERSION$",
@@ -147,7 +147,7 @@ SCHEMA = {
             {
                 "kind": "uninstall",
                 "Publisher": "Python Software Foundation",
-                "HelpLink": "https://docs.python.org/$XYVERSION$/using/windows.html",
+                "HelpLink": "https://docs.python.org/$XYVERSION$/",
             },
         ],
         "display-name": "Python $FULLVERSION$ (32-bit)",
@@ -212,7 +212,7 @@ SCHEMA = {
             {
                 "kind": "uninstall",
                 "Publisher": "Python Software Foundation",
-                "HelpLink": "https://docs.python.org/$XYVERSION$/using/windows.html",
+                "HelpLink": "https://docs.python.org/$XYVERSION$/",
             },
         ],
         "display-name": "Python $FULLVERSION$ (ARM64)",
@@ -277,7 +277,7 @@ SCHEMA = {
             {
                 "kind": "uninstall",
                 "Publisher": "Python Software Foundation",
-                "HelpLink": "https://docs.python.org/$XYVERSION$/using/windows.html",
+                "HelpLink": "https://docs.python.org/$XYVERSION$/",
             },
         ],
         "display-name": "Python $FULLVERSION$ (free-threaded)",
@@ -342,7 +342,7 @@ SCHEMA = {
             {
                 "kind": "uninstall",
                 "Publisher": "Python Software Foundation",
-                "HelpLink": "https://docs.python.org/$XYVERSION$/using/windows.html",
+                "HelpLink": "https://docs.python.org/$XYVERSION$/",
             },
         ],
         "display-name": "Python $FULLVERSION$ (32-bit, free-threaded)",
@@ -407,7 +407,7 @@ SCHEMA = {
             {
                 "kind": "uninstall",
                 "Publisher": "Python Software Foundation",
-                "HelpLink": "https://docs.python.org/$XYVERSION$/using/windows.html",
+                "HelpLink": "https://docs.python.org/$XYVERSION$/",
             },
         ],
         "display-name": "Python $FULLVERSION$ (ARM64, free-threaded)",
