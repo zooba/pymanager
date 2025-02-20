@@ -114,6 +114,8 @@ CLI_SCHEMA = {
         "update": ("update", True),
         "upgrade": ("update", True),
         "repair": ("repair", True),
+        "refresh": ("refresh", True),
+        "by-id": ("by_id", True),
         "dry-run": ("dry_run", True),
         "enable-shortcut-kinds": ("enable_shortcut_kinds", _NEXT, config_split),
         "disable-shortcut-kinds": ("disable_shortcut_kinds", _NEXT, config_split),
@@ -125,6 +127,7 @@ CLI_SCHEMA = {
 
     "uninstall": {
         "purge": ("purge", True),
+        "by-id": ("by_id", True),
         # Undocumented aliases so that install and uninstall can be mirrored
         "f": ("confirm", False),
         "force": ("confirm", False),
@@ -452,7 +455,7 @@ class BaseCommand:
             if matching:
                 if matching[0][0] not in installs:
                     raise RuntimeError("get_matching_install_tags returned value from wrong list")
-                LOGGER.debug("Selected %s as default install", matching[0][0]["id"])
+                LOGGER.debug("Default install will be %s", matching[0][0]["id"])
                 matching[0][0]["default"] = True
         return installs
 
@@ -482,7 +485,7 @@ class ListCommand(BaseCommand):
 > py list !B![options] [<FILTER> ...]!W!
 
 !G!Options:!W!
-    -f, --format=!B!<table,json,jsonl,exe,prefix>!W!
+    -f, --format=!B!<table,json,jsonl,powershell-json,id,exe,prefix>!W!
                      Specify output formatting (!B!list.format=...!W!)
     -1, --one        Only display first result
     --online         List runtimes available to install from the default index
@@ -571,6 +574,7 @@ class InstallCommand(BaseCommand):
     -u, --update     Overwrite existing install if a newer version is available.
     --dry-run        Choose runtime but do not install
     --refresh        Update shortcuts and aliases for all installed versions.
+    --by-id          Require TAG to exactly match the install ID. (For advanced use.)
     !B!<TAG> <TAG>!W! ...  One or more tags to install (Company\Tag format)
 
 !B!EXAMPLE:!W! Install the latest Python 3 version
@@ -598,6 +602,7 @@ class InstallCommand(BaseCommand):
     repair = False
     dry_run = False
     refresh = False
+    by_id = False
     automatic = False
     from_script = None
     enable_shortcut_kinds = None
@@ -640,6 +645,7 @@ class UninstallCommand(BaseCommand):
 
 !G!Options:!W!
     --purge          Remove all runtimes, shortcuts, and cached files. Ignores tags.
+    --by-id          Require TAG to exactly match the install ID. (For advanced use.)
     !B!<TAG> <TAG>!W! ...  One or more runtimes to uninstall (Company\Tag format)
 
 !B!EXAMPLE:!W! Uninstall Python 3.12 32-bit
@@ -647,10 +653,14 @@ class UninstallCommand(BaseCommand):
 
 !B!EXAMPLE:!W! Uninstall all runtimes without confirmation
 > py uninstall --yes --purge
+
+!B!EXAMPLE:!W! Uninstall all runtimes using their install ID.
+> py uninstall --by-id (py list --only-managed -f=id)
 """
 
     confirm = True
     purge = False
+    by_id = False
 
     # Not settable, but are checked by update_all_shortcuts() so we need them.
     enable_shortcut_kinds = None

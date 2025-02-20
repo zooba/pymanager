@@ -56,17 +56,27 @@ def execute(cmd):
         raise ArgumentError("Please specify one or more runtimes to uninstall.")
 
     to_uninstall = []
-    for tag in cmd.args:
-        if tag.casefold() == "default".casefold():
-            tag = cmd.default_tag
-        filters = [tag_or_range(tag) if tag else None]
-        try:
-            i = next(i for i in installed if install_matches_any(i, filters))
-        except StopIteration:
-            LOGGER.warn("No install found matching '%s'", tag)
-            continue
-        to_uninstall.append(i)
-        installed.remove(i)
+    if not cmd.by_id:
+        for tag in cmd.args:
+            if tag.casefold() == "default".casefold():
+                tag = cmd.default_tag
+            filters = [tag_or_range(tag) if tag else None]
+            try:
+                i = next(i for i in installed if install_matches_any(i, filters))
+            except StopIteration:
+                LOGGER.warn("No install found matching '%s'", tag)
+                continue
+            LOGGER.debug("Selected %s (%s) to uninstall", i["display-name"], i["id"])
+            to_uninstall.append(i)
+            installed.remove(i)
+    else:
+        ids = {tag.casefold() for tag in cmd.args}
+        for i in installed:
+            if i["id"].casefold() in ids:
+                LOGGER.debug("Selected %s (%s) to uninstall", i["display-name"], i["id"])
+                to_uninstall.append(i)
+        for i in to_uninstall:
+            installed.remove(i)
 
     if not to_uninstall:
         LOGGER.info("No runtimes selected to uninstall.")

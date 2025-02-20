@@ -143,6 +143,16 @@ def format_json_lines(installs):
         print(json.dumps(i, default=str))
 
 
+def format_powershell_json(installs):
+    for i in installs:
+        print(json.dumps(i, default=str).replace('"":', '"_":'))
+
+
+def format_bare_id(installs):
+    for i in installs:
+        print(i["id"])
+
+
 def format_bare_exe(installs):
     for i in installs:
         print(i["executable"])
@@ -177,6 +187,8 @@ FORMATTERS = {
     "csv": format_csv,
     "json": format_json,
     "jsonl": format_json_lines,
+    "powershell-json": format_powershell_json,
+    "id": format_bare_id,
     "exe": format_bare_exe,
     "prefix": format_bare_prefix,
     "url": format_bare_url,
@@ -237,6 +249,10 @@ def execute(cmd):
             for t in tags:
                 LOGGER.debug("* %r", t)
             installs = [i for i in installs if install_matches_any(i, tags, loose_company=True)]
+
+        if not cmd.unmanaged:
+            # Just in case any leak through (e.g. active venv)
+            installs = [i for i in installs if not i.get("unmanaged")]
     else:
         raise ArgumentError("Configuration file does not specify install directory.")
 

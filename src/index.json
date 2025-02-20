@@ -7,19 +7,19 @@
       "company": "PythonCore",
       "tag": "3.14.0a5",
       "install-for": [
-        "3.14.0a5"
+        "3.14.0a5-64"
       ],
       "run-for": [
         {
-          "tag": "3.14.0a5",
+          "tag": "3.14.0a5-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.14",
+          "tag": "3.14-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -79,6 +79,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a5",
@@ -92,19 +97,19 @@
       "company": "PythonCore",
       "tag": "3.14.0a4",
       "install-for": [
-        "3.14.0a4"
+        "3.14.0a4-64"
       ],
       "run-for": [
         {
-          "tag": "3.14.0a4",
+          "tag": "3.14.0a4-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.14",
+          "tag": "3.14-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -164,6 +169,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a4",
@@ -177,19 +187,19 @@
       "company": "PythonCore",
       "tag": "3.14.0a3",
       "install-for": [
-        "3.14.0a3"
+        "3.14.0a3-64"
       ],
       "run-for": [
         {
-          "tag": "3.14.0a3",
+          "tag": "3.14.0a3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.14",
+          "tag": "3.14-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -249,6 +259,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a3",
@@ -262,19 +277,19 @@
       "company": "PythonCore",
       "tag": "3.14.0a2",
       "install-for": [
-        "3.14.0a2"
+        "3.14.0a2-64"
       ],
       "run-for": [
         {
-          "tag": "3.14.0a2",
+          "tag": "3.14.0a2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.14",
+          "tag": "3.14-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -334,6 +349,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a2",
@@ -347,19 +367,19 @@
       "company": "PythonCore",
       "tag": "3.14.0a1",
       "install-for": [
-        "3.14.0a1"
+        "3.14.0a1-64"
       ],
       "run-for": [
         {
-          "tag": "3.14.0a1",
+          "tag": "3.14.0a1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.14",
+          "tag": "3.14-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -419,6 +439,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a1",
@@ -432,21 +457,21 @@
       "company": "PythonCore",
       "tag": "3.13.2",
       "install-for": [
-        "3.13.2",
-        "3.13",
-        "3"
+        "3.13.2-64",
+        "3.13-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.2",
+          "tag": "3.13.2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -506,6 +531,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.2",
@@ -519,21 +549,21 @@
       "company": "PythonCore",
       "tag": "3.13.1",
       "install-for": [
-        "3.13.1",
-        "3.13",
-        "3"
+        "3.13.1-64",
+        "3.13-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.1",
+          "tag": "3.13.1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -593,6 +623,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.1",
@@ -606,21 +641,21 @@
       "company": "PythonCore",
       "tag": "3.13.0",
       "install-for": [
-        "3.13.0",
-        "3.13",
-        "3"
+        "3.13.0-64",
+        "3.13-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0",
+          "tag": "3.13.0-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -680,6 +715,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0",
@@ -693,19 +733,19 @@
       "company": "PythonCore",
       "tag": "3.13.0rc3",
       "install-for": [
-        "3.13.0rc3"
+        "3.13.0rc3-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0rc3",
+          "tag": "3.13.0rc3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -765,6 +805,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc3",
@@ -778,19 +823,19 @@
       "company": "PythonCore",
       "tag": "3.13.0rc2",
       "install-for": [
-        "3.13.0rc2"
+        "3.13.0rc2-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0rc2",
+          "tag": "3.13.0rc2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -850,6 +895,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc2",
@@ -863,19 +913,19 @@
       "company": "PythonCore",
       "tag": "3.13.0rc1",
       "install-for": [
-        "3.13.0rc1"
+        "3.13.0rc1-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0rc1",
+          "tag": "3.13.0rc1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -935,6 +985,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc1",
@@ -948,19 +1003,19 @@
       "company": "PythonCore",
       "tag": "3.13.0b4",
       "install-for": [
-        "3.13.0b4"
+        "3.13.0b4-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0b4",
+          "tag": "3.13.0b4-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1020,6 +1075,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b4",
@@ -1033,19 +1093,19 @@
       "company": "PythonCore",
       "tag": "3.13.0b3",
       "install-for": [
-        "3.13.0b3"
+        "3.13.0b3-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0b3",
+          "tag": "3.13.0b3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1105,6 +1165,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b3",
@@ -1118,19 +1183,19 @@
       "company": "PythonCore",
       "tag": "3.13.0b2",
       "install-for": [
-        "3.13.0b2"
+        "3.13.0b2-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0b2",
+          "tag": "3.13.0b2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1190,6 +1255,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b2",
@@ -1203,19 +1273,19 @@
       "company": "PythonCore",
       "tag": "3.13.0b1",
       "install-for": [
-        "3.13.0b1"
+        "3.13.0b1-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0b1",
+          "tag": "3.13.0b1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1275,6 +1345,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b1",
@@ -1288,19 +1363,19 @@
       "company": "PythonCore",
       "tag": "3.13.0a6",
       "install-for": [
-        "3.13.0a6"
+        "3.13.0a6-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0a6",
+          "tag": "3.13.0a6-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1360,6 +1435,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a6",
@@ -1373,19 +1453,19 @@
       "company": "PythonCore",
       "tag": "3.13.0a5",
       "install-for": [
-        "3.13.0a5"
+        "3.13.0a5-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0a5",
+          "tag": "3.13.0a5-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1445,6 +1525,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a5",
@@ -1458,19 +1543,19 @@
       "company": "PythonCore",
       "tag": "3.13.0a4",
       "install-for": [
-        "3.13.0a4"
+        "3.13.0a4-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0a4",
+          "tag": "3.13.0a4-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1530,6 +1615,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a4",
@@ -1543,19 +1633,19 @@
       "company": "PythonCore",
       "tag": "3.13.0a3",
       "install-for": [
-        "3.13.0a3"
+        "3.13.0a3-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0a3",
+          "tag": "3.13.0a3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1615,6 +1705,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a3",
@@ -1628,19 +1723,19 @@
       "company": "PythonCore",
       "tag": "3.13.0a2",
       "install-for": [
-        "3.13.0a2"
+        "3.13.0a2-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0a2",
+          "tag": "3.13.0a2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1700,6 +1795,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a2",
@@ -1713,19 +1813,19 @@
       "company": "PythonCore",
       "tag": "3.13.0a1",
       "install-for": [
-        "3.13.0a1"
+        "3.13.0a1-64"
       ],
       "run-for": [
         {
-          "tag": "3.13.0a1",
+          "tag": "3.13.0a1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.13",
+          "tag": "3.13-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1785,6 +1885,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a1",
@@ -1798,21 +1903,21 @@
       "company": "PythonCore",
       "tag": "3.12.9",
       "install-for": [
-        "3.12.9",
-        "3.12",
-        "3"
+        "3.12.9-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.9",
+          "tag": "3.12.9-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1872,6 +1977,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.9",
@@ -1885,21 +1995,21 @@
       "company": "PythonCore",
       "tag": "3.12.8",
       "install-for": [
-        "3.12.8",
-        "3.12",
-        "3"
+        "3.12.8-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.8",
+          "tag": "3.12.8-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -1959,6 +2069,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.8",
@@ -1972,21 +2087,21 @@
       "company": "PythonCore",
       "tag": "3.12.7",
       "install-for": [
-        "3.12.7",
-        "3.12",
-        "3"
+        "3.12.7-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.7",
+          "tag": "3.12.7-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2046,6 +2161,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.7",
@@ -2059,21 +2179,21 @@
       "company": "PythonCore",
       "tag": "3.12.6",
       "install-for": [
-        "3.12.6",
-        "3.12",
-        "3"
+        "3.12.6-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.6",
+          "tag": "3.12.6-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2133,6 +2253,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.6",
@@ -2146,21 +2271,21 @@
       "company": "PythonCore",
       "tag": "3.12.5",
       "install-for": [
-        "3.12.5",
-        "3.12",
-        "3"
+        "3.12.5-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.5",
+          "tag": "3.12.5-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2220,6 +2345,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.5",
@@ -2233,21 +2363,21 @@
       "company": "PythonCore",
       "tag": "3.12.4",
       "install-for": [
-        "3.12.4",
-        "3.12",
-        "3"
+        "3.12.4-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.4",
+          "tag": "3.12.4-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2307,6 +2437,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.4",
@@ -2320,21 +2455,21 @@
       "company": "PythonCore",
       "tag": "3.12.3",
       "install-for": [
-        "3.12.3",
-        "3.12",
-        "3"
+        "3.12.3-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.3",
+          "tag": "3.12.3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2394,6 +2529,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.3",
@@ -2407,21 +2547,21 @@
       "company": "PythonCore",
       "tag": "3.12.2",
       "install-for": [
-        "3.12.2",
-        "3.12",
-        "3"
+        "3.12.2-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.2",
+          "tag": "3.12.2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2481,6 +2621,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.2",
@@ -2494,21 +2639,21 @@
       "company": "PythonCore",
       "tag": "3.12.1",
       "install-for": [
-        "3.12.1",
-        "3.12",
-        "3"
+        "3.12.1-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.1",
+          "tag": "3.12.1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2568,6 +2713,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.1",
@@ -2581,21 +2731,21 @@
       "company": "PythonCore",
       "tag": "3.12.0",
       "install-for": [
-        "3.12.0",
-        "3.12",
-        "3"
+        "3.12.0-64",
+        "3.12-64",
+        "3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0",
+          "tag": "3.12.0-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2655,6 +2805,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0",
@@ -2668,19 +2823,19 @@
       "company": "PythonCore",
       "tag": "3.12.0rc3",
       "install-for": [
-        "3.12.0rc3"
+        "3.12.0rc3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0rc3",
+          "tag": "3.12.0rc3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2740,6 +2895,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc3",
@@ -2753,19 +2913,19 @@
       "company": "PythonCore",
       "tag": "3.12.0rc2",
       "install-for": [
-        "3.12.0rc2"
+        "3.12.0rc2-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0rc2",
+          "tag": "3.12.0rc2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2825,6 +2985,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc2",
@@ -2838,19 +3003,19 @@
       "company": "PythonCore",
       "tag": "3.12.0rc1",
       "install-for": [
-        "3.12.0rc1"
+        "3.12.0rc1-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0rc1",
+          "tag": "3.12.0rc1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2910,6 +3075,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc1",
@@ -2923,19 +3093,19 @@
       "company": "PythonCore",
       "tag": "3.12.0b4",
       "install-for": [
-        "3.12.0b4"
+        "3.12.0b4-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0b4",
+          "tag": "3.12.0b4-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -2995,6 +3165,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b4",
@@ -3008,19 +3183,19 @@
       "company": "PythonCore",
       "tag": "3.12.0b3",
       "install-for": [
-        "3.12.0b3"
+        "3.12.0b3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0b3",
+          "tag": "3.12.0b3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3080,6 +3255,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b3",
@@ -3093,19 +3273,19 @@
       "company": "PythonCore",
       "tag": "3.12.0b2",
       "install-for": [
-        "3.12.0b2"
+        "3.12.0b2-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0b2",
+          "tag": "3.12.0b2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3165,6 +3345,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b2",
@@ -3178,19 +3363,19 @@
       "company": "PythonCore",
       "tag": "3.12.0b1",
       "install-for": [
-        "3.12.0b1"
+        "3.12.0b1-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0b1",
+          "tag": "3.12.0b1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3250,6 +3435,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b1",
@@ -3263,19 +3453,19 @@
       "company": "PythonCore",
       "tag": "3.12.0a7",
       "install-for": [
-        "3.12.0a7"
+        "3.12.0a7-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0a7",
+          "tag": "3.12.0a7-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3335,6 +3525,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a7",
@@ -3348,19 +3543,19 @@
       "company": "PythonCore",
       "tag": "3.12.0a6",
       "install-for": [
-        "3.12.0a6"
+        "3.12.0a6-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0a6",
+          "tag": "3.12.0a6-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3420,6 +3615,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a6",
@@ -3433,19 +3633,19 @@
       "company": "PythonCore",
       "tag": "3.12.0a5",
       "install-for": [
-        "3.12.0a5"
+        "3.12.0a5-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0a5",
+          "tag": "3.12.0a5-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3505,6 +3705,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a5",
@@ -3518,19 +3723,19 @@
       "company": "PythonCore",
       "tag": "3.12.0a4",
       "install-for": [
-        "3.12.0a4"
+        "3.12.0a4-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0a4",
+          "tag": "3.12.0a4-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3590,6 +3795,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a4",
@@ -3603,19 +3813,19 @@
       "company": "PythonCore",
       "tag": "3.12.0a3",
       "install-for": [
-        "3.12.0a3"
+        "3.12.0a3-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0a3",
+          "tag": "3.12.0a3-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3675,6 +3885,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a3",
@@ -3688,19 +3903,19 @@
       "company": "PythonCore",
       "tag": "3.12.0a2",
       "install-for": [
-        "3.12.0a2"
+        "3.12.0a2-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0a2",
+          "tag": "3.12.0a2-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3760,6 +3975,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a2",
@@ -3773,19 +3993,19 @@
       "company": "PythonCore",
       "tag": "3.12.0a1",
       "install-for": [
-        "3.12.0a1"
+        "3.12.0a1-64"
       ],
       "run-for": [
         {
-          "tag": "3.12.0a1",
+          "tag": "3.12.0a1-64",
           "target": "python.exe"
         },
         {
-          "tag": "3.12",
+          "tag": "3.12-64",
           "target": "python.exe"
         },
         {
-          "tag": "3",
+          "tag": "3-64",
           "target": "python.exe"
         }
       ],
@@ -3845,6 +4065,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a1",
@@ -3930,6 +4155,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a5 (32-bit)",
@@ -4015,6 +4245,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a4 (32-bit)",
@@ -4100,6 +4335,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a3 (32-bit)",
@@ -4185,6 +4425,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a2 (32-bit)",
@@ -4270,6 +4515,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a1 (32-bit)",
@@ -4357,6 +4607,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.2 (32-bit)",
@@ -4444,6 +4699,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.1 (32-bit)",
@@ -4531,6 +4791,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0 (32-bit)",
@@ -4616,6 +4881,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc3 (32-bit)",
@@ -4701,6 +4971,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc2 (32-bit)",
@@ -4786,6 +5061,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc1 (32-bit)",
@@ -4871,6 +5151,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b4 (32-bit)",
@@ -4956,6 +5241,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b3 (32-bit)",
@@ -5041,6 +5331,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b2 (32-bit)",
@@ -5126,6 +5421,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b1 (32-bit)",
@@ -5211,6 +5511,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a6 (32-bit)",
@@ -5296,6 +5601,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a5 (32-bit)",
@@ -5381,6 +5691,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a4 (32-bit)",
@@ -5466,6 +5781,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a3 (32-bit)",
@@ -5551,6 +5871,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a2 (32-bit)",
@@ -5636,6 +5961,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a1 (32-bit)",
@@ -5723,6 +6053,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.9 (32-bit)",
@@ -5810,6 +6145,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.8 (32-bit)",
@@ -5897,6 +6237,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.7 (32-bit)",
@@ -5984,6 +6329,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.6 (32-bit)",
@@ -6071,6 +6421,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.5 (32-bit)",
@@ -6158,6 +6513,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.4 (32-bit)",
@@ -6245,6 +6605,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.3 (32-bit)",
@@ -6332,6 +6697,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.2 (32-bit)",
@@ -6419,6 +6789,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.1 (32-bit)",
@@ -6506,6 +6881,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0 (32-bit)",
@@ -6591,6 +6971,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc3 (32-bit)",
@@ -6676,6 +7061,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc2 (32-bit)",
@@ -6761,6 +7151,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc1 (32-bit)",
@@ -6846,6 +7241,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b4 (32-bit)",
@@ -6931,6 +7331,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b3 (32-bit)",
@@ -7016,6 +7421,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b2 (32-bit)",
@@ -7101,6 +7511,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b1 (32-bit)",
@@ -7186,6 +7601,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a7 (32-bit)",
@@ -7271,6 +7691,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a6 (32-bit)",
@@ -7356,6 +7781,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a5 (32-bit)",
@@ -7441,6 +7871,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a4 (32-bit)",
@@ -7526,6 +7961,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a3 (32-bit)",
@@ -7611,6 +8051,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a2 (32-bit)",
@@ -7696,6 +8141,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a1 (32-bit)",
@@ -7781,6 +8231,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a5 (ARM64)",
@@ -7866,6 +8321,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a4 (ARM64)",
@@ -7951,6 +8411,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a3 (ARM64)",
@@ -8036,6 +8501,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a2 (ARM64)",
@@ -8121,6 +8591,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a1 (ARM64)",
@@ -8208,6 +8683,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.2 (ARM64)",
@@ -8295,6 +8775,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.1 (ARM64)",
@@ -8382,6 +8867,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0 (ARM64)",
@@ -8467,6 +8957,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc3 (ARM64)",
@@ -8552,6 +9047,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc2 (ARM64)",
@@ -8637,6 +9137,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc1 (ARM64)",
@@ -8722,6 +9227,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b4 (ARM64)",
@@ -8807,6 +9317,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b3 (ARM64)",
@@ -8892,6 +9407,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b2 (ARM64)",
@@ -8977,6 +9497,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b1 (ARM64)",
@@ -9062,6 +9587,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a6 (ARM64)",
@@ -9147,6 +9677,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a5 (ARM64)",
@@ -9232,6 +9767,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a4 (ARM64)",
@@ -9317,6 +9857,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a3 (ARM64)",
@@ -9402,6 +9947,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a2 (ARM64)",
@@ -9487,6 +10037,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a1 (ARM64)",
@@ -9574,6 +10129,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.9 (ARM64)",
@@ -9661,6 +10221,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.8 (ARM64)",
@@ -9748,6 +10313,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.7 (ARM64)",
@@ -9835,6 +10405,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.6 (ARM64)",
@@ -9922,6 +10497,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.5 (ARM64)",
@@ -10009,6 +10589,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.4 (ARM64)",
@@ -10096,6 +10681,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.3 (ARM64)",
@@ -10183,6 +10773,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.2 (ARM64)",
@@ -10270,6 +10865,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.1 (ARM64)",
@@ -10357,6 +10957,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0 (ARM64)",
@@ -10442,6 +11047,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc3 (ARM64)",
@@ -10527,6 +11137,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc2 (ARM64)",
@@ -10612,6 +11227,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0rc1 (ARM64)",
@@ -10697,6 +11317,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b4 (ARM64)",
@@ -10782,6 +11407,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b3 (ARM64)",
@@ -10867,6 +11497,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b2 (ARM64)",
@@ -10952,6 +11587,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0b1 (ARM64)",
@@ -11037,6 +11677,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a7 (ARM64)",
@@ -11122,6 +11767,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a6 (ARM64)",
@@ -11207,6 +11857,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a5 (ARM64)",
@@ -11292,6 +11947,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a4 (ARM64)",
@@ -11377,6 +12037,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a3 (ARM64)",
@@ -11462,6 +12127,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a2 (ARM64)",
@@ -11547,6 +12217,11 @@
               "Target": "https://docs.python.org/3.12/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.12/using/windows.html"
         }
       ],
       "display-name": "Python 3.12.0a1 (ARM64)",
@@ -11632,6 +12307,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a5 (free-threaded)",
@@ -11717,6 +12397,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a4 (free-threaded)",
@@ -11802,6 +12487,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a3 (free-threaded)",
@@ -11887,6 +12577,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a2 (free-threaded)",
@@ -11972,6 +12667,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a1 (free-threaded)",
@@ -12059,6 +12759,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.2 (free-threaded)",
@@ -12146,6 +12851,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.1 (free-threaded)",
@@ -12233,6 +12943,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0 (free-threaded)",
@@ -12318,6 +13033,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc3 (free-threaded)",
@@ -12403,6 +13123,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc2 (free-threaded)",
@@ -12488,6 +13213,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc1 (free-threaded)",
@@ -12573,6 +13303,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b4 (free-threaded)",
@@ -12658,6 +13393,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b3 (free-threaded)",
@@ -12743,6 +13483,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b2 (free-threaded)",
@@ -12828,6 +13573,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b1 (free-threaded)",
@@ -12913,6 +13663,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a6 (free-threaded)",
@@ -12998,6 +13753,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a5 (free-threaded)",
@@ -13083,6 +13843,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a4 (free-threaded)",
@@ -13168,6 +13933,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a5 (32-bit, free-threaded)",
@@ -13253,6 +14023,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a4 (32-bit, free-threaded)",
@@ -13338,6 +14113,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a3 (32-bit, free-threaded)",
@@ -13423,6 +14203,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a2 (32-bit, free-threaded)",
@@ -13508,6 +14293,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a1 (32-bit, free-threaded)",
@@ -13595,6 +14385,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.2 (32-bit, free-threaded)",
@@ -13682,6 +14477,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.1 (32-bit, free-threaded)",
@@ -13769,6 +14569,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0 (32-bit, free-threaded)",
@@ -13854,6 +14659,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc3 (32-bit, free-threaded)",
@@ -13939,6 +14749,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc2 (32-bit, free-threaded)",
@@ -14024,6 +14839,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc1 (32-bit, free-threaded)",
@@ -14109,6 +14929,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b4 (32-bit, free-threaded)",
@@ -14194,6 +15019,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b3 (32-bit, free-threaded)",
@@ -14279,6 +15109,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b2 (32-bit, free-threaded)",
@@ -14364,6 +15199,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b1 (32-bit, free-threaded)",
@@ -14449,6 +15289,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a6 (32-bit, free-threaded)",
@@ -14534,6 +15379,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a5 (32-bit, free-threaded)",
@@ -14619,6 +15469,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a4 (32-bit, free-threaded)",
@@ -14704,6 +15559,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a5 (ARM64, free-threaded)",
@@ -14789,6 +15649,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a4 (ARM64, free-threaded)",
@@ -14874,6 +15739,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a3 (ARM64, free-threaded)",
@@ -14959,6 +15829,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a2 (ARM64, free-threaded)",
@@ -15044,6 +15919,11 @@
               "Target": "https://docs.python.org/3.14/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/using/windows.html"
         }
       ],
       "display-name": "Python 3.14.0a1 (ARM64, free-threaded)",
@@ -15131,6 +16011,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.2 (ARM64, free-threaded)",
@@ -15218,6 +16103,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.1 (ARM64, free-threaded)",
@@ -15305,6 +16195,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0 (ARM64, free-threaded)",
@@ -15390,6 +16285,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc3 (ARM64, free-threaded)",
@@ -15475,6 +16375,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc2 (ARM64, free-threaded)",
@@ -15560,6 +16465,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0rc1 (ARM64, free-threaded)",
@@ -15645,6 +16555,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b4 (ARM64, free-threaded)",
@@ -15730,6 +16645,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b3 (ARM64, free-threaded)",
@@ -15815,6 +16735,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b2 (ARM64, free-threaded)",
@@ -15900,6 +16825,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0b1 (ARM64, free-threaded)",
@@ -15985,6 +16915,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a6 (ARM64, free-threaded)",
@@ -16070,6 +17005,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a5 (ARM64, free-threaded)",
@@ -16155,6 +17095,11 @@
               "Target": "https://docs.python.org/3.13/"
             }
           ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.13/using/windows.html"
         }
       ],
       "display-name": "Python 3.13.0a4 (ARM64, free-threaded)",

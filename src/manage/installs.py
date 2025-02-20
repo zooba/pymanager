@@ -65,6 +65,7 @@ def _get_venv_install(virtual_env):
         "company": "<venv>",
         "tag": "---",
         "default": True,
+        "unmanaged": 1,
         "alias": [
             {"name": "python.exe", "target": r"Scripts\python.exe"},
             {"name": "pythonw.exe", "target": r"Scripts\pythonw.exe", "windowed": 1},

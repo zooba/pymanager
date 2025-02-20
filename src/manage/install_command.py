@@ -235,14 +235,27 @@ def _create_start_shortcut(cmd, install, shortcut):
     from .startutils import create_one
     create_one(cmd.start_folder, install, shortcut)
 
+
 def _cleanup_start_shortcut(cmd, install_shortcut_pairs):
     from .startutils import cleanup
     cleanup(cmd.start_folder, [s for i, s in install_shortcut_pairs])
 
+
+def _create_arp_entry(cmd, install, shortcut):
+    # ARP = Add/Remove Programs
+    from .arputils import create_one
+    create_one(install, shortcut)
+
+
+def _cleanup_arp_entries(cmd, install_shortcut_pairs):
+    from .arputils import cleanup
+    cleanup([i for i, s in install_shortcut_pairs])
+
+
 SHORTCUT_HANDLERS = {
     "pep514": (_create_shortcut_pep514, _cleanup_shortcut_pep514),
     "start": (_create_start_shortcut, _cleanup_start_shortcut),
-    # TODO: "uninstall" shortcut kind for ARP entry
+    "uninstall": (_create_arp_entry, _cleanup_arp_entries),
 }
 
 
@@ -304,12 +317,15 @@ def print_cli_shortcuts(cmd):
     installs = [i for i in installs if install_matches_any(i, cmd.tags)]
     for i in installs:
         aliases = ", ".join(sorted(a["name"] for a in i["alias"]))
-        if aliases:
+        if i.get("default") and aliases:
+            LOGGER.info("%s will be launched with !G!python.exe!W! and also %s",
+                        i["display-name"], aliases)
+        elif i.get("default"):
+            LOGGER.info("%s can be launched with !G!python.exe!W!.", i["display-name"])
+        elif aliases:
             LOGGER.info("%s can be launched with %s", i["display-name"], aliases)
         else:
             LOGGER.info("Installed %s to %s", i["display-name"], i["prefix"])
-        if i.get("default"):
-            LOGGER.info("This version will be launched by default when you run '!G!python!W!'.")
 
 
 def _find_one(cmd, source, tag, *, installed=None, by_id=False):
@@ -471,6 +487,7 @@ def execute(cmd):
     if cmd.refresh:
         if cmd.args:
             LOGGER.warn("Ignoring arguments; --refresh always refreshes all installs.")
+        LOGGER.info("Refreshing install registrations.")
         update_all_shortcuts(cmd)
         LOGGER.debug("END install_command.execute")
         return
@@ -488,11 +505,19 @@ def execute(cmd):
 
     download_index = {"versions": []}
 
-    cmd.tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
-                for arg in cmd.args]
+    if not cmd.by_id:
+        cmd.tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
+                    for arg in cmd.args]
 
-    if not cmd.tags and cmd.automatic:
-        cmd.tags = [tag_or_range(cmd.default_tag)]
+        if not cmd.tags and cmd.automatic:
+            cmd.tags = [tag_or_range(cmd.default_tag)]
+    else:
+        if cmd.from_script:
+            raise ArgumentError("Cannot use --by-id and --from-script together")
+        cmd.tags = [arg.casefold() for arg in cmd.args]
+        if not cmd.tags:
+            raise ArgumentError("One or more IDs are required with --by-id")
+
 
     try:
         if cmd.target:
@@ -514,7 +539,7 @@ def execute(cmd):
                     if not source:
                         continue
                     try:
-                        install = _find_one(cmd, source, tag)
+                        install = _find_one(cmd, source, tag, by_id=cmd.by_id)
                         break
                     except LookupError:
                         LOGGER.error("Failed to find a suitable install for '%s'.", tag)
@@ -534,6 +559,7 @@ def execute(cmd):
                 return _fatal_install_error(cmd, ex)
 
         if cmd.from_script:
+            # Have already checked that we are not using --by-id
             from .scriptutils import find_install_from_script
             spec = find_install_from_script(cmd, cmd.from_script)
             if spec:
@@ -604,7 +630,7 @@ def execute(cmd):
                 LOGGER.debug("Searching %s", source)
                 try:
                     for tag in cmd.tags:
-                        install = _find_one(cmd, source, tag, installed=installed)
+                        install = _find_one(cmd, source, tag, installed=installed, by_id=cmd.by_id)
                         if install:
                             installs.append(install)
                     break
