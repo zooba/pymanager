@@ -5,15 +5,6 @@ from .fsutils import rmtree, unlink
 from .logging import LOGGER
 
 
-def ask_yn(*prompt):
-    print(*prompt, " [Y/n]", sep="", end="")
-    try:
-        resp = input().lower()
-    except Exception:
-        return False
-    return not resp or resp.startswith("y")
-
-
 def _iterdir(p):
     try:
         return list(p.iterdir())
@@ -33,12 +24,11 @@ def execute(cmd):
         "or press Ctrl+C to abort.")
 
     # Clear any active venv so we don't try to delete it
-    # (we'll succeed... ask me how I know...)
     cmd.virtual_env = None
     installed = list(cmd.get_installs())
 
     if cmd.purge:
-        if not cmd.confirm or ask_yn("Uninstall all runtimes?"):
+        if cmd.ask_yn("Uninstall all runtimes?"):
             for i in installed:
                 LOGGER.info("Purging %s from %s", i["display-name"], i["prefix"])
                 unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["display-name"]))
@@ -83,11 +73,11 @@ def execute(cmd):
         return
     elif cmd.confirm:
         if len(to_uninstall) == 1:
-            if not ask_yn("Uninstall ", to_uninstall[0]["display-name"], "?"):
+            if not cmd.ask_yn("Uninstall %s?", to_uninstall[0]["display-name"]):
                 return
         else:
             msg = ", ".join(i["display-name"] for i in to_uninstall)
-            if not ask_yn("Uninstall these runtimes: ", msg, "?"):
+            if not cmd.ask_yn("Uninstall these runtimes: %s?", msg):
                 return
 
     for i in to_uninstall:

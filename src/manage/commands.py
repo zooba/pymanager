@@ -437,6 +437,28 @@ class BaseCommand:
         except AttributeError:
             pass
 
+    def ask_yn(self, fmt, *args):
+        "Returns True if the user selects 'yes' or confirmations are skipped."
+        if not self.confirm:
+            return True
+        LOGGER.print(f"{fmt} [Y/n]", *args, end="")
+        try:
+            resp = input().lower()
+        except Exception:
+            return False
+        return not resp or resp.startswith("y")
+
+    def ask_ny(self, *prompt):
+        "Returns True if the user selects 'no' or confirmations are skipped."
+        if not self.confirm:
+            return True
+        LOGGER.print(f"{fmt} [y/N]", *args, end="")
+        try:
+            resp = input().lower()
+        except Exception:
+            return False
+        return not resp or resp.startswith("n")
+
     def get_installs(self, *, include_unmanaged=False, set_default=True):
         from .installs import get_installs, get_matching_install_tags
         installs = get_installs(

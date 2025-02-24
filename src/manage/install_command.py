@@ -360,7 +360,12 @@ def _find_one(cmd, source, tag, *, installed=None, by_id=False):
     # Return the package if it was requested in a way that wouldn't have
     # selected the existing package (e.g. full version match)
     if not install_matches_any(existing[0], [tag]):
-        return install
+        if cmd.ask_yn("!Y!Your existing %s install will be replaced by " +
+                      "%s. Continue?!W!", existing[0]["display-name"],
+                      install["display-name"]):
+            return install
+        LOGGER.debug("Not overwriting existing install.")
+        return None
 
     LOGGER.info("%s is already installed.", existing[0]["display-name"])
     return None
@@ -654,7 +659,6 @@ def execute(cmd):
                         "url": package.name,
                     })
                 else:
-                    # TODO: Also upgrade if requested tag was explicit about version
                     _install_one(cmd, source, install)
         except ArgumentError:
             raise
