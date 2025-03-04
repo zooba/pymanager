@@ -27,13 +27,18 @@ class ResourceFile(CSourceFile):
 
 
 # Default C++ compiler settings
-CPP_SETTINGS = ItemDefinition(
-    'ClCompile',
-    # Support C++20
-    LanguageStandard='stdcpp20',
-    # Statically link the C Runtime
-    RuntimeLibrary='MultiThreaded',
-)
+CPP_SETTINGS = [
+    # Enable dynamic linkage to avoid special handling, then disable it again
+    Property('DynamicLibcppLinkage', 'true'),
+    ItemDefinition(
+        'ClCompile',
+        # Support C++20
+        LanguageStandard='stdcpp20',
+        # Statically link the C Runtime
+        RuntimeLibrary='MultiThreaded',
+    ),
+]
+
 
 # AdditionalIncludes will be set during init_PACKAGE
 INCLUDE_TMPDIR = ItemDefinition("ClCompile")
@@ -78,9 +83,9 @@ NATIVE_PYD = DllPackage(
 
 MAIN_EXE = CProject('py-manage',
     VersionInfo(FileDescription="Python Install Manager"),
-    CPP_SETTINGS,
-    INCLUDE_TMPDIR,
+    *CPP_SETTINGS,
     ItemDefinition('Link', SubSystem='CONSOLE'),
+    INCLUDE_TMPDIR,
     Manifest('python.manifest'),
     ResourceFile('python.rc'),
     CSourceFile('main.cpp'),
@@ -95,10 +100,10 @@ MAIN_EXE = CProject('py-manage',
 
 MAINW_EXE = CProject('pyw-manage',
     VersionInfo(FileDescription="Python Install Manager (windowed)"),
-    CPP_SETTINGS,
+    *CPP_SETTINGS,
+    ItemDefinition('Link', SubSystem='WINDOWS'),
     INCLUDE_TMPDIR,
     ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend("PY_WINDOWED=1;")),
-    ItemDefinition('Link', SubSystem='WINDOWS'),
     Manifest('python.manifest'),
     ResourceFile('pythonw.rc'),
     CSourceFile('main.cpp'),
@@ -132,7 +137,7 @@ PACKAGE = Package('python-manager',
         File('src/python/templates/template.py'),
         CProject('launcher',
             VersionInfo(FileDescription="Python launcher", OriginalFilename="launcher.exe"),
-            CPP_SETTINGS,
+            *CPP_SETTINGS,
             ItemDefinition('Link', SubSystem='CONSOLE'),
             Manifest('python.manifest'),
             ResourceFile('python.rc'),
@@ -144,7 +149,7 @@ PACKAGE = Package('python-manager',
         ),
         CProject('launcherw',
             VersionInfo(FileDescription="Python launcher (windowed)", OriginalFilename="launcherw.exe"),
-            CPP_SETTINGS,
+            *CPP_SETTINGS,
             ItemDefinition('Link', SubSystem='WINDOWS'),
             Manifest('python.manifest'),
             ResourceFile('pythonw.rc'),
