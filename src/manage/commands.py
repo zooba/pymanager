@@ -448,7 +448,7 @@ class BaseCommand:
             return False
         return not resp or resp.startswith("y")
 
-    def ask_ny(self, *prompt):
+    def ask_ny(self, fmt, *args):
         "Returns True if the user selects 'no' or confirmations are skipped."
         if not self.confirm:
             return True

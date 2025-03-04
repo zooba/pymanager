@@ -3,7 +3,9 @@ from pathlib import PurePath
 from .exceptions import ArgumentError
 from .fsutils import rmtree, unlink
 from .installs import get_matching_install_tags
+from .install_command import update_all_shortcuts
 from .logging import LOGGER
+from .tagutils import tag_or_range
 
 
 def _iterdir(p):
@@ -16,9 +18,6 @@ def _iterdir(p):
 
 def execute(cmd):
     LOGGER.debug("BEGIN uninstall_command.execute: %r", cmd.args)
-
-    from .install_command import update_all_shortcuts
-    from .tagutils import install_matches_any, tag_or_range
 
     warn_msg = ("Attempting to remove {} is taking longer than expected. " +
         "Ensure no Python interpreters are running, and continue to wait " +
