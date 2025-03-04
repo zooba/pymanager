@@ -2,6 +2,7 @@ from pathlib import PurePath
 
 from .exceptions import ArgumentError
 from .fsutils import rmtree, unlink
+from .installs import get_matching_install_tags
 from .logging import LOGGER
 
 
@@ -50,12 +51,15 @@ def execute(cmd):
         for tag in cmd.args:
             if tag.casefold() == "default".casefold():
                 tag = cmd.default_tag
-            filters = [tag_or_range(tag) if tag else None]
-            try:
-                i = next(i for i in installed if install_matches_any(i, filters))
-            except StopIteration:
+            candidates = get_matching_install_tags(
+                installed,
+                tag_or_range(tag),
+                default_platform=cmd.default_platform,
+            )
+            if not candidates:
                 LOGGER.warn("No install found matching '%s'", tag)
                 continue
+            i, _ = candidates[0]
             LOGGER.debug("Selected %s (%s) to uninstall", i["display-name"], i["id"])
             to_uninstall.append(i)
             installed.remove(i)

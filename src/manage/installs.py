@@ -4,7 +4,7 @@ from pathlib import Path
 
 from .exceptions import NoInstallFoundError, NoInstallsError
 from .logging import DEBUG, LOGGER
-from .tagutils import CompanyTag, tag_or_range
+from .tagutils import CompanyTag, tag_or_range, companies_match
 from .verutils import Version
 
 
@@ -135,33 +135,47 @@ def get_matching_install_tags(
     core_matches = []
     matches = []
     unmanaged_matches = []
+    fallback_matches = []
 
     # Installs are in the correct order, so we'll first collect all the matches.
     # If no tag is provided, we still expand out the list by all of 'run-for'
     if tag:
         LOGGER.debug("Filtering installs by tag = %s", tag)
     for i in installs:
+        matched_any = False
         for t in i.get("run-for", ()):
             ct = CompanyTag(i["company"], t["tag"])
             if tag and ct == tag:
                 exact_matches.append((i, t))
+                matched_any = True
             elif not tag or tag.satisfied_by(ct):
-                if i.get("unmanaged"):
+                if tag and not companies_match(tag.company, i["company"]):
+                    fallback_matches.append((i, t))
+                    matched_any = True
+                elif i.get("unmanaged"):
                     unmanaged_matches.append((i, t))
+                    matched_any = True
                 elif ct.is_core:
                     core_matches.append((i, t))
+                    matched_any = True
                 else:
                     matches.append((i, t))
-            elif LOGGER.would_log_to_console(DEBUG):
-                # Don't bother listing all installs unless the user has asked
-                # for console output.
-                LOGGER.debug("Tag excluded %s", i["id"])
+                    matched_any = True
             if single_tag:
                 break
+        if LOGGER.would_log_to_console(DEBUG):
+            # Don't bother listing all installs unless the user has asked
+            # for console output.
+            if matched_any:
+                LOGGER.debug("Filter included %s", i["id"])
+            else:
+                LOGGER.debug("Filter did not include %s", i["id"])
+
+    best = [*exact_matches, *core_matches, *matches, *unmanaged_matches]
 
     if tag:
-        LOGGER.debug("tag '%s' matched %s %s", tag, len(matches),
-                     "install" if len(matches) == 1 else "installs")
+        LOGGER.debug("tag '%s' matched %s %s", tag, len(best),
+                     "install" if len(best) == 1 else "installs")
         if exact_matches:
             LOGGER.debug("- %s exact match(es)", len(exact_matches))
         if core_matches:
@@ -170,8 +184,11 @@ def get_matching_install_tags(
             LOGGER.debug("- %s non-core install(s) by prefix", len(matches))
         if unmanaged_matches:
             LOGGER.debug("- %s unmanaged install(s) by prefix", len(unmanaged_matches))
+        if fallback_matches:
+            LOGGER.debug("- %s additional installs by tag alone", len(fallback_matches))
 
-    best = [*exact_matches, *core_matches, *matches, *unmanaged_matches]
+    if not best and fallback_matches:
+        best = fallback_matches
 
     # Filter for 'windowed' matches. If none, keep them all
     if windowed is not None:
@@ -183,10 +200,14 @@ def get_matching_install_tags(
     # Filter for default_platform matches (by tag suffix). If none, keep them all
     if default_platform:
         default_platform = default_platform.casefold()
+        best2 = best
         best = [(i, t) for i, t in best
-                if t["tag"].casefold().endswith(default_platform)] or best
+                if t["tag"].casefold().endswith(default_platform)]
         LOGGER.debug("default_platform '%s' matched %s %s", default_platform,
                      len(best), "install" if len(best) == 1 else "installs")
+        if not best:
+            LOGGER.debug("Reusing unfiltered list")
+            best = best2
 
     return best
 

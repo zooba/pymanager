@@ -44,6 +44,10 @@ class _CompanyKey:
         return not (self < other)
 
 
+def companies_match(c1, c2):
+    return _CompanyKey(c1) == _CompanyKey(c2)
+
+
 class _AscendingText:
     def __init__(self, s):
         self.s = s.casefold()

@@ -441,7 +441,7 @@ class BaseCommand:
         "Returns True if the user selects 'yes' or confirmations are skipped."
         if not self.confirm:
             return True
-        LOGGER.print(f"{fmt} [Y/n]", *args, end="")
+        LOGGER.print(f"{fmt} [Y/n] ", *args, end="")
         try:
             resp = input().lower()
         except Exception:
@@ -452,7 +452,7 @@ class BaseCommand:
         "Returns True if the user selects 'no' or confirmations are skipped."
         if not self.confirm:
             return True
-        LOGGER.print(f"{fmt} [y/N]", *args, end="")
+        LOGGER.print(f"{fmt} [y/N] ", *args, end="")
         try:
             resp = input().lower()
         except Exception:
