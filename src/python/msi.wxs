@@ -43,6 +43,9 @@
       <File Source="pyw-manage.exe" Name="pyw.exe" />
       <File Source="pymanager.json" />
 
+      <File Source="vcruntime140.dll" />
+      <File Source="vcruntime140_1.dll" />
+
       <File Source="version.txt" />
       <Environment Id="PATH" Action="set" Name="PATH" Part="last" System="yes" Value="[INSTALLFOLDER]" />
 
@@ -92,8 +95,6 @@
       <File Source="runtime\$(var.pythondllname).dll" />
       <File Source="runtime\$(var.pythondllname).zip" />
       <File Source="runtime\$(var.pythondllname)._pth" />
-      <File Source="runtime\vcruntime140.dll" />
-      <File Source="runtime\vcruntime140_1.dll" />
     </Component>
 
     <Component Id="TemplatesComponent" Directory="TEMPLATES" Guid="3ACC110C-5C33-45C8-9843-A446718930A0">
