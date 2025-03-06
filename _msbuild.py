@@ -27,17 +27,7 @@ class ResourceFile(CSourceFile):
 
 
 # Default C++ compiler settings
-CPP_SETTINGS = [
-    # Enable dynamic linkage to avoid special handling, then disable it again
-    Property('DynamicLibcppLinkage', 'true'),
-    ItemDefinition(
-        'ClCompile',
-        # Support C++20
-        LanguageStandard='stdcpp20',
-        # Statically link the C Runtime
-        RuntimeLibrary='MultiThreaded',
-    ),
-]
+CPP_SETTINGS = ItemDefinition('ClCompile', LanguageStandard='stdcpp20')
 
 
 # AdditionalIncludes will be set during init_PACKAGE
@@ -57,7 +47,7 @@ NATIVE_PYD = DllPackage(
     '_native',
     VersionInfo(FileDescription="Native helper functions for PyManager"),
     PyFile('__init__.py'),
-    ItemDefinition('ClCompile', LanguageStandard="stdcpp20"),
+    CPP_SETTINGS,
     IncludeFile('*.h'),
     CSourceFile('*.cpp'),
     CFunction('coinitialize'),
@@ -83,7 +73,7 @@ NATIVE_PYD = DllPackage(
 
 MAIN_EXE = CProject('py-manage',
     VersionInfo(FileDescription="Python Install Manager"),
-    *CPP_SETTINGS,
+    CPP_SETTINGS,
     ItemDefinition('Link', SubSystem='CONSOLE'),
     INCLUDE_TMPDIR,
     Manifest('python.manifest'),
@@ -100,7 +90,7 @@ MAIN_EXE = CProject('py-manage',
 
 MAINW_EXE = CProject('pyw-manage',
     VersionInfo(FileDescription="Python Install Manager (windowed)"),
-    *CPP_SETTINGS,
+    CPP_SETTINGS,
     ItemDefinition('Link', SubSystem='WINDOWS'),
     INCLUDE_TMPDIR,
     ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend("PY_WINDOWED=1;")),
@@ -137,7 +127,9 @@ PACKAGE = Package('python-manager',
         File('src/python/templates/template.py'),
         CProject('launcher',
             VersionInfo(FileDescription="Python launcher", OriginalFilename="launcher.exe"),
-            *CPP_SETTINGS,
+            CPP_SETTINGS,
+            Property('DynamicLibcppLinkage', 'true'),
+            ItemDefinition('ClCompile', RuntimeLibrary='MultiThreaded'),
             ItemDefinition('Link', SubSystem='CONSOLE'),
             Manifest('python.manifest'),
             ResourceFile('python.rc'),
@@ -149,7 +141,9 @@ PACKAGE = Package('python-manager',
         ),
         CProject('launcherw',
             VersionInfo(FileDescription="Python launcher (windowed)", OriginalFilename="launcherw.exe"),
-            *CPP_SETTINGS,
+            CPP_SETTINGS,
+            Property('DynamicLibcppLinkage', 'true'),
+            ItemDefinition('ClCompile', RuntimeLibrary='MultiThreaded'),
             ItemDefinition('Link', SubSystem='WINDOWS'),
             Manifest('python.manifest'),
             ResourceFile('pythonw.rc'),
@@ -341,6 +335,8 @@ def init_PACKAGE(tag=None):
         f"{dll_name}.dll",
         f"{dll_name}.zip",
         f"{dll_name}._pth",
+    ]]
+    runtime_files = [tmpdir / tag / n for n in [
         "vcruntime140.dll",
         "vcruntime140_1.dll",
     ]]
@@ -351,6 +347,7 @@ def init_PACKAGE(tag=None):
         package.parent.mkdir(exist_ok=True, parents=True)
         urlretrieve(EMBED_URLS[tag], package)
         with ZipFile(package) as zf:
-            for f in embed_files:
+            for f in [*embed_files, *runtime_files]:
                 f.write_bytes(zf.read(f.name))
     PACKAGE.find("runtime").members.extend(File(f) for f in embed_files)
+    PACKAGE.members.extend(File(f) for f in runtime_files)
