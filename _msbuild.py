@@ -71,37 +71,37 @@ NATIVE_PYD = DllPackage(
 )
 
 
-MAIN_EXE = CProject('py-manage',
+MAIN_EXE = CProject('py-manager',
     VersionInfo(FileDescription="Python Install Manager"),
     CPP_SETTINGS,
     ItemDefinition('Link', SubSystem='CONSOLE'),
     INCLUDE_TMPDIR,
-    Manifest('python.manifest'),
-    ResourceFile('python.rc'),
+    Manifest('default.manifest'),
+    ResourceFile('pyicon.rc'),
     CSourceFile('main.cpp'),
     CSourceFile('_launch.cpp'),
     IncludeFile('*.h'),
     CSourceFile('../_native/helpers.cpp'),
     IncludeFile('../_native/helpers.h'),
-    source='src/python',
+    source='src/pymanager',
     ConfigurationType='Application',
 )
 
 
-MAINW_EXE = CProject('pyw-manage',
+MAINW_EXE = CProject('pyw-manager',
     VersionInfo(FileDescription="Python Install Manager (windowed)"),
     CPP_SETTINGS,
     ItemDefinition('Link', SubSystem='WINDOWS'),
     INCLUDE_TMPDIR,
     ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend("PY_WINDOWED=1;")),
-    Manifest('python.manifest'),
-    ResourceFile('pythonw.rc'),
+    Manifest('default.manifest'),
+    ResourceFile('pywicon.rc'),
     CSourceFile('main.cpp'),
     CSourceFile('_launch.cpp'),
     IncludeFile('*.h'),
     CSourceFile('../_native/helpers.cpp'),
     IncludeFile('../_native/helpers.h'),
-    source='src/python',
+    source='src/pymanager',
     ConfigurationType='Application',
 )
 
@@ -109,8 +109,8 @@ MAINW_EXE = CProject('pyw-manage',
 PACKAGE = Package('python-manager',
     PyprojectTomlFile('pyproject.toml'),
     # MSIX manifest
-    File('src/python/appxmanifest.xml', name='appxmanifest.xml'),
-    File('src/python/pymanager.appinstaller', name='pymanager.appinstaller'),
+    File('src/pymanager/appxmanifest.xml', name='appxmanifest.xml'),
+    File('src/pymanager/pymanager.appinstaller', name='pymanager.appinstaller'),
 
     # Default settings
     File('src/pymanager.json'),
@@ -124,19 +124,19 @@ PACKAGE = Package('python-manager',
     # Directory for template files
     Package(
         'templates',
-        File('src/python/templates/template.py'),
+        File('src/pymanager/templates/template.py'),
         CProject('launcher',
             VersionInfo(FileDescription="Python launcher", OriginalFilename="launcher.exe"),
             CPP_SETTINGS,
             Property('DynamicLibcppLinkage', 'true'),
             ItemDefinition('ClCompile', RuntimeLibrary='MultiThreaded'),
             ItemDefinition('Link', SubSystem='CONSOLE'),
-            Manifest('python.manifest'),
-            ResourceFile('python.rc'),
+            Manifest('default.manifest'),
+            ResourceFile('pyicon.rc'),
             CSourceFile('launcher.cpp'),
             CSourceFile('_launch.cpp'),
             IncludeFile('*.h'),
-            source='src/python',
+            source='src/pymanager',
             ConfigurationType='Application',
         ),
         CProject('launcherw',
@@ -145,12 +145,12 @@ PACKAGE = Package('python-manager',
             Property('DynamicLibcppLinkage', 'true'),
             ItemDefinition('ClCompile', RuntimeLibrary='MultiThreaded'),
             ItemDefinition('Link', SubSystem='WINDOWS'),
-            Manifest('python.manifest'),
-            ResourceFile('pythonw.rc'),
+            Manifest('default.manifest'),
+            ResourceFile('pywicon.rc'),
             CSourceFile('launcher.cpp'),
             CSourceFile('_launch.cpp'),
             IncludeFile('*.h'),
-            source='src/python',
+            source='src/pymanager',
             ConfigurationType='Application',
         ),
     ),
@@ -158,8 +158,8 @@ PACKAGE = Package('python-manager',
     # Directory for MSIX resources
     Package(
         '_resources',
-        File('src/python/_resources/*.png'),
-        File('src/python/_resources/*.ico'),
+        File('src/pymanager/_resources/*.png'),
+        File('src/pymanager/_resources/*.ico'),
     ),
 
     # Directory for bundled runtime and our modules
@@ -183,10 +183,10 @@ DLL_NAMES = {
 
 
 EMBED_URLS = {
-    "cp313-cp313-win_amd64": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-embed-amd64.zip",
-    "cp313-cp313-win_arm64": "https://www.python.org/ftp/python/3.13.1/python-3.13.1-embed-arm64.zip",
-    "cp314-cp314-win_amd64": "https://www.python.org/ftp/python/3.14.0a2/python-3.14.0a2-embed-amd64.zip",
-    "cp314-cp314-win_arm64": "https://www.python.org/ftp/python/3.14.0a2/python-3.14.0a2-embed-arm64.zip",
+    "cp313-cp313-win_amd64": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-amd64.zip",
+    "cp313-cp313-win_arm64": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-arm64.zip",
+    "cp314-cp314-win_amd64": "https://www.python.org/ftp/python/3.14.0a5/python-3.14.0a5-embed-amd64.zip",
+    "cp314-cp314-win_arm64": "https://www.python.org/ftp/python/3.14.0a5/python-3.14.0a5-embed-arm64.zip",
 }
 
 
@@ -323,13 +323,15 @@ def init_PACKAGE(tag=None):
     # GENERATE SUBCOMMAND LIST
     cmds = get_commands()
     cmds_h = tmpdir / "commands.g.h"
-    cmds_txt = "static const wchar_t *subcommands[] = {" + ", ".join(f'L"{c}"' for c in cmds) + ", NULL};"
+    cmds_txt = ("static const wchar_t *subcommands[] = {"
+                + ", ".join(f'L"{c}"' for c in cmds)
+                + ", NULL};")
     update_file(cmds_h, cmds_txt)
 
     # BUNDLE EMBEDDABLE DISTRO
     dll_name = DLL_NAMES[tag.partition("-")[0]]
-    PACKAGE.find("py-manage/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
-    PACKAGE.find("pyw-manage/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
+    PACKAGE.find("py-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
+    PACKAGE.find("pyw-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
 
     embed_files = [tmpdir / tag / n for n in [
         f"{dll_name}.dll",

@@ -7,7 +7,7 @@
 /pythons/
 
 # Can't seem to stop WiX from creating this directory...
-/src/python/obj
+/src/pymanager/obj
 
 *.exe
 *.pyc
