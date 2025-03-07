@@ -27,7 +27,7 @@ pydsuffix = [p.name.partition(".")[-1] for p in (LAYOUT / "runtime").glob("manag
 run([
     *MSBUILD_CMD,
     "-Restore",
-    SRC / "python/msi.wixproj",
+    SRC / "pymanager/msi.wixproj",
     "/p:Platform=x64",
     "/p:Configuration=Release",
     f"/p:OutputPath={DIST}",

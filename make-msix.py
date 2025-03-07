@@ -48,7 +48,7 @@ unlink(DIST_MSIX, DIST_STORE_MSIX, DIST_APPXSYM, DIST_MSIXUPLOAD)
 if not (LAYOUT / "_resources.pri").is_file():
     run([MAKEPRI, "new", "/o",
                   "/pr", LAYOUT,
-                  "/cf", SRC / "python/resources.xml",
+                  "/cf", SRC / "pymanager/resources.xml",
                   "/of", LAYOUT / "_resources.pri",
                   "/mf", "appx"])
 
