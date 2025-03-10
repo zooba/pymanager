@@ -208,7 +208,7 @@ jobs:
 
     - powershell: |
         gcm pymanager
-        gcm pymanagerw
+        gcm pywmanager
         # These are likely present due to the machine configuration,
         # but we'll check for them anyway.
         gcm py
