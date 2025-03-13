@@ -62,10 +62,11 @@ def _get_venv_install(virtual_env):
         "id": "__active-virtual-env",
         "display-name": "Active virtual environment",
         "sort-version": ver[0] if ver else "0.0",
-        "company": "<venv>",
+        "company": "(venv)",
         "tag": "---",
         "default": True,
         "unmanaged": 1,
+        "__any-platform": True,
         "alias": [
             {"name": "python.exe", "target": r"Scripts\python.exe"},
             {"name": "pythonw.exe", "target": r"Scripts\pythonw.exe", "windowed": 1},
@@ -73,8 +74,8 @@ def _get_venv_install(virtual_env):
         # Invalid tags, but the target will be used to determine whether to use
         # python.exe or pythonw.exe
         "run-for": [
-            {"tag": "<>", "target": r"Scripts\python.exe"},
-            {"tag": "<>", "target": r"Scripts\pythonw.exe", "windowed": 1},
+            {"tag": "---", "target": r"Scripts\python.exe"},
+            {"tag": "---", "target": r"Scripts\pythonw.exe", "windowed": 1},
         ],
         "prefix": Path(virtual_env),
         "executable": Path(virtual_env) / r"Scripts\python.exe",
@@ -202,7 +203,8 @@ def get_matching_install_tags(
         default_platform = default_platform.casefold()
         best2 = best
         best = [(i, t) for i, t in best
-                if t["tag"].casefold().endswith(default_platform)]
+                if i.get("__any-platform")
+                or t["tag"].casefold().endswith(default_platform)]
         LOGGER.debug("default_platform '%s' matched %s %s", default_platform,
                      len(best), "install" if len(best) == 1 else "installs")
         if not best:
@@ -233,7 +235,14 @@ def get_install_to_run(
         raise NoInstallsError
 
     if not tag:
-        tag = tag_or_range(default_tag)
+        # We know we want default, so try filtering first. If any are explicitly
+        # tagged (e.g. active venv), they will be the only candidates.
+        # Otherwise, we'll do a regular search as if 'default_tag' was provided.
+        default_installs = [i for i in installs if i.get("default")]
+        if default_installs:
+            installs = default_installs
+        else:
+            tag = tag_or_range(default_tag)
         used_default = True
     else:
         tag = tag_or_range(tag)
@@ -244,6 +253,7 @@ def get_install_to_run(
         tag,
         windowed=windowed,
         default_platform=default_platform,
+        single_tag=True,
     )
 
     if best:
