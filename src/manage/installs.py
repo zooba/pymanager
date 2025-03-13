@@ -253,7 +253,6 @@ def get_install_to_run(
         tag,
         windowed=windowed,
         default_platform=default_platform,
-        single_tag=True,
     )
 
     if best:
