@@ -87,18 +87,23 @@ void err_SetFromWindowsErrWithMessage(int error, const char *message, const wcha
     if (msg) {
         // Hacky way to get OSError without a direct data reference
         // This allows us to delay load the Python DLL
-        PyObject *builtins = PyEval_GetBuiltins();
+        PyObject *builtins = PyEval_GetFrameBuiltins();
         PyObject *oserr = builtins ? PyDict_GetItemString(builtins, "OSError") : NULL;
-        Py_XDECREF(builtins);
         if (oserr) {
-            PyObject *exc_args = Py_BuildValue("(iONiN)",
-                (int)0, msg, Py_GetConstant(Py_CONSTANT_NONE), error, Py_GetConstant(Py_CONSTANT_NONE));
+            PyObject *exc_args = Py_BuildValue(
+                "(iOOiO)",
+                (int)0,
+                msg,
+                Py_GetConstantBorrowed(Py_CONSTANT_NONE),
+                error,
+                Py_GetConstantBorrowed(Py_CONSTANT_NONE)
+            );
             if (exc_args) {
                 PyErr_SetObject(oserr, exc_args);
                 Py_DECREF(exc_args);
             }
-            Py_DECREF(oserr);
         }
+        Py_XDECREF(builtins);
         Py_DECREF(msg);
     }
 

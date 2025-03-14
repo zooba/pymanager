@@ -199,38 +199,6 @@ read_script_from_argv(int argc, const wchar_t **argv, int skip_argc, std::wstrin
 }
 
 
-//#define EXPERIMENT_FAST_LOAD
-#ifdef EXPERIMENT_FAST_LOAD
-
-static PyModuleDef _fake_enum_def = {
-    PyModuleDef_HEAD_INIT,
-    "enum"
-};
-
-static PyObject *
-_fake_enum(void)
-{
-    return PyModule_Create(&_fake_enum_def);
-}
-
-
-static PyModuleDef _fake_re_def = {
-    PyModuleDef_HEAD_INIT,
-    "re"
-};
-
-
-static PyObject *
-_fake_re(void)
-{
-    return PyModule_Create(&_fake_re_def);
-}
-
-
-#endif /* EXPERIMENT_FAST_LOAD */
-
-
-
 static int
 init_python()
 {
@@ -252,11 +220,7 @@ init_python()
     PyConfig config;
     PyConfig_InitIsolatedConfig(&config);
 
-#ifdef EXPERIMENT_FAST_LOAD
-    config.import_time = 1;
-    //PyImport_AppendInittab("enum", _fake_enum);
-    //PyImport_AppendInittab("re", _fake_re);
-#endif
+    config.import_time = is_env_var_set(L"PYMANAGER_IMPORT_TIME");
 
     status = Py_InitializeFromConfig(&config);
     if (PyStatus_Exception(status)) {

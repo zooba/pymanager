@@ -68,6 +68,8 @@ NATIVE_PYD = DllPackage(
     CFunction('shortcut_get_start_programs'),
     CFunction('hide_file'),
     CFunction('fd_supports_vt100'),
+    CFunction('date_as_str'),
+    CFunction('datetime_as_str'),
     source='src/_native',
     RootNamespace='_native',
 )

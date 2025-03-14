@@ -393,9 +393,9 @@ class BaseCommand:
         logs_dir = self.logs_dir
         if not logs_dir:
             logs_dir = Path(os.getenv("TMP") or os.getenv("TEMP") or os.getcwd())
-        import datetime
+        from _native import datetime_as_str
         self._log_file = logs_dir / "python_{}_{}_{}.log".format(
-            self.CMD, datetime.datetime.now().strftime("%Y%m%d%H%M%S"), os.getpid()
+            self.CMD, datetime_as_str(), os.getpid()
         )
         return self._log_file
 

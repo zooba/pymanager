@@ -10,10 +10,47 @@ try:
 except ImportError:
     from nturl2path import url2pathname as file_url_to_path
 
+# Indexes into winhttp_urlsplit result for readability
+U_SCHEME = 0
+U_USERNAME = 1
+U_PASSWORD = 2
+U_NETLOC = 3
+U_PORT = 4
+U_PATH = 5
+U_EXTRA = 6
+
 try:
     from _native import winhttp_urlsplit, winhttp_urlunsplit
 except ImportError:
-    pass
+    import urllib.parse
+    def winhttp_urlsplit(u):
+        p = urllib.parse.urlsplit(u)
+        extra = f"?{p.query}" if p.query else ""
+        extra = f"{extra}#{p.fragment}" if p.fragment else extra
+        return (p.scheme, p.username, p.password, p.hostname, p.port, p.path, extra)
+
+    def winhttp_urlunsplit(*a):
+        netloc = a[U_NETLOC]
+        if a[U_USERNAME]:
+            if a[U_PASSWORD]:
+                netloc = f"{a[U_USERNAME]}:{a[U_PASSWORD]}@{netloc}"
+            else:
+                netloc = f"{a[U_USERNAME]}@{netloc}"
+        if a[U_PORT]:
+            if a[U_PORT] == 80 and a[U_SCHEME].casefold() == "http":
+                pass
+            elif a[U_PORT] == 443 and a[U_SCHEME].casefold() == "https":
+                pass
+            else:
+                netloc = f"{netloc}:{a[U_PORT]}"
+        if a[U_EXTRA]:
+            query, _, fragment = a[U_EXTRA].rpartition("#")
+            if query[:1] == "?":
+                query = query[1:]
+        else:
+            query = fragment = ""
+        return urllib.parse.urlunsplit((a[0], netloc, a[U_PATH], query, fragment))
+
 
 ENABLE_BITS = os.getenv("PYMANAGER_ENABLE_BITS_DOWNLOAD", "1").lower()[:1] in "1yt"
 ENABLE_WINHTTP = os.getenv("PYMANAGER_ENABLE_WINHTTP_DOWNLOAD", "1").lower()[:1] in "1yt"
@@ -487,16 +524,6 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
         raise first_error
 
     raise RuntimeError("Unable to download from the internet")
-
-
-# Indexes into winhttp_urlsplit result for readability
-U_SCHEME = 0
-U_USERNAME = 1
-U_PASSWORD = 2
-U_NETLOC = 3
-U_PORT = 4
-U_PATH = 5
-U_EXTRA = 6
 
 
 def extract_url_auth(url):

@@ -1,4 +1,3 @@
-import datetime
 import os
 import time
 import winreg
@@ -82,7 +81,8 @@ def _make(key, item, shortcut):
         _set_value(key, value_name, value)
 
     try:
-        _set_value(key, "InstallDate", datetime.datetime.now().strftime("%Y%m%d"))
+        from _native import date_as_str
+        _set_value(key, "InstallDate", date_as_str())
     except Exception:
         LOGGER.debug("Unexpected error writing InstallDate", exc_info=True)
     try:

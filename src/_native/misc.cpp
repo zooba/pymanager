@@ -50,4 +50,49 @@ PyObject *fd_supports_vt100(PyObject *, PyObject *args, PyObject *kwargs) {
     return r;
 }
 
+PyObject *date_as_str(PyObject *, PyObject *, PyObject *) {
+    wchar_t buffer[256];
+    DWORD cch = GetDateFormatEx(
+        LOCALE_NAME_INVARIANT,
+        0,
+        NULL,
+        L"yyyyMMdd",
+        buffer,
+        sizeof(buffer) / sizeof(buffer[0]),
+        NULL
+    );
+    if (!cch) {
+        PyErr_SetFromWindowsErr(0);
+        return NULL;
+    }
+    return PyUnicode_FromWideChar(buffer, cch - 1);
+}
+
+PyObject *datetime_as_str(PyObject *, PyObject *, PyObject *) {
+    wchar_t buffer[256];
+    DWORD cch = GetDateFormatEx(
+        LOCALE_NAME_INVARIANT,
+        0,
+        NULL,
+        L"yyyyMMdd",
+        buffer,
+        sizeof(buffer) / sizeof(buffer[0]),
+        NULL
+    );
+    if (!cch) {
+        PyErr_SetFromWindowsErr(0);
+        return NULL;
+    }
+    cch -= 1;
+    cch += GetTimeFormatEx(
+        LOCALE_NAME_INVARIANT,
+        0,
+        NULL,
+        L"HHmmss",
+        &buffer[cch],
+        sizeof(buffer) / sizeof(buffer[0]) - cch
+    );
+    return PyUnicode_FromWideChar(buffer, cch - 1);
+}
+
 }
