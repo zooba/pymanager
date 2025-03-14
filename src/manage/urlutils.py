@@ -11,6 +11,10 @@ try:
 except ImportError:
     from nturl2path import url2pathname as file_url_to_path
 
+try:
+    from _native import winhttp_urlsplit, winhttp_urlunsplit
+except ImportError:
+    pass
 
 ENABLE_BITS = os.getenv("PYMANAGER_ENABLE_BITS_DOWNLOAD", "1").lower()[:1] in "1yt"
 ENABLE_WINHTTP = os.getenv("PYMANAGER_ENABLE_WINHTTP_DOWNLOAD", "1").lower()[:1] in "1yt"
@@ -486,69 +490,116 @@ def urlretrieve(url, outfile, method="GET", headers={}, chunksize=64 * 1024, on_
     raise RuntimeError("Unable to download from the internet")
 
 
+# Indexes into winhttp_urlsplit result for readability
+U_SCHEME = 0
+U_USERNAME = 1
+U_PASSWORD = 2
+U_NETLOC = 3
+U_PORT = 4
+U_PATH = 5
+U_EXTRA = 6
+
+
 def extract_url_auth(url):
-    from urllib.parse import urlparse
     if not url:
         return url
-    p = urlparse(url)
-    userpass, _, netloc = p[1].rpartition("@")
-    if userpass:
-        user, _, passw = userpass.partition(":")
-        if passw and passw.startswith("%") and passw.endswith("%"):
-            passw = os.getenv(passw[1:-1]) or ""
-        return user, passw
+    p = winhttp_urlsplit(url)
+    user, passw = p[U_USERNAME], p[U_PASSWORD]
+    if user or passw:
+        return user or "", passw or ""
     return None
 
 
 def sanitise_url(url):
-    from urllib.parse import urlparse, urlunparse
     if not url:
         return url
-    p = urlparse(url)
-    userpass, _, netloc = p[1].rpartition("@")
-    if userpass:
-        user, _, passw = userpass.partition(":")
-        # URLs like https://__token__:%TOKEN%@netloc/ are permitted
-        if passw and passw.startswith("%") and passw.endswith("%"):
-            return url
-    return urlunparse((*p[:1], netloc, *p[2:]))
+    p = list(winhttp_urlsplit(url))
+    p[U_USERNAME] = None
+    pw = p[U_PASSWORD]
+    if pw and not (pw.startswith("%") and pw.startswith("%")):
+        p[U_PASSWORD] = None
+    return winhttp_urlunsplit(*p)
 
 
 def unsanitise_url(url, candidates):
-    from urllib.parse import urlparse, urlunparse
     if not url:
         return url
-    p = urlparse(url)
-    if "@" in p[1]:
+    p = winhttp_urlsplit(url)
+    if p[U_USERNAME] or p[U_PASSWORD]:
         # URL contains user/pass info, so just return it
         return url
-    best, best_path = None, None
+    best = None
     for url2 in candidates:
-        p2 = urlparse(url2)
-        userpass, _, netloc = p2[1].rpartition("@")
-        if (p[0].casefold(), p[1].casefold()) == (p2[0].casefold(), netloc.casefold()):
-            if best is None or len(best_path) < len(p2[2]):
-                best = userpass
-                best_path = p2[2]
+        p2 = winhttp_urlsplit(url2)
+        if (
+            p[U_SCHEME].casefold() == p2[U_SCHEME].casefold() and
+            p[U_NETLOC].casefold() == p2[U_NETLOC].casefold() and
+            p[U_PORT] == p2[U_PORT] and
+            p[U_PATH].casefold().startswith(p2[U_PATH].casefold())
+        ):
+            if best is None or len(p2[U_PATH]) > len(best[U_PATH]):
+                best = p2
     if best:
-        return urlunparse((*p[:1], best + "@" + p[1], *p[2:]))
+        p = list(p)
+        p[U_USERNAME] = best[U_USERNAME]
+        p[U_PASSWORD] = best[U_PASSWORD]
+        return winhttp_urlunsplit(*p)
+
+
+def _urlsplit_with_fallback(url):
+    try:
+        return winhttp_urlsplit(url)
+    except OSError:
+        pass
+    pre_qm, qm, post_qm = url.partition("?")
+    path, anchor, post_anchor = pre_qm.partition("#")
+    if anchor:
+        extra = anchor + post_anchor + qm + post_qm
+    else:
+        extra = None
+    if path.startswith("//"):
+        netloc, sep, path = path[2:].partition("/")
+        path = sep + path
+    else:
+        netloc = None
+    return (None, None, None, netloc, 0, path, extra)
 
 
 def urljoin(base_url, other_url, *, to_parent=False):
     from pathlib import PurePosixPath
-    from urllib.parse import urlparse, urlunparse
-    u1, u2 = urlparse(base_url), urlparse(other_url)
-    if u2.scheme and u2.netloc:
+
+    u1 = _urlsplit_with_fallback(base_url)
+    u2 = _urlsplit_with_fallback(other_url)
+    if u2[U_SCHEME] and u2[U_NETLOC]:
         return other_url
-    p1 = PurePosixPath(u1[2])
-    if to_parent and u2[2]:
+    p1 = PurePosixPath(u1[U_PATH])
+    if to_parent and u2[U_PATH]:
         p1 = p1.parent
-    return urlunparse((
-        u2[0] or u1[0],
-        u2[1] or u1[1],
-        str(p1 / u2[2]),
-        *u1[3:]
-    ))
+    return winhttp_urlunsplit(
+        u2[U_SCHEME] or u1[U_SCHEME],
+        u2[U_USERNAME] or u1[U_USERNAME],
+        u2[U_PASSWORD] or u1[U_PASSWORD],
+        u2[U_NETLOC] or u1[U_NETLOC],
+        u2[U_PORT] or u1[U_PORT],
+        str(p1 / u2[U_PATH]),
+        u2[U_EXTRA] or u1[U_EXTRA],
+    )
+
+
+def is_valid_url(url):
+    try:
+        winhttp_urlsplit(url)
+        return True
+    except OSError:
+        pass
+    if not url.lower().startswith("file://"):
+        return False
+    try:
+        file_url_to_path(url)
+        return True
+    except OSError:
+        pass
+    return False
 
 
 class IndexDownloader:

@@ -199,6 +199,91 @@ read_script_from_argv(int argc, const wchar_t **argv, int skip_argc, std::wstrin
 }
 
 
+#ifdef EXPERIMENT_FAST_LOAD
+
+static PyModuleDef _fake_tempfile_def = {
+    PyModuleDef_HEAD_INIT,
+    "tempfile"
+};
+
+static PyObject *
+_fake_tempfile(void)
+{
+    return PyModule_Create(&_fake_tempfile_def);
+}
+
+
+static PyModuleDef _fake_inspect_def = {
+    PyModuleDef_HEAD_INIT,
+    "inspect"
+};
+
+
+static PyObject *
+_fake_inspect(void)
+{
+    return PyModule_Create(&_fake_inspect_def);
+}
+
+
+static PyModuleDef _fake_resources_def = {
+    PyModuleDef_HEAD_INIT,
+    "importlib.resources"
+};
+
+
+static PyObject *
+_fake_resources(void)
+{
+    PyObject *m = PyModule_Create(&_fake_resources_def);
+    PyModule_AddObjectRef(m, "abc", Py_GetConstantBorrowed(Py_CONSTANT_NONE));
+    return m;
+}
+
+
+static PyModuleDef _fake_resources_abc_def = {
+    PyModuleDef_HEAD_INIT,
+    "importlib.resources.abc"
+};
+
+
+static PyObject *
+_fake_resources_abc(void)
+{
+    return PyModule_Create(&_fake_resources_abc_def);
+}
+
+
+static PyObject *_fake_namedtuple(PyObject *, PyObject *)
+{
+    return Py_GetConstant(Py_CONSTANT_NONE);
+}
+
+
+static PyMethodDef _fake_collections_meth[] = {
+    { "deque", _fake_namedtuple, METH_VARARGS, "" },
+    { "namedtuple", _fake_namedtuple, METH_VARARGS, "" },
+    { NULL }
+};
+
+static PyModuleDef _fake_collections_def = {
+    PyModuleDef_HEAD_INIT,
+    "collections",
+    NULL, 0,
+    _fake_collections_meth
+};
+
+
+static PyObject *
+_fake_collections(void)
+{
+    return PyModule_Create(&_fake_collections_def);
+}
+
+#endif /* EXPERIMENT_FAST_LOAD */
+
+
+
 static int
 init_python()
 {
@@ -219,6 +304,16 @@ init_python()
     PyStatus status;
     PyConfig config;
     PyConfig_InitIsolatedConfig(&config);
+
+#ifdef EXPERIMENT_FAST_LOAD
+    config.import_time = 1;
+    PyImport_AppendInittab("collections", _fake_collections);
+    PyImport_AppendInittab("tempfile", _fake_tempfile);
+    PyImport_AppendInittab("inspect", _fake_inspect);
+    PyImport_AppendInittab("importlib.resources", _fake_resources);
+    PyImport_AppendInittab("importlib.resources.abc", _fake_resources_abc);
+#endif
+
     status = Py_InitializeFromConfig(&config);
     if (PyStatus_Exception(status)) {
         PyConfig_Clear(&config);

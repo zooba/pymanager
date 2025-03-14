@@ -185,13 +185,17 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
             else:
                 v = type(relative_to)(v).absolute()
         if v and "uri" in opts:
-            if hasattr(v, 'as_uri'):
-                v = v.as_uri()
+            if hasattr(v, 'as_posix'):
+                if v.drive and v.drive[1:] == ":":
+                    v = "file:///" + v.as_posix()[2:]
+                elif v.drive:
+                    v = "file:" + v.as_posix()
+                else:
+                    v = "file://" + v.as_posix()
             else:
                 v = str(v)
-            from urllib.parse import urlparse
-            p = urlparse(v)
-            if not p.scheme or (p.scheme != 'file' and not p.netloc) or p.path.startswith(".."):
+            from .urlutils import is_valid_url
+            if not is_valid_url(v):
                 raise InvalidConfigurationError(source, key_so_far + k, v)
         cfg[k] = v
 

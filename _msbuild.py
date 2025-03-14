@@ -60,6 +60,8 @@ NATIVE_PYD = DllPackage(
     CFunction('bits_serialize_job'),
     CFunction('winhttp_urlopen'),
     CFunction('winhttp_isconnected'),
+    CFunction('winhttp_urlsplit'),
+    CFunction('winhttp_urlunsplit'),
     CFunction('file_url_to_path'),
     CFunction('package_get_root'),
     CFunction('shortcut_create'),
