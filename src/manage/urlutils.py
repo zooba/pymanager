@@ -513,7 +513,13 @@ def extract_url_auth(url):
 def sanitise_url(url):
     if not url:
         return url
-    p = list(winhttp_urlsplit(url))
+    try:
+        p = list(winhttp_urlsplit(url))
+    except OSError as ex:
+        # Errors for an invalid URL
+        if ex.winerror in (12005, 12006):
+            return url
+        raise
     p[U_USERNAME] = None
     pw = p[U_PASSWORD]
     if pw and not (pw.startswith("%") and pw.startswith("%")):
@@ -524,7 +530,13 @@ def sanitise_url(url):
 def unsanitise_url(url, candidates):
     if not url:
         return url
-    p = winhttp_urlsplit(url)
+    try:
+        p = list(winhttp_urlsplit(url))
+    except OSError as ex:
+        # Errors for an invalid URL
+        if ex.winerror in (12005, 12006):
+            return url
+        raise
     if p[U_USERNAME] or p[U_PASSWORD]:
         # URL contains user/pass info, so just return it
         return url
@@ -549,8 +561,10 @@ def unsanitise_url(url, candidates):
 def _urlsplit_with_fallback(url):
     try:
         return winhttp_urlsplit(url)
-    except OSError:
-        pass
+    except OSError as ex:
+        # Errors for an invalid URL
+        if ex.winerror not in (12005, 12006):
+            raise
     pre_qm, qm, post_qm = url.partition("?")
     path, anchor, post_anchor = pre_qm.partition("#")
     if anchor:
