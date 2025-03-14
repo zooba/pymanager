@@ -109,6 +109,12 @@ static wchar_t **split_to_array(wchar_t *str, wchar_t sep) {
 
 
 static int crack_url(wchar_t *url, URL_COMPONENTS *parts, int add_nuls) {
+    parts->lpszScheme = NULL;
+    parts->lpszUserName = NULL;
+    parts->lpszPassword = NULL;
+    parts->lpszHostName = NULL;
+    parts->lpszUrlPath = NULL;
+    parts->lpszExtraInfo = NULL;
     parts->dwSchemeLength = -1;
     parts->dwUserNameLength = -1;
     parts->dwPasswordLength = -1;
@@ -444,11 +450,13 @@ PyObject *winhttp_urlunsplit(PyObject *, PyObject *args, PyObject *kwargs) {
     PyObject *r = NULL;
     url.nPort = (INTERNET_PORT)port;
     if (WinHttpCreateUrl(&url, ICU_ESCAPE, NULL, &cch)) {
+        // Success path, because it should've failed with ERROR_INSUFFICIENT_BUFFER
         PyErr_SetString(PyExc_ValueError, "unable to unsplit URL");
     } else if (GetLastError() != ERROR_INSUFFICIENT_BUFFER) {
         winhttp_error();
     } else {
-        wchar_t *buf = (wchar_t*)PyMem_Malloc((cch + 1) * sizeof(wchar_t));
+        cch += 1;
+        wchar_t *buf = (wchar_t*)PyMem_Malloc(cch * sizeof(wchar_t));
         if (!buf) {
             PyErr_NoMemory();
         } else if (!WinHttpCreateUrl(&url, ICU_ESCAPE, buf, &cch)) {
@@ -467,5 +475,6 @@ PyObject *winhttp_urlunsplit(PyObject *, PyObject *args, PyObject *kwargs) {
     PyMem_Free(url.lpszExtraInfo);
     return r;
 }
+
 
 }

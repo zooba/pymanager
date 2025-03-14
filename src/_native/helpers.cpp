@@ -34,6 +34,7 @@ int as_utf16(PyObject *obj, wchar_t **address) {
     wchar_t *result = (wchar_t *)PyMem_Malloc((wlen + 1) * sizeof(wchar_t));
     if (!result) {
         Py_DECREF(b);
+        PyErr_NoMemory();
         return 0;
     }
     wcsncpy_s(result, wlen + 1, (wchar_t *)src, wlen);
