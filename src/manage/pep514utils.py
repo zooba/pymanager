@@ -249,7 +249,7 @@ def _read_one_unmanaged_install(company_name, tag_name, is_core, tag):
         "run-for": [
             {"tag": tag_name, "target": exe},
         ],
-        "display-name": display or f"Unknown Python {company_name}\\{tag_name}",
+        "display-name": display or f"Unknown Python ({company_name}\\{tag_name})",
         "prefix": prefix,
         "executable": prefix / exe,
     }
