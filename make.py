@@ -4,6 +4,9 @@ import sys
 from subprocess import check_call as run
 from _make_helper import get_dirs, rmtree, unlink
 
+# Clean DEBUG flag in case it affects build
+os.environ["PYMANAGER_DEBUG"] = ""
+
 DIRS = get_dirs()
 BUILD = DIRS["build"]
 TEMP = DIRS["temp"]

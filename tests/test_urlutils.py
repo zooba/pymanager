@@ -48,11 +48,15 @@ def test_extract_url_auth():
         ("https://example.com/A/B/C", "//EXAMPLE.COM/A", True, "https://EXAMPLE.COM/A"),
         ("https://example.com/A/B/C", "//EXAMPLE.COM/", None, "https://EXAMPLE.COM/"),
 
+        ("file:///C:/local/path", "file.json", False, "file:///C:/local/path/file.json"),
+        ("file:///C:/local/path", "file.json", True, "file:///C:/local/file.json"),
+        ("file:///C:/local/path", ".\\dir\\file.json", False, "file:///C:/local/path/dir/file.json"),
+        ("file:///C:/local/path", ".\\dir\\file.json", True, "file:///C:/local/dir/file.json"),
+
         # Non-binding cases. These are likely going to be errors
         ("https://example.com/A/B/C", "http:", True, "https://example.com/A/B/http:"),
         ("https://example.com/A/B/C", "http:", False, "https://example.com/A/B/C/http:"),
-        ("https://example.com/A/B/C", "http://", True, "https://example.com/A/B/http:"),
-        ("https://example.com/A/B/C", "http://", False, "https://example.com/A/B/C/http:"),
+        ("https://example.com/A/B/C", "http://", None, "http://"),
     ]
 ])
 def test_urljoin(url1, url2, to_parent, expect):

@@ -584,44 +584,28 @@ def unsanitise_url(url, candidates):
         return winhttp_urlunsplit(*p)
 
 
-def _urlsplit_with_fallback(url):
-    try:
-        return winhttp_urlsplit(url)
-    except OSError as ex:
-        # Errors for an invalid URL
-        if ex.winerror not in (12005, 12006):
-            raise
-    pre_qm, qm, post_qm = url.partition("?")
-    path, anchor, post_anchor = pre_qm.partition("#")
-    if anchor:
-        extra = anchor + post_anchor + qm + post_qm
-    else:
-        extra = None
-    if path.startswith("//"):
-        netloc, sep, path = path[2:].partition("/")
-        path = sep + path
-    else:
-        netloc = None
-    return (None, None, None, netloc, 0, path, extra)
-
-
 def urljoin(base_url, other_url, *, to_parent=False):
-    u1 = _urlsplit_with_fallback(base_url)
-    u2 = _urlsplit_with_fallback(other_url)
-    if u2[U_SCHEME] and u2[U_NETLOC]:
+    if not other_url:
+        return base_url
+    scheme, sep, rest = other_url.partition("://")
+    if sep:
         return other_url
-    p1 = PurePath(u1[U_PATH])
-    if to_parent and u2[U_PATH]:
-        p1 = p1.parent
-    return winhttp_urlunsplit(
-        u2[U_SCHEME] or u1[U_SCHEME],
-        u2[U_USERNAME] or u1[U_USERNAME],
-        u2[U_PASSWORD] or u1[U_PASSWORD],
-        u2[U_NETLOC] or u1[U_NETLOC],
-        u2[U_PORT] or u1[U_PORT],
-        str(p1 / u2[U_PATH]).replace("\\", "/"),
-        u2[U_EXTRA] or u1[U_EXTRA],
-    )
+    scheme, _, base = base_url.partition("://")
+    path = base.lstrip("/")
+    trimmed = "/" * (len(base) - len(path))
+    root, _, path = path.partition("/")
+    path = PurePath(path)
+    if other_url.startswith("//"):
+        root, sep, other_url = other_url[2:].partition("/")
+        if sep:
+            path = PurePath()
+        else:
+            to_parent = False
+    other_url = PurePath(other_url)
+    if to_parent:
+        path = path.parent
+    url_path = str(path / other_url).replace("\\", "/").lstrip("/")
+    return f"{scheme}://{trimmed}{root.rstrip('/')}/{url_path}"
 
 
 def is_valid_url(url):

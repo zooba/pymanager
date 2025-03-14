@@ -1,17 +1,29 @@
+"""Minimal reimplementations of Path and PurePath.
+
+This is primarily focused on avoiding the expensive imports that come with
+pathlib for functionality that we don't need. This module now gets loaded on
+every Python launch through PyManager
+"""
 import os
 
 
 class PurePath:
-    def __init__(self, p):
-        try:
-            p = p.__fspath__().replace("/", "\\")
-        except AttributeError:
-            p = str(p).replace("/", "\\")
-        p = p.replace("\\\\", "\\")
-        if p.startswith(".\\"):
-            p = p[2:]
-        self._parent, _, self.name = p.rpartition("\\")
-        self._p = p.rstrip("\\")
+    def __init__(self, *parts):
+        total = ""
+        for p in parts:
+            try:
+                p = p.__fspath__().replace("/", "\\")
+            except AttributeError:
+                p = str(p).replace("/", "\\")
+            p = p.replace("\\\\", "\\")
+            if p.startswith(".\\"):
+                p = p[2:]
+            if total:
+                total += "\\" + p
+            else:
+                total += p
+        self._parent, _, self.name = total.rpartition("\\")
+        self._p = total.rstrip("\\")
 
     def __fspath__(self):
         return self._p
@@ -22,6 +34,9 @@ class PurePath:
     def __str__(self):
         return self._p
 
+    def __bool__(self):
+        return bool(self._p)
+
     @property
     def parent(self):
         return type(self)(self._parent)
@@ -29,7 +44,11 @@ class PurePath:
     @property
     def parts(self):
         drive, root, tail = os.path.splitroot(self._p)
-        bits = [drive + root, *tail.split("\\")]
+        bits = []
+        if drive or root:
+            bits.append(drive + root)
+        if tail:
+            bits.extend(tail.split("\\"))
         while "." in bits:
             bits.remove(".")
         while ".." in bits:
@@ -41,8 +60,23 @@ class PurePath:
     def __truediv__(self, other):
         return type(self)(os.path.join(self._p, other))
 
+    def __eq__(self, other):
+        if isinstance(other, PurePath):
+            return self._p.casefold() == other._p.casefold()
+        return self._p.casefold() == str(other).casefold()
+
+    def __ne__(self, other):
+        if isinstance(other, PurePath):
+            return self._p.casefold() != other._p.casefold()
+        return self._p.casefold() != str(other).casefold()
+
     def with_name(self, name):
         return type(self)(os.path.join(self._parent, name))
+
+    def with_suffix(self, suffix):
+        if suffix and suffix[:1] != ".":
+            suffix = f".{suffix}"
+        return type(self)(os.path.join(self._parent, self.name.rpartition(".")[0] + suffix))
 
     def relative_to(self, base):
         base = PurePath(base).parts
@@ -116,6 +150,20 @@ class Path(PurePath):
 
     def lstat(self):
         return os.lstat(self._p)
+
+    def mkdir(self, mode=0o777, parents=False, exist_ok=False):
+        try:
+            os.mkdir(self._p, mode)
+        except FileNotFoundError:
+            if not parents or self.parent == self:
+                raise
+            self.parent.mkdir(parents=True, exist_ok=True)
+            self.mkdir(mode, parents=False, exist_ok=exist_ok)
+        except OSError:
+            # Cannot rely on checking for EEXIST, since the operating system
+            # could give priority to other errors like EACCES or EROFS
+            if not exist_ok or not self.is_dir():
+                raise
 
     def rename(self, new_name):
         os.rename(self._p, new_name)
