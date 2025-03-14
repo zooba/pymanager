@@ -6,12 +6,13 @@ class ArgumentError(Exception):
 
 class HashMismatchError(Exception):
     def __init__(self, message=None):
-        super().__init__(message or "The downloaded file could not be verified and has been deleted. Please try again.")
+        super().__init__(message or
+            "The downloaded file could not be verified and has been deleted. Please try again.")
 
 
 class NoInstallsError(Exception):
     def __init__(self):
-        super().__init__("""No runtimes are installed. Try running "py install" first.""")
+        super().__init__("""No runtimes are installed. Try running "py install default" first.""")
 
 
 class NoInstallFoundError(Exception):
@@ -23,7 +24,7 @@ class NoInstallFoundError(Exception):
         elif tag:
             msg = f"""No runtime installed that matches {tag}. Try running "py install {tag}"."""
         else:
-            msg = """No suitable runtime installed. Try running "py install"."""
+            msg = """No suitable runtime installed. Try running "py install default"."""
         super().__init__(msg)
 
 

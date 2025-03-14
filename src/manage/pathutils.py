@@ -34,6 +34,9 @@ class PurePath:
     def __str__(self):
         return self._p
 
+    def __hash__(self):
+        return hash(self._p.casefold())
+
     def __bool__(self):
         return bool(self._p)
 
@@ -143,7 +146,10 @@ class Path(PurePath):
         return os.path.isfile(self._p)
 
     def iterdir(self):
-        return (self / n for n in os.listdir(self._p))
+        try:
+            return (self / n for n in os.listdir(self._p))
+        except FileNotFoundError:
+            return ()
 
     def glob(self, pattern):
         return (f for f in self.iterdir() if f.match(pattern))
