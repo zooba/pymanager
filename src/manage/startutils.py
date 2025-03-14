@@ -1,9 +1,8 @@
 import _native
 
-from pathlib import Path
-
 from .fsutils import rmtree, unlink
 from .logging import LOGGER
+from .pathutils import Path
 
 
 def _unprefix(p, prefix):

@@ -1,9 +1,8 @@
 import json
 
-from pathlib import Path
-
 from .exceptions import NoInstallFoundError, NoInstallsError
 from .logging import DEBUG, LOGGER
+from .pathutils import Path
 from .tagutils import CompanyTag, tag_or_range, companies_match
 from .verutils import Version
 
@@ -19,9 +18,13 @@ def _make_sort_key(install):
 
 
 def _get_installs(install_dir):
-    for p in Path(install_dir).glob("*/__install__.json"):
-        with p.open("r", encoding="utf-8-sig") as f:
-            j = json.load(f)
+    for d in Path(install_dir).iterdir():
+        p = d / "__install__.json"
+        try:
+            with p.open() as f:
+                j = json.load(f)
+        except FileNotFoundError:
+            continue
 
         if j.get("schema", 0) == 1:
             # HACK: to help transition alpha users from their existing installs

@@ -1,8 +1,6 @@
 import json
 import os
 
-from pathlib import Path, PurePath
-
 from .exceptions import (
     ArgumentError,
     AutomaticInstallDisabledError,
@@ -12,6 +10,7 @@ from .exceptions import (
 from .fsutils import ensure_tree, rmtree, unlink
 from .indexutils import Index
 from .logging import LOGGER, ProgressPrinter
+from .pathutils import Path, PurePath
 from .tagutils import install_matches_any, tag_or_range
 from .urlutils import (
     sanitise_url,

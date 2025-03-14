@@ -3,10 +3,9 @@ import os
 import sys
 import winreg
 
-from pathlib import Path
-
 from .exceptions import InvalidConfigurationError
 from .logging import LOGGER
+from .pathutils import Path
 
 
 DEFAULT_CONFIG_NAME = "pymanager.json"
@@ -185,13 +184,8 @@ def resolve_config(cfg, source, relative_to, key_so_far="", schema=None, error_u
             else:
                 v = type(relative_to)(v).absolute()
         if v and "uri" in opts:
-            if hasattr(v, 'as_posix'):
-                if v.drive and v.drive[1:] == ":":
-                    v = "file:///" + v.as_posix()[2:]
-                elif v.drive:
-                    v = "file:" + v.as_posix()
-                else:
-                    v = "file://" + v.as_posix()
+            if hasattr(v, "as_uri"):
+                v = v.as_uri()
             else:
                 v = str(v)
             from .urlutils import is_valid_url

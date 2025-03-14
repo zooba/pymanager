@@ -22,7 +22,7 @@ def main(args, root=None):
         from .commands import find_command, show_help
         args = list(args)
         if not root:
-            from pathlib import Path
+            from .pathutils import Path
             root = Path(args[0]).parent
 
         try:

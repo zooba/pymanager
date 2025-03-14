@@ -1,10 +1,9 @@
-from pathlib import PurePath
-
 from .exceptions import ArgumentError
 from .fsutils import rmtree, unlink
 from .installs import get_matching_install_tags
 from .install_command import update_all_shortcuts
 from .logging import LOGGER
+from .pathutils import PurePath
 from .tagutils import tag_or_range
 
 

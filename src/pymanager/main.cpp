@@ -199,86 +199,33 @@ read_script_from_argv(int argc, const wchar_t **argv, int skip_argc, std::wstrin
 }
 
 
+//#define EXPERIMENT_FAST_LOAD
 #ifdef EXPERIMENT_FAST_LOAD
 
-static PyModuleDef _fake_tempfile_def = {
+static PyModuleDef _fake_enum_def = {
     PyModuleDef_HEAD_INIT,
-    "tempfile"
+    "enum"
 };
 
 static PyObject *
-_fake_tempfile(void)
+_fake_enum(void)
 {
-    return PyModule_Create(&_fake_tempfile_def);
+    return PyModule_Create(&_fake_enum_def);
 }
 
 
-static PyModuleDef _fake_inspect_def = {
+static PyModuleDef _fake_re_def = {
     PyModuleDef_HEAD_INIT,
-    "inspect"
-};
-
-
-static PyObject *
-_fake_inspect(void)
-{
-    return PyModule_Create(&_fake_inspect_def);
-}
-
-
-static PyModuleDef _fake_resources_def = {
-    PyModuleDef_HEAD_INIT,
-    "importlib.resources"
+    "re"
 };
 
 
 static PyObject *
-_fake_resources(void)
+_fake_re(void)
 {
-    PyObject *m = PyModule_Create(&_fake_resources_def);
-    PyModule_AddObjectRef(m, "abc", Py_GetConstantBorrowed(Py_CONSTANT_NONE));
-    return m;
+    return PyModule_Create(&_fake_re_def);
 }
 
-
-static PyModuleDef _fake_resources_abc_def = {
-    PyModuleDef_HEAD_INIT,
-    "importlib.resources.abc"
-};
-
-
-static PyObject *
-_fake_resources_abc(void)
-{
-    return PyModule_Create(&_fake_resources_abc_def);
-}
-
-
-static PyObject *_fake_namedtuple(PyObject *, PyObject *)
-{
-    return Py_GetConstant(Py_CONSTANT_NONE);
-}
-
-
-static PyMethodDef _fake_collections_meth[] = {
-    { "deque", _fake_namedtuple, METH_VARARGS, "" },
-    { "namedtuple", _fake_namedtuple, METH_VARARGS, "" },
-    { NULL }
-};
-
-static PyModuleDef _fake_collections_def = {
-    PyModuleDef_HEAD_INIT,
-    "collections",
-    NULL, 0,
-    _fake_collections_meth
-};
-
-
-static PyObject *
-_fake_collections(void)
-{
-    return PyModule_Create(&_fake_collections_def);
-}
 
 #endif /* EXPERIMENT_FAST_LOAD */
 
@@ -307,11 +254,8 @@ init_python()
 
 #ifdef EXPERIMENT_FAST_LOAD
     config.import_time = 1;
-    PyImport_AppendInittab("collections", _fake_collections);
-    PyImport_AppendInittab("tempfile", _fake_tempfile);
-    PyImport_AppendInittab("inspect", _fake_inspect);
-    PyImport_AppendInittab("importlib.resources", _fake_resources);
-    PyImport_AppendInittab("importlib.resources.abc", _fake_resources_abc);
+    //PyImport_AppendInittab("enum", _fake_enum);
+    //PyImport_AppendInittab("re", _fake_re);
 #endif
 
     status = Py_InitializeFromConfig(&config);

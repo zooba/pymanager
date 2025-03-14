@@ -1,7 +1,10 @@
+import os
 import time
 import winreg
 
 from .logging import LOGGER
+from .pathutils import Path
+from .verutils import Version
 
 
 REG_TYPES = {
@@ -193,15 +196,11 @@ def _read_str(key, value_name):
     if vt == winreg.REG_SZ:
         return v
     if vt == winreg.REG_EXPAND_SZ:
-        import os
         return os.path.expandvars(v)
     return None
 
 
 def _read_one_unmanaged_install(company_name, tag_name, is_core, tag):
-    from pathlib import Path
-    from .verutils import Version
-
     with _reg_open(tag, "InstallPath") as dirs:
         prefix = _read_str(dirs, None)
         exe = _read_str(dirs, "ExecutablePath")
@@ -286,9 +285,6 @@ def _get_unmanaged_installs(root):
 
 
 def _get_store_installs():
-    import os
-    from pathlib import Path
-
     SUPPORTED_PFNS = tuple(s.casefold() for s in ("_qbz5n2kfra8p0", "_3847v3x7pw1km", "_hd69rhyc2wevp"))
     root = Path(os.getenv("LocalAppData")) / "Microsoft/WindowsApps"
     for prefix in root.glob("PythonSoftwareFoundation.Python.3.*"):

@@ -1,8 +1,7 @@
 import re
 
-from pathlib import Path, PurePath
-
 from .logging import LOGGER
+from .pathutils import Path, PurePath
 
 
 class NewEncoding(Exception):

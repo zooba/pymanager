@@ -1,9 +1,8 @@
 import os
 import time
 
-from pathlib import Path
-
 from .logging import LOGGER
+from .pathutils import Path
 
 
 def ensure_tree(path, overwrite_files=True):
@@ -32,6 +31,14 @@ def _rglob(root):
                 yield p, None
             else:
                 yield None, p
+
+
+def rglob(root, files=True, dirs=True):
+    for d, f in _rglob(root):
+        if d and dirs:
+            yield d
+        if f and files:
+            yield f
 
 
 def _unlink(f, on_missing=None, on_fail=None, on_isdir=None):

@@ -1,6 +1,5 @@
+import os
 import sys
-
-from pathlib import Path
 
 from . import __version__
 from .config import (
@@ -11,6 +10,7 @@ from .config import (
     config_split_append,
 )
 from .exceptions import ArgumentError
+from .pathutils import Path
 
 from . import logging
 LOGGER = logging.LOGGER
@@ -392,10 +392,8 @@ class BaseCommand:
 
         logs_dir = self.logs_dir
         if not logs_dir:
-            import tempfile
-            logs_dir = Path(tempfile.gettempdir())
+            logs_dir = Path(os.getenv("TMP") or os.getenv("TEMP") or os.getcwd())
         import datetime
-        import os
         self._log_file = logs_dir / "python_{}_{}_{}.log".format(
             self.CMD, datetime.datetime.now().strftime("%Y%m%d%H%M%S"), os.getpid()
         )

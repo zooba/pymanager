@@ -1,10 +1,9 @@
 import os
 import time
 
-from pathlib import Path, PurePath
-
 from .logging import LOGGER
 from .fsutils import ensure_tree, rmtree, unlink
+from .pathutils import Path, PurePath
 
 try:
     from _native import file_url_to_path
@@ -580,13 +579,11 @@ def _urlsplit_with_fallback(url):
 
 
 def urljoin(base_url, other_url, *, to_parent=False):
-    from pathlib import PurePosixPath
-
     u1 = _urlsplit_with_fallback(base_url)
     u2 = _urlsplit_with_fallback(other_url)
     if u2[U_SCHEME] and u2[U_NETLOC]:
         return other_url
-    p1 = PurePosixPath(u1[U_PATH])
+    p1 = PurePath(u1[U_PATH])
     if to_parent and u2[U_PATH]:
         p1 = p1.parent
     return winhttp_urlunsplit(
@@ -595,7 +592,7 @@ def urljoin(base_url, other_url, *, to_parent=False):
         u2[U_PASSWORD] or u1[U_PASSWORD],
         u2[U_NETLOC] or u1[U_NETLOC],
         u2[U_PORT] or u1[U_PORT],
-        str(p1 / u2[U_PATH]),
+        str(p1 / u2[U_PATH]).replace("\\", "/"),
         u2[U_EXTRA] or u1[U_EXTRA],
     )
 

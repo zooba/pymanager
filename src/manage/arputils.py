@@ -3,9 +3,9 @@ import os
 import time
 import winreg
 
-from pathlib import Path
-
+from .fsutils import rglob
 from .logging import LOGGER
+from .pathutils import Path
 
 def _root():
     return winreg.CreateKey(
@@ -25,7 +25,10 @@ def _self_cmd():
         appdata = os.path.expanduser(r"~\AppData\Local")
     apps = Path(appdata) / r"Microsoft\WindowsApps"
     LOGGER.debug("Searching %s for pymanager.exe", apps)
-    for cmd in apps.glob(r"PythonSoftwareFoundation.PythonManager_*\pymanager.exe"):
+    for d in apps.iterdir():
+        if not d.match("PythonSoftwareFoundation.PythonManager_*"):
+            continue
+        cmd = d / "pymanager.exe"
         LOGGER.debug("Checking %s", cmd)
         if cmd.exists():
             _self_cmd_cache = cmd
@@ -35,7 +38,7 @@ def _self_cmd():
 
 def _size(root):
     total = 0
-    for f in root.rglob(r"**\*.*"):
+    for f in rglob(root, dirs=False, files=True):
         try:
             total += f.lstat().st_size
         except OSError:
