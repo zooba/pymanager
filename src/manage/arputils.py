@@ -32,6 +32,12 @@ def _self_cmd():
         if cmd.exists():
             _self_cmd_cache = cmd
             return cmd
+    try:
+        import _winapi
+    except ImportError:
+        pass
+    else:
+        return _winapi.GetModuleFileName(0)
     raise FileNotFoundError("Cannot determine uninstall command.")
 
 

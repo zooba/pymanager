@@ -3,6 +3,96 @@
     {
       "schema": 1,
       "id": "pythoncore-3.14",
+      "sort-version": "3.14.0a6",
+      "company": "PythonCore",
+      "tag": "3.14.0a6",
+      "install-for": [
+        "3.14.0a6-64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a6-64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14-64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.14",
+          "DisplayName": "Python 3.14.0a6",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14",
+          "Items": [
+            {
+              "Name": "Python 3.14",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/"
+        }
+      ],
+      "display-name": "Python 3.14.0a6",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python/3.14.0-a6/python.3.14.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
       "tag": "3.14.0a5",
@@ -4075,6 +4165,96 @@
       "display-name": "Python 3.12.0a1",
       "executable": "./python.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/python/3.12.0-a1/python.3.12.0-a1.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-32",
+      "sort-version": "3.14.0a6",
+      "company": "PythonCore",
+      "tag": "3.14.0a6-32",
+      "install-for": [
+        "3.14.0a6-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a6-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14-32",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-32",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-32.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-32.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.14-32",
+          "DisplayName": "Python 3.14.0a6 (32-bit)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/"
+        }
+      ],
+      "display-name": "Python 3.14.0a6 (32-bit)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86/3.14.0-a6/pythonx86.3.14.0-a6.nupkg"
     },
     {
       "schema": 1,
@@ -8155,6 +8335,96 @@
     {
       "schema": 1,
       "id": "pythoncore-3.14-arm64",
+      "sort-version": "3.14.0a6",
+      "company": "PythonCore",
+      "tag": "3.14.0a6-arm64",
+      "install-for": [
+        "3.14.0a6-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a6-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14-arm64",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3-arm64",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "python3-arm64.exe",
+          "target": "python.exe"
+        },
+        {
+          "name": "pythonw3.14-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3-arm64.exe",
+          "target": "pythonw.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCore\\3.14-arm64",
+          "DisplayName": "Python 3.14.0a6 (ARM64)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/"
+        }
+      ],
+      "display-name": "Python 3.14.0a6 (ARM64)",
+      "executable": "./python.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64/3.14.0-a6/pythonarm64.3.14.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
       "tag": "3.14.0a5-arm64",
@@ -12231,6 +12501,96 @@
     {
       "schema": 1,
       "id": "pythoncore-3.14-t",
+      "sort-version": "3.14.0a6",
+      "company": "PythonCore",
+      "tag": "3.14.0a6t",
+      "install-for": [
+        "3.14.0a6t"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a6t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3.14t",
+          "target": "python.exe"
+        },
+        {
+          "tag": "3t",
+          "target": "python.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.14",
+          "DisplayName": "Python 3.14.0a6 (free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/"
+        }
+      ],
+      "display-name": "Python 3.14.0a6 (free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/python-freethreaded/3.14.0-a6/python-freethreaded.3.14.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
       "tag": "3.14.0a5t",
@@ -13857,6 +14217,96 @@
     {
       "schema": 1,
       "id": "pythoncore-3.14-32-t",
+      "sort-version": "3.14.0a6",
+      "company": "PythonCore",
+      "tag": "3.14.0a6t-32",
+      "install-for": [
+        "3.14.0a6t-32"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a6t-32",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3.14t-32",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-32",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-32.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-32.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.14-32",
+          "DisplayName": "Python 3.14.0a6 (32-bit, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "32bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (32-bit, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (32-bit, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/"
+        }
+      ],
+      "display-name": "Python 3.14.0a6 (32-bit, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.14.0-a6/pythonx86-freethreaded.3.14.0-a6.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
       "tag": "3.14.0a5t-32",
@@ -15479,6 +15929,96 @@
       "display-name": "Python 3.13.0a4 (32-bit, free-threaded)",
       "executable": "./python3.13t.exe",
       "url": "https://api.nuget.org/v3-flatcontainer/pythonx86-freethreaded/3.13.0-a4/pythonx86-freethreaded.3.13.0-a4.nupkg"
+    },
+    {
+      "schema": 1,
+      "id": "pythoncore-3.14-arm64-t",
+      "sort-version": "3.14.0a6",
+      "company": "PythonCore",
+      "tag": "3.14.0a6t-arm64",
+      "install-for": [
+        "3.14.0a6t-arm64"
+      ],
+      "run-for": [
+        {
+          "tag": "3.14.0a6t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3.14t-arm64",
+          "target": "python3.14t.exe"
+        },
+        {
+          "tag": "3t-arm64",
+          "target": "python3.14t.exe"
+        }
+      ],
+      "alias": [
+        {
+          "name": "python3.14t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "python3t-arm64.exe",
+          "target": "python3.14t.exe"
+        },
+        {
+          "name": "pythonw3.14t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        },
+        {
+          "name": "pythonw3t-arm64.exe",
+          "target": "pythonw3.14t.exe",
+          "windowed": 1
+        }
+      ],
+      "shortcuts": [
+        {
+          "kind": "pep514",
+          "Key": "PythonCoreFreeThreaded\\3.14-arm64",
+          "DisplayName": "Python 3.14.0a6 (ARM64, free-threaded)",
+          "SupportUrl": "https://www.python.org/",
+          "SysArchitecture": "64bit",
+          "SysVersion": "3.14",
+          "Version": "3.14.0a6",
+          "InstallPath": {
+            "": "%PREFIX%",
+            "ExecutablePath": "%PREFIX%python.exe",
+            "WindowedExecutablePath": "%PREFIX%pythonw.exe"
+          },
+          "Help": {
+            "Online Python Documentation": {
+              "": "https://docs.python.org/3.14/"
+            }
+          }
+        },
+        {
+          "kind": "start",
+          "Name": "Python 3.14 (ARM64, free-threaded)",
+          "Items": [
+            {
+              "Name": "Python 3.14 (ARM64, free-threaded)",
+              "Target": "%PREFIX%python.exe",
+              "Icon": "%PREFIX%python.exe"
+            },
+            {
+              "Name": "Python 3.14 Documentation",
+              "Icon": "%SystemRoot%\\System32\\SHELL32.dll",
+              "IconIndex": 13,
+              "Target": "https://docs.python.org/3.14/"
+            }
+          ]
+        },
+        {
+          "kind": "uninstall",
+          "Publisher": "Python Software Foundation",
+          "HelpLink": "https://docs.python.org/3.14/"
+        }
+      ],
+      "display-name": "Python 3.14.0a6 (ARM64, free-threaded)",
+      "executable": "./python3.14t.exe",
+      "url": "https://api.nuget.org/v3-flatcontainer/pythonarm64-freethreaded/3.14.0-a6/pythonarm64-freethreaded.3.14.0-a6.nupkg"
     },
     {
       "schema": 1,
