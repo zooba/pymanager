@@ -163,7 +163,7 @@ LOGGER = Logger()
 class ProgressPrinter:
     def __init__(self, operation, maxwidth=80):
         self.operation = operation or "Progress"
-        self.width = maxwidth - 2 - len(self.operation)
+        self.width = maxwidth - 3 - len(self.operation)
         self._dots_shown = 0
         self._started = False
         self._complete = False
