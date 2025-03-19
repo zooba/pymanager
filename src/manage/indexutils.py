@@ -22,7 +22,7 @@ SCHEMA = {
             "install-for": [str],
             # List of tags to run this package for. Does not have to be unique
             # across all installs; the first match will be selected.
-            "run-for": [{"tag": str, "target": str, "args": [str]}],
+            "run-for": [{"tag": str, "target": str, "args": [str], "windowed": int}],
             # List of global CLI aliases to create for this package. Does not
             # have to be unique across all installs; the first match will be
             # created.

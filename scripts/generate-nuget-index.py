@@ -34,7 +34,10 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$-64", "target": "python.exe"},
             {"tag": "$XYVERSION$-64", "target": "python.exe"},
-            {"tag": "$XVERSIONNOPRE$-64", "target": "python.exe"}
+            {"tag": "$XVERSIONNOPRE$-64", "target": "python.exe"},
+            {"tag": "$FULLVERSION$-64", "target": "pythonw.exe", "windowed": 1},
+            {"tag": "$XYVERSION$-64", "target": "pythonw.exe", "windowed": 1},
+            {"tag": "$XVERSIONNOPRE$-64", "target": "pythonw.exe", "windowed": 1},
         ],
         "alias": [
             {"name": "python$XYVERSION$.exe", "target": "python.exe"},
@@ -99,7 +102,10 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$-32", "target": "python.exe"},
             {"tag": "$XYVERSION$-32", "target": "python.exe"},
-            {"tag": "$XVERSIONNOPRE$-32", "target": "python.exe"}
+            {"tag": "$XVERSIONNOPRE$-32", "target": "python.exe"},
+            {"tag": "$FULLVERSION$-32", "target": "pythonw.exe", "windowed": 1},
+            {"tag": "$XYVERSION$-32", "target": "pythonw.exe", "windowed": 1},
+            {"tag": "$XVERSIONNOPRE$-32", "target": "pythonw.exe", "windowed": 1},
         ],
         "alias": [
             {"name": "python$XYVERSION$-32.exe", "target": "python.exe"},
@@ -164,7 +170,10 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$-arm64", "target": "python.exe"},
             {"tag": "$XYVERSION$-arm64", "target": "python.exe"},
-            {"tag": "$XVERSIONNOPRE$-arm64", "target": "python.exe"}
+            {"tag": "$XVERSIONNOPRE$-arm64", "target": "python.exe"},
+            {"tag": "$FULLVERSION$-arm64", "target": "pythonw.exe", "windowed": 1},
+            {"tag": "$XYVERSION$-arm64", "target": "pythonw.exe", "windowed": 1},
+            {"tag": "$XVERSIONNOPRE$-arm64", "target": "pythonw.exe", "windowed": 1},
         ],
         "alias": [
             {"name": "python$XYVERSION$-arm64.exe", "target": "python.exe"},
@@ -225,11 +234,14 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$t",
-        "install-for": ["$FULLVERSION$t", "$XYVERSIONNOPRE$t", "$XVERSIONNOPRE$t"],
+        "install-for": ["$FULLVERSION$t-64", "$XYVERSIONNOPRE$t-64", "$XVERSIONNOPRE$t-64"],
         "run-for": [
-            {"tag": "$FULLVERSION$t", "target": "python.exe"},
-            {"tag": "$XYVERSION$t", "target": "python.exe"},
-            {"tag": "$XVERSIONNOPRE$t", "target": "python.exe"}
+            {"tag": "$FULLVERSION$t-64", "target": "python$XYVERSION$t.exe"},
+            {"tag": "$XYVERSION$t-64", "target": "python$XYVERSION$t.exe"},
+            {"tag": "$XVERSIONNOPRE$t-64", "target": "python$XYVERSION$t.exe"},
+            {"tag": "$FULLVERSION$t-64", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
+            {"tag": "$XYVERSION$t-64", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
+            {"tag": "$XVERSIONNOPRE$t-64", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
         ],
         "alias": [
             {"name": "python$XYVERSION$t.exe", "target": "python$XYVERSION$t.exe"},
@@ -294,7 +306,10 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$t-32", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-32", "target": "python$XYVERSION$t.exe"},
-            {"tag": "$XVERSIONNOPRE$t-32", "target": "python$XYVERSION$t.exe"}
+            {"tag": "$XVERSIONNOPRE$t-32", "target": "python$XYVERSION$t.exe"},
+            {"tag": "$FULLVERSION$t-32", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
+            {"tag": "$XYVERSION$t-32", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
+            {"tag": "$XVERSIONNOPRE$t-32", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
         ],
         "alias": [
             {"name": "python$XYVERSION$t-32.exe", "target": "python$XYVERSION$t.exe"},
@@ -359,7 +374,10 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
-            {"tag": "$XVERSIONNOPRE$t-arm64", "target": "python$XYVERSION$t.exe"}
+            {"tag": "$XVERSIONNOPRE$t-arm64", "target": "python$XYVERSION$t.exe"},
+            {"tag": "$FULLVERSION$t-arm64", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
+            {"tag": "$XYVERSION$t-arm64", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
+            {"tag": "$XVERSIONNOPRE$t-arm64", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
         ],
         "alias": [
             {"name": "python$XYVERSION$t-arm64.exe", "target": "python$XYVERSION$t.exe"},
