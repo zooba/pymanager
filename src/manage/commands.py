@@ -297,7 +297,10 @@ class BaseCommand:
 
         # Apply log_level from the command line first, so that config loading
         # is logged (if desired).
-        LOGGER.reduce_level(self.log_level)
+        if "log_level" in _set_args:
+            LOGGER.set_level(self.log_level)
+        else:
+            LOGGER.reduce_level(self.log_level)
 
         self.root = Path(root or self.root or sys.prefix)
         try:
