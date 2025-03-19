@@ -34,13 +34,13 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$-64", "target": "python.exe"},
             {"tag": "$XYVERSION$-64", "target": "python.exe"},
-            {"tag": "$XVERSION$-64", "target": "python.exe"}
+            {"tag": "$XVERSIONNOPRE$-64", "target": "python.exe"}
         ],
         "alias": [
             {"name": "python$XYVERSION$.exe", "target": "python.exe"},
-            {"name": "python$XVERSION$.exe", "target": "python.exe"},
+            {"name": "python$XVERSIONNOPRE$.exe", "target": "python.exe"},
             {"name": "pythonw$XYVERSION$.exe", "target": "pythonw.exe", "windowed": 1},
-            {"name": "pythonw$XVERSION$.exe", "target": "pythonw.exe", "windowed": 1}
+            {"name": "pythonw$XVERSIONNOPRE$.exe", "target": "pythonw.exe", "windowed": 1}
         ],
         "shortcuts": [
             {
@@ -99,13 +99,13 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$-32", "target": "python.exe"},
             {"tag": "$XYVERSION$-32", "target": "python.exe"},
-            {"tag": "$XVERSION$-32", "target": "python.exe"}
+            {"tag": "$XVERSIONNOPRE$-32", "target": "python.exe"}
         ],
         "alias": [
             {"name": "python$XYVERSION$-32.exe", "target": "python.exe"},
-            {"name": "python$XVERSION$-32.exe", "target": "python.exe"},
+            {"name": "python$XVERSIONNOPRE$-32.exe", "target": "python.exe"},
             {"name": "pythonw$XYVERSION$-32.exe", "target": "pythonw.exe", "windowed": 1},
-            {"name": "pythonw$XVERSION$-32.exe", "target": "pythonw.exe", "windowed": 1}
+            {"name": "pythonw$XVERSIONNOPRE$-32.exe", "target": "pythonw.exe", "windowed": 1}
         ],
         "shortcuts": [
             {
@@ -164,13 +164,13 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$-arm64", "target": "python.exe"},
             {"tag": "$XYVERSION$-arm64", "target": "python.exe"},
-            {"tag": "$XVERSION$-arm64", "target": "python.exe"}
+            {"tag": "$XVERSIONNOPRE$-arm64", "target": "python.exe"}
         ],
         "alias": [
             {"name": "python$XYVERSION$-arm64.exe", "target": "python.exe"},
-            {"name": "python$XVERSION$-arm64.exe", "target": "python.exe"},
+            {"name": "python$XVERSIONNOPRE$-arm64.exe", "target": "python.exe"},
             {"name": "pythonw$XYVERSION$-arm64.exe", "target": "pythonw.exe", "windowed": 1},
-            {"name": "pythonw$XVERSION$-arm64.exe", "target": "pythonw.exe", "windowed": 1}
+            {"name": "pythonw$XVERSIONNOPRE$-arm64.exe", "target": "pythonw.exe", "windowed": 1}
         ],
         "shortcuts": [
             {
@@ -229,13 +229,13 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$t", "target": "python.exe"},
             {"tag": "$XYVERSION$t", "target": "python.exe"},
-            {"tag": "$XVERSION$t", "target": "python.exe"}
+            {"tag": "$XVERSIONNOPRE$t", "target": "python.exe"}
         ],
         "alias": [
             {"name": "python$XYVERSION$t.exe", "target": "python$XYVERSION$t.exe"},
-            {"name": "python$XVERSION$t.exe", "target": "python$XYVERSION$t.exe"},
+            {"name": "python$XVERSIONNOPRE$t.exe", "target": "python$XYVERSION$t.exe"},
             {"name": "pythonw$XYVERSION$t.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
-            {"name": "pythonw$XVERSION$t.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
+            {"name": "pythonw$XVERSIONNOPRE$t.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
         ],
         "shortcuts": [
             {
@@ -294,13 +294,13 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$t-32", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-32", "target": "python$XYVERSION$t.exe"},
-            {"tag": "$XVERSION$t-32", "target": "python$XYVERSION$t.exe"}
+            {"tag": "$XVERSIONNOPRE$t-32", "target": "python$XYVERSION$t.exe"}
         ],
         "alias": [
             {"name": "python$XYVERSION$t-32.exe", "target": "python$XYVERSION$t.exe"},
-            {"name": "python$XVERSION$t-32.exe", "target": "python$XYVERSION$t.exe"},
+            {"name": "python$XVERSIONNOPRE$t-32.exe", "target": "python$XYVERSION$t.exe"},
             {"name": "pythonw$XYVERSION$t-32.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
-            {"name": "pythonw$XVERSION$t-32.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
+            {"name": "pythonw$XVERSIONNOPRE$t-32.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
         ],
         "shortcuts": [
             {
@@ -359,13 +359,13 @@ SCHEMA = {
         "run-for": [
             {"tag": "$FULLVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
-            {"tag": "$XVERSION$t-arm64", "target": "python$XYVERSION$t.exe"}
+            {"tag": "$XVERSIONNOPRE$t-arm64", "target": "python$XYVERSION$t.exe"}
         ],
         "alias": [
             {"name": "python$XYVERSION$t-arm64.exe", "target": "python$XYVERSION$t.exe"},
-            {"name": "python$XVERSION$t-arm64.exe", "target": "python$XYVERSION$t.exe"},
+            {"name": "python$XVERSIONNOPRE$t-arm64.exe", "target": "python$XYVERSION$t.exe"},
             {"name": "pythonw$XYVERSION$t-arm64.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1},
-            {"name": "pythonw$XVERSION$t-arm64.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
+            {"name": "pythonw$XVERSIONNOPRE$t-arm64.exe", "target": "pythonw$XYVERSION$t.exe", "windowed": 1}
         ],
         "shortcuts": [
             {
@@ -417,6 +417,9 @@ SCHEMA = {
 }
 
 
+class NoSubstitution(Exception):
+    pass
+
 def dict_sub(d, subs):
     if isinstance(d, int):
         return d
@@ -425,13 +428,20 @@ def dict_sub(d, subs):
             kk = f"${k}$"
             if kk in d:
                 if v is None:
-                    return None
+                    raise NoSubstitution
                 d = d.replace(kk, v)
         return d
     if isinstance(d, list):
-        return [v for v in (dict_sub(v, subs) for v in d) if v]
+        r = []
+        for v in d:
+            try:
+                r.append(dict_sub(v, subs))
+            except NoSubstitution:
+                # Omit list items with a missing substitution.
+                pass
+        return r
     if isinstance(d, dict):
-        return {k: dict_sub(v, subs) for k, v in d.items()}
+        return {k: v for k, v in ((k, dict_sub(v, subs)) for k, v in d.items()) if v}
     raise TypeError("unsupported type: " + repr(type(d)))
 
 

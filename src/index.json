@@ -17,10 +17,6 @@
         {
           "tag": "3.14-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -29,16 +25,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -107,10 +94,6 @@
         {
           "tag": "3.14-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -119,16 +102,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -197,10 +171,6 @@
         {
           "tag": "3.14-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -209,16 +179,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -287,10 +248,6 @@
         {
           "tag": "3.14-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -299,16 +256,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -377,10 +325,6 @@
         {
           "tag": "3.14-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -389,16 +333,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -467,10 +402,6 @@
         {
           "tag": "3.14-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -479,16 +410,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -833,10 +755,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -845,16 +763,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -923,10 +832,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -935,16 +840,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1013,10 +909,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1025,16 +917,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1103,10 +986,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1115,16 +994,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1193,10 +1063,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1205,16 +1071,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1283,10 +1140,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1295,16 +1148,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1373,10 +1217,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1385,16 +1225,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1463,10 +1294,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1475,16 +1302,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1553,10 +1371,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1565,16 +1379,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1643,10 +1448,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1655,16 +1456,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1733,10 +1525,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1745,16 +1533,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1823,10 +1602,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1835,16 +1610,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -1913,10 +1679,6 @@
         {
           "tag": "3.13-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -1925,16 +1687,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -2923,10 +2676,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -2935,16 +2684,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3013,10 +2753,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3025,16 +2761,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3103,10 +2830,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3115,16 +2838,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3193,10 +2907,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3205,16 +2915,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3283,10 +2984,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3295,16 +2992,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3373,10 +3061,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3385,16 +3069,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3463,10 +3138,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3475,16 +3146,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3553,10 +3215,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3565,16 +3223,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3643,10 +3292,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3655,16 +3300,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3733,10 +3369,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3745,16 +3377,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3823,10 +3446,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3835,16 +3454,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -3913,10 +3523,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -3925,16 +3531,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4003,10 +3600,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4015,16 +3608,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4093,10 +3677,6 @@
         {
           "tag": "3.12-64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4105,16 +3685,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4183,10 +3754,6 @@
         {
           "tag": "3.14-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4195,16 +3762,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4273,10 +3831,6 @@
         {
           "tag": "3.14-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4285,16 +3839,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4363,10 +3908,6 @@
         {
           "tag": "3.14-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4375,16 +3916,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4453,10 +3985,6 @@
         {
           "tag": "3.14-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4465,16 +3993,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4543,10 +4062,6 @@
         {
           "tag": "3.14-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4555,16 +4070,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4633,10 +4139,6 @@
         {
           "tag": "3.14-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -4645,16 +4147,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -4999,10 +4492,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5011,16 +4500,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5089,10 +4569,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5101,16 +4577,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5179,10 +4646,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5191,16 +4654,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5269,10 +4723,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5281,16 +4731,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5359,10 +4800,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5371,16 +4808,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5449,10 +4877,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5461,16 +4885,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5539,10 +4954,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5551,16 +4962,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5629,10 +5031,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5641,16 +5039,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5719,10 +5108,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5731,16 +5116,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5809,10 +5185,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5821,16 +5193,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5899,10 +5262,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -5911,16 +5270,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -5989,10 +5339,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -6001,16 +5347,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -6079,10 +5416,6 @@
         {
           "tag": "3.13-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -6091,16 +5424,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7089,10 +6413,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7101,16 +6421,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7179,10 +6490,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7191,16 +6498,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7269,10 +6567,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7281,16 +6575,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7359,10 +6644,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7371,16 +6652,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7449,10 +6721,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7461,16 +6729,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7539,10 +6798,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7551,16 +6806,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7629,10 +6875,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7641,16 +6883,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7719,10 +6952,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7731,16 +6960,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7809,10 +7029,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7821,16 +7037,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7899,10 +7106,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -7911,16 +7114,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -7989,10 +7183,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8001,16 +7191,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8079,10 +7260,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8091,16 +7268,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8169,10 +7337,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8181,16 +7345,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8259,10 +7414,6 @@
         {
           "tag": "3.12-32",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-32",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8271,16 +7422,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-32.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-32.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-32.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8349,10 +7491,6 @@
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8361,16 +7499,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8439,10 +7568,6 @@
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8451,16 +7576,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8529,10 +7645,6 @@
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8541,16 +7653,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8619,10 +7722,6 @@
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8631,16 +7730,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8709,10 +7799,6 @@
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8721,16 +7807,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -8799,10 +7876,6 @@
         {
           "tag": "3.14-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -8811,16 +7884,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.14-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9165,10 +8229,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9177,16 +8237,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9255,10 +8306,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9267,16 +8314,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9345,10 +8383,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9357,16 +8391,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9435,10 +8460,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9447,16 +8468,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9525,10 +8537,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9537,16 +8545,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9615,10 +8614,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9627,16 +8622,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9705,10 +8691,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9717,16 +8699,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9795,10 +8768,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9807,16 +8776,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9885,10 +8845,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9897,16 +8853,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -9975,10 +8922,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -9987,16 +8930,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -10065,10 +8999,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -10077,16 +9007,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -10155,10 +9076,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -10167,16 +9084,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -10245,10 +9153,6 @@
         {
           "tag": "3.13-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -10257,16 +9161,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.13-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11255,10 +10150,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11267,16 +10158,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11345,10 +10227,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11357,16 +10235,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11435,10 +10304,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11447,16 +10312,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11525,10 +10381,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11537,16 +10389,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11615,10 +10458,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11627,16 +10466,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11705,10 +10535,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11717,16 +10543,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11795,10 +10612,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11807,16 +10620,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11885,10 +10689,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11897,16 +10697,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -11975,10 +10766,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -11987,16 +10774,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -12065,10 +10843,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12077,16 +10851,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -12155,10 +10920,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12167,16 +10928,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -12245,10 +10997,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12257,16 +11005,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -12335,10 +11074,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12347,16 +11082,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -12425,10 +11151,6 @@
         {
           "tag": "3.12-arm64",
           "target": "python.exe"
-        },
-        {
-          "tag": "3-arm64",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12437,16 +11159,7 @@
           "target": "python.exe"
         },
         {
-          "name": "python3-arm64.exe",
-          "target": "python.exe"
-        },
-        {
           "name": "pythonw3.12-arm64.exe",
-          "target": "pythonw.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3-arm64.exe",
           "target": "pythonw.exe",
           "windowed": 1
         }
@@ -12515,10 +11228,6 @@
         {
           "tag": "3.14t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12527,16 +11236,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -12605,10 +11305,6 @@
         {
           "tag": "3.14t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12617,16 +11313,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -12695,10 +11382,6 @@
         {
           "tag": "3.14t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12707,16 +11390,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -12785,10 +11459,6 @@
         {
           "tag": "3.14t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12797,16 +11467,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -12875,10 +11536,6 @@
         {
           "tag": "3.14t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12887,16 +11544,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -12965,10 +11613,6 @@
         {
           "tag": "3.14t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -12977,16 +11621,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -13331,10 +11966,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13343,16 +11974,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -13421,10 +12043,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13433,16 +12051,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -13511,10 +12120,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13523,16 +12128,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -13601,10 +12197,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13613,16 +12205,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -13691,10 +12274,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13703,16 +12282,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -13781,10 +12351,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13793,16 +12359,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -13871,10 +12428,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13883,16 +12436,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -13961,10 +12505,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -13973,16 +12513,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -14051,10 +12582,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -14063,16 +12590,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -14141,10 +12659,6 @@
         {
           "tag": "3.13t",
           "target": "python.exe"
-        },
-        {
-          "tag": "3t",
-          "target": "python.exe"
         }
       ],
       "alias": [
@@ -14153,16 +12667,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -14231,10 +12736,6 @@
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -14243,16 +12744,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-32.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -14321,10 +12813,6 @@
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -14333,16 +12821,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-32.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -14411,10 +12890,6 @@
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -14423,16 +12898,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-32.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -14501,10 +12967,6 @@
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -14513,16 +12975,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-32.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -14591,10 +13044,6 @@
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -14603,16 +13052,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-32.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -14681,10 +13121,6 @@
         {
           "tag": "3.14t-32",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -14693,16 +13129,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-32.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -15047,10 +13474,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15059,16 +13482,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15137,10 +13551,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15149,16 +13559,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15227,10 +13628,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15239,16 +13636,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15317,10 +13705,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15329,16 +13713,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15407,10 +13782,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15419,16 +13790,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15497,10 +13859,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15509,16 +13867,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15587,10 +13936,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15599,16 +13944,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15677,10 +14013,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15689,16 +14021,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15767,10 +14090,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15779,16 +14098,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15857,10 +14167,6 @@
         {
           "tag": "3.13t-32",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-32",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -15869,16 +14175,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-32.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-32.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-32.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -15947,10 +14244,6 @@
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -15959,16 +14252,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-arm64.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -16037,10 +14321,6 @@
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -16049,16 +14329,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-arm64.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -16127,10 +14398,6 @@
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -16139,16 +14406,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-arm64.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -16217,10 +14475,6 @@
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -16229,16 +14483,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-arm64.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -16307,10 +14552,6 @@
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -16319,16 +14560,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-arm64.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -16397,10 +14629,6 @@
         {
           "tag": "3.14t-arm64",
           "target": "python3.14t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.14t.exe"
         }
       ],
       "alias": [
@@ -16409,16 +14637,7 @@
           "target": "python3.14t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.14t.exe"
-        },
-        {
           "name": "pythonw3.14t-arm64.exe",
-          "target": "pythonw3.14t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.14t.exe",
           "windowed": 1
         }
@@ -16763,10 +14982,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -16775,16 +14990,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -16853,10 +15059,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -16865,16 +15067,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -16943,10 +15136,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -16955,16 +15144,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -17033,10 +15213,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -17045,16 +15221,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -17123,10 +15290,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -17135,16 +15298,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -17213,10 +15367,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -17225,16 +15375,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -17303,10 +15444,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -17315,16 +15452,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -17393,10 +15521,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -17405,16 +15529,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -17483,10 +15598,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -17495,16 +15606,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
@@ -17573,10 +15675,6 @@
         {
           "tag": "3.13t-arm64",
           "target": "python3.13t.exe"
-        },
-        {
-          "tag": "3t-arm64",
-          "target": "python3.13t.exe"
         }
       ],
       "alias": [
@@ -17585,16 +15683,7 @@
           "target": "python3.13t.exe"
         },
         {
-          "name": "python3t-arm64.exe",
-          "target": "python3.13t.exe"
-        },
-        {
           "name": "pythonw3.13t-arm64.exe",
-          "target": "pythonw3.13t.exe",
-          "windowed": 1
-        },
-        {
-          "name": "pythonw3t-arm64.exe",
           "target": "pythonw3.13t.exe",
           "windowed": 1
         }
