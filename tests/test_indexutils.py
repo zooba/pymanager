@@ -52,13 +52,13 @@ EXAMPLE_V1_PACKAGE = {
                     "SysVersion": "3.13",
                     "Version": "3.13.0",
                     "InstallPath": {
-                        "": "%PREFIX%",
+                        "_": "%PREFIX%",
                         "ExecutablePath": "%PREFIX%\\python.exe",
                         "WindowedExecutablePath": "%PREFIX%\\pythonw.exe",
                     },
                     "Help": {
                         "Online Python Documentation": {
-                            "": "https://docs.python.org/3.13/"
+                            "_": "https://docs.python.org/3.13/"
                         },
                     },
                 },

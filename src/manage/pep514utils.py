@@ -106,6 +106,10 @@ def _update_reg_values(key, data, install, exclude=set()):
     for k, v in data.items():
         if k in skip:
             continue
+
+        if k == "_":
+            k = None
+
         if isinstance(v, dict):
             with winreg.CreateKey(key, k) as subkey:
                 # Exclusions are not recursive

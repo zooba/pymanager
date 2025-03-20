@@ -70,13 +70,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -177,13 +177,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -284,13 +284,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -391,13 +391,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -498,13 +498,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -605,13 +605,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -712,13 +712,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -819,13 +819,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -926,13 +926,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -1033,13 +1033,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -1140,13 +1140,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.11",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1247,13 +1247,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1354,13 +1354,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1461,13 +1461,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1568,13 +1568,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1675,13 +1675,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1782,13 +1782,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1889,13 +1889,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -1996,13 +1996,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -2103,13 +2103,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -2210,13 +2210,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -2317,13 +2317,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -2424,13 +2424,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.13",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -2531,13 +2531,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.12",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -2638,13 +2638,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.11",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -2745,13 +2745,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -2852,13 +2852,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -2959,13 +2959,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3066,13 +3066,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3173,13 +3173,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3280,13 +3280,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3387,13 +3387,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3494,13 +3494,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3601,13 +3601,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3708,13 +3708,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3815,13 +3815,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -3922,13 +3922,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4029,13 +4029,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4136,13 +4136,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4243,13 +4243,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4350,13 +4350,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4457,13 +4457,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4564,13 +4564,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4671,13 +4671,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4778,13 +4778,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4885,13 +4885,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -4992,13 +4992,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -5099,13 +5099,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5206,13 +5206,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5313,13 +5313,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5420,13 +5420,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5527,13 +5527,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5634,13 +5634,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5741,13 +5741,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5848,13 +5848,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -5955,13 +5955,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -6062,13 +6062,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -6169,13 +6169,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -6276,13 +6276,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -6383,13 +6383,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -6490,13 +6490,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -6597,13 +6597,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -6704,13 +6704,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -6811,13 +6811,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -6918,13 +6918,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -7025,13 +7025,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -7132,13 +7132,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -7239,13 +7239,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -7346,13 +7346,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -7453,13 +7453,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -7560,13 +7560,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -7667,13 +7667,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -7774,13 +7774,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -7881,13 +7881,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -7988,13 +7988,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -8095,13 +8095,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -8202,13 +8202,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -8309,13 +8309,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -8416,13 +8416,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -8523,13 +8523,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -8630,13 +8630,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -8737,13 +8737,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.11",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -8844,13 +8844,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -8951,13 +8951,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9058,13 +9058,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9165,13 +9165,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9272,13 +9272,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9379,13 +9379,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9486,13 +9486,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9593,13 +9593,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9700,13 +9700,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9807,13 +9807,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -9914,13 +9914,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -10021,13 +10021,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.13",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10128,13 +10128,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.12",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10235,13 +10235,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.11",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10342,13 +10342,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10449,13 +10449,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10556,13 +10556,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10663,13 +10663,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10770,13 +10770,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10877,13 +10877,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -10984,13 +10984,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -11091,13 +11091,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -11198,13 +11198,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -11305,13 +11305,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -11412,13 +11412,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -11519,13 +11519,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -11626,13 +11626,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -11733,13 +11733,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -11840,13 +11840,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -11947,13 +11947,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -12054,13 +12054,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -12161,13 +12161,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -12268,13 +12268,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -12375,13 +12375,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -12482,13 +12482,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -12589,13 +12589,13 @@
           "SysVersion": "3.8",
           "Version": "3.8.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.8/"
+              "_": "https://docs.python.org/3.8/"
             }
           }
         },
@@ -12696,13 +12696,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -12803,13 +12803,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -12910,13 +12910,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13017,13 +13017,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13124,13 +13124,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13231,13 +13231,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13338,13 +13338,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13445,13 +13445,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13552,13 +13552,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13659,13 +13659,13 @@
           "SysVersion": "3.7",
           "Version": "3.7.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.7/"
+              "_": "https://docs.python.org/3.7/"
             }
           }
         },
@@ -13766,13 +13766,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -13873,13 +13873,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -13980,13 +13980,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -14087,13 +14087,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -14194,13 +14194,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -14301,13 +14301,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -14408,13 +14408,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -14515,13 +14515,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -14622,13 +14622,13 @@
           "SysVersion": "3.6",
           "Version": "3.6.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.6/"
+              "_": "https://docs.python.org/3.6/"
             }
           }
         },
@@ -14729,13 +14729,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -14836,13 +14836,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -14943,13 +14943,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -15050,13 +15050,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -15157,13 +15157,13 @@
           "SysVersion": "3.5",
           "Version": "3.5.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.5/"
+              "_": "https://docs.python.org/3.5/"
             }
           }
         },
@@ -15264,13 +15264,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -15371,13 +15371,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -15478,13 +15478,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -15585,13 +15585,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -15692,13 +15692,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -15799,13 +15799,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -15906,13 +15906,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -16013,13 +16013,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -16120,13 +16120,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -16227,13 +16227,13 @@
           "SysVersion": "3.11",
           "Version": "3.11.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.11/"
+              "_": "https://docs.python.org/3.11/"
             }
           }
         },
@@ -16334,13 +16334,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.11",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -16441,13 +16441,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -16548,13 +16548,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -16655,13 +16655,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -16762,13 +16762,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.6",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -16869,13 +16869,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.5",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -16976,13 +16976,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.4",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -17083,13 +17083,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.3",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -17190,13 +17190,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.2",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -17297,13 +17297,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.1",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -17404,13 +17404,13 @@
           "SysVersion": "3.10",
           "Version": "3.10.0",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.10/"
+              "_": "https://docs.python.org/3.10/"
             }
           }
         },
@@ -17511,13 +17511,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.10",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -17618,13 +17618,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.9",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -17725,13 +17725,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.8",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },
@@ -17832,13 +17832,13 @@
           "SysVersion": "3.9",
           "Version": "3.9.7",
           "InstallPath": {
-            "": "%PREFIX%",
+            "_": "%PREFIX%",
             "ExecutablePath": "%PREFIX%python.exe",
             "WindowedExecutablePath": "%PREFIX%pythonw.exe"
           },
           "Help": {
             "Online Python Documentation": {
-              "": "https://docs.python.org/3.9/"
+              "_": "https://docs.python.org/3.9/"
             }
           }
         },

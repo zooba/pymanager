@@ -508,7 +508,7 @@ class ListCommand(BaseCommand):
 > py list !B![options] [<FILTER> ...]!W!
 
 !G!Options:!W!
-    -f, --format=!B!<table,json,jsonl,powershell-json,id,exe,prefix>!W!
+    -f, --format=!B!<table,json,jsonl,id,exe,prefix>!W!
                      Specify output formatting (!B!list.format=...!W!)
     -1, --one        Only display first result
     --online         List runtimes available to install from the default index

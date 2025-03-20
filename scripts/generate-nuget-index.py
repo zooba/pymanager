@@ -60,13 +60,13 @@ SCHEMA = {
                 "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
-                    "": "%PREFIX%",
+                    "_": "%PREFIX%",
                     "ExecutablePath": "%PREFIX%python.exe",
                     "WindowedExecutablePath": "%PREFIX%pythonw.exe",
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSION$/"
+                        "_": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -133,13 +133,13 @@ SCHEMA = {
                 "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
-                    "": "%PREFIX%",
+                    "_": "%PREFIX%",
                     "ExecutablePath": "%PREFIX%python.exe",
                     "WindowedExecutablePath": "%PREFIX%pythonw.exe",
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSION$/"
+                        "_": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -206,13 +206,13 @@ SCHEMA = {
                 "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
-                    "": "%PREFIX%",
+                    "_": "%PREFIX%",
                     "ExecutablePath": "%PREFIX%python.exe",
                     "WindowedExecutablePath": "%PREFIX%pythonw.exe",
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSION$/"
+                        "_": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -279,13 +279,13 @@ SCHEMA = {
                 "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
-                    "": "%PREFIX%",
+                    "_": "%PREFIX%",
                     "ExecutablePath": "%PREFIX%python.exe",
                     "WindowedExecutablePath": "%PREFIX%pythonw.exe",
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSION$/"
+                        "_": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -352,13 +352,13 @@ SCHEMA = {
                 "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
-                    "": "%PREFIX%",
+                    "_": "%PREFIX%",
                     "ExecutablePath": "%PREFIX%python.exe",
                     "WindowedExecutablePath": "%PREFIX%pythonw.exe",
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSION$/"
+                        "_": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },
@@ -425,13 +425,13 @@ SCHEMA = {
                 "SysVersion": "$XYVERSION$",
                 "Version": "$FULLVERSION$",
                 "InstallPath": {
-                    "": "%PREFIX%",
+                    "_": "%PREFIX%",
                     "ExecutablePath": "%PREFIX%python.exe",
                     "WindowedExecutablePath": "%PREFIX%pythonw.exe",
                 },
                 "Help": {
                     "Online Python Documentation": {
-                        "": "https://docs.python.org/$XYVERSION$/"
+                        "_": "https://docs.python.org/$XYVERSION$/"
                     },
                 },
             },

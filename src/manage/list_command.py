@@ -155,11 +155,6 @@ def format_json_lines(cmd, installs):
         print(json.dumps(i, default=str))
 
 
-def format_powershell_json(cmd, installs):
-    for i in installs:
-        print(json.dumps(i, default=str).replace('"":', '"_":'))
-
-
 def format_bare_id(cmd, installs):
     for i in installs:
         print(i["id"])
@@ -198,7 +193,6 @@ FORMATTERS = {
     "csv": format_csv,
     "json": format_json,
     "jsonl": format_json_lines,
-    "powershell-json": format_powershell_json,
     "id": format_bare_id,
     "exe": format_bare_exe,
     "prefix": format_bare_prefix,
