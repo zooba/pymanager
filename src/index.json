@@ -2,10 +2,10 @@
   "versions": [
     {
       "schema": 1,
-      "id": "pythoncore-3.14",
+      "id": "pythoncore-3.14-64",
       "sort-version": "3.14.0a6",
       "company": "PythonCore",
-      "tag": "3.14.0a6",
+      "tag": "3.14-64",
       "install-for": [
         "3.14.0a6-64",
         "3.14-dev-64"
@@ -90,10 +90,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14",
+      "id": "pythoncore-3.14-64",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
-      "tag": "3.14.0a5",
+      "tag": "3.14-64",
       "install-for": [
         "3.14.0a5-64",
         "3.14-dev-64"
@@ -178,10 +178,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14",
+      "id": "pythoncore-3.14-64",
       "sort-version": "3.14.0a4",
       "company": "PythonCore",
-      "tag": "3.14.0a4",
+      "tag": "3.14-64",
       "install-for": [
         "3.14.0a4-64",
         "3.14-dev-64"
@@ -266,10 +266,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14",
+      "id": "pythoncore-3.14-64",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14.0a3",
+      "tag": "3.14-64",
       "install-for": [
         "3.14.0a3-64",
         "3.14-dev-64"
@@ -354,10 +354,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14",
+      "id": "pythoncore-3.14-64",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14.0a2",
+      "tag": "3.14-64",
       "install-for": [
         "3.14.0a2-64",
         "3.14-dev-64"
@@ -442,10 +442,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.14",
+      "id": "pythoncore-3.14-64",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14.0a1",
+      "tag": "3.14-64",
       "install-for": [
         "3.14.0a1-64",
         "3.14-dev-64"
@@ -530,10 +530,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13",
+      "id": "pythoncore-3.13-64",
       "sort-version": "3.13.2",
       "company": "PythonCore",
-      "tag": "3.13.2",
+      "tag": "3.13-64",
       "install-for": [
         "3.13.2-64",
         "3.13-64",
@@ -637,10 +637,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13",
+      "id": "pythoncore-3.13-64",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13.1",
+      "tag": "3.13-64",
       "install-for": [
         "3.13.1-64",
         "3.13-64",
@@ -744,10 +744,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.13",
+      "id": "pythoncore-3.13-64",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13.0",
+      "tag": "3.13-64",
       "install-for": [
         "3.13.0-64",
         "3.13-64",
@@ -851,10 +851,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.9",
       "company": "PythonCore",
-      "tag": "3.12.9",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.9-64",
         "3.12-64",
@@ -958,10 +958,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.8",
       "company": "PythonCore",
-      "tag": "3.12.8",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.8-64",
         "3.12-64",
@@ -1065,10 +1065,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.7",
       "company": "PythonCore",
-      "tag": "3.12.7",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.7-64",
         "3.12-64",
@@ -1172,10 +1172,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.6",
       "company": "PythonCore",
-      "tag": "3.12.6",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.6-64",
         "3.12-64",
@@ -1279,10 +1279,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.5",
       "company": "PythonCore",
-      "tag": "3.12.5",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.5-64",
         "3.12-64",
@@ -1386,10 +1386,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.4",
       "company": "PythonCore",
-      "tag": "3.12.4",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.4-64",
         "3.12-64",
@@ -1493,10 +1493,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.3",
       "company": "PythonCore",
-      "tag": "3.12.3",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.3-64",
         "3.12-64",
@@ -1600,10 +1600,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.2",
       "company": "PythonCore",
-      "tag": "3.12.2",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.2-64",
         "3.12-64",
@@ -1707,10 +1707,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.1",
       "company": "PythonCore",
-      "tag": "3.12.1",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.1-64",
         "3.12-64",
@@ -1814,10 +1814,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.12",
+      "id": "pythoncore-3.12-64",
       "sort-version": "3.12.0",
       "company": "PythonCore",
-      "tag": "3.12.0",
+      "tag": "3.12-64",
       "install-for": [
         "3.12.0-64",
         "3.12-64",
@@ -1924,7 +1924,7 @@
       "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a6",
       "company": "PythonCore",
-      "tag": "3.14.0a6-32",
+      "tag": "3.14-32",
       "install-for": [
         "3.14.0a6-32",
         "3.14-dev-32"
@@ -2012,7 +2012,7 @@
       "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
-      "tag": "3.14.0a5-32",
+      "tag": "3.14-32",
       "install-for": [
         "3.14.0a5-32",
         "3.14-dev-32"
@@ -2100,7 +2100,7 @@
       "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a4",
       "company": "PythonCore",
-      "tag": "3.14.0a4-32",
+      "tag": "3.14-32",
       "install-for": [
         "3.14.0a4-32",
         "3.14-dev-32"
@@ -2188,7 +2188,7 @@
       "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14.0a3-32",
+      "tag": "3.14-32",
       "install-for": [
         "3.14.0a3-32",
         "3.14-dev-32"
@@ -2276,7 +2276,7 @@
       "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14.0a2-32",
+      "tag": "3.14-32",
       "install-for": [
         "3.14.0a2-32",
         "3.14-dev-32"
@@ -2364,7 +2364,7 @@
       "id": "pythoncore-3.14-32",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14.0a1-32",
+      "tag": "3.14-32",
       "install-for": [
         "3.14.0a1-32",
         "3.14-dev-32"
@@ -2452,7 +2452,7 @@
       "id": "pythoncore-3.13-32",
       "sort-version": "3.13.2",
       "company": "PythonCore",
-      "tag": "3.13.2-32",
+      "tag": "3.13-32",
       "install-for": [
         "3.13.2-32",
         "3.13-32",
@@ -2559,7 +2559,7 @@
       "id": "pythoncore-3.13-32",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13.1-32",
+      "tag": "3.13-32",
       "install-for": [
         "3.13.1-32",
         "3.13-32",
@@ -2666,7 +2666,7 @@
       "id": "pythoncore-3.13-32",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13.0-32",
+      "tag": "3.13-32",
       "install-for": [
         "3.13.0-32",
         "3.13-32",
@@ -2773,7 +2773,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.9",
       "company": "PythonCore",
-      "tag": "3.12.9-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.9-32",
         "3.12-32",
@@ -2880,7 +2880,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.8",
       "company": "PythonCore",
-      "tag": "3.12.8-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.8-32",
         "3.12-32",
@@ -2987,7 +2987,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.7",
       "company": "PythonCore",
-      "tag": "3.12.7-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.7-32",
         "3.12-32",
@@ -3094,7 +3094,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.6",
       "company": "PythonCore",
-      "tag": "3.12.6-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.6-32",
         "3.12-32",
@@ -3201,7 +3201,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.5",
       "company": "PythonCore",
-      "tag": "3.12.5-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.5-32",
         "3.12-32",
@@ -3308,7 +3308,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.4",
       "company": "PythonCore",
-      "tag": "3.12.4-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.4-32",
         "3.12-32",
@@ -3415,7 +3415,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.3",
       "company": "PythonCore",
-      "tag": "3.12.3-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.3-32",
         "3.12-32",
@@ -3522,7 +3522,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.2",
       "company": "PythonCore",
-      "tag": "3.12.2-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.2-32",
         "3.12-32",
@@ -3629,7 +3629,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.1",
       "company": "PythonCore",
-      "tag": "3.12.1-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.1-32",
         "3.12-32",
@@ -3736,7 +3736,7 @@
       "id": "pythoncore-3.12-32",
       "sort-version": "3.12.0",
       "company": "PythonCore",
-      "tag": "3.12.0-32",
+      "tag": "3.12-32",
       "install-for": [
         "3.12.0-32",
         "3.12-32",
@@ -3843,7 +3843,7 @@
       "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a6",
       "company": "PythonCore",
-      "tag": "3.14.0a6-arm64",
+      "tag": "3.14-arm64",
       "install-for": [
         "3.14.0a6-arm64",
         "3.14-dev-arm64"
@@ -3931,7 +3931,7 @@
       "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
-      "tag": "3.14.0a5-arm64",
+      "tag": "3.14-arm64",
       "install-for": [
         "3.14.0a5-arm64",
         "3.14-dev-arm64"
@@ -4019,7 +4019,7 @@
       "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a4",
       "company": "PythonCore",
-      "tag": "3.14.0a4-arm64",
+      "tag": "3.14-arm64",
       "install-for": [
         "3.14.0a4-arm64",
         "3.14-dev-arm64"
@@ -4107,7 +4107,7 @@
       "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14.0a3-arm64",
+      "tag": "3.14-arm64",
       "install-for": [
         "3.14.0a3-arm64",
         "3.14-dev-arm64"
@@ -4195,7 +4195,7 @@
       "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14.0a2-arm64",
+      "tag": "3.14-arm64",
       "install-for": [
         "3.14.0a2-arm64",
         "3.14-dev-arm64"
@@ -4283,7 +4283,7 @@
       "id": "pythoncore-3.14-arm64",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14.0a1-arm64",
+      "tag": "3.14-arm64",
       "install-for": [
         "3.14.0a1-arm64",
         "3.14-dev-arm64"
@@ -4371,7 +4371,7 @@
       "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.2",
       "company": "PythonCore",
-      "tag": "3.13.2-arm64",
+      "tag": "3.13-arm64",
       "install-for": [
         "3.13.2-arm64",
         "3.13-arm64",
@@ -4478,7 +4478,7 @@
       "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13.1-arm64",
+      "tag": "3.13-arm64",
       "install-for": [
         "3.13.1-arm64",
         "3.13-arm64",
@@ -4585,7 +4585,7 @@
       "id": "pythoncore-3.13-arm64",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13.0-arm64",
+      "tag": "3.13-arm64",
       "install-for": [
         "3.13.0-arm64",
         "3.13-arm64",
@@ -4692,7 +4692,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.9",
       "company": "PythonCore",
-      "tag": "3.12.9-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.9-arm64",
         "3.12-arm64",
@@ -4799,7 +4799,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.8",
       "company": "PythonCore",
-      "tag": "3.12.8-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.8-arm64",
         "3.12-arm64",
@@ -4906,7 +4906,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.7",
       "company": "PythonCore",
-      "tag": "3.12.7-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.7-arm64",
         "3.12-arm64",
@@ -5013,7 +5013,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.6",
       "company": "PythonCore",
-      "tag": "3.12.6-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.6-arm64",
         "3.12-arm64",
@@ -5120,7 +5120,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.5",
       "company": "PythonCore",
-      "tag": "3.12.5-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.5-arm64",
         "3.12-arm64",
@@ -5227,7 +5227,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.4",
       "company": "PythonCore",
-      "tag": "3.12.4-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.4-arm64",
         "3.12-arm64",
@@ -5334,7 +5334,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.3",
       "company": "PythonCore",
-      "tag": "3.12.3-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.3-arm64",
         "3.12-arm64",
@@ -5441,7 +5441,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.2",
       "company": "PythonCore",
-      "tag": "3.12.2-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.2-arm64",
         "3.12-arm64",
@@ -5548,7 +5548,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.1",
       "company": "PythonCore",
-      "tag": "3.12.1-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.1-arm64",
         "3.12-arm64",
@@ -5655,7 +5655,7 @@
       "id": "pythoncore-3.12-arm64",
       "sort-version": "3.12.0",
       "company": "PythonCore",
-      "tag": "3.12.0-arm64",
+      "tag": "3.12-arm64",
       "install-for": [
         "3.12.0-arm64",
         "3.12-arm64",
@@ -5762,7 +5762,7 @@
       "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a6",
       "company": "PythonCore",
-      "tag": "3.14.0a6t",
+      "tag": "3.14t",
       "install-for": [
         "3.14.0a6t-64",
         "3.14-devt-64"
@@ -5850,7 +5850,7 @@
       "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
-      "tag": "3.14.0a5t",
+      "tag": "3.14t",
       "install-for": [
         "3.14.0a5t-64",
         "3.14-devt-64"
@@ -5938,7 +5938,7 @@
       "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a4",
       "company": "PythonCore",
-      "tag": "3.14.0a4t",
+      "tag": "3.14t",
       "install-for": [
         "3.14.0a4t-64",
         "3.14-devt-64"
@@ -6026,7 +6026,7 @@
       "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14.0a3t",
+      "tag": "3.14t",
       "install-for": [
         "3.14.0a3t-64",
         "3.14-devt-64"
@@ -6114,7 +6114,7 @@
       "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14.0a2t",
+      "tag": "3.14t",
       "install-for": [
         "3.14.0a2t-64",
         "3.14-devt-64"
@@ -6202,7 +6202,7 @@
       "id": "pythoncore-3.14-t",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14.0a1t",
+      "tag": "3.14t",
       "install-for": [
         "3.14.0a1t-64",
         "3.14-devt-64"
@@ -6290,7 +6290,7 @@
       "id": "pythoncore-3.13-t",
       "sort-version": "3.13.2",
       "company": "PythonCore",
-      "tag": "3.13.2t",
+      "tag": "3.13t",
       "install-for": [
         "3.13.2t-64",
         "3.13t-64",
@@ -6397,7 +6397,7 @@
       "id": "pythoncore-3.13-t",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13.1t",
+      "tag": "3.13t",
       "install-for": [
         "3.13.1t-64",
         "3.13t-64",
@@ -6504,7 +6504,7 @@
       "id": "pythoncore-3.13-t",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13.0t",
+      "tag": "3.13t",
       "install-for": [
         "3.13.0t-64",
         "3.13t-64",
@@ -6611,7 +6611,7 @@
       "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a6",
       "company": "PythonCore",
-      "tag": "3.14.0a6t-32",
+      "tag": "3.14t-32",
       "install-for": [
         "3.14.0a6t-32",
         "3.14-devt-32"
@@ -6699,7 +6699,7 @@
       "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
-      "tag": "3.14.0a5t-32",
+      "tag": "3.14t-32",
       "install-for": [
         "3.14.0a5t-32",
         "3.14-devt-32"
@@ -6787,7 +6787,7 @@
       "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a4",
       "company": "PythonCore",
-      "tag": "3.14.0a4t-32",
+      "tag": "3.14t-32",
       "install-for": [
         "3.14.0a4t-32",
         "3.14-devt-32"
@@ -6875,7 +6875,7 @@
       "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14.0a3t-32",
+      "tag": "3.14t-32",
       "install-for": [
         "3.14.0a3t-32",
         "3.14-devt-32"
@@ -6963,7 +6963,7 @@
       "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14.0a2t-32",
+      "tag": "3.14t-32",
       "install-for": [
         "3.14.0a2t-32",
         "3.14-devt-32"
@@ -7051,7 +7051,7 @@
       "id": "pythoncore-3.14-32-t",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14.0a1t-32",
+      "tag": "3.14t-32",
       "install-for": [
         "3.14.0a1t-32",
         "3.14-devt-32"
@@ -7139,7 +7139,7 @@
       "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.2",
       "company": "PythonCore",
-      "tag": "3.13.2t-32",
+      "tag": "3.13t-32",
       "install-for": [
         "3.13.2t-32",
         "3.13t-32",
@@ -7246,7 +7246,7 @@
       "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13.1t-32",
+      "tag": "3.13t-32",
       "install-for": [
         "3.13.1t-32",
         "3.13t-32",
@@ -7353,7 +7353,7 @@
       "id": "pythoncore-3.13-32-t",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13.0t-32",
+      "tag": "3.13t-32",
       "install-for": [
         "3.13.0t-32",
         "3.13t-32",
@@ -7460,7 +7460,7 @@
       "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a6",
       "company": "PythonCore",
-      "tag": "3.14.0a6t-arm64",
+      "tag": "3.14t-arm64",
       "install-for": [
         "3.14.0a6t-arm64",
         "3.14-devt-arm64"
@@ -7548,7 +7548,7 @@
       "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a5",
       "company": "PythonCore",
-      "tag": "3.14.0a5t-arm64",
+      "tag": "3.14t-arm64",
       "install-for": [
         "3.14.0a5t-arm64",
         "3.14-devt-arm64"
@@ -7636,7 +7636,7 @@
       "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a4",
       "company": "PythonCore",
-      "tag": "3.14.0a4t-arm64",
+      "tag": "3.14t-arm64",
       "install-for": [
         "3.14.0a4t-arm64",
         "3.14-devt-arm64"
@@ -7724,7 +7724,7 @@
       "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a3",
       "company": "PythonCore",
-      "tag": "3.14.0a3t-arm64",
+      "tag": "3.14t-arm64",
       "install-for": [
         "3.14.0a3t-arm64",
         "3.14-devt-arm64"
@@ -7812,7 +7812,7 @@
       "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a2",
       "company": "PythonCore",
-      "tag": "3.14.0a2t-arm64",
+      "tag": "3.14t-arm64",
       "install-for": [
         "3.14.0a2t-arm64",
         "3.14-devt-arm64"
@@ -7900,7 +7900,7 @@
       "id": "pythoncore-3.14-arm64-t",
       "sort-version": "3.14.0a1",
       "company": "PythonCore",
-      "tag": "3.14.0a1t-arm64",
+      "tag": "3.14t-arm64",
       "install-for": [
         "3.14.0a1t-arm64",
         "3.14-devt-arm64"
@@ -7988,7 +7988,7 @@
       "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.2",
       "company": "PythonCore",
-      "tag": "3.13.2t-arm64",
+      "tag": "3.13t-arm64",
       "install-for": [
         "3.13.2t-arm64",
         "3.13t-arm64",
@@ -8095,7 +8095,7 @@
       "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.1",
       "company": "PythonCore",
-      "tag": "3.13.1t-arm64",
+      "tag": "3.13t-arm64",
       "install-for": [
         "3.13.1t-arm64",
         "3.13t-arm64",
@@ -8202,7 +8202,7 @@
       "id": "pythoncore-3.13-arm64-t",
       "sort-version": "3.13.0",
       "company": "PythonCore",
-      "tag": "3.13.0t-arm64",
+      "tag": "3.13t-arm64",
       "install-for": [
         "3.13.0t-arm64",
         "3.13t-arm64",

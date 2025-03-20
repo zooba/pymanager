@@ -34,7 +34,7 @@ class ListCapture:
         self.format = "test"
         self.one = False
         self.unmanaged = True
-        list_command.FORMATTERS["test"] = self.captured.extend
+        list_command.FORMATTERS["test"] = lambda c, i: self.captured.extend(i)
 
     def __call__(self, *filters, **kwargs):
         self.args = filters
@@ -107,17 +107,17 @@ def test_list_online():
 
 
 def test_format_table(assert_log):
-    list_command.format_table(FAKE_INSTALLS)
+    list_command.format_table(None, FAKE_INSTALLS)
     assert_log(
-        (r"!B!Managed By\s+Tag\s+Name\s+Version\s+Alias\s*!W!", ()),
-        (r"Company2\s+1\.0\s+1\.0", ()),
-        (r"Company1\s+2\.0\s+2\.0", ()),
-        (r"!G!Company1\s+1\.0\s+1\.0\s*!W!", ()),
+        (r"!B!Tag\s+Name\s+Managed By\s+Version\s+Alias\s*!W!", ()),
+        (r"Company2\\1\.0\s+Company2\s+1\.0", ()),
+        (r"Company1\\2\.0\s+Company1\s+2\.0", ()),
+        (r"!G!Company1\\1\.0\s+\*\s+Company1\s+1\.0\s*!W!", ()),
     )
 
 
 def test_format_table_aliases(assert_log):
-    list_command.format_table([
+    list_command.format_table(None, [
         {
             "company": "COMPANY",
             "tag": "TAG",
@@ -132,13 +132,13 @@ def test_format_table_aliases(assert_log):
         }
     ])
     assert_log(
-        (r"!B!Managed By\s+Tag\s+Name\s+Version\s+Alias\s*!W!", ()),
-        (r"COMPANY\s+TAG\s+DISPLAY\s+VER\s+" + re.escape("python[w].exe, python[w]3.10.exe"), ()),
+        (r"!B!Tag\s+Name\s+Managed By\s+Version\s+Alias\s*!W!", ()),
+        (r"COMPANY\\TAG\s+DISPLAY\s+COMPANY\s+VER\s+" + re.escape("python[w].exe, python[w]3.10.exe"), ()),
     )
 
 
 def test_format_table_truncated(assert_log):
-    list_command.format_table([
+    list_command.format_table(None, [
         {
             "company": "ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 4,
             "tag": "ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 4,
@@ -150,16 +150,16 @@ def test_format_table_truncated(assert_log):
         }
     ])
     assert_log(
-        (r"!B!Managed By\s+Tag\s+Name\s+Version\s+Alias\s*!W!", ()),
-        (r"\w{27}\.\.\.\s+\w{27}\.\.\.\s+\w{57}\.\.\.\s+\w{12}\.\.\.\s+\w{47}\.\.\.", ()),
+        (r"!B!Tag\s+Name\s+Managed By\s+Version\s+Alias\s*!W!", ()),
+        (r"\w{27}\.\.\.\s+\w{57}\.\.\.\s+\w{27}\.\.\.\s+\w{12}\.\.\.\s+\w{47}\.\.\.", ()),
         (r"", ()),
         (r".+columns were truncated.+", ()),
     )
 
 
 def test_format_table_empty(assert_log):
-    list_command.format_table([])
+    list_command.format_table(None, [])
     assert_log(
-        (r"!B!Managed By\s+Tag\s+Name\s+Version\s+Alias\s*!W!", ()),
+        (r"!B!Tag\s+Name\s+Managed By\s+Version\s+Alias\s*!W!", ()),
         (r".+No runtimes.+", ()),
     )

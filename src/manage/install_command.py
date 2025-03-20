@@ -313,16 +313,19 @@ def update_all_shortcuts(cmd, path_warning=True):
 
 def print_cli_shortcuts(cmd):
     installs = cmd.get_installs()
+    seen = set()
     installs = [i for i in installs if install_matches_any(i, cmd.tags)]
     for i in installs:
-        aliases = ", ".join(sorted(a["name"] for a in i["alias"]))
+        aliases = sorted(a["name"] for a in i["alias"] if a["name"].casefold() not in seen)
+        seen.update(n.casefold() for n in aliases)
         if i.get("default") and aliases:
-            LOGGER.info("%s will be launched with !G!python.exe!W! and also %s",
-                        i["display-name"], aliases)
+            LOGGER.info("%s will be launched by !G!python.exe!W! and also %s",
+                        i["display-name"], ", ".join(aliases))
         elif i.get("default"):
-            LOGGER.info("%s can be launched with !G!python.exe!W!.", i["display-name"])
+            LOGGER.info("%s will be launched by !G!python.exe!W!.", i["display-name"])
         elif aliases:
-            LOGGER.info("%s can be launched with %s", i["display-name"], aliases)
+            LOGGER.info("%s will be launched by %s",
+                        i["display-name"], ", ".join(aliases))
         else:
             LOGGER.info("Installed %s to %s", i["display-name"], i["prefix"])
 

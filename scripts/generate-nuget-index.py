@@ -26,10 +26,10 @@ NUGET_SOURCE = "https://api.nuget.org/v3/index.json"
 SCHEMA = {
     "python": {
         "schema": 1,
-        "id": "pythoncore-$XYVERSION$",
+        "id": "pythoncore-$XYVERSION$-64",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$FULLVERSION$",
+        "tag": "$XYVERSION$-64",
         "install-for": [
             "$FULLVERSION$-64",
             "$XYVERSIONNOPRE$-64",
@@ -102,7 +102,7 @@ SCHEMA = {
         "id": "pythoncore-$XYVERSION$-32",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$FULLVERSION$-32",
+        "tag": "$XYVERSION$-32",
         "install-for": [
             "$FULLVERSION$-32",
             "$XYVERSIONNOPRE$-32",
@@ -175,7 +175,7 @@ SCHEMA = {
         "id": "pythoncore-$XYVERSION$-arm64",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$FULLVERSION$-arm64",
+        "tag": "$XYVERSION$-arm64",
         "install-for": [
             "$FULLVERSION$-arm64",
             "$XYVERSIONNOPRE$-arm64",
@@ -248,7 +248,7 @@ SCHEMA = {
         "id": "pythoncore-$XYVERSION$-t",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$FULLVERSION$t",
+        "tag": "$XYVERSION$t",
         "install-for": [
             "$FULLVERSION$t-64",
             "$XYVERSIONNOPRE$t-64",
@@ -321,7 +321,7 @@ SCHEMA = {
         "id": "pythoncore-$XYVERSION$-32-t",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$FULLVERSION$t-32",
+        "tag": "$XYVERSION$t-32",
         "install-for": [
             "$FULLVERSION$t-32",
             "$XYVERSIONNOPRE$t-32",
@@ -394,7 +394,7 @@ SCHEMA = {
         "id": "pythoncore-$XYVERSION$-arm64-t",
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
-        "tag": "$FULLVERSION$t-arm64",
+        "tag": "$XYVERSION$t-arm64",
         "install-for": [
             "$FULLVERSION$t-arm64",
             "$XYVERSIONNOPRE$t-arm64",

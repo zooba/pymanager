@@ -37,17 +37,27 @@ def _format_alias(i):
     return ", ".join(names[n] for n in sorted(names))
 
 
+def _format_tag_with_co(cmd, i):
+    t = i["tag"]
+    if cmd and cmd.default_platform:
+        t = t.removesuffix(cmd.default_platform)
+    if i["company"].casefold() in ("PythonCore".casefold(), "---", ""):
+        return t
+    return rf"{i['company']}\{t}"
+
+
 def _ljust(s, n):
     if len(s) <= n:
         return s.ljust(n)
     return s[:n - 3] + "..."
 
 
-def format_table(installs):
+def format_table(cmd, installs):
     columns = {
-        "company": "Managed By",
-        "tag": "Tag",
+        "tag-with-co": "Tag",
+        "default-star": " ",
         "display-name": "Name",
+        "company": "Managed By",
         "sort-version": "Version",
         "alias": "Alias",
     }
@@ -55,6 +65,8 @@ def format_table(installs):
         **i,
         "alias": _format_alias(i),
         "sort-version": str(i['sort-version']),
+        "default-star": "*" if i.get("default") else "",
+        "tag-with-co": _format_tag_with_co(cmd, i),
     } for i in installs]
 
     cwidth = {k: len(v) for k, v in columns.items()}
@@ -67,7 +79,7 @@ def format_table(installs):
 
     # Maximum column widths
     show_truncated_warning = False
-    mwidth = {"company": 30, "tag": 30, "display-name": 60, "sort-version": 15, "alias": 50}
+    mwidth = {"company": 30, "tag-with-co": 30, "display-name": 60, "sort-version": 15, "alias": 50}
     for k in list(cwidth):
         try:
             if cwidth[k] > mwidth[k]:
@@ -121,7 +133,7 @@ def _csv_filter_and_expand(installs):
                 yield {f"{k2}.{k}": v for k, v in vv.items()}
 
 
-def format_csv(installs):
+def format_csv(cmd, installs):
     import csv
     installs = list(_csv_filter_and_expand(installs))
     if not installs:
@@ -134,31 +146,31 @@ def format_csv(installs):
     writer.writerows(installs)
 
 
-def format_json(installs):
+def format_json(cmd, installs):
     print(json.dumps({"versions": installs}, default=str))
 
 
-def format_json_lines(installs):
+def format_json_lines(cmd, installs):
     for i in installs:
         print(json.dumps(i, default=str))
 
 
-def format_powershell_json(installs):
+def format_powershell_json(cmd, installs):
     for i in installs:
         print(json.dumps(i, default=str).replace('"":', '"_":'))
 
 
-def format_bare_id(installs):
+def format_bare_id(cmd, installs):
     for i in installs:
         print(i["id"])
 
 
-def format_bare_exe(installs):
+def format_bare_exe(cmd, installs):
     for i in installs:
         print(i["executable"])
 
 
-def format_bare_prefix(installs):
+def format_bare_prefix(cmd, installs):
     for i in installs:
         try:
             print(i["prefix"])
@@ -166,17 +178,16 @@ def format_bare_prefix(installs):
             pass
 
 
-def format_bare_url(installs):
+def format_bare_url(cmd, installs):
     for i in installs:
         print(i["url"])
 
 
-def format_legacy(installs, paths=False):
+def format_legacy(cmd, installs, paths=False):
     for i in installs:
-        if i["company"].casefold() != "PythonCore".casefold():
-            tag = f" -V:{i['company']}/{i['tag']}"
-        else:
-            tag = f" -V:{i['tag']}"
+        tag = _format_tag_with_co(cmd, i)
+        if tag:
+            tag = f" -V:{tag}"
         if i.get("default"):
             tag = f"{tag} *"
         print(tag.ljust(17), i["executable"] if paths else i["display-name"])
@@ -258,6 +269,6 @@ def execute(cmd):
 
     if cmd.one:
         installs = [i for i in installs if i.get("default")][:1] or installs[:1]
-    formatter(installs)
+    formatter(cmd, installs)
 
     LOGGER.debug("END list_command.execute")

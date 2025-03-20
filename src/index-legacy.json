@@ -2,10 +2,10 @@
   "versions": [
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.9",
       "company": "PythonCore",
-      "tag": "3.11.9",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.9-64",
         "3.11-64",
@@ -109,10 +109,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.8",
       "company": "PythonCore",
-      "tag": "3.11.8",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.8-64",
         "3.11-64",
@@ -216,10 +216,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.7",
       "company": "PythonCore",
-      "tag": "3.11.7",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.7-64",
         "3.11-64",
@@ -323,10 +323,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.6",
       "company": "PythonCore",
-      "tag": "3.11.6",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.6-64",
         "3.11-64",
@@ -430,10 +430,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.5",
       "company": "PythonCore",
-      "tag": "3.11.5",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.5-64",
         "3.11-64",
@@ -537,10 +537,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.4",
       "company": "PythonCore",
-      "tag": "3.11.4",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.4-64",
         "3.11-64",
@@ -644,10 +644,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.3",
       "company": "PythonCore",
-      "tag": "3.11.3",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.3-64",
         "3.11-64",
@@ -751,10 +751,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.2",
       "company": "PythonCore",
-      "tag": "3.11.2",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.2-64",
         "3.11-64",
@@ -858,10 +858,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.1",
       "company": "PythonCore",
-      "tag": "3.11.1",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.1-64",
         "3.11-64",
@@ -965,10 +965,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.11",
+      "id": "pythoncore-3.11-64",
       "sort-version": "3.11.0",
       "company": "PythonCore",
-      "tag": "3.11.0",
+      "tag": "3.11-64",
       "install-for": [
         "3.11.0-64",
         "3.11-64",
@@ -1072,10 +1072,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.11",
       "company": "PythonCore",
-      "tag": "3.10.11",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.11-64",
         "3.10-64",
@@ -1179,10 +1179,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.10",
       "company": "PythonCore",
-      "tag": "3.10.10",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.10-64",
         "3.10-64",
@@ -1286,10 +1286,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.9",
       "company": "PythonCore",
-      "tag": "3.10.9",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.9-64",
         "3.10-64",
@@ -1393,10 +1393,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.8",
       "company": "PythonCore",
-      "tag": "3.10.8",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.8-64",
         "3.10-64",
@@ -1500,10 +1500,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.7",
       "company": "PythonCore",
-      "tag": "3.10.7",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.7-64",
         "3.10-64",
@@ -1607,10 +1607,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.6",
       "company": "PythonCore",
-      "tag": "3.10.6",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.6-64",
         "3.10-64",
@@ -1714,10 +1714,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.5",
       "company": "PythonCore",
-      "tag": "3.10.5",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.5-64",
         "3.10-64",
@@ -1821,10 +1821,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.4",
       "company": "PythonCore",
-      "tag": "3.10.4",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.4-64",
         "3.10-64",
@@ -1928,10 +1928,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.3",
       "company": "PythonCore",
-      "tag": "3.10.3",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.3-64",
         "3.10-64",
@@ -2035,10 +2035,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.2",
       "company": "PythonCore",
-      "tag": "3.10.2",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.2-64",
         "3.10-64",
@@ -2142,10 +2142,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.1",
       "company": "PythonCore",
-      "tag": "3.10.1",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.1-64",
         "3.10-64",
@@ -2249,10 +2249,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.10",
+      "id": "pythoncore-3.10-64",
       "sort-version": "3.10.0",
       "company": "PythonCore",
-      "tag": "3.10.0",
+      "tag": "3.10-64",
       "install-for": [
         "3.10.0-64",
         "3.10-64",
@@ -2356,10 +2356,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.13",
       "company": "PythonCore",
-      "tag": "3.9.13",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.13-64",
         "3.9-64",
@@ -2463,10 +2463,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.12",
       "company": "PythonCore",
-      "tag": "3.9.12",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.12-64",
         "3.9-64",
@@ -2570,10 +2570,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.11",
       "company": "PythonCore",
-      "tag": "3.9.11",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.11-64",
         "3.9-64",
@@ -2677,10 +2677,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.10",
       "company": "PythonCore",
-      "tag": "3.9.10",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.10-64",
         "3.9-64",
@@ -2784,10 +2784,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.9",
       "company": "PythonCore",
-      "tag": "3.9.9",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.9-64",
         "3.9-64",
@@ -2891,10 +2891,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.8",
       "company": "PythonCore",
-      "tag": "3.9.8",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.8-64",
         "3.9-64",
@@ -2998,10 +2998,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.7",
       "company": "PythonCore",
-      "tag": "3.9.7",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.7-64",
         "3.9-64",
@@ -3105,10 +3105,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.6",
       "company": "PythonCore",
-      "tag": "3.9.6",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.6-64",
         "3.9-64",
@@ -3212,10 +3212,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.5",
       "company": "PythonCore",
-      "tag": "3.9.5",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.5-64",
         "3.9-64",
@@ -3319,10 +3319,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.4",
       "company": "PythonCore",
-      "tag": "3.9.4",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.4-64",
         "3.9-64",
@@ -3426,10 +3426,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.3",
       "company": "PythonCore",
-      "tag": "3.9.3",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.3-64",
         "3.9-64",
@@ -3533,10 +3533,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.2",
       "company": "PythonCore",
-      "tag": "3.9.2",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.2-64",
         "3.9-64",
@@ -3640,10 +3640,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.1",
       "company": "PythonCore",
-      "tag": "3.9.1",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.1-64",
         "3.9-64",
@@ -3747,10 +3747,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.9",
+      "id": "pythoncore-3.9-64",
       "sort-version": "3.9.0",
       "company": "PythonCore",
-      "tag": "3.9.0",
+      "tag": "3.9-64",
       "install-for": [
         "3.9.0-64",
         "3.9-64",
@@ -3854,10 +3854,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.10",
       "company": "PythonCore",
-      "tag": "3.8.10",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.10-64",
         "3.8-64",
@@ -3961,10 +3961,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.9",
       "company": "PythonCore",
-      "tag": "3.8.9",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.9-64",
         "3.8-64",
@@ -4068,10 +4068,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.8",
       "company": "PythonCore",
-      "tag": "3.8.8",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.8-64",
         "3.8-64",
@@ -4175,10 +4175,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.7",
       "company": "PythonCore",
-      "tag": "3.8.7",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.7-64",
         "3.8-64",
@@ -4282,10 +4282,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.6",
       "company": "PythonCore",
-      "tag": "3.8.6",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.6-64",
         "3.8-64",
@@ -4389,10 +4389,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.5",
       "company": "PythonCore",
-      "tag": "3.8.5",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.5-64",
         "3.8-64",
@@ -4496,10 +4496,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.4",
       "company": "PythonCore",
-      "tag": "3.8.4",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.4-64",
         "3.8-64",
@@ -4603,10 +4603,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.3",
       "company": "PythonCore",
-      "tag": "3.8.3",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.3-64",
         "3.8-64",
@@ -4710,10 +4710,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.2",
       "company": "PythonCore",
-      "tag": "3.8.2",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.2-64",
         "3.8-64",
@@ -4817,10 +4817,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.1",
       "company": "PythonCore",
-      "tag": "3.8.1",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.1-64",
         "3.8-64",
@@ -4924,10 +4924,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.8",
+      "id": "pythoncore-3.8-64",
       "sort-version": "3.8.0",
       "company": "PythonCore",
-      "tag": "3.8.0",
+      "tag": "3.8-64",
       "install-for": [
         "3.8.0-64",
         "3.8-64",
@@ -5031,10 +5031,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.9",
       "company": "PythonCore",
-      "tag": "3.7.9",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.9-64",
         "3.7-64",
@@ -5138,10 +5138,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.8",
       "company": "PythonCore",
-      "tag": "3.7.8",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.8-64",
         "3.7-64",
@@ -5245,10 +5245,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.7",
       "company": "PythonCore",
-      "tag": "3.7.7",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.7-64",
         "3.7-64",
@@ -5352,10 +5352,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.6",
       "company": "PythonCore",
-      "tag": "3.7.6",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.6-64",
         "3.7-64",
@@ -5459,10 +5459,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.5",
       "company": "PythonCore",
-      "tag": "3.7.5",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.5-64",
         "3.7-64",
@@ -5566,10 +5566,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.4",
       "company": "PythonCore",
-      "tag": "3.7.4",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.4-64",
         "3.7-64",
@@ -5673,10 +5673,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.3",
       "company": "PythonCore",
-      "tag": "3.7.3",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.3-64",
         "3.7-64",
@@ -5780,10 +5780,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.2",
       "company": "PythonCore",
-      "tag": "3.7.2",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.2-64",
         "3.7-64",
@@ -5887,10 +5887,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.1",
       "company": "PythonCore",
-      "tag": "3.7.1",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.1-64",
         "3.7-64",
@@ -5994,10 +5994,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.7",
+      "id": "pythoncore-3.7-64",
       "sort-version": "3.7.0",
       "company": "PythonCore",
-      "tag": "3.7.0",
+      "tag": "3.7-64",
       "install-for": [
         "3.7.0-64",
         "3.7-64",
@@ -6101,10 +6101,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.8",
       "company": "PythonCore",
-      "tag": "3.6.8",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.8-64",
         "3.6-64",
@@ -6208,10 +6208,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.7",
       "company": "PythonCore",
-      "tag": "3.6.7",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.7-64",
         "3.6-64",
@@ -6315,10 +6315,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.6",
       "company": "PythonCore",
-      "tag": "3.6.6",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.6-64",
         "3.6-64",
@@ -6422,10 +6422,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.5",
       "company": "PythonCore",
-      "tag": "3.6.5",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.5-64",
         "3.6-64",
@@ -6529,10 +6529,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.4",
       "company": "PythonCore",
-      "tag": "3.6.4",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.4-64",
         "3.6-64",
@@ -6636,10 +6636,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.3",
       "company": "PythonCore",
-      "tag": "3.6.3",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.3-64",
         "3.6-64",
@@ -6743,10 +6743,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.2",
       "company": "PythonCore",
-      "tag": "3.6.2",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.2-64",
         "3.6-64",
@@ -6850,10 +6850,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.1",
       "company": "PythonCore",
-      "tag": "3.6.1",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.1-64",
         "3.6-64",
@@ -6957,10 +6957,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.6",
+      "id": "pythoncore-3.6-64",
       "sort-version": "3.6.0",
       "company": "PythonCore",
-      "tag": "3.6.0",
+      "tag": "3.6-64",
       "install-for": [
         "3.6.0-64",
         "3.6-64",
@@ -7064,10 +7064,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.5",
+      "id": "pythoncore-3.5-64",
       "sort-version": "3.5.4",
       "company": "PythonCore",
-      "tag": "3.5.4",
+      "tag": "3.5-64",
       "install-for": [
         "3.5.4-64",
         "3.5-64",
@@ -7171,10 +7171,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.5",
+      "id": "pythoncore-3.5-64",
       "sort-version": "3.5.3",
       "company": "PythonCore",
-      "tag": "3.5.3",
+      "tag": "3.5-64",
       "install-for": [
         "3.5.3-64",
         "3.5-64",
@@ -7278,10 +7278,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.5",
+      "id": "pythoncore-3.5-64",
       "sort-version": "3.5.2",
       "company": "PythonCore",
-      "tag": "3.5.2",
+      "tag": "3.5-64",
       "install-for": [
         "3.5.2-64",
         "3.5-64",
@@ -7385,10 +7385,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.5",
+      "id": "pythoncore-3.5-64",
       "sort-version": "3.5.2",
       "company": "PythonCore",
-      "tag": "3.5.2",
+      "tag": "3.5-64",
       "install-for": [
         "3.5.2-64",
         "3.5-64",
@@ -7492,10 +7492,10 @@
     },
     {
       "schema": 1,
-      "id": "pythoncore-3.5",
+      "id": "pythoncore-3.5-64",
       "sort-version": "3.5.2",
       "company": "PythonCore",
-      "tag": "3.5.2",
+      "tag": "3.5-64",
       "install-for": [
         "3.5.2-64",
         "3.5-64",
@@ -7602,7 +7602,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.9",
       "company": "PythonCore",
-      "tag": "3.11.9-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.9-32",
         "3.11-32",
@@ -7709,7 +7709,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.8",
       "company": "PythonCore",
-      "tag": "3.11.8-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.8-32",
         "3.11-32",
@@ -7816,7 +7816,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.7",
       "company": "PythonCore",
-      "tag": "3.11.7-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.7-32",
         "3.11-32",
@@ -7923,7 +7923,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.6",
       "company": "PythonCore",
-      "tag": "3.11.6-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.6-32",
         "3.11-32",
@@ -8030,7 +8030,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.5",
       "company": "PythonCore",
-      "tag": "3.11.5-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.5-32",
         "3.11-32",
@@ -8137,7 +8137,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.4",
       "company": "PythonCore",
-      "tag": "3.11.4-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.4-32",
         "3.11-32",
@@ -8244,7 +8244,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.3",
       "company": "PythonCore",
-      "tag": "3.11.3-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.3-32",
         "3.11-32",
@@ -8351,7 +8351,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.2",
       "company": "PythonCore",
-      "tag": "3.11.2-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.2-32",
         "3.11-32",
@@ -8458,7 +8458,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.1",
       "company": "PythonCore",
-      "tag": "3.11.1-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.1-32",
         "3.11-32",
@@ -8565,7 +8565,7 @@
       "id": "pythoncore-3.11-32",
       "sort-version": "3.11.0",
       "company": "PythonCore",
-      "tag": "3.11.0-32",
+      "tag": "3.11-32",
       "install-for": [
         "3.11.0-32",
         "3.11-32",
@@ -8672,7 +8672,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.11",
       "company": "PythonCore",
-      "tag": "3.10.11-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.11-32",
         "3.10-32",
@@ -8779,7 +8779,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.10",
       "company": "PythonCore",
-      "tag": "3.10.10-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.10-32",
         "3.10-32",
@@ -8886,7 +8886,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.9",
       "company": "PythonCore",
-      "tag": "3.10.9-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.9-32",
         "3.10-32",
@@ -8993,7 +8993,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.8",
       "company": "PythonCore",
-      "tag": "3.10.8-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.8-32",
         "3.10-32",
@@ -9100,7 +9100,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.7",
       "company": "PythonCore",
-      "tag": "3.10.7-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.7-32",
         "3.10-32",
@@ -9207,7 +9207,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.6",
       "company": "PythonCore",
-      "tag": "3.10.6-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.6-32",
         "3.10-32",
@@ -9314,7 +9314,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.5",
       "company": "PythonCore",
-      "tag": "3.10.5-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.5-32",
         "3.10-32",
@@ -9421,7 +9421,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.4",
       "company": "PythonCore",
-      "tag": "3.10.4-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.4-32",
         "3.10-32",
@@ -9528,7 +9528,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.3",
       "company": "PythonCore",
-      "tag": "3.10.3-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.3-32",
         "3.10-32",
@@ -9635,7 +9635,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.2",
       "company": "PythonCore",
-      "tag": "3.10.2-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.2-32",
         "3.10-32",
@@ -9742,7 +9742,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.1",
       "company": "PythonCore",
-      "tag": "3.10.1-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.1-32",
         "3.10-32",
@@ -9849,7 +9849,7 @@
       "id": "pythoncore-3.10-32",
       "sort-version": "3.10.0",
       "company": "PythonCore",
-      "tag": "3.10.0-32",
+      "tag": "3.10-32",
       "install-for": [
         "3.10.0-32",
         "3.10-32",
@@ -9956,7 +9956,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.13",
       "company": "PythonCore",
-      "tag": "3.9.13-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.13-32",
         "3.9-32",
@@ -10063,7 +10063,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.12",
       "company": "PythonCore",
-      "tag": "3.9.12-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.12-32",
         "3.9-32",
@@ -10170,7 +10170,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.11",
       "company": "PythonCore",
-      "tag": "3.9.11-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.11-32",
         "3.9-32",
@@ -10277,7 +10277,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.10",
       "company": "PythonCore",
-      "tag": "3.9.10-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.10-32",
         "3.9-32",
@@ -10384,7 +10384,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.9",
       "company": "PythonCore",
-      "tag": "3.9.9-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.9-32",
         "3.9-32",
@@ -10491,7 +10491,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.8",
       "company": "PythonCore",
-      "tag": "3.9.8-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.8-32",
         "3.9-32",
@@ -10598,7 +10598,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.7",
       "company": "PythonCore",
-      "tag": "3.9.7-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.7-32",
         "3.9-32",
@@ -10705,7 +10705,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.6",
       "company": "PythonCore",
-      "tag": "3.9.6-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.6-32",
         "3.9-32",
@@ -10812,7 +10812,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.5",
       "company": "PythonCore",
-      "tag": "3.9.5-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.5-32",
         "3.9-32",
@@ -10919,7 +10919,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.4",
       "company": "PythonCore",
-      "tag": "3.9.4-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.4-32",
         "3.9-32",
@@ -11026,7 +11026,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.3",
       "company": "PythonCore",
-      "tag": "3.9.3-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.3-32",
         "3.9-32",
@@ -11133,7 +11133,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.2",
       "company": "PythonCore",
-      "tag": "3.9.2-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.2-32",
         "3.9-32",
@@ -11240,7 +11240,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.1",
       "company": "PythonCore",
-      "tag": "3.9.1-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.1-32",
         "3.9-32",
@@ -11347,7 +11347,7 @@
       "id": "pythoncore-3.9-32",
       "sort-version": "3.9.0",
       "company": "PythonCore",
-      "tag": "3.9.0-32",
+      "tag": "3.9-32",
       "install-for": [
         "3.9.0-32",
         "3.9-32",
@@ -11454,7 +11454,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.10",
       "company": "PythonCore",
-      "tag": "3.8.10-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.10-32",
         "3.8-32",
@@ -11561,7 +11561,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.9",
       "company": "PythonCore",
-      "tag": "3.8.9-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.9-32",
         "3.8-32",
@@ -11668,7 +11668,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.8",
       "company": "PythonCore",
-      "tag": "3.8.8-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.8-32",
         "3.8-32",
@@ -11775,7 +11775,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.7",
       "company": "PythonCore",
-      "tag": "3.8.7-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.7-32",
         "3.8-32",
@@ -11882,7 +11882,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.6",
       "company": "PythonCore",
-      "tag": "3.8.6-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.6-32",
         "3.8-32",
@@ -11989,7 +11989,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.5",
       "company": "PythonCore",
-      "tag": "3.8.5-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.5-32",
         "3.8-32",
@@ -12096,7 +12096,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.4",
       "company": "PythonCore",
-      "tag": "3.8.4-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.4-32",
         "3.8-32",
@@ -12203,7 +12203,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.3",
       "company": "PythonCore",
-      "tag": "3.8.3-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.3-32",
         "3.8-32",
@@ -12310,7 +12310,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.2",
       "company": "PythonCore",
-      "tag": "3.8.2-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.2-32",
         "3.8-32",
@@ -12417,7 +12417,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.1",
       "company": "PythonCore",
-      "tag": "3.8.1-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.1-32",
         "3.8-32",
@@ -12524,7 +12524,7 @@
       "id": "pythoncore-3.8-32",
       "sort-version": "3.8.0",
       "company": "PythonCore",
-      "tag": "3.8.0-32",
+      "tag": "3.8-32",
       "install-for": [
         "3.8.0-32",
         "3.8-32",
@@ -12631,7 +12631,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.9",
       "company": "PythonCore",
-      "tag": "3.7.9-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.9-32",
         "3.7-32",
@@ -12738,7 +12738,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.8",
       "company": "PythonCore",
-      "tag": "3.7.8-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.8-32",
         "3.7-32",
@@ -12845,7 +12845,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.7",
       "company": "PythonCore",
-      "tag": "3.7.7-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.7-32",
         "3.7-32",
@@ -12952,7 +12952,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.6",
       "company": "PythonCore",
-      "tag": "3.7.6-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.6-32",
         "3.7-32",
@@ -13059,7 +13059,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.5",
       "company": "PythonCore",
-      "tag": "3.7.5-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.5-32",
         "3.7-32",
@@ -13166,7 +13166,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.4",
       "company": "PythonCore",
-      "tag": "3.7.4-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.4-32",
         "3.7-32",
@@ -13273,7 +13273,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.3",
       "company": "PythonCore",
-      "tag": "3.7.3-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.3-32",
         "3.7-32",
@@ -13380,7 +13380,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.2",
       "company": "PythonCore",
-      "tag": "3.7.2-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.2-32",
         "3.7-32",
@@ -13487,7 +13487,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.1",
       "company": "PythonCore",
-      "tag": "3.7.1-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.1-32",
         "3.7-32",
@@ -13594,7 +13594,7 @@
       "id": "pythoncore-3.7-32",
       "sort-version": "3.7.0",
       "company": "PythonCore",
-      "tag": "3.7.0-32",
+      "tag": "3.7-32",
       "install-for": [
         "3.7.0-32",
         "3.7-32",
@@ -13701,7 +13701,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.8",
       "company": "PythonCore",
-      "tag": "3.6.8-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.8-32",
         "3.6-32",
@@ -13808,7 +13808,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.7",
       "company": "PythonCore",
-      "tag": "3.6.7-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.7-32",
         "3.6-32",
@@ -13915,7 +13915,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.6",
       "company": "PythonCore",
-      "tag": "3.6.6-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.6-32",
         "3.6-32",
@@ -14022,7 +14022,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.5",
       "company": "PythonCore",
-      "tag": "3.6.5-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.5-32",
         "3.6-32",
@@ -14129,7 +14129,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.4",
       "company": "PythonCore",
-      "tag": "3.6.4-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.4-32",
         "3.6-32",
@@ -14236,7 +14236,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.3",
       "company": "PythonCore",
-      "tag": "3.6.3-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.3-32",
         "3.6-32",
@@ -14343,7 +14343,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.2",
       "company": "PythonCore",
-      "tag": "3.6.2-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.2-32",
         "3.6-32",
@@ -14450,7 +14450,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.1",
       "company": "PythonCore",
-      "tag": "3.6.1-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.1-32",
         "3.6-32",
@@ -14557,7 +14557,7 @@
       "id": "pythoncore-3.6-32",
       "sort-version": "3.6.0",
       "company": "PythonCore",
-      "tag": "3.6.0-32",
+      "tag": "3.6-32",
       "install-for": [
         "3.6.0-32",
         "3.6-32",
@@ -14664,7 +14664,7 @@
       "id": "pythoncore-3.5-32",
       "sort-version": "3.5.4",
       "company": "PythonCore",
-      "tag": "3.5.4-32",
+      "tag": "3.5-32",
       "install-for": [
         "3.5.4-32",
         "3.5-32",
@@ -14771,7 +14771,7 @@
       "id": "pythoncore-3.5-32",
       "sort-version": "3.5.3",
       "company": "PythonCore",
-      "tag": "3.5.3-32",
+      "tag": "3.5-32",
       "install-for": [
         "3.5.3-32",
         "3.5-32",
@@ -14878,7 +14878,7 @@
       "id": "pythoncore-3.5-32",
       "sort-version": "3.5.2",
       "company": "PythonCore",
-      "tag": "3.5.2-32",
+      "tag": "3.5-32",
       "install-for": [
         "3.5.2-32",
         "3.5-32",
@@ -14985,7 +14985,7 @@
       "id": "pythoncore-3.5-32",
       "sort-version": "3.5.2",
       "company": "PythonCore",
-      "tag": "3.5.2-32",
+      "tag": "3.5-32",
       "install-for": [
         "3.5.2-32",
         "3.5-32",
@@ -15092,7 +15092,7 @@
       "id": "pythoncore-3.5-32",
       "sort-version": "3.5.2",
       "company": "PythonCore",
-      "tag": "3.5.2-32",
+      "tag": "3.5-32",
       "install-for": [
         "3.5.2-32",
         "3.5-32",
@@ -15199,7 +15199,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.9",
       "company": "PythonCore",
-      "tag": "3.11.9-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.9-arm64",
         "3.11-arm64",
@@ -15306,7 +15306,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.8",
       "company": "PythonCore",
-      "tag": "3.11.8-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.8-arm64",
         "3.11-arm64",
@@ -15413,7 +15413,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.7",
       "company": "PythonCore",
-      "tag": "3.11.7-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.7-arm64",
         "3.11-arm64",
@@ -15520,7 +15520,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.6",
       "company": "PythonCore",
-      "tag": "3.11.6-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.6-arm64",
         "3.11-arm64",
@@ -15627,7 +15627,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.5",
       "company": "PythonCore",
-      "tag": "3.11.5-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.5-arm64",
         "3.11-arm64",
@@ -15734,7 +15734,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.4",
       "company": "PythonCore",
-      "tag": "3.11.4-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.4-arm64",
         "3.11-arm64",
@@ -15841,7 +15841,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.3",
       "company": "PythonCore",
-      "tag": "3.11.3-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.3-arm64",
         "3.11-arm64",
@@ -15948,7 +15948,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.2",
       "company": "PythonCore",
-      "tag": "3.11.2-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.2-arm64",
         "3.11-arm64",
@@ -16055,7 +16055,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.1",
       "company": "PythonCore",
-      "tag": "3.11.1-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.1-arm64",
         "3.11-arm64",
@@ -16162,7 +16162,7 @@
       "id": "pythoncore-3.11-arm64",
       "sort-version": "3.11.0",
       "company": "PythonCore",
-      "tag": "3.11.0-arm64",
+      "tag": "3.11-arm64",
       "install-for": [
         "3.11.0-arm64",
         "3.11-arm64",
@@ -16269,7 +16269,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.11",
       "company": "PythonCore",
-      "tag": "3.10.11-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.11-arm64",
         "3.10-arm64",
@@ -16376,7 +16376,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.10",
       "company": "PythonCore",
-      "tag": "3.10.10-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.10-arm64",
         "3.10-arm64",
@@ -16483,7 +16483,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.8",
       "company": "PythonCore",
-      "tag": "3.10.8-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.8-arm64",
         "3.10-arm64",
@@ -16590,7 +16590,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.7",
       "company": "PythonCore",
-      "tag": "3.10.7-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.7-arm64",
         "3.10-arm64",
@@ -16697,7 +16697,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.6",
       "company": "PythonCore",
-      "tag": "3.10.6-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.6-arm64",
         "3.10-arm64",
@@ -16804,7 +16804,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.5",
       "company": "PythonCore",
-      "tag": "3.10.5-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.5-arm64",
         "3.10-arm64",
@@ -16911,7 +16911,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.4",
       "company": "PythonCore",
-      "tag": "3.10.4-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.4-arm64",
         "3.10-arm64",
@@ -17018,7 +17018,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.3",
       "company": "PythonCore",
-      "tag": "3.10.3-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.3-arm64",
         "3.10-arm64",
@@ -17125,7 +17125,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.2",
       "company": "PythonCore",
-      "tag": "3.10.2-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.2-arm64",
         "3.10-arm64",
@@ -17232,7 +17232,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.1",
       "company": "PythonCore",
-      "tag": "3.10.1-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.1-arm64",
         "3.10-arm64",
@@ -17339,7 +17339,7 @@
       "id": "pythoncore-3.10-arm64",
       "sort-version": "3.10.0",
       "company": "PythonCore",
-      "tag": "3.10.0-arm64",
+      "tag": "3.10-arm64",
       "install-for": [
         "3.10.0-arm64",
         "3.10-arm64",
@@ -17446,7 +17446,7 @@
       "id": "pythoncore-3.9-arm64",
       "sort-version": "3.9.10",
       "company": "PythonCore",
-      "tag": "3.9.10-arm64",
+      "tag": "3.9-arm64",
       "install-for": [
         "3.9.10-arm64",
         "3.9-arm64",
@@ -17553,7 +17553,7 @@
       "id": "pythoncore-3.9-arm64",
       "sort-version": "3.9.9",
       "company": "PythonCore",
-      "tag": "3.9.9-arm64",
+      "tag": "3.9-arm64",
       "install-for": [
         "3.9.9-arm64",
         "3.9-arm64",
@@ -17660,7 +17660,7 @@
       "id": "pythoncore-3.9-arm64",
       "sort-version": "3.9.8",
       "company": "PythonCore",
-      "tag": "3.9.8-arm64",
+      "tag": "3.9-arm64",
       "install-for": [
         "3.9.8-arm64",
         "3.9-arm64",
@@ -17767,7 +17767,7 @@
       "id": "pythoncore-3.9-arm64",
       "sort-version": "3.9.7",
       "company": "PythonCore",
-      "tag": "3.9.7-arm64",
+      "tag": "3.9-arm64",
       "install-for": [
         "3.9.7-arm64",
         "3.9-arm64",
