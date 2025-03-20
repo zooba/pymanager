@@ -30,7 +30,12 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$",
-        "install-for": ["$FULLVERSION$-64", "$XYVERSIONNOPRE$-64", "$XVERSIONNOPRE$-64"],
+        "install-for": [
+            "$FULLVERSION$-64",
+            "$XYVERSIONNOPRE$-64",
+            "$XVERSIONNOPRE$-64",
+            "$XYVERSIONDEV$-64",
+        ],
         "run-for": [
             {"tag": "$FULLVERSION$-64", "target": "python.exe"},
             {"tag": "$XYVERSION$-64", "target": "python.exe"},
@@ -98,7 +103,12 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$-32",
-        "install-for": ["$FULLVERSION$-32", "$XYVERSIONNOPRE$-32", "$XVERSIONNOPRE$-32"],
+        "install-for": [
+            "$FULLVERSION$-32",
+            "$XYVERSIONNOPRE$-32",
+            "$XVERSIONNOPRE$-32",
+            "$XYVERSIONDEV$-32",
+        ],
         "run-for": [
             {"tag": "$FULLVERSION$-32", "target": "python.exe"},
             {"tag": "$XYVERSION$-32", "target": "python.exe"},
@@ -166,7 +176,12 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$-arm64",
-        "install-for": ["$FULLVERSION$-arm64", "$XYVERSIONNOPRE$-arm64", "$XVERSIONNOPRE$-arm64"],
+        "install-for": [
+            "$FULLVERSION$-arm64",
+            "$XYVERSIONNOPRE$-arm64",
+            "$XVERSIONNOPRE$-arm64",
+            "$XYVERSIONDEV$-arm64",
+        ],
         "run-for": [
             {"tag": "$FULLVERSION$-arm64", "target": "python.exe"},
             {"tag": "$XYVERSION$-arm64", "target": "python.exe"},
@@ -234,7 +249,12 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$t",
-        "install-for": ["$FULLVERSION$t-64", "$XYVERSIONNOPRE$t-64", "$XVERSIONNOPRE$t-64"],
+        "install-for": [
+            "$FULLVERSION$t-64",
+            "$XYVERSIONNOPRE$t-64",
+            "$XVERSIONNOPRE$t-64",
+            "$XYVERSIONDEV$t-64",
+        ],
         "run-for": [
             {"tag": "$FULLVERSION$t-64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-64", "target": "python$XYVERSION$t.exe"},
@@ -302,7 +322,12 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$t-32",
-        "install-for": ["$FULLVERSION$t-32", "$XYVERSIONNOPRE$t-32", "$XVERSIONNOPRE$t-32"],
+        "install-for": [
+            "$FULLVERSION$t-32",
+            "$XYVERSIONNOPRE$t-32",
+            "$XVERSIONNOPRE$t-32",
+            "$XYVERSIONDEV$t-32",
+        ],
         "run-for": [
             {"tag": "$FULLVERSION$t-32", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-32", "target": "python$XYVERSION$t.exe"},
@@ -370,7 +395,12 @@ SCHEMA = {
         "sort-version": "$FULLVERSION$",
         "company": "PythonCore",
         "tag": "$FULLVERSION$t-arm64",
-        "install-for": ["$FULLVERSION$t-arm64", "$XYVERSIONNOPRE$t-arm64", "$XVERSIONNOPRE$t-arm64"],
+        "install-for": [
+            "$FULLVERSION$t-arm64",
+            "$XYVERSIONNOPRE$t-arm64",
+            "$XVERSIONNOPRE$t-arm64",
+            "$XYVERSIONDEV$t-arm64",
+        ],
         "run-for": [
             {"tag": "$FULLVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
             {"tag": "$XYVERSION$t-arm64", "target": "python$XYVERSION$t.exe"},
@@ -469,6 +499,7 @@ BASE_URL = RESOURCES["PackageBaseAddress/3.0.0"].rstrip("/")
 INDEX_OLD = {"versions": []}
 INDEX_CURRENT = {"versions": [], "next": ""}
 
+# Earlier versions than this go into "legacy.json"
 CURRENT_VERSION = Version("3.12")
 
 for name, schema in SCHEMA.items():
@@ -476,17 +507,22 @@ for name, schema in SCHEMA.items():
 
     all_versions = sorted((Version(ver) for ver in data["versions"]), reverse=True)
 
+    last_v = None
     for v in all_versions:
+        if v.is_prerelease and last_v and v.to_python_style(3, False) == last_v:
+            continue
         subs = {
             "FULLVERSION": v.to_python_style(3),
             "XYVERSION": v.to_python_style(2, False),
             "XYVERSIONNOPRE": None if v.is_prerelease else v.to_python_style(2, False),
+            "XYVERSIONDEV": (v.to_python_style(2, False) + "-dev") if v.is_prerelease else None,
             "XVERSION": v.to_python_style(1, False),
             "XVERSIONNOPRE": None if v.is_prerelease else v.to_python_style(1, False),
             "PACKAGEURL": f"{BASE_URL}/{name}/{v}/{name}.{v}.nupkg",
         }
         index = INDEX_CURRENT if v >= CURRENT_VERSION else INDEX_OLD
         index["versions"].append(dict_sub(schema, subs))
+        last_v = subs["FULLVERSION"]
 
 
 for file in map(Path, sys.argv[1:]):
