@@ -640,19 +640,24 @@ default).
    :header: "Symptom", "Things to try"
    :widths: 1, 1
 
-   "``python`` gives me a ""command not found"" error when I type it in my
-   terminal.", "Did you :ref:`install the Python install manager <pymanager>`?
+   "``python`` gives me a ""command not found"" error or opens the Store app
+   when I type it in my terminal.", "Did you :ref:`install the Python install
+   manager <pymanager>`?
    "
-   "", "Click Start, open ""Manage app execution aliases"", and check that your
-   ``python.exe`` alias is set to ""Python (default)"".
+   "", "Click Start, open ""Manage app execution aliases"", and check that the
+   aliases for ""Python (default)"" are enabled. If they already are, try
+   disabling and re-enabling to refresh the command. The ""Python (default
+   windowed)"" and ""Python install manager"" commands may also need refreshing.
    "
    "", "Check that the ``py`` and ``pymanager`` commands work.
    "
    "``py`` gives me a ""command not found"" error when I type it in my
    terminal.","Did you :ref:`install the Python install manager <pymanager>`?
    "
-   "", "Click Start, open ""Manage app execution aliases"", and check that your
-   ``py.exe`` alias is set to ""Python install manager"".
+   "", "Click Start, open ""Manage app execution aliases"", and check that the
+   aliases for ""Python install manager"" are enabled. If they already are, try
+   disabling and re-enabling to refresh the command. The ""Python (default
+   windowed)"" and ""Python install manager"" commands may also need refreshing.
    "
    "``py`` gives me a ""can't open file"" error when I type commands in my
    terminal.", "This usually means you have the legacy launcher installed and it
@@ -668,7 +673,8 @@ default).
    "
    "``python`` and ``py`` don't launch the runtime I expect", "Check your
    ``PYTHON_MANAGER_DEFAULT`` environment variable or ``default_tag``
-   configuration.
+   configuration. The ``py list`` command will show your default based on these
+   settings.
    "
    "", "Installs that are managed by the Python install manager will be chosen
    ahead of unmanaged installs. Use ``py install`` to install the runtime you
