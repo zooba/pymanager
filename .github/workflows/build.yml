@@ -26,7 +26,7 @@ jobs:
     - name: 'Ensure AppX support is enabled'
       run: |
         net start AppXSvc
-        ImportModule Appx
+        Import-Module Appx
 
     - name: 'Remove existing PyManager install'
       run: |
