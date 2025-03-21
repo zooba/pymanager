@@ -627,7 +627,7 @@ def execute(cmd):
                     # Fallthrough is safe - cmd.tags is empty
                 else:
                     raise ArgumentError("Specify at least one tag to install, or 'default' for "
-                                        "the configured default version.")
+                                        "the latest recommended release.")
 
             installs = []
             first_exc = None

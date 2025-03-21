@@ -30,5 +30,6 @@
     "start_folder": "Python",
 
     "launcher_exe": "./templates/launcher.exe",
-    "launcherw_exe": "./templates/launcherw.exe"
+    "launcherw_exe": "./templates/launcherw.exe",
+    "welcome_on_update": true
 }

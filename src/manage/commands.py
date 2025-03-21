@@ -19,6 +19,9 @@ COPYRIGHT = f"""Python installation manager {__version__}
 Copyright (c) Python Software Foundation. All Rights Reserved.
 """
 
+WELCOME = f"""!B!Python install manager was successfully updated to {__version__}.!W!
+
+""".strip()
 
 """
 Command-line arguments are defined in CLI_SCHEMA as a mapping from argument
@@ -208,6 +211,10 @@ CONFIG_SCHEMA = {
     # Default: .\launcher.exe and .\launcherw.exe
     "launcher_exe": (str, None, "path"),
     "launcherw_exe": (str, None, "path"),
+
+    # Show new update welcome messages (always hidden with '-q')
+    # Default: False
+    "welcome_on_update": (config_bool, None),
 }
 
 
@@ -226,6 +233,7 @@ class BaseCommand:
     virtual_env = None
     shebang_can_run_anything = True
     shebang_can_run_anything_silently = False
+    welcome_on_update = False
 
     log_file = None
     _create_log_file = True
@@ -367,6 +375,41 @@ class BaseCommand:
             from .urlutils import sanitise_url
             return sanitise_url(v)
         return v
+
+    def show_welcome(self, copyright=True):
+        if copyright:
+            LOGGER.verbose("!W!%s", COPYRIGHT)
+
+        if (not WELCOME
+            or not self.welcome_on_update
+            or not LOGGER.would_log_to_console(logging.INFO)
+        ):
+            return
+        from .fsutils import ensure_tree
+        from .verutils import Version
+        last_update_file = self.download_dir / "last_welcome.txt"
+        try:
+            with last_update_file.open("r") as f:
+                last_update = Version(next(f).strip())
+        except (FileNotFoundError, ValueError):
+            last_update = None
+        except OSError:
+            LOGGER.debug("Failed to read %s", last_update_file, exc_info=True)
+            return
+        if last_update and last_update >= Version(__version__):
+            # For non-release builds, remove the file. This ensures that our
+            # code to create it works, but we get to see the message when
+            # testing (every second time).
+            if __version__ == "0.1a0":
+                last_update_file.unlink()
+            return
+        try:
+            ensure_tree(last_update_file)
+            last_update_file.write_text(f"{__version__}\n\n{WELCOME}")
+        except OSError:
+            LOGGER.debug("Failed to update %s", last_update_file, exc_info=True)
+            return
+        LOGGER.print(WELCOME)
 
     def dump_arguments(self):
         try:
@@ -539,7 +582,7 @@ class ListCommand(BaseCommand):
 
     def execute(self):
         from .list_command import execute
-        LOGGER.verbose("!W!%s", COPYRIGHT)
+        self.show_welcome()
         if self.default_source:
             LOGGER.debug("Loading 'install' command to get source")
             inst_cmd = COMMANDS["install"](["install"], self.root)
@@ -656,7 +699,7 @@ class InstallCommand(BaseCommand):
 
     def execute(self):
         from .install_command import execute
-        LOGGER.verbose("!W!%s", COPYRIGHT)
+        self.show_welcome()
         execute(self)
 
 
@@ -691,7 +734,7 @@ class UninstallCommand(BaseCommand):
 
     def execute(self):
         from .uninstall_command import execute
-        LOGGER.verbose("!W!%s", COPYRIGHT)
+        self.show_welcome()
         execute(self)
 
 
@@ -715,6 +758,7 @@ class HelpCommand(BaseCommand):
 
     def execute(self):
         LOGGER.print(COPYRIGHT)
+        self.show_welcome(copyright=False)
         if not self.args:
             LOGGER.print(BaseCommand.subcommands_list())
         LOGGER.print(BaseCommand.help_text())
