@@ -6,24 +6,103 @@
 #define MAXLEN 32768
 
 // HRESULT-compatible error codes
-#define ERROR_NO_FILENAME   0xA0000001
-#define ERROR_NO_PYTHON3    0xA0000002
+#define ERROR_RELATIVE_PATH     0xA0000001
+#define ERROR_NO_PYTHON3        0xA0000002
 #define ERROR_DLL_LOAD_DISABLED 0xA0000003
 
 static int
 print_error(int err, const wchar_t *message)
 {
+    DWORD len;
+    wchar_t *os_message;
+
     if (!err) {
         err = GetLastError();
     }
+    if ((err & 0xFFFF0000) == 0x80070000) {
+        // extract Win32 error code from HRESULT
+        err = err & 0xFFFF;
+    }
+
     switch (err) {
     case 0:
         fwprintf(stderr, L"[WARN] Error was reported but no error code was set.\n"
                         "[ERROR] %s\n", message);
         break;
+    case ERROR_RELATIVE_PATH:
+        fwprintf(stderr, L"[ERROR] %s: an absolute path is required.\n", message);
+        break;
+    case ERROR_NO_PYTHON3:
+        fwprintf(stderr, L"[ERROR] %s: python3.dll is not found.\n", message);
+        break;
+    case ERROR_DLL_LOAD_DISABLED:
+        fwprintf(stderr, L"[ERROR] %s: DLL loading is disabled.\n", message);
+        break;
+    case ERROR_INVALID_FUNCTION:
+    case ERROR_ACCESS_DENIED:
+        fwprintf(stderr,
+                 L"[ERROR] %s: "
+                 L"the install path could not be accessed (0x%04X).\n"
+                 L"Try 'py install --repair <version>' to reinstall.\n",
+                 message, err);
+        break;
+    case ERROR_FILE_NOT_FOUND:
+    case ERROR_PATH_NOT_FOUND:
+    case ERROR_INVALID_DRIVE:
+        fwprintf(stderr,
+                 L"[ERROR] %s: "
+                 L"the install path was not found (0x%04X).\n"
+                 L"Try 'py install --repair <version>' to reinstall.\n",
+                 message, err);
+        break;
+    case ERROR_EXE_MACHINE_TYPE_MISMATCH:
+        fwprintf(stderr,
+                 L"[ERROR] %s: "
+                 L"the runtime is for a different machine architecture (0x%04X).\n"
+                 L"Use 'py install <version>' to install a different platform.\n",
+                 message, err);
+        break;
+    case ERROR_BAD_FORMAT:
+    case ERROR_MOD_NOT_FOUND:
+    case ERROR_PROC_NOT_FOUND:
+    case ERROR_INVALID_STARTING_CODESEG:
+    case ERROR_INVALID_STACKSEG:
+    case ERROR_INVALID_MODULETYPE:
+    case ERROR_INVALID_EXE_SIGNATURE:
+    case ERROR_EXE_MARKED_INVALID:
+    case ERROR_BAD_EXE_FORMAT:
+        fwprintf(stderr,
+                 L"[ERROR] %s: "
+                 L"the executable is corrupt or invalid (0x%08X).\n"
+                 L"Try 'py install --repair <version>' to reinstall.\n",
+                 message, err);
+        break;
+    case ERROR_NOT_ENOUGH_MEMORY:
+    case ERROR_OUTOFMEMORY:
+        fwprintf(stderr, L"[ERROR] %s: the system is out of memory (0x%04X).\n",
+                 message, err);
+        break;
     default:
-        // TODO: Improved rendering of errors
-        fwprintf(stderr, L"[ERROR] %s (0x%08X)\n", message, err);
+        len = FormatMessageW(
+            FORMAT_MESSAGE_ALLOCATE_BUFFER
+            | FORMAT_MESSAGE_FROM_SYSTEM
+            | FORMAT_MESSAGE_IGNORE_INSERTS,
+            NULL,
+            err,
+            MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+            (LPWSTR)&os_message,
+            0,
+            NULL
+        );
+        if (len) {
+            while (len > 0 && isspace(os_message[--len])) {
+                os_message[len] = L'\0';
+            }
+            fwprintf(stderr, L"[ERROR] %s: %s (0x%08X)\n", message, os_message, err);
+            LocalFree((void *)os_message);
+        } else {
+            fwprintf(stderr, L"[ERROR] %s (0x%08X)\n", message, err);
+        }
     }
     return err;
 }
@@ -74,7 +153,7 @@ try_load_python3_dll(const wchar_t *executable, unsigned int bufferSize, void **
     wcscpy_s(directory, executable);
     wchar_t *sep = wcsrchr(directory, L'\\');
     if (!sep) {
-        return ERROR_NO_FILENAME;
+        return ERROR_RELATIVE_PATH;
     }
     *sep = L'\0';
 
@@ -130,6 +209,7 @@ wmain(int argc, wchar_t **argv)
 {
     int exit_code;
     wchar_t executable[MAXLEN];
+
     int err = get_executable(executable, MAXLEN);
     if (err) {
         return print_error(err, L"Failed to get target path");
@@ -147,13 +227,16 @@ wmain(int argc, wchar_t **argv)
     case ERROR_NO_PYTHON3:
         // expected for incompatible runtimes - fall through to the .exe
         break;
+    case ERROR_RELATIVE_PATH:
     case ERROR_DLL_LOAD_DISABLED:
+        // specific errors leading to fallthrough
         break;
     default:
         // Errors at non-fatal steps (such as "python3.dll not found") will not
-        // have the top bit set. Perhaps we should warn/log them anyway, but not
-        // to the console
-        if (!(err & 0x80000000)) {
+        // have the top bit set.
+        if (err > 0 &&
+            !GetEnvironmentVariableW(L"PYMANAGER_DEBUG", NULL, 0) &&
+            !GetEnvironmentVariableW(L"PYMANAGER_VERBOSE", NULL, 0)) {
             break;
         }
         // Other errors indicate that we ought to have succeeded but didn't, so
@@ -174,7 +257,7 @@ wmain(int argc, wchar_t **argv)
     DWORD n = wcslen(fmt) + wcslen(executable) + 1;
     wchar_t *message = (wchar_t *)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, n * sizeof(wchar_t));
     if (!message) {
-        err = print_error(0, L"Failed to launch, and failed to allocate error message.");
+        err = print_error(0, L"Failed to launch, and failed to allocate error message");
     } else {
         swprintf_s(message, n, fmt, executable);
         err = print_error(err, message);
