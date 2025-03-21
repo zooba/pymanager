@@ -26,11 +26,11 @@ jobs:
     - name: 'Ensure AppX support is enabled'
       run: |
         net start AppXSvc
-        Import-Module Appx -UseWinPS
+        Import-Module Appx -UseWinPS -SkipEditionCheck
 
     - name: 'Remove existing PyManager install'
       run: |
-        Import-Module Appx -UseWinPS
+        Import-Module Appx -UseWinPS -SkipEditionCheck
         # Ensure we aren't currently installed
         $msix = Get-AppxPackage PythonSoftwareFoundation.PythonManager -EA SilentlyContinue
         if ($msix) {
@@ -86,7 +86,7 @@ jobs:
             | select -first 1
         cp $msix "${msix}.zip"
         Expand-Archive "${msix}.zip" (mkdir -Force $env:TEST_MSIX_DIR)
-        Import-Module Appx -UseWinPS
+        Import-Module Appx -UseWinPS -SkipEditionCheck
         Add-AppxPackage -Register "${env:TEST_MSIX_DIR}\appxmanifest.xml"
         Get-AppxPackage PythonSoftwareFoundation.PythonManager
       env:
@@ -142,5 +142,5 @@ jobs:
 
     - name: 'Remove MSIX'
       run: |
-        Import-Module Appx -UseWinPS
+        Import-Module Appx -UseWinPS -SkipEditionCheck
         Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
