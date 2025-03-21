@@ -10,6 +10,25 @@
 #define ERROR_NO_PYTHON3    0xA0000002
 #define ERROR_DLL_LOAD_DISABLED 0xA0000003
 
+static int
+print_error(int err, const wchar_t *message)
+{
+    if (!err) {
+        err = GetLastError();
+    }
+    switch (err) {
+    case 0:
+        fwprintf(stderr, L"[WARN] Error was reported but no error code was set.\n"
+                        "[ERROR] %s\n", message);
+        break;
+    default:
+        // TODO: Improved rendering of errors
+        fwprintf(stderr, L"[ERROR] %s (0x%08X)\n", message, err);
+    }
+    return err;
+}
+
+
 int
 get_executable(wchar_t *executable, unsigned int bufferSize)
 {
@@ -46,7 +65,7 @@ get_executable(wchar_t *executable, unsigned int bufferSize)
 
 
 int
-tryLoadPython3Dll(const wchar_t *executable, unsigned int bufferSize, void **mainFunction)
+try_load_python3_dll(const wchar_t *executable, unsigned int bufferSize, void **mainFunction)
 {
 #ifdef NO_DLL_LOADING
     return ERROR_DLL_LOAD_DISABLED;
@@ -65,7 +84,7 @@ tryLoadPython3Dll(const wchar_t *executable, unsigned int bufferSize, void **mai
     AddDllDirectory(directory);
     HMODULE mod = LoadLibraryExW(L"python3.dll", NULL, 0);
     if (!mod) {
-        return HRESULT_FROM_WIN32(GetLastError());
+        return GetLastError();
     }
     unsigned long *version = (unsigned long *)GetProcAddress(mod, "Py_Version");
     if (!version || *version < 0x030A0000 || *version >= 0x04000000) {
@@ -80,44 +99,86 @@ tryLoadPython3Dll(const wchar_t *executable, unsigned int bufferSize, void **mai
 #endif
 }
 
+static int
+launch_by_dll(void *main_func_ptr, wchar_t *executable, int argc, wchar_t **argv, int *exit_code)
+{
+    int (*main_func)(int argc, wchar_t **argv) = (int (*)(int, wchar_t **))main_func_ptr;
+
+    // We have a Py_Main() to call, so let's create the argv that we need
+    wchar_t **newArgv = (wchar_t **)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, argc * sizeof(wchar_t *));
+    if (!newArgv) {
+        return print_error(0, L"Failed to allocate command line");
+    }
+
+    newArgv[0] = executable;
+    for (int i = 1; i < argc; ++i) {
+        newArgv[i] = argv[i];
+    }
+
+    // Our caller assumes that any error result happens before we launch. From
+    // this point on, exit_code is set (possibly to an error), and so we should
+    // only return 0.
+
+    *exit_code = (*main_func)(argc, newArgv);
+
+    HeapFree(GetProcessHeap(), 0, newArgv);
+    return 0;
+}
 
 int
 wmain(int argc, wchar_t **argv)
 {
+    int exit_code;
     wchar_t executable[MAXLEN];
     int err = get_executable(executable, MAXLEN);
     if (err) {
-        fprintf(stderr, "FATAL ERROR: Failed to get target path (0x%08X)\n", err);
-        return err;
+        return print_error(err, L"Failed to get target path");
     }
 
-    int (*mainFunc)(int argc, wchar_t **argv);
-    err = tryLoadPython3Dll(executable, MAXLEN, (void **)&mainFunc);
+    void *main_func = NULL;
+    err = try_load_python3_dll(executable, MAXLEN, (void **)&main_func);
+    switch (err) {
+    case 0:
+        err = launch_by_dll(main_func, executable, argc, argv, &exit_code);
+        if (!err) {
+            return exit_code;
+        }
+        break;
+    case ERROR_NO_PYTHON3:
+        // expected for incompatible runtimes - fall through to the .exe
+        break;
+    case ERROR_DLL_LOAD_DISABLED:
+        break;
+    default:
+        // Errors at non-fatal steps (such as "python3.dll not found") will not
+        // have the top bit set. Perhaps we should warn/log them anyway, but not
+        // to the console
+        if (!(err & 0x80000000)) {
+            break;
+        }
+        // Other errors indicate that we ought to have succeeded but didn't, so
+        // display a message but still fall back to a regular launch.
+        // Most users will be launching CPython, which should have this DLL and
+        // prefer to load directly, so this is helpful.
+        print_error(err, L"Failed to load runtime DLL; "
+                         L"attempting to launch as a new process.");
+        break;
+    }
+
+    err = launch(executable, NULL, 0, (DWORD *)&exit_code);
     if (!err) {
-        // We have a Py_Main() to call, so let's create the argv that we need
-        wchar_t **newArgv = (wchar_t **)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, argc * sizeof(wchar_t *));
-        if (!newArgv) {
-            err = GetLastError();
-            fprintf(stderr, "FATAL ERROR: Failed to allocate command line (0x%08X)\n", err);
-            return err;
-        }
-        
-        newArgv[0] = executable;
-        for (int i = 1; i < argc; ++i) {
-            newArgv[i] = argv[i];
-        }
+        return exit_code;
+    }
 
-        err = (*mainFunc)(argc, newArgv);
-
-        HeapFree(GetProcessHeap(), 0, newArgv);
+    const wchar_t *fmt = L"Failed to launch '%ls'";
+    DWORD n = wcslen(fmt) + wcslen(executable) + 1;
+    wchar_t *message = (wchar_t *)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, n * sizeof(wchar_t));
+    if (!message) {
+        err = print_error(0, L"Failed to launch, and failed to allocate error message.");
     } else {
-        DWORD exitCode;
-        err = launch(executable, NULL, 0, &exitCode);
-        if (err) {
-            fprintf(stderr, "FATAL ERROR: Failed to launch '%ls' (0x%08X)\n", executable, err);
-        } else {
-            err = (int)exitCode;
-        }
+        swprintf_s(message, n, fmt, executable);
+        err = print_error(err, message);
+        HeapFree(GetProcessHeap(), 0, message);
     }
 
     return err;
