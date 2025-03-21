@@ -26,17 +26,20 @@ jobs:
     - name: 'Ensure AppX support is enabled'
       run: |
         net start AppXSvc
-        Import-Module Appx -UseWinPS -SkipEditionCheck
+        Import-Module Appx
+        Get-AppxPackage *
+      shell: powershell
 
     - name: 'Remove existing PyManager install'
       run: |
-        Import-Module Appx -UseWinPS -SkipEditionCheck
+        Import-Module Appx
         # Ensure we aren't currently installed
         $msix = Get-AppxPackage PythonSoftwareFoundation.PythonManager -EA SilentlyContinue
         if ($msix) {
           "Removing $($msix.Name)"
           Remove-AppxPackage $msix
         }
+      shell: powershell
 
     - name: Set up Python 3.14
       uses: actions/setup-python@v2
@@ -86,7 +89,7 @@ jobs:
             | select -first 1
         cp $msix "${msix}.zip"
         Expand-Archive "${msix}.zip" (mkdir -Force $env:TEST_MSIX_DIR)
-        Import-Module Appx -UseWinPS -SkipEditionCheck
+        Import-Module Appx
         Add-AppxPackage -Register "${env:TEST_MSIX_DIR}\appxmanifest.xml"
         Get-AppxPackage PythonSoftwareFoundation.PythonManager
       env:
@@ -94,6 +97,7 @@ jobs:
         PYMSBUILD_DIST_DIR: ${{ runner.temp }}/dist
         PYMSBUILD_LAYOUT_DIR: ${{ runner.temp }}/layout
         TEST_MSIX_DIR: ${{ runner.temp }}/test_msix
+      shell: powershell
 
     - name: 'Ensure global commands are present'
       run: |
@@ -142,5 +146,6 @@ jobs:
 
     - name: 'Remove MSIX'
       run: |
-        Import-Module Appx -UseWinPS -SkipEditionCheck
+        Import-Module Appx
         Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
+      shell: powershell
