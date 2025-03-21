@@ -39,8 +39,9 @@ def _format_alias(i):
 
 def _format_tag_with_co(cmd, i):
     t = i["tag"]
-    if cmd and cmd.default_platform:
-        t = t.removesuffix(cmd.default_platform)
+    # Show the default platform as optional when configured.
+    if cmd and cmd.default_platform and t.endswith(cmd.default_platform):
+        t = t.removesuffix(cmd.default_platform) + f"[{cmd.default_platform}]"
     if i["company"].casefold() in ("PythonCore".casefold(), "---", ""):
         return t
     return rf"{i['company']}\{t}"

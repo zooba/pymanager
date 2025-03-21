@@ -19,9 +19,15 @@ COPYRIGHT = f"""Python installation manager {__version__}
 Copyright (c) Python Software Foundation. All Rights Reserved.
 """
 
-WELCOME = f"""!B!Python install manager was successfully updated to {__version__}.!W!
 
-""".strip()
+# Changing the NuGet feed to use '-64' on IDs means they won't update in-place,
+# and the next install will be side-by-side.
+
+WELCOME = f"""!B!Python install manager was successfully updated to {__version__}.!W!
+!Y!NOTE:!W! Previously installed 64-bit runtimes may no longer be updatable.
+They can, however, be removed with 'py uninstall'.
+"""
+
 
 """
 Command-line arguments are defined in CLI_SCHEMA as a mapping from argument
