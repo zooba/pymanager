@@ -23,6 +23,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: 'Ensure AppX support is enabled'
+      run: |
+        net start AppXSvc
+        ImportModule Appx
+
     - name: 'Remove existing PyManager install'
       run: |
         # Ensure we aren't currently installed
