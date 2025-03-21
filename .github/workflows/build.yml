@@ -13,13 +13,7 @@ env:
   PIP_PROGRESS_BAR: off
   PIP_REQUIRE_VIRTUALENV: false
   PIP_VERBOSE: true
-
   PYMSBUILD_VERBOSE: true
-  PYMSBUILD_TEMP_DIR: ${{ runner.temp }}/bin
-  PYMSBUILD_DIST_DIR: ${{ runner.temp }}/dist
-  PYMSBUILD_LAYOUT_DIR: ${{ runner.temp }}/layout
-
-  TEST_MSIX_DIR: ${{ runner.temp }}/test_msix
 
 
 jobs:
@@ -37,6 +31,7 @@ jobs:
           "Removing $($msix.Name)"
           Remove-AppxPackage $msix
         }
+      shell: powershell
 
     - name: Set up Python 3.14
       uses: actions/setup-python@v2
@@ -57,12 +52,27 @@ jobs:
 
     - name: 'Build package'
       run: python make.py
+      env:
+        PYMSBUILD_TEMP_DIR: ${{ runner.temp }}/bin
+        PYMSBUILD_DIST_DIR: ${{ runner.temp }}/dist
+        PYMSBUILD_LAYOUT_DIR: ${{ runner.temp }}/layout
+        TEST_MSIX_DIR: ${{ runner.temp }}/test_msix
 
     - name: 'Build MSIX package'
       run: python make-msix.py
+      env:
+        PYMSBUILD_TEMP_DIR: ${{ runner.temp }}/bin
+        PYMSBUILD_DIST_DIR: ${{ runner.temp }}/dist
+        PYMSBUILD_LAYOUT_DIR: ${{ runner.temp }}/layout
+        TEST_MSIX_DIR: ${{ runner.temp }}/test_msix
 
     - name: 'Build MSI package'
       run: python make-msi.py
+      env:
+        PYMSBUILD_TEMP_DIR: ${{ runner.temp }}/bin
+        PYMSBUILD_DIST_DIR: ${{ runner.temp }}/dist
+        PYMSBUILD_LAYOUT_DIR: ${{ runner.temp }}/layout
+        TEST_MSIX_DIR: ${{ runner.temp }}/test_msix
 
     - name: 'Register unsigned MSIX'
       run: |
@@ -73,6 +83,12 @@ jobs:
         Expand-Archive "${msix}.zip" (mkdir -Force $env:TEST_MSIX_DIR)
         Add-AppxPackage -Register "${env:TEST_MSIX_DIR}\appxmanifest.xml"
         Get-AppxPackage PythonSoftwareFoundation.PythonManager
+      env:
+        PYMSBUILD_TEMP_DIR: ${{ runner.temp }}/bin
+        PYMSBUILD_DIST_DIR: ${{ runner.temp }}/dist
+        PYMSBUILD_LAYOUT_DIR: ${{ runner.temp }}/layout
+        TEST_MSIX_DIR: ${{ runner.temp }}/test_msix
+      shell: powershell
 
     - name: 'Ensure global commands are present'
       run: |
@@ -120,4 +136,6 @@ jobs:
         pymanager install -vv --source .\bundle 3 3-32 3-64 3-arm64
 
     - name: 'Remove MSIX'
-      run: Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
+      run: |
+        Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage
+      shell: powershell
