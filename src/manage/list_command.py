@@ -18,7 +18,7 @@ def _exe_partition(n):
     return n1, w, n2
 
 
-def _format_alias(i):
+def _format_alias(i, seen):
     try:
         alias = i["alias"]
     except KeyError:
@@ -26,8 +26,15 @@ def _format_alias(i):
     if not alias:
         return ""
     if len(alias) == 1:
+        a = i["alias"][0]
+        n = a["name"].casefold()
+        if n in seen:
+            return ""
+        seen.add(n)
         return i["alias"][0]["name"]
-    names = {_exe_partition(a["name"].casefold()): a["name"] for a in alias}
+    names = {_exe_partition(a["name"].casefold()): a["name"] for a in alias
+             if a["name"].casefold() not in seen}
+    seen.update(a["name"].casefold() for a in alias)
     for n1, w, n2 in list(names):
         k = (n1, "", n2)
         if w and k in names:
@@ -62,9 +69,10 @@ def format_table(cmd, installs):
         "sort-version": "Version",
         "alias": "Alias",
     }
+    seen_alias = set()
     installs = [{
         **i,
-        "alias": _format_alias(i),
+        "alias": _format_alias(i, seen_alias),
         "sort-version": str(i['sort-version']),
         "default-star": "*" if i.get("default") else "",
         "tag-with-co": _format_tag_with_co(cmd, i),

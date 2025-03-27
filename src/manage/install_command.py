@@ -265,6 +265,8 @@ def update_all_shortcuts(cmd, path_warning=True):
     for i in cmd.get_installs():
         if cmd.global_dir:
             for a in i.get("alias", ()):
+                if a["name"].casefold() in alias_written:
+                    continue
                 target = i["prefix"] / a["target"]
                 if not target.is_file():
                     LOGGER.warn("Skipping alias '%s' because target '%s' does not exist", a["name"], a["target"])
@@ -314,10 +316,11 @@ def update_all_shortcuts(cmd, path_warning=True):
 def print_cli_shortcuts(cmd):
     installs = cmd.get_installs()
     seen = set()
-    installs = [i for i in installs if install_matches_any(i, cmd.tags)]
     for i in installs:
         aliases = sorted(a["name"] for a in i["alias"] if a["name"].casefold() not in seen)
         seen.update(n.casefold() for n in aliases)
+        if not install_matches_any(i, cmd.tags):
+            continue
         if i.get("default") and aliases:
             LOGGER.info("%s will be launched by !G!python.exe!W! and also %s",
                         i["display-name"], ", ".join(aliases))
