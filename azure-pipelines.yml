@@ -224,10 +224,20 @@ jobs:
     - powershell: |
         pymanager install -vv default
       displayName: 'Install default runtime'
+      env:
+        PYMANAGER_DEBUG: true
 
     - powershell: |
-        pymanager list -vv
+        pymanager list
       displayName: 'List installed runtimes'
+      env:
+        PYMANAGER_DEBUG: true
+
+    - powershell: |
+        pymanager --list-paths
+      displayName: 'List installed runtimes (legacy)'
+      env:
+        PYMANAGER_DEBUG: true
 
     - powershell: |
         pymanager exec -m site
@@ -249,11 +259,13 @@ jobs:
         PYMANAGER_DEBUG: true
 
     - powershell: |
-        pymanager list -vv --online 3 3-32 3-64 3-arm64
-        pymanager install -vv --download .\bundle 3 3-32 3-64 3-arm64
-        pymanager list -vv --source .\bundle
-        pymanager install -vv --source .\bundle 3 3-32 3-64 3-arm64
+        pymanager list --online 3 3-32 3-64 3-arm64
+        pymanager install --download .\bundle 3 3-32 3-64 3-arm64
+        pymanager list --source .\bundle
+        pymanager install --source .\bundle 3 3-32 3-64 3-arm64
       displayName: 'Offline bundle download and install'
+      env:
+        PYMANAGER_DEBUG: true
 
     - powershell: |
         Get-AppxPackage PythonSoftwareFoundation.PythonManager | Remove-AppxPackage

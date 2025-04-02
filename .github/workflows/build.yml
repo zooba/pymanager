@@ -105,10 +105,19 @@ jobs:
       run: pymanager
 
     - name: 'Install default runtime'
-      run: pymanager install -vv default
+      run: pymanager install default
+      env:
+        PYMANAGER_DEBUG: true
 
     - name: 'List installed runtimes'
-      run: pymanager list -vv
+      run: pymanager list
+      env:
+        PYMANAGER_DEBUG: true
+
+    - name: 'List installed runtimes (legacy)'
+      run: pymanager --list-paths
+      env:
+        PYMANAGER_DEBUG: true
 
     - name: 'Launch default runtime'
       run: pymanager exec -m site
@@ -130,10 +139,12 @@ jobs:
 
     - name: 'Offline bundle download and install'
       run: |
-        pymanager list -vv --online 3 3-32 3-64 3-arm64
-        pymanager install -vv --download .\bundle 3 3-32 3-64 3-arm64
-        pymanager list -vv --source .\bundle
-        pymanager install -vv --source .\bundle 3 3-32 3-64 3-arm64
+        pymanager list --online 3 3-32 3-64 3-arm64
+        pymanager install --download .\bundle 3 3-32 3-64 3-arm64
+        pymanager list --source .\bundle
+        pymanager install --source .\bundle 3 3-32 3-64 3-arm64
+      env:
+        PYMANAGER_DEBUG: true
 
     - name: 'Remove MSIX'
       run: |
