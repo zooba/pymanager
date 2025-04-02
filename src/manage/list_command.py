@@ -207,7 +207,7 @@ FORMATTERS = {
     "prefix": format_bare_prefix,
     "url": format_bare_url,
     "legacy": format_legacy,
-    "legacy-paths": lambda i: format_legacy(i, paths=True),
+    "legacy-paths": lambda cmd, i: format_legacy(cmd, i, paths=True),
 }
 
 
