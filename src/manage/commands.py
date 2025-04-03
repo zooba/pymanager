@@ -20,15 +20,10 @@ Copyright (c) Python Software Foundation. All Rights Reserved.
 """
 
 
-# Changing the NuGet feed to use '-64' on IDs means they won't update in-place,
-# and the next install will be side-by-side.
-
 WELCOME = f"""!B!Python install manager was successfully updated to {__version__}.!W!
-!Y!NOTE:!W! Previously installed 64-bit runtimes may no longer be updatable.
-They can, however, be removed with 'py uninstall'.
 """
 
-# $ARGV0 will later be substituted for the launch command
+
 USAGE_HELP_TEXT = r"""
 !G!Usage:!W!
     py !B!<regular Python options>!W!
