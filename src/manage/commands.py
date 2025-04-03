@@ -28,6 +28,37 @@ WELCOME = f"""!B!Python install manager was successfully updated to {__version__
 They can, however, be removed with 'py uninstall'.
 """
 
+# $ARGV0 will later be substituted for the launch command
+USAGE_HELP_TEXT = r"""
+!G!Usage:!W!
+    py !B!<regular Python options>!W!
+                     Launch the default runtime with specified options.
+                     This is the equivalent of the !G!python!W! command.
+    py -V:!B!<TAG>!W!      Launch runtime identified by !B!<TAG>!W!, which should include the
+                     company name if not !B!PythonCore!W!. Regular Python options may
+                     follow this option.
+    py -!B!<VERSION>!W!    Equivalent to -V:PythonCore\!B!<VERSION>!W!. The version must
+                     begin with the digit 3, platform overrides are permitted,
+                     and regular Python options may follow.
+                     !G!py -3!W! is the equivalent of the !G!python3!W! command.
+    py !B!<COMMAND>!W!     Run a specific command (see list below)
+
+Find additional information at !B!https://docs.python.org/using/windows.html!W!.
+
+"""
+
+# The help text of subcommands is generated below - look for 'subcommands_list'
+
+GLOBAL_OPTIONS_HELP_TEXT = fr"""
+!G!Global options:!W!
+    -v, --verbose    Increased output (!B!log_level={logging.INFO}!W!)
+    -vv              Further increased output (!B!log_level={logging.DEBUG}!W!)
+    -q, --quiet      Less output (!B!log_level={logging.WARN}!W!)
+    -qq              Even less output (!B!log_level={logging.ERROR}!W!)
+    -y, --yes        Always confirm prompts (!B!confirm=false!W!)
+    --config=!B!<PATH>!W!  Override configuration with JSON file
+"""
+
 
 """
 Command-line arguments are defined in CLI_SCHEMA as a mapping from argument
@@ -455,31 +486,28 @@ class BaseCommand:
         raise NotImplementedError(f"'{type(self).__name__}' does not implement 'execute()'")
 
     @classmethod
+    def usage_text(cls):
+        return USAGE_HELP_TEXT.lstrip().replace("\r\n", "\n")
+
+    @classmethod
     def subcommands_list(cls):
         cmd_help = [
-            "    {:<16} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", ""))
+            "    py {:<13} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", ""))
             for cmd in sorted(COMMANDS)
             if cmd[:1].isalpha()
         ]
         return fr"""
-!G!Subcommands:!W!
+!G!Commands:!W!
 {'\n'.join(cmd_help)}
 """.lstrip().replace("\r\n", "\n")
 
     @classmethod
     def help_text(cls):
-        return fr"""
-!G!Global options:!W!
-    -v, --verbose    Increased output (!B!log_level={logging.INFO}!W!)
-    -vv              Further increased output (!B!log_level={logging.DEBUG}!W!)
-    -q, --quiet      Less output (!B!log_level={logging.WARN}!W!)
-    -qq              Even less output (!B!log_level={logging.ERROR}!W!)
-    -y, --yes        Always confirm prompts (!B!confirm=false!W!)
-    --config=!B!<PATH>!W!  Override configuration with JSON file
-""".lstrip().replace("\r\n", "\n")
+        return GLOBAL_OPTIONS_HELP_TEXT.replace("\r\n", "\n")
 
     def help(self):
         if type(self) is BaseCommand:
+            LOGGER.print(self.usage_text())
             LOGGER.print(self.subcommands_list())
         LOGGER.print(self.help_text())
         try:
@@ -766,6 +794,7 @@ class HelpCommand(BaseCommand):
         LOGGER.print(COPYRIGHT)
         self.show_welcome(copyright=False)
         if not self.args:
+            LOGGER.print(BaseCommand.usage_text())
             LOGGER.print(BaseCommand.subcommands_list())
         LOGGER.print(BaseCommand.help_text())
         for a in self.args:
