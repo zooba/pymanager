@@ -189,8 +189,8 @@ DLL_NAMES = {
 EMBED_URLS = {
     "cp313-cp313-win_amd64": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-amd64.zip",
     "cp313-cp313-win_arm64": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-arm64.zip",
-    "cp314-cp314-win_amd64": "https://www.python.org/ftp/python/3.14.0/python-3.14.0a6-embed-amd64.zip",
-    "cp314-cp314-win_arm64": "https://www.python.org/ftp/python/3.14.0/python-3.14.0a6-embed-arm64.zip",
+    "cp314-cp314-win_amd64": "https://www.python.org/ftp/python/3.14.0/python-3.14.0a7-embed-amd64.zip",
+    "cp314-cp314-win_arm64": "https://www.python.org/ftp/python/3.14.0/python-3.14.0a7-embed-arm64.zip",
 }
 
 
