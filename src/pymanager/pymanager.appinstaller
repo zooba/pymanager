@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AppInstaller
     xmlns="http://schemas.microsoft.com/appx/appinstaller/2017/2"
+    xmlns:s4="http://schemas.microsoft.com/appx/appinstaller/2018"
     Version="${Version}"
     Uri="${Url}/pymanager.appinstaller">
 
@@ -13,6 +14,7 @@
 
     <UpdateSettings>
         <OnLaunch HoursBetweenUpdateChecks="24"/>
+        <s4:ForceUpdateFromAnyVersion>true</s4:ForceUpdateFromAnyVersion>
     </UpdateSettings>
 
 </AppInstaller>
