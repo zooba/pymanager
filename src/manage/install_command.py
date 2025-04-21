@@ -594,7 +594,8 @@ def execute(cmd):
                 if cmd.repair:
                     LOGGER.verbose("No tags provided, repairing all installs:")
                     for install in installed:
-                        _install_one(cmd, install)
+                        # Only try to redownload from the same source
+                        _install_one(cmd, install.get('source'), install)
                     # Fallthrough is safe - cmd.tags is empty
                 elif cmd.update:
                     LOGGER.verbose("No tags provided, updating all installs:")
@@ -621,7 +622,7 @@ def execute(cmd):
                             raise RuntimeError("All install sources failed, nothing can be updated.")
                         if update:
                             if update['sort-version'] > install['sort-version']:
-                                _install_one(cmd, update)
+                                _install_one(cmd, source, update)
                             else:
                                 LOGGER.verbose("%s is already up to date.", install['display-name'])
                         else:

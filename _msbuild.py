@@ -180,18 +180,12 @@ PACKAGE = Package('python-manager',
 )
 
 
-DLL_NAMES = {
-    "cp313": "python313",
-    "cp314": "python314",
-}
+DLL_NAME = "python314"
+EMBED_URL = "https://www.python.org/ftp/python/3.14.0/python-3.14.0a7-embed-amd64.zip"
 
-
-EMBED_URLS = {
-    "cp313-cp313-win_amd64": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-amd64.zip",
-    "cp313-cp313-win_arm64": "https://www.python.org/ftp/python/3.13.2/python-3.13.2-embed-arm64.zip",
-    "cp314-cp314-win_amd64": "https://www.python.org/ftp/python/3.14.0/python-3.14.0a7-embed-amd64.zip",
-    "cp314-cp314-win_arm64": "https://www.python.org/ftp/python/3.14.0/python-3.14.0a7-embed-arm64.zip",
-}
+def can_embed(tag):
+    "Return False if tag doesn't match DLL_NAME and EMBED_URL."
+    return tag == "cp314-cp314-win_amd64"
 
 
 def get_commands():
@@ -333,14 +327,17 @@ def init_PACKAGE(tag=None):
     update_file(cmds_h, cmds_txt)
 
     # BUNDLE EMBEDDABLE DISTRO
-    dll_name = DLL_NAMES[tag.partition("-")[0]]
-    PACKAGE.find("py-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
-    PACKAGE.find("pyw-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{dll_name}.dll"
+    if not can_embed(tag):
+        print("[WARNING] Unable to bundle embeddable distro for this runtime.")
+        return
+
+    PACKAGE.find("py-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{DLL_NAME}.dll"
+    PACKAGE.find("pyw-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{DLL_NAME}.dll"
 
     embed_files = [tmpdir / tag / n for n in [
-        f"{dll_name}.dll",
-        f"{dll_name}.zip",
-        f"{dll_name}._pth",
+        f"{DLL_NAME}.dll",
+        f"{DLL_NAME}.zip",
+        f"{DLL_NAME}._pth",
     ]]
     runtime_files = [tmpdir / tag / n for n in [
         "vcruntime140.dll",
@@ -351,7 +348,7 @@ def init_PACKAGE(tag=None):
         from zipfile import ZipFile
         package = tmpdir / tag / "package.zip"
         package.parent.mkdir(exist_ok=True, parents=True)
-        urlretrieve(EMBED_URLS[tag], package)
+        urlretrieve(EMBED_URL, package)
         with ZipFile(package) as zf:
             for f in [*embed_files, *runtime_files]:
                 f.write_bytes(zf.read(f.name))
