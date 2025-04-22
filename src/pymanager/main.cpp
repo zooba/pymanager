@@ -232,8 +232,6 @@ init_python(int argc, const wchar_t **argv)
     PyConfig_InitIsolatedConfig(&config);
 
     if (argc >= 1) {
-        std::wstring exe_path = get_exe_path();
-        PyConfig_SetString(&config, &config.executable, exe_path.c_str());
         PyConfig_SetString(&config, &config.program_name, argv[0]);
     }
     config.import_time = is_env_var_set(L"PYMANAGER_IMPORT_TIME");
