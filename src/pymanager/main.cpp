@@ -32,7 +32,7 @@ struct {
 
 
 static std::wstring
-get_exe_directory()
+get_exe_path()
 {
     std::wstring path;
     while (true) {
@@ -42,11 +42,22 @@ get_exe_directory()
             break;
         }
         if (path_len <= path.size()) {
-            path.resize(path.find_last_of(L"/\\", path_len, 2));
+            path.resize(path_len);
             return path;
         }
     }
     return std::wstring();
+}
+
+
+static std::wstring
+get_exe_directory()
+{
+    std::wstring path = get_exe_path();
+    if (path.size()) {
+        path.resize(path.find_last_of(L"/\\", path.size(), 2));
+    }
+    return path;
 }
 
 
@@ -200,7 +211,7 @@ read_script_from_argv(int argc, const wchar_t **argv, int skip_argc, std::wstrin
 
 
 static int
-init_python()
+init_python(int argc, const wchar_t **argv)
 {
     // Ensure we are safely loading before triggering delay loaded DLL
     if (!SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_SYSTEM32
@@ -220,6 +231,11 @@ init_python()
     PyConfig config;
     PyConfig_InitIsolatedConfig(&config);
 
+    if (argc >= 1) {
+        std::wstring exe_path = get_exe_path();
+        PyConfig_SetString(&config, &config.executable, exe_path.c_str());
+        PyConfig_SetString(&config, &config.program_name, argv[0]);
+    }
     config.import_time = is_env_var_set(L"PYMANAGER_IMPORT_TIME");
 
     status = Py_InitializeFromConfig(&config);
@@ -449,7 +465,7 @@ wmain(int argc, wchar_t **argv)
     std::wstring executable, args, tag, script;
     int skip_argc = 0;
 
-    err = init_python();
+    err = init_python(argc, (const wchar_t **)argv);
     if (err) {
         return err;
     }
