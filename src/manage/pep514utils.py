@@ -172,7 +172,10 @@ def update_registry(root_name, install, data):
                 winreg.SetValueEx(tag, "ManagedByPyManager", None, winreg.REG_DWORD, 1)
                 _update_reg_values(tag, data, install, {"kind", "Key", "ManagedByPyManager"})
         else:
-            LOGGER.debug("Skipping %s because it already exists", data["Key"])
+            LOGGER.warn("A runtime matching %s is already installed, and so "
+                        "the new one has not been registered.", data["Key"])
+            LOGGER.info("To register the new installation, remove the existing "
+                        "runtime and then run 'py install --refresh'",)
 
 
 def cleanup_registry(root_name, keep):

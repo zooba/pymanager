@@ -114,7 +114,7 @@ per_exe_settings(
         return;
     }
     if (CompareStringOrdinal(&argv0[n], cch, L"pymanager", -1, TRUE) == CSTR_EQUAL) {
-        *default_command = L"help";
+        *default_command = argc >= 2 ? L"__help_with_error" : L"help";
         *commands = argc >= 2;
         *cli_tag = false;
         *shebangs = false;
@@ -481,6 +481,10 @@ wmain(int argc, wchar_t **argv)
 
     // Use the default command if we have one
     if (default_cmd) {
+        if (!wcscmp(default_cmd, L"__help_with_error")) {
+            const wchar_t *new_argv[] = {argv[0], default_cmd, argv[1]};
+            return run_command(3, new_argv);
+        }
         return run_simple_command(argv[0], default_cmd);
     }
 

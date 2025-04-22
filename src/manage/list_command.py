@@ -74,9 +74,14 @@ def format_table(cmd, installs):
         **i,
         "alias": _format_alias(i, seen_alias),
         "sort-version": str(i['sort-version']),
-        "default-star": "*" if i.get("default") else "",
+        "default-star": "",
         "tag-with-co": _format_tag_with_co(cmd, i),
     } for i in installs]
+
+    for i in installs:
+        if i.get("default"):
+            i["default-star"] = "*"
+            break
 
     cwidth = {k: len(v) for k, v in columns.items()}
     for i in installs:
@@ -102,7 +107,7 @@ def format_table(cmd, installs):
     any_shown = False
     for i in installs:
         if not i.get("unmanaged"):
-            clr = "!G!" if i.get("default") else ""
+            clr = "!G!" if i.get("default-star") else ""
             LOGGER.print(f"{clr}%s!W!", "  ".join(_ljust(i.get(c, ""), cwidth[c]) for c in columns))
             any_shown = True
     if not any_shown:
@@ -112,7 +117,7 @@ def format_table(cmd, installs):
         if i.get("unmanaged"):
             if not shown_header:
                 LOGGER.print()
-                LOGGER.print("!B!* These runtimes may be run, but cannot be updated or uninstalled. *!W!")
+                LOGGER.print("!B!* These runtimes were found, but cannot be updated or uninstalled. *!W!")
                 shown_header = True
             clr = "!G!" if i.get("default") else ""
             LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns))
@@ -188,12 +193,24 @@ def format_bare_url(cmd, installs):
 
 
 def format_legacy(cmd, installs, paths=False):
+    seen_default = False
+    # TODO: Filter out unmanaged runtimes that have managed equivalents
+    # The default order (which should be preserved) of 'installs' will put the
+    # unmanaged runtimes first. So we can't just filter as we go, it needs to
+    # be a separate pass. We should also reorder PythonCore prereleases above
+    # non-PythonCore installs, since the Company will distinguish.
+    # But legacy output is uninteresting, so it can be done later.
     for i in installs:
-        tag = _format_tag_with_co(cmd, i)
-        if tag:
-            tag = f" -V:{tag}"
-        if i.get("default"):
-            tag = f"{tag} *"
+        if i["id"] == "__active-virtual-env":
+            tag = f"  *"
+            seen_default = True
+        else:
+            tag = _format_tag_with_co(cmd, i)
+            if tag:
+                tag = f" -V:{tag}"
+            if not seen_default and i.get("default"):
+                tag = f"{tag} *"
+                seen_default = True
         print(tag.ljust(17), i["executable"] if paths else i["display-name"])
 
 
@@ -238,8 +255,15 @@ def execute(cmd):
         raise ArgumentError(f"'{cmd.format}' is not a valid format; expect one of: {expect}") from None
 
     from .tagutils import tag_or_range, install_matches_any
-    tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
-            for arg in cmd.args]
+    tags = []
+    for arg in cmd.args:
+        if arg.casefold() == "default".casefold():
+            tags.append(tag_or_range(cmd.default_tag))
+        else:
+            try:
+                tags.append(tag_or_range(arg))
+            except ValueError as ex:
+                LOGGER.warn("%s", ex)
 
     if cmd.source:
         from .indexutils import Index

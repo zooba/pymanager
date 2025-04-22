@@ -16,6 +16,8 @@ class PurePath:
             except AttributeError:
                 p = str(p).replace("/", "\\")
             p = p.replace("\\\\", "\\")
+            if p == ".":
+                continue
             if p.startswith(".\\"):
                 p = p[2:]
             if total:
@@ -41,6 +43,14 @@ class PurePath:
         return bool(self._p)
 
     @property
+    def stem(self):
+        return self.name.rpartition(".")[0]
+
+    @property
+    def suffix(self):
+        return self.name.rpartition(".")[2]
+
+    @property
     def parent(self):
         return type(self)(self._parent)
 
@@ -61,6 +71,11 @@ class PurePath:
         return bits
 
     def __truediv__(self, other):
+        other = str(other)
+        # Quick hack to hide leading ".\" on paths. We don't fully normalise
+        # here because it can change the meaning of paths.
+        while other.startswith(("./", ".\\")):
+            other = other[2:]
         return type(self)(os.path.join(self._p, other))
 
     def __eq__(self, other):
@@ -79,7 +94,7 @@ class PurePath:
     def with_suffix(self, suffix):
         if suffix and suffix[:1] != ".":
             suffix = f".{suffix}"
-        return type(self)(os.path.join(self._parent, self.name.rpartition(".")[0] + suffix))
+        return type(self)(os.path.join(self._parent, self.stem + suffix))
 
     def relative_to(self, base):
         base = PurePath(base).parts

@@ -40,6 +40,8 @@ def _make(root, prefix, item):
         lnk.relative_to(root)
     except ValueError:
         LOGGER.warn("Package attempted to create shortcut outside of its directory")
+        LOGGER.debug("Path: %s", lnk)
+        LOGGER.debug("Directory: %s", root)
         return None
     _native.shortcut_create(
         lnk,
@@ -81,6 +83,8 @@ def _make_directory(root, name, prefix, items):
                     print(i.relative_to(subdir), file=f)
                 except ValueError:
                     LOGGER.warn("Package attempted to create shortcut outside of its directory")
+                    LOGGER.debug("Path: %s", i)
+                    LOGGER.debug("Directory: %s", subdir)
     _native.hide_file(ini, True)
 
     return subdir

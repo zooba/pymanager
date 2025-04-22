@@ -330,6 +330,8 @@ def tag_or_range(tag):
         return CompanyTag("", "")
     if tag[:1] in "<>!":
         return TagRange(tag)
+    if tag.lower() in ("default", "latest", "help"):
+        raise ValueError(f"'{tag}' is not a valid tag or filter.")
     return CompanyTag(tag)
 
 
