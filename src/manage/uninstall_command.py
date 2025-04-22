@@ -49,9 +49,14 @@ def execute(cmd):
         for tag in cmd.args:
             if tag.casefold() == "default".casefold():
                 tag = cmd.default_tag
+            try:
+                t_or_r = tag_or_range(tag)
+            except ValueError as ex:
+                LOGGER.warn("%s", ex)
+                continue
             candidates = get_matching_install_tags(
                 installed,
-                tag_or_range(tag),
+                t_or_r,
                 default_platform=cmd.default_platform,
             )
             if not candidates:

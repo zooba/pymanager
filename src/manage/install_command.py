@@ -516,8 +516,15 @@ def execute(cmd):
     download_index = {"versions": []}
 
     if not cmd.by_id:
-        cmd.tags = [tag_or_range(arg if arg.casefold() != "default".casefold() else cmd.default_tag)
-                    for arg in cmd.args]
+        cmd.tags = []
+        for arg in cmd.args:
+            if arg.casefold() == "default".casefold():
+                cmd.tags.append(tag_or_range(cmd.default_tag))
+            else:
+                try:
+                    cmd.tags.append(tag_or_range(arg))
+                except ValueError as ex:
+                    LOGGER.warn("%s", ex)
 
         if not cmd.tags and cmd.automatic:
             cmd.tags = [tag_or_range(cmd.default_tag)]

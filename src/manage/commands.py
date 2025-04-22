@@ -10,7 +10,7 @@ from .config import (
     config_split_append,
 )
 from .exceptions import ArgumentError
-from .pathutils import Path
+from .pathutils import PurePath, Path
 
 from . import logging
 LOGGER = logging.LOGGER
@@ -24,28 +24,43 @@ WELCOME = f"""!B!Python install manager was successfully updated to {__version__
 """
 
 
-USAGE_HELP_TEXT = r"""
-!G!Usage:!W!
-    py !B!<regular Python options>!W!
+NAME = PurePath(sys.executable).stem
+
+if NAME.casefold() == "pymanager".casefold():
+    USAGE_HELP_TEXT = rf"""!G!Usage:!W!
+    {NAME} -V:!B!<TAG>!W!   Launch runtime identified by !B!<TAG>!W!, which should include the
+                         company name if not !B!PythonCore!W!. Regular Python options may
+                         follow this option.
+    {NAME} -!B!<VERSION>!W! Equivalent to -V:PythonCore\!B!<VERSION>!W!. The version must
+                         begin with the digit 3, platform overrides are permitted,
+                         and regular Python options may follow.
+                         !G!py -3!W! is the equivalent of the !G!python3!W! command.
+    {NAME} !B!<COMMAND>!W!  Run a specific command (see list below).
+
+Find additional information at !B!https://docs.python.org/using/windows.html!W!.
+"""
+
+else:
+    USAGE_HELP_TEXT = rf"""!G!Usage:!W!
+    {NAME} !B!<regular Python options>!W!
                      Launch the default runtime with specified options.
                      This is the equivalent of the !G!python!W! command.
-    py -V:!B!<TAG>!W!      Launch runtime identified by !B!<TAG>!W!, which should include the
+    {NAME} -V:!B!<TAG>!W!      Launch runtime identified by !B!<TAG>!W!, which should include the
                      company name if not !B!PythonCore!W!. Regular Python options may
                      follow this option.
-    py -!B!<VERSION>!W!    Equivalent to -V:PythonCore\!B!<VERSION>!W!. The version must
+    {NAME} -!B!<VERSION>!W!    Equivalent to -V:PythonCore\!B!<VERSION>!W!. The version must
                      begin with the digit 3, platform overrides are permitted,
                      and regular Python options may follow.
                      !G!py -3!W! is the equivalent of the !G!python3!W! command.
-    py !B!<COMMAND>!W!     Run a specific command (see list below)
+    {NAME} !B!<COMMAND>!W!     Run a specific command (see list below).
 
 Find additional information at !B!https://docs.python.org/using/windows.html!W!.
-
 """
+
 
 # The help text of subcommands is generated below - look for 'subcommands_list'
 
-GLOBAL_OPTIONS_HELP_TEXT = fr"""
-!G!Global options:!W!
+GLOBAL_OPTIONS_HELP_TEXT = fr"""!G!Global options:!W!
     -v, --verbose    Increased output (!B!log_level={logging.INFO}!W!)
     -vv              Further increased output (!B!log_level={logging.DEBUG}!W!)
     -q, --quiet      Less output (!B!log_level={logging.WARN}!W!)
@@ -134,6 +149,7 @@ CLI_SCHEMA = {
         "s": ("source", _NEXT),
         "source": ("source", _NEXT),
         "online": ("default_source", True),
+        "help": ("show_help", True), # nested to avoid conflict with command
     },
 
     "install": {
@@ -154,6 +170,7 @@ CLI_SCHEMA = {
         "dry-run": ("dry_run", True),
         "enable-shortcut-kinds": ("enable_shortcut_kinds", _NEXT, config_split),
         "disable-shortcut-kinds": ("disable_shortcut_kinds", _NEXT, config_split),
+        "help": ("show_help", True), # nested to avoid conflict with command
         # Set when the manager is doing an automatic install.
         # Generally won't be set by manual invocation
         "automatic": ("automatic", True),
@@ -166,6 +183,7 @@ CLI_SCHEMA = {
         # Undocumented aliases so that install and uninstall can be mirrored
         "f": ("confirm", False),
         "force": ("confirm", False),
+        "help": ("show_help", True), # nested to avoid conflict with command
     },
 }
 
@@ -616,26 +634,12 @@ class ListCommand(BaseCommand):
             LOGGER.debug("Loading 'install' command to get source")
             inst_cmd = COMMANDS["install"](["install"], self.root)
             self.source = inst_cmd.source
-        if self.source and "://" not in self.source:
+        if self.source and "://" not in str(self.source):
             try:
-                pass#self.source = Path(self.source).absolute().as_uri()
+                self.source = Path(self.source).absolute().as_uri()
             except Exception as ex:
                 raise ArgumentError("Source feed is not a valid path or URL") from ex
         execute(self)
-
-
-class ListLegacy0Command(ListCommand):
-    CMD = "-0"
-    format = "legacy"
-    unmanaged = True
-    _create_log_file = False
-
-
-class ListLegacy0pCommand(ListCommand):
-    CMD = "-0p"
-    format = "legacy-paths"
-    unmanaged = True
-    _create_log_file = False
 
 
 class ListLegacyCommand(ListCommand):
@@ -644,12 +648,22 @@ class ListLegacyCommand(ListCommand):
     unmanaged = True
     _create_log_file = False
 
+    def show_welcome(self, *args):
+        pass
 
-class ListPathsLegacyCommand(ListCommand):
+
+class ListLegacy0Command(ListLegacyCommand):
+    CMD = "-0"
+
+
+class ListLegacy0pCommand(ListLegacyCommand):
+    CMD = "-0p"
+    format = "legacy-paths"
+
+
+class ListPathsLegacyCommand(ListLegacyCommand):
     CMD = "--list-paths"
     format = "legacy-paths"
-    unmanaged = True
-    _create_log_file = False
 
 
 class InstallCommand(BaseCommand):
@@ -802,6 +816,18 @@ class HelpCommand(BaseCommand):
                 LOGGER.print(cls.HELP_TEXT.lstrip())
             except AttributeError:
                 pass
+
+
+class HelpWithErrorCommand(HelpCommand):
+    CMD = "__help_with_error"
+
+    def execute(self):
+        LOGGER.print(f"!R!Unknown command: {NAME} {' '.join(self.args)}!W!")
+        LOGGER.print(COPYRIGHT)
+        self.show_welcome(copyright=False)
+        LOGGER.print(BaseCommand.usage_text())
+        LOGGER.print(BaseCommand.subcommands_list())
+        LOGGER.print(f"The command !R!{NAME} {' '.join(self.args)}!W! was not recognized.")
 
 
 class DefaultConfig(BaseCommand):

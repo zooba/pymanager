@@ -205,7 +205,12 @@ class Index:
         )
 
     def find_all(self, tags, *, seen_ids=None, loose_company=False, with_prerelease=False):
-        filters = [tag_or_range(tag) for tag in tags]
+        filters = []
+        for tag in tags:
+            try:
+                filters.append(tag_or_range(tag))
+            except ValueError as ex:
+                LOGGER.warn("%s", ex)
         for i in self.versions:
             if seen_ids is not None:
                 if i["id"].casefold() in seen_ids:
