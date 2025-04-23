@@ -1,6 +1,7 @@
 import os
 import time
 
+from .exceptions import FilesInUseError
 from .logging import LOGGER
 from .pathutils import Path
 
@@ -86,7 +87,7 @@ def _rmdir(d, on_missing=None, on_fail=None, on_isfile=None):
             raise
 
 
-def rmtree(path, after_5s_warning=None):
+def rmtree(path, after_5s_warning=None, remove_ext_first=()):
     start = time.monotonic()
 
     if isinstance(path, (str, bytes)):
@@ -95,6 +96,22 @@ def rmtree(path, after_5s_warning=None):
         if path.is_file():
             unlink(path)
         return
+
+    if remove_ext_first:
+        exts = {e.strip(" .").casefold() for e in remove_ext_first}
+        files = [f.path for f in os.scandir(path)
+                 if f.is_file() and f.name.rpartition(".")[2].casefold() in exts]
+        if files:
+            LOGGER.debug("Atomically removing these files first: %s",
+                         ", ".join(Path(f).name for f in files))
+            try:
+                atomic_unlink(files)
+            except FilesInUseError as ex:
+                LOGGER.debug("No files removed because these are in use: %s",
+                             ", ".join(Path(f).name for f in ex.files))
+                raise
+            else:
+                LOGGER.debug("Files successfully removed")
 
     for i in range(1000):
         if after_5s_warning and (time.monotonic() - start) > 5:
@@ -179,3 +196,39 @@ def unlink(path, after_5s_warning=None):
     else:
         LOGGER.warn("Failed to remove %s", orig_path)
         return
+
+
+def atomic_unlink(paths):
+    "Removes all of 'paths' or none, raising if an error occurs."
+    from _native import file_lock_for_delete, file_unlock_for_delete, file_locked_delete
+    
+    handles = []
+    files_in_use = []
+    try:
+        for p in map(str, paths):
+            try:
+                handles.append((p, file_lock_for_delete(p)))
+            except FileNotFoundError:
+                pass
+            except PermissionError:
+                files_in_use.append(p)
+
+        if files_in_use:
+            raise FilesInUseError(files_in_use)
+
+        handles.reverse()
+        while handles:
+            p, h = handles.pop()
+            try:
+                file_locked_delete(h)
+            except FileNotFoundError:
+                pass
+            except PermissionError:
+                files_in_use.append(p)
+
+        if files_in_use:
+            raise FilesInUseError(files_in_use)
+    finally:
+        while handles:
+            p, h = handles.pop()
+            file_unlock_for_delete(h)

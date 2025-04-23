@@ -5,6 +5,7 @@ from .exceptions import (
     ArgumentError,
     AutomaticInstallDisabledError,
     HashMismatchError,
+    FilesInUseError,
     NoInstallFoundError,
 )
 from .fsutils import ensure_tree, rmtree, unlink
@@ -413,14 +414,24 @@ def _install_one(cmd, source, install, *, target=None):
     LOGGER.verbose("Extracting %s to %s", package, dest)
     if not cmd.repair:
         try:
-            rmtree(dest, "Removing the previous install is taking some time. " +
-                         "Ensure Python is not running, and continue to wait " +
-                         "or press Ctrl+C to abort.")
+            rmtree(
+                dest,
+                "Removing the previous install is taking some time. " +
+                "Ensure Python is not running, and continue to wait " +
+                "or press Ctrl+C to abort.",
+                remove_ext_first=("exe", "dll", "json"),
+            )
         except FileExistsError:
             LOGGER.error(
                 "Unable to remove previous install. " +
                 "Please check your packages directory at %s for issues.",
                 dest.parent
+            )
+            raise
+        except FilesInUseError:
+            LOGGER.error(
+                "Unable to remove previous install because files are still in use. " +
+                "Please ensure Python is not currently running."
             )
             raise
 

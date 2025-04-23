@@ -1,4 +1,4 @@
-from .exceptions import ArgumentError
+from .exceptions import ArgumentError, FilesInUseError
 from .fsutils import rmtree, unlink
 from .installs import get_matching_install_tags
 from .install_command import update_all_shortcuts
@@ -7,7 +7,7 @@ from .pathutils import PurePath
 from .tagutils import tag_or_range
 
 
-def _iterdir(p):
+def _iterdir(p, only_files=False):
     try:
         return list(p.iterdir())
     except FileNotFoundError:
@@ -30,13 +30,27 @@ def execute(cmd):
         if cmd.ask_yn("Uninstall all runtimes?"):
             for i in installed:
                 LOGGER.info("Purging %s from %s", i["display-name"], i["prefix"])
-                unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["display-name"]))
-                rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["display-name"]))
+                try:
+                    rmtree(
+                        i["prefix"],
+                        after_5s_warning=warn_msg.format(i["display-name"]),
+                        remove_ext_first=("exe", "dll", "json")
+                    )
+                except FilesInUseError:
+                    LOGGER.warn("Unable to purge %s because it is still in use.",
+                                i["display-name"])
+                    continue
             LOGGER.info("Purging saved downloads")
             for f in _iterdir(cmd.install_dir):
-                rmtree(f, after_5s_warning=warn_msg.format("cached downloads"))
+                LOGGER.debug("Purging %s", f)
+                try:
+                    rmtree(f, after_5s_warning=warn_msg.format("cached downloads"),
+                           remove_ext_first=("exe", "dll", "json"))
+                except FilesInUseError:
+                    pass
             LOGGER.info("Purging global commands")
             for f in _iterdir(cmd.global_dir):
+                LOGGER.debug("Purging %s", f)
                 rmtree(f, after_5s_warning=warn_msg.format("global commands"))
         LOGGER.debug("END uninstall_command.execute")
         return
@@ -89,9 +103,16 @@ def execute(cmd):
 
     for i in to_uninstall:
         LOGGER.debug("Uninstalling %s from %s", i["display-name"], i["prefix"])
-        # Remove registration first to avoid stray installs showing up
-        unlink(i["prefix"] / "__install__.json", after_5s_warning=warn_msg.format(i["display-name"]))
-        rmtree(i["prefix"], after_5s_warning=warn_msg.format(i["display-name"]))
+        try:
+            rmtree(
+                i["prefix"],
+                after_5s_warning=warn_msg.format(i["display-name"]),
+                remove_ext_first=("exe", "dll", "json"),
+            )
+        except FilesInUseError as ex:
+            LOGGER.error("Could not uninstall %s because it is still in use.",
+                         i["display-name"])
+            raise SystemExit(1) from ex
         LOGGER.info("Removed %s", i["display-name"])
         try:
             for target in cmd.global_dir.glob("*.__target__"):
