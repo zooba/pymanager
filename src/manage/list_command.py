@@ -202,7 +202,7 @@ def format_legacy(cmd, installs, paths=False):
     # But legacy output is uninteresting, so it can be done later.
     for i in installs:
         if i["id"] == "__active-virtual-env":
-            tag = f"  *"
+            tag = "  *"
             seen_default = True
         else:
             tag = _format_tag_with_co(cmd, i)

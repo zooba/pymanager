@@ -10,7 +10,7 @@ from .config import (
     config_split_append,
 )
 from .exceptions import ArgumentError
-from .pathutils import PurePath, Path
+from .pathutils import Path
 
 from . import EXE_NAME
 from . import logging
@@ -834,12 +834,12 @@ class HelpWithErrorCommand(HelpCommand):
     CMD = "__help_with_error"
 
     def execute(self):
-        LOGGER.print(f"!R!Unknown command: {NAME} {' '.join(self.args)}!W!")
+        LOGGER.print(f"!R!Unknown command: {EXE_NAME} {' '.join(self.args)}!W!")
         LOGGER.print(COPYRIGHT)
         self.show_welcome(copyright=False)
         LOGGER.print(BaseCommand.usage_text())
         LOGGER.print(BaseCommand.subcommands_list())
-        LOGGER.print(f"The command !R!{NAME} {' '.join(self.args)}!W! was not recognized.")
+        LOGGER.print(f"The command !R!{EXE_NAME} {' '.join(self.args)}!W! was not recognized.")
 
 
 class DefaultConfig(BaseCommand):
