@@ -3,6 +3,17 @@ import sys
 from pymsbuild import *
 from pymsbuild.dllpack import *
 
+
+DLL_NAME = "python314"
+EMBED_URL = "https://www.python.org/ftp/python/3.14.0/python-3.14.0a7-embed-amd64.zip"
+
+def can_embed(tag):
+    """Return False if tag doesn't match DLL_NAME and EMBED_URL.
+    This is used for validation at build time, we don't currently handle
+    requesting a different build target."""
+    return tag == "cp314-cp314-win_amd64"
+
+
 METADATA = {
     "Metadata-Version": "2.2",
     "Name": "manage",
@@ -75,39 +86,42 @@ NATIVE_PYD = DllPackage(
 )
 
 
-MAIN_EXE = CProject('py-manager',
-    VersionInfo(FileDescription="Python Install Manager"),
-    CPP_SETTINGS,
-    ItemDefinition('Link', SubSystem='CONSOLE'),
-    INCLUDE_TMPDIR,
-    Manifest('default.manifest'),
-    ResourceFile('pyicon.rc'),
-    CSourceFile('main.cpp'),
-    CSourceFile('_launch.cpp'),
-    IncludeFile('*.h'),
-    CSourceFile('../_native/helpers.cpp'),
-    IncludeFile('../_native/helpers.h'),
-    source='src/pymanager',
-    ConfigurationType='Application',
-)
+def main_exe(name):
+    return CProject(name,
+        VersionInfo(FileDescription="Python Install Manager"),
+        CPP_SETTINGS,
+        ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend(f'EXE_NAME=L"{name}";')),
+        ItemDefinition('Link', SubSystem='CONSOLE', DelayLoadDLLs=f"{DLL_NAME}.dll"),
+        INCLUDE_TMPDIR,
+        Manifest('default.manifest'),
+        ResourceFile('pyicon.rc'),
+        CSourceFile('main.cpp'),
+        CSourceFile('_launch.cpp'),
+        IncludeFile('*.h'),
+        CSourceFile('../_native/helpers.cpp'),
+        IncludeFile('../_native/helpers.h'),
+        source='src/pymanager',
+        ConfigurationType='Application',
+    )
 
-
-MAINW_EXE = CProject('pyw-manager',
-    VersionInfo(FileDescription="Python Install Manager (windowed)"),
-    CPP_SETTINGS,
-    ItemDefinition('Link', SubSystem='WINDOWS'),
-    INCLUDE_TMPDIR,
-    ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend("PY_WINDOWED=1;")),
-    Manifest('default.manifest'),
-    ResourceFile('pywicon.rc'),
-    CSourceFile('main.cpp'),
-    CSourceFile('_launch.cpp'),
-    IncludeFile('*.h'),
-    CSourceFile('../_native/helpers.cpp'),
-    IncludeFile('../_native/helpers.h'),
-    source='src/pymanager',
-    ConfigurationType='Application',
-)
+def mainw_exe(name):
+    return CProject(name,
+        VersionInfo(FileDescription="Python Install Manager (windowed)"),
+        CPP_SETTINGS,
+        ItemDefinition('Link', SubSystem='WINDOWS', DelayLoadDLLs=f"{DLL_NAME}.dll"),
+        INCLUDE_TMPDIR,
+        ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend(f'EXE_NAME=L"{name}";')),
+        ItemDefinition('ClCompile', PreprocessorDefinitions=Prepend("PY_WINDOWED=1;")),
+        Manifest('default.manifest'),
+        ResourceFile('pywicon.rc'),
+        CSourceFile('main.cpp'),
+        CSourceFile('_launch.cpp'),
+        IncludeFile('*.h'),
+        CSourceFile('../_native/helpers.cpp'),
+        IncludeFile('../_native/helpers.h'),
+        source='src/pymanager',
+        ConfigurationType='Application',
+    )
 
 
 PACKAGE = Package('python-manager',
@@ -175,17 +189,17 @@ PACKAGE = Package('python-manager',
     ),
 
     # Main entry-point executables
-    MAIN_EXE,
-    MAINW_EXE,
+    main_exe("py-manager"),
+    mainw_exe("pyw-manager"),
+    main_exe("py"),
+    mainw_exe("pyw"),
+    main_exe("pymanager"),
+    mainw_exe("pywmanager"),
+    main_exe("python"),
+    mainw_exe("pythonw"),
+    main_exe("python3"),
+    mainw_exe("pythonw3"),
 )
-
-
-DLL_NAME = "python314"
-EMBED_URL = "https://www.python.org/ftp/python/3.14.0/python-3.14.0a7-embed-amd64.zip"
-
-def can_embed(tag):
-    "Return False if tag doesn't match DLL_NAME and EMBED_URL."
-    return tag == "cp314-cp314-win_amd64"
 
 
 def get_commands():
@@ -330,9 +344,6 @@ def init_PACKAGE(tag=None):
     if not can_embed(tag):
         print("[WARNING] Unable to bundle embeddable distro for this runtime.")
         return
-
-    PACKAGE.find("py-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{DLL_NAME}.dll"
-    PACKAGE.find("pyw-manager/ItemDefinition(Link)").options["DelayLoadDLLs"] = f"{DLL_NAME}.dll"
 
     embed_files = [tmpdir / tag / n for n in [
         f"{DLL_NAME}.dll",

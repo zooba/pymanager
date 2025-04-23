@@ -12,6 +12,14 @@ except ImportError:
     __version__ = "0.0"
 
 
+# Will be overwritten by main.cpp on import
+EXE_NAME = "py"
+
+def _set_exe_name(name):
+    global EXE_NAME
+    EXE_NAME = name
+
+
 __all__ = ["main", "NoInstallFoundError", "NoInstallsError", "find_one"]
 
 

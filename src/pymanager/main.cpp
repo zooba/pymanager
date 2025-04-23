@@ -87,6 +87,10 @@ per_exe_settings(
     bool *shebangs,
     bool *autoinstall
 ) {
+#ifdef EXE_NAME
+    const wchar_t *name = EXE_NAME;
+    int cch = -1;
+#else
     const wchar_t *argv0 = argv[0];
     size_t n = wcslen(argv0);
     size_t dot = 0;
@@ -100,7 +104,9 @@ per_exe_settings(
     if (cch > 1 && (argv0[n + cch - 1] == L'w' || argv0[n + cch - 1] == L'W')) {
         --cch;
     }
-    if (CompareStringOrdinal(&argv0[n], cch, L"python", -1, TRUE) == CSTR_EQUAL) {
+    const wchar_t *name = &argv0[n];
+#endif
+    if (CompareStringOrdinal(name, cch, L"python", -1, TRUE) == CSTR_EQUAL) {
         *default_command = NULL;
         *commands = false;
         *cli_tag = false;
@@ -108,7 +114,7 @@ per_exe_settings(
         *autoinstall = false;
         return;
     }
-    if (CompareStringOrdinal(&argv0[n], cch, L"python3", -1, TRUE) == CSTR_EQUAL) {
+    if (CompareStringOrdinal(name, cch, L"python3", -1, TRUE) == CSTR_EQUAL) {
         *default_command = NULL;
         *commands = false;
         *cli_tag = false;
@@ -116,7 +122,7 @@ per_exe_settings(
         *autoinstall = false;
         return;
     }
-    if (CompareStringOrdinal(&argv0[n], cch, L"py", -1, TRUE) == CSTR_EQUAL) {
+    if (CompareStringOrdinal(name, cch, L"py", -1, TRUE) == CSTR_EQUAL) {
         *default_command = NULL;
         *commands = argc >= 2;
         *cli_tag = argc >= 2;
@@ -124,7 +130,7 @@ per_exe_settings(
         *autoinstall = argc >= 2 && !wcscmp(argv[1], L"exec");
         return;
     }
-    if (CompareStringOrdinal(&argv0[n], cch, L"pymanager", -1, TRUE) == CSTR_EQUAL) {
+    if (CompareStringOrdinal(name, cch, L"pymanager", -1, TRUE) == CSTR_EQUAL) {
         *default_command = argc >= 2 ? L"__help_with_error" : L"help";
         *commands = argc >= 2;
         *cli_tag = false;
@@ -211,7 +217,7 @@ read_script_from_argv(int argc, const wchar_t **argv, int skip_argc, std::wstrin
 
 
 static int
-init_python(int argc, const wchar_t **argv)
+init_python()
 {
     // Ensure we are safely loading before triggering delay loaded DLL
     if (!SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_SYSTEM32
@@ -231,9 +237,6 @@ init_python(int argc, const wchar_t **argv)
     PyConfig config;
     PyConfig_InitIsolatedConfig(&config);
 
-    if (argc >= 1) {
-        PyConfig_SetString(&config, &config.program_name, argv[0]);
-    }
     config.import_time = is_env_var_set(L"PYMANAGER_IMPORT_TIME");
 
     status = Py_InitializeFromConfig(&config);
@@ -269,6 +272,14 @@ init_python(int argc, const wchar_t **argv)
         PyErr_Print();
         return -1;
     }
+
+    PyObject *r = PyObject_CallMethod(manage.mod, "_set_exe_name", "u", EXE_NAME);
+    if (!r) {
+        PyErr_Print();
+        return -1;
+    }
+    Py_DECREF(r);
+
     return 0;
 }
 
@@ -463,7 +474,7 @@ wmain(int argc, wchar_t **argv)
     std::wstring executable, args, tag, script;
     int skip_argc = 0;
 
-    err = init_python(argc, (const wchar_t **)argv);
+    err = init_python();
     if (err) {
         return err;
     }
