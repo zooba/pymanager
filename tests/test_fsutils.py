@@ -3,6 +3,7 @@ import shutil
 
 from copy import copy
 
+from manage.exceptions import FilesInUseError
 from manage.fsutils import atomic_unlink, ensure_tree, rmtree, unlink
 
 @pytest.fixture
@@ -62,7 +63,7 @@ def test_atomic_unlink(tree):
     assert all([f.is_file() for f in files])
 
     with open(tree / "b", "rb") as f:
-        with pytest.raises(PermissionError):
+        with pytest.raises(FilesInUseError):
             atomic_unlink(files)
 
     assert all([f.is_file() for f in files])
