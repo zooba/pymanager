@@ -62,7 +62,7 @@
                                 AppListEntry="none" />
         </Application>
 
-        <Application Id="pymanager.exe"
+        <Application Id="Pymanager.exe"
                      Executable="pymanager.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true"
@@ -82,7 +82,7 @@
             </Extensions>
         </Application>
 
-        <Application Id="pywmanager.exe"
+        <Application Id="Pywmanager.exe"
                      Executable="pywmanager.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true"
@@ -102,7 +102,7 @@
             </Extensions>
         </Application>
 
-        <Application Id="py.exe"
+        <Application Id="Py.exe"
                      Executable="py.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true"
@@ -121,7 +121,7 @@
                 </uap5:Extension>
             </Extensions>
         </Application>
-        <Application Id="pyw.exe"
+        <Application Id="Pyw.exe"
                      Executable="pyw.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true"
@@ -141,7 +141,7 @@
             </Extensions>
         </Application>
 
-        <Application Id="python.exe"
+        <Application Id="Python.exe"
                      Executable="python.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true"
@@ -208,7 +208,7 @@
             </Extensions>
         </Application>
 
-        <Application Id="python3.exe"
+        <Application Id="Python3.exe"
                      Executable="python3.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true"
@@ -228,7 +228,7 @@
             </Extensions>
         </Application>
 
-        <Application Id="pythonw.exe"
+        <Application Id="Pythonw.exe"
                      Executable="pyw-manager.exe"
                      EntryPoint="Windows.FullTrustApplication"
                      desktop4:SupportsMultipleInstances="true"
