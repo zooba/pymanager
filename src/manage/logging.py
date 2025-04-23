@@ -33,6 +33,12 @@ FILE_PREFIX = {
 }
 
 
+def strip_colour(msg):
+    for k in COLOURS:
+        msg = msg.replace(k, "")
+    return msg
+
+
 def supports_colour(stream):
     if os.getenv("PYTHON_COLORS", "").lower() in ("0", "no", "false"):
         return False

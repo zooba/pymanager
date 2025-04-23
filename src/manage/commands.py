@@ -12,6 +12,7 @@ from .config import (
 from .exceptions import ArgumentError
 from .pathutils import PurePath, Path
 
+from . import EXE_NAME
 from . import logging
 LOGGER = logging.LOGGER
 
@@ -21,40 +22,6 @@ Copyright (c) Python Software Foundation. All Rights Reserved.
 
 
 WELCOME = f"""!B!Python install manager was successfully updated to {__version__}.!W!
-"""
-
-
-NAME = PurePath(sys.executable).stem
-
-if NAME.casefold() == "pymanager".casefold():
-    USAGE_HELP_TEXT = rf"""!G!Usage:!W!
-    {NAME} -V:!B!<TAG>!W!   Launch runtime identified by !B!<TAG>!W!, which should include the
-                         company name if not !B!PythonCore!W!. Regular Python options may
-                         follow this option.
-    {NAME} -!B!<VERSION>!W! Equivalent to -V:PythonCore\!B!<VERSION>!W!. The version must
-                         begin with the digit 3, platform overrides are permitted,
-                         and regular Python options may follow.
-                         !G!py -3!W! is the equivalent of the !G!python3!W! command.
-    {NAME} !B!<COMMAND>!W!  Run a specific command (see list below).
-
-Find additional information at !B!https://docs.python.org/using/windows.html!W!.
-"""
-
-else:
-    USAGE_HELP_TEXT = rf"""!G!Usage:!W!
-    {NAME} !B!<regular Python options>!W!
-                     Launch the default runtime with specified options.
-                     This is the equivalent of the !G!python!W! command.
-    {NAME} -V:!B!<TAG>!W!      Launch runtime identified by !B!<TAG>!W!, which should include the
-                     company name if not !B!PythonCore!W!. Regular Python options may
-                     follow this option.
-    {NAME} -!B!<VERSION>!W!    Equivalent to -V:PythonCore\!B!<VERSION>!W!. The version must
-                     begin with the digit 3, platform overrides are permitted,
-                     and regular Python options may follow.
-                     !G!py -3!W! is the equivalent of the !G!python3!W! command.
-    {NAME} !B!<COMMAND>!W!     Run a specific command (see list below).
-
-Find additional information at !B!https://docs.python.org/using/windows.html!W!.
 """
 
 
@@ -499,13 +466,58 @@ class BaseCommand:
         raise NotImplementedError(f"'{type(self).__name__}' does not implement 'execute()'")
 
     @classmethod
+    def usage_text_lines(cls):
+        usage_docs = [
+            (f"    {EXE_NAME} -V:!B!<TAG>!W!",
+             "Launch runtime identified by !B!<TAG>!W!, which should include the " +
+             "company name if not !B!PythonCore!W!. Regular Python options may " +
+             "follow this option."),
+            (f"    {EXE_NAME} -!B!<VERSION>!W!",
+             r"Equivalent to -V:PythonCore\!B!<VERSION>!W!. The version must " +
+             "begin with the digit 3, platform overrides are permitted, " +
+             "and regular Python options may follow." +
+             (" !G!py -3!W! is the equivalent of the !G!python3!W! command." if EXE_NAME == "py" else "")),
+            (f"    {EXE_NAME} !B!<COMMAND>!W!",
+             "Run a specific command (see list below)."),
+        ]
+
+        usage_ljust = max(len(logging.strip_colour(i[0])) for i in usage_docs)
+        if usage_ljust % 4:
+            usage_ljust += 4 - (usage_ljust % 4)
+        usage_ljust = max(usage_ljust, 16) + 1
+        sp = " " * usage_ljust
+
+        yield "!G!Usage:!W!"
+        if EXE_NAME.casefold() in ("py".casefold(), "pyw".casefold()):
+            yield f"    {EXE_NAME} !B!<regular Python options>!W!"
+            yield sp + "Launch the default runtime with specified options."
+            yield sp + "This is the equivalent of the !G!python!W! command."
+        for k, d in usage_docs:
+            r = k.ljust(usage_ljust + len(k) - len(logging.strip_colour(k)))
+            for b in d.split(" "):
+                if len(r) >= 80:
+                    yield r.rstrip()
+                    r = sp
+                r += b + " "
+            if r.rstrip():
+                yield r
+
+        yield ""
+        yield "Find additional information at !B!https://docs.python.org/using/windows.html!W!."
+        yield ""
+
+    @classmethod
     def usage_text(cls):
-        return USAGE_HELP_TEXT.lstrip().replace("\r\n", "\n")
+        return "\n".join(cls.usage_text_lines())
 
     @classmethod
     def subcommands_list(cls):
+        usage_ljust = len(EXE_NAME) + 1 + max(len(cmd) for cmd in sorted(COMMANDS) if cmd[:1].isalpha())
+        if usage_ljust % 4:
+            usage_ljust += 4 - (usage_ljust % 4)
+        usage_ljust = max(usage_ljust, 16)
         cmd_help = [
-            "    py {:<13} {}".format(cmd, getattr(COMMANDS[cmd], "HELP_LINE", ""))
+            "    {:<{}} {}".format(f"{EXE_NAME} {cmd}", usage_ljust, getattr(COMMANDS[cmd], "HELP_LINE", ""))
             for cmd in sorted(COMMANDS)
             if cmd[:1].isalpha()
         ]
