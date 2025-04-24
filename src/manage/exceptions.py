@@ -70,3 +70,8 @@ class AutomaticInstallDisabledError(Exception):
     def __init__(self):
         super().__init__("Automatic installation has been disabled. "
                          'Please run "py install" directly.')
+
+
+class FilesInUseError(Exception):
+    def __init__(self, files):
+        self.files = files

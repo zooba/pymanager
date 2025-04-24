@@ -3,7 +3,8 @@ import shutil
 
 from copy import copy
 
-from manage.fsutils import ensure_tree, rmtree, unlink
+from manage.exceptions import FilesInUseError
+from manage.fsutils import atomic_unlink, ensure_tree, rmtree, unlink
 
 @pytest.fixture
 def tree(tmp_path):
@@ -55,3 +56,18 @@ def test_unlink_with_rename(tree, monkeypatch):
 def test_rmtree(tree):
     rmtree(tree)
     assert not tree.exists()
+
+
+def test_atomic_unlink(tree):
+    files = [tree / "c/d", tree / "b"]
+    assert all([f.is_file() for f in files])
+
+    with open(tree / "b", "rb") as f:
+        with pytest.raises(FilesInUseError):
+            atomic_unlink(files)
+
+    assert all([f.is_file() for f in files])
+
+    atomic_unlink(files)
+
+    assert not any([f.is_file() for f in files])
