@@ -142,10 +142,17 @@ class Logger:
             if self.file is not None:
                 print(exc, file=self.file)
 
-    def print(self, msg=None, *args, **kwargs):
+    def would_print(self, *args, always=False, level=INFO, **kwargs):
+        if always:
+            return True
+        if level < self.level:
+            return False
+        return True
+
+    def print(self, msg=None, *args, always=False, level=INFO, **kwargs):
         if self._list is not None:
             self._list.append(((msg or "") % args, ()))
-        if kwargs.pop("level", INFO) < self.level:
+        if not always and level < self.level:
             return
         if msg:
             if self.console_colour:

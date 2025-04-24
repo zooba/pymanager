@@ -540,27 +540,29 @@ class BaseCommand:
         except AttributeError:
             pass
 
-    def ask_yn(self, fmt, *args):
-        "Returns True if the user selects 'yes' or confirmations are skipped."
+    def _ask(self, fmt, *args, yn_text="Y/n", expect_char="y"):
         if not self.confirm:
             return True
-        LOGGER.print(f"{fmt} [Y/n] ", *args, end="")
+        if not LOGGER.would_print():
+            LOGGER.warn("Cannot prompt for confirmation at this logging level. "
+                        "Pass --yes to accept the default response.")
+            if not LOGGER.would_log_to_console(logging.WARN):
+                sys.exit(1)
+            return False
+        LOGGER.print(f"{fmt} [{yn_text}] ", *args, end="")
         try:
-            resp = input().lower()
+            resp = input().casefold()
         except Exception:
             return False
-        return not resp or resp.startswith("y")
+        return not resp or resp.startswith(expect_char.casefold())
+
+    def ask_yn(self, fmt, *args):
+        "Returns True if the user selects 'yes' or confirmations are skipped."
+        return self._ask(fmt, *args)
 
     def ask_ny(self, fmt, *args):
         "Returns True if the user selects 'no' or confirmations are skipped."
-        if not self.confirm:
-            return True
-        LOGGER.print(f"{fmt} [y/N] ", *args, end="")
-        try:
-            resp = input().lower()
-        except Exception:
-            return False
-        return not resp or resp.startswith("n")
+        return self._ask(fmt, *args, yn_text="y/N", expect_char="n")
 
     def get_installs(self, *, include_unmanaged=False, set_default=True):
         from .installs import get_installs, get_matching_install_tags

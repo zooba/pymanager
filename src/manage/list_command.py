@@ -102,13 +102,13 @@ def format_table(cmd, installs):
         except LookupError:
             pass
 
-    LOGGER.print("!B!%s!W!", "  ".join(columns[c].ljust(cwidth[c]) for c in columns))
+    LOGGER.print("!B!%s!W!", "  ".join(columns[c].ljust(cwidth[c]) for c in columns), always=True)
 
     any_shown = False
     for i in installs:
         if not i.get("unmanaged"):
             clr = "!G!" if i.get("default-star") else ""
-            LOGGER.print(f"{clr}%s!W!", "  ".join(_ljust(i.get(c, ""), cwidth[c]) for c in columns))
+            LOGGER.print(f"{clr}%s!W!", "  ".join(_ljust(i.get(c, ""), cwidth[c]) for c in columns), always=True)
             any_shown = True
     if not any_shown:
         LOGGER.print("!Y!-- No runtimes. Use 'py install <version>' to install one. --!W!")
@@ -116,11 +116,11 @@ def format_table(cmd, installs):
     for i in installs:
         if i.get("unmanaged"):
             if not shown_header:
-                LOGGER.print()
-                LOGGER.print("!B!* These runtimes were found, but cannot be updated or uninstalled. *!W!")
+                LOGGER.print(always=True)
+                LOGGER.print("!B!* These runtimes were found, but cannot be updated or uninstalled. *!W!", always=True)
                 shown_header = True
             clr = "!G!" if i.get("default") else ""
-            LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns))
+            LOGGER.print(f"{clr}%s!W!", "  ".join(i.get(c, "").ljust(cwidth[c]) for c in columns), always=True)
 
     if show_truncated_warning:
         LOGGER.print()
