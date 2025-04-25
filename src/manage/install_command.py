@@ -339,6 +339,10 @@ def print_cli_shortcuts(cmd):
             LOGGER.info("Installed %s to %s", i["display-name"], i["prefix"])
 
 
+def _same_install(i, j):
+    return i["id"] == j["id"] and i["sort-version"] == j["sort-version"]
+
+
 def _find_one(cmd, source, tag, *, installed=None, by_id=False):
     if by_id:
         LOGGER.debug("Searching for Python with ID %s", tag)
@@ -372,7 +376,8 @@ def _find_one(cmd, source, tag, *, installed=None, by_id=False):
 
     # Return the package if it was requested in a way that wouldn't have
     # selected the existing package (e.g. full version match)
-    if not install_matches_any(existing[0], [tag]):
+    if (not _same_install(install, existing[0])
+        and not install_matches_any(existing[0], [tag])):
         if cmd.ask_yn("!Y!Your existing %s install will be replaced by " +
                       "%s. Continue?!W!", existing[0]["display-name"],
                       install["display-name"]):
@@ -537,6 +542,7 @@ def execute(cmd):
         cmd.tags = []
         for arg in cmd.args:
             if arg.casefold() == "default".casefold():
+                LOGGER.debug("Replacing 'default' with '%s'", cmd.default_tag)
                 cmd.tags.append(tag_or_range(cmd.default_tag))
             else:
                 try:
@@ -673,6 +679,9 @@ def execute(cmd):
                 except LookupError:
                     LOGGER.error("Failed to find a suitable install for '%s'.", tag)
                     raise NoInstallFoundError()
+                except (AssertionError, AttributeError, TypeError):
+                    # These errors should never happen.
+                    raise
                 except Exception as ex:
                     LOGGER.debug("Capturing error in case fallbacks fail", exc_info=True)
                     first_exc = first_exc or ex

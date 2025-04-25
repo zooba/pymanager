@@ -258,6 +258,7 @@ def execute(cmd):
     tags = []
     for arg in cmd.args:
         if arg.casefold() == "default".casefold():
+            LOGGER.debug("Replacing 'default' with '%s'", cmd.default_tag)
             tags.append(tag_or_range(cmd.default_tag))
         else:
             try:

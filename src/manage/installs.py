@@ -144,6 +144,8 @@ def get_matching_install_tags(
     # Installs are in the correct order, so we'll first collect all the matches.
     # If no tag is provided, we still expand out the list by all of 'run-for'
     if tag:
+        if isinstance(tag, str):
+            tag = tag_or_range(tag)
         LOGGER.debug("Filtering installs by tag = %s", tag)
     for i in installs:
         matched_any = False

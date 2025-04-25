@@ -1,6 +1,11 @@
 from .verutils import Version
 
 
+# These suffixes on a tag get special treatment when it comes to ordering
+# and matching.
+SUPPORTED_PLATFORM_SUFFIXES = ("64", "32", "arm64")
+
+
 class _CompanyKey:
     CORE_COMPANY_NAMES = frozenset(map(str.casefold, ["CPython", "PythonCore", ""]))
 
@@ -112,6 +117,13 @@ class _DescendingVersion(Version):
         return self.sortkey > other.sortkey
 
 
+def _split_platform(tag):
+    ver, sep, plat = tag.rpartition("-")
+    if plat in SUPPORTED_PLATFORM_SUFFIXES:
+        return ver, sep + plat
+    return tag, ""
+
+
 def _sort_tag(tag):
     import re
     key = []
@@ -131,13 +143,17 @@ def _sort_tag(tag):
 
 class CompanyTag:
     def __init__(self, company_or_tag, tag=None, *, loose_company=True):
-        if tag is not None:
-            company = company_or_tag
+        if isinstance(company_or_tag, str):
+            if tag is not None:
+                company = company_or_tag
+            else:
+                company, _, tag = (company_or_tag or "").replace("/", "\\").rpartition("\\")
+            self._company = _CompanyKey(company, allow_prefix=loose_company)
         else:
-            company, _, tag = (company_or_tag or "").replace("/", "\\").rpartition("\\")
-        self._company = _CompanyKey(company, allow_prefix=loose_company)
-        self.tag = tag
-        self._sortkey = _sort_tag(tag)
+            assert isinstance(company_or_tag, _CompanyKey)
+            self._company = company_or_tag
+        self.tag, self.platform = _split_platform(tag)
+        self._sortkey = _sort_tag(self.tag)
 
     @property
     def company(self):
@@ -146,6 +162,11 @@ class CompanyTag:
     @property
     def is_core(self):
         return self._company.is_core
+
+    def __add__(self, other):
+        if isinstance(other, str):
+            return type(self)(self._company, self.tag + other)
+        return NotImplemented
 
     def match(self, pattern):
         if isinstance(pattern, str):
@@ -159,6 +180,8 @@ class CompanyTag:
         for x, y in zip(self._sortkey, other._sortkey):
             if not x.startswith(y):
                 return False
+        if other.platform not in (self.platform, ""):
+            return False
         return True
 
     def satisfied_by(self, tag):
@@ -166,8 +189,8 @@ class CompanyTag:
 
     def __str__(self):
         if self.is_core:
-            return self.tag
-        return f"{self.company}\\{self.tag}"
+            return f"{self.tag}{self.platform}"
+        return f"{self.company}\\{self.tag}{self.platform}"
 
     def __repr__(self):
         return repr(str(self))
@@ -191,12 +214,16 @@ class CompanyTag:
             return self._company > other._company
         if self._sortkey != other._sortkey:
             return self._sortkey > other._sortkey
+        if self.platform != other.platform:
+            return self.platform > other.platform
         return False
 
     def matches_bound(self, other):
         if other is None:
             return True
         if not self._company.startswith(other._company):
+            return False
+        if other.platform not in (self.platform, ""):
             return False
         if len(self._sortkey) < len(other._sortkey):
             return False
@@ -212,6 +239,8 @@ class CompanyTag:
         if other is None:
             return True
         if not self._company.startswith(other._company):
+            return False
+        if other.platform not in (self.platform, ""):
             return False
         if len(self._sortkey) < len(other._sortkey):
             return False
@@ -230,12 +259,16 @@ class CompanyTag:
             return self._company < other._company
         if self._sortkey != other._sortkey:
             return self._sortkey < other._sortkey
+        if self.platform != other.platform:
+            return self.platform < other.platform
         return False
 
     def below_upper_bound(self, other):
         if other is None:
             return True
         if not self._company.startswith(other._company):
+            return False
+        if other.platform not in (self.platform, ""):
             return False
         if len(self._sortkey) > len(other._sortkey):
             return False
@@ -259,6 +292,8 @@ class TagRange:
         self.ranges = ranges = []
         for s in spec.replace(";", ",").split(","):
             s = s.strip()
+            if not s:
+                continue
             for r_cls in self.Range.__subclasses__():
                 if s.startswith(r_cls.OP):
                     ranges.append(r_cls(s[len(r_cls.OP):].strip()))
@@ -272,9 +307,21 @@ class TagRange:
     def satisfied_by(self, tag):
         return all(r(tag) for r in self.ranges)
 
+    def __add__(self, suffix):
+        # This is probably a nonsense operation in general terms, but for the
+        # simple cases of a single range it makes enough sense to allow it. The
+        # alternative is probably to just crash, so we may as well not do that.
+        r = type(self)("")
+        r.ranges.extend(type(s)(s.tag + suffix) for s in self.ranges)
+        return r
+
     class Range:
         def __init__(self, tag):
-            self.tag = CompanyTag(tag)
+            if isinstance(tag, str):
+                self.tag = CompanyTag(tag)
+            else:
+                assert isinstance(tag, CompanyTag)
+                self.tag = tag
 
         def __repr__(self):
             return f"{self.OP}{self.tag}"

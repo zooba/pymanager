@@ -223,6 +223,7 @@ class Index:
 
     def find_to_install(self, tag, *, loose_company=False, prefer_prerelease=False):
         tag_list = [tag] if tag else []
+        LOGGER.debug("Finding %s to install", tag_list)
         for i in self.find_all(tag_list, loose_company=loose_company, with_prerelease=prefer_prerelease):
             return i
         if not loose_company:
