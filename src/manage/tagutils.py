@@ -3,7 +3,7 @@ from .verutils import Version
 
 # These suffixes on a tag get special treatment when it comes to ordering
 # and matching. Must be a tuple in ascending sort order
-SUPPORTED_PLATFORM_SUFFIXES = ("64", "32", "arm64")
+SUPPORTED_PLATFORM_SUFFIXES = ("-64", "-32", "-arm64")
 
 
 class _CompanyKey:
@@ -118,24 +118,29 @@ class _DescendingVersion(Version):
 
 
 def _split_platform(tag):
-    ver, sep, plat = tag.rpartition("-")
-    if plat in SUPPORTED_PLATFORM_SUFFIXES:
-        return ver, sep + plat
+    if tag.endswith(SUPPORTED_PLATFORM_SUFFIXES):
+        for t in SUPPORTED_PLATFORM_SUFFIXES:
+            if tag.endswith(t):
+                return tag[:-len(t)], t
     return tag, ""
 
 
 def _platform_gt(x, y):
+    # This function is undefined if x == y
+    assert x != y
     if not x:
-        return not y
+        return False
     if not y:
         return True
     try:
         ix = SUPPORTED_PLATFORM_SUFFIXES.index(x)
     except ValueError:
+        # if x is unknown, it comes after
         return True
     try:
         return ix > SUPPORTED_PLATFORM_SUFFIXES.index(y)
     except ValueError:
+        # if y is unknown, x comes before it
         return False
 
 
@@ -219,6 +224,8 @@ class CompanyTag:
         if self._company != other._company:
             return False
         if self._sortkey != other._sortkey:
+            return False
+        if self.platform != other.platform:
             return False
         return True
 
