@@ -71,12 +71,12 @@ EXAMPLE_V1_PACKAGE = {
 }
 
 
-def fake_install_data(v, company="PythonCore", exe="python.exe"):
+def fake_install_data(v, company="PythonCore", exe="python.exe", sort_version=None):
     assert len(v.split(".")) > 2, "Expect at least x.y.z"
     return {
         "schema": 1,
         "id": f"{company}-{v}",
-        "sort-version": v,
+        "sort-version": sort_version or v,
         "company": company,
         "tag": v,
         "install-for": [v, v.rpartition(".")[0], v.partition(".")[0]],
@@ -168,3 +168,16 @@ def test_install_lookup():
     assert index.find_to_install("<3.12")["tag"] == "3.11.3"
     assert index.find_to_install("<3.12,!=3.11")["tag"] == "3.10.4"
     assert index.find_to_install("<3.12,!=3.10")["tag"] == "3.11.3"
+
+
+def test_select_package():
+    from manage.install_command import select_package
+
+    index = iu.Index("https://localhost/", {
+        "versions": [
+            fake_install_data("3.13.0-32", sort_version="3.13.0"),
+            fake_install_data("3.13.0-64", sort_version="3.13.0"),
+        ],
+    })
+    assert select_package([index], "3.13", "-64")["tag"] == "3.13.0-64"
+    assert select_package([index], "3.13", "-32")["tag"] == "3.13.0-32"

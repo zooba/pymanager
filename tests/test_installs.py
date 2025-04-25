@@ -29,11 +29,20 @@ def fake_get_installs(install_dir):
     yield make_install("1.0-64", sort_version="1.0")
     yield make_install("2.0-64", sort_version="2.0")
     yield make_install("2.0-arm64", sort_version="2.0")
+    yield make_install("3.0a1-32", sort_version="3.0a1")
+    yield make_install("3.0a1-64", sort_version="3.0a1")
     yield make_install("1.1", company="Company", target="company.exe", targetw="companyw.exe")
     yield make_install("1.1-64", sort_version="1.1", company="Company", target="company.exe", targetw="companyw.exe")
     yield make_install("1.1-arm64", sort_version="1.1", company="Company", target="company.exe", targetw="companyw.exe")
     yield make_install("2.1", sort_version="2.1", company="Company", target="company.exe", targetw="companyw.exe")
     yield make_install("2.1-64", sort_version="2.1", company="Company", target="company.exe", targetw="companyw.exe")
+
+
+def fake_get_installs2(install_dir):
+    yield make_install("1.0-32", sort_version="1.0")
+    yield make_install("3.0a1-32", sort_version="3.0a1")
+    yield make_install("3.0a1-64", sort_version="3.0a1")
+    yield make_install("3.0a1-arm64", sort_version="3.0a1")
 
 
 def fake_get_unmanaged_installs():
@@ -47,6 +56,13 @@ def fake_get_venv_install(virtualenv):
 @pytest.fixture
 def patched_installs(monkeypatch):
     monkeypatch.setattr(installs, "_get_installs", fake_get_installs)
+    monkeypatch.setattr(installs, "_get_unmanaged_installs", fake_get_unmanaged_installs)
+    monkeypatch.setattr(installs, "_get_venv_install", fake_get_venv_install)
+
+
+@pytest.fixture
+def patched_installs2(monkeypatch):
+    monkeypatch.setattr(installs, "_get_installs", fake_get_installs2)
     monkeypatch.setattr(installs, "_get_unmanaged_installs", fake_get_unmanaged_installs)
     monkeypatch.setattr(installs, "_get_venv_install", fake_get_venv_install)
 
@@ -65,6 +81,9 @@ def test_get_installs_in_order(patched_installs):
         "Company-1.1",
         "Company-1.1-64",
         "Company-1.1-arm64",
+        # Prereleases come last
+        "PythonCore-3.0a1-64",
+        "PythonCore-3.0a1-32",
     ]
 
 
@@ -114,6 +133,9 @@ def test_get_install_to_run_with_default_platform(patched_installs):
     i = installs.get_install_to_run("<none>", None, "1.0", default_platform="-32")
     assert i["id"] == "PythonCore-1.0-32"
     assert i["executable"].match("python.exe")
+    i = installs.get_install_to_run("<none>", None, "1.0", default_platform="-64")
+    assert i["id"] == "PythonCore-1.0-64"
+    assert i["executable"].match("python.exe")
     i = installs.get_install_to_run("<none>", None, "2.0", default_platform="-arm64")
     assert i["id"] == "PythonCore-2.0-arm64"
     assert i["executable"].match("python.exe")
@@ -124,3 +146,15 @@ def test_get_install_to_run_with_default_platform(patched_installs):
     i = installs.get_install_to_run("<none>", None, "2.0-64", default_platform="-arm64")
     assert i["id"] == "PythonCore-2.0-64"
     assert i["executable"].match("python.exe")
+
+def test_get_install_to_run_with_default_platform_prerelease(patched_installs2):
+    # Specifically testing issue #25, where a native prerelease is preferred
+    # over a non-native stable release. We should prefer the stable release
+    # (e.g. for cases where an ARM64 user is relying on a stable x64 build, but
+    # also wanting to test a prerelease ARM64 build.)
+    i = installs.get_install_to_run("<none>", None, None, default_platform="-32")
+    assert i["id"] == "PythonCore-1.0-32"
+    i = installs.get_install_to_run("<none>", None, None, default_platform="-64")
+    assert i["id"] == "PythonCore-1.0-32"
+    i = installs.get_install_to_run("<none>", None, None, default_platform="-arm64")
+    assert i["id"] == "PythonCore-1.0-32"
