@@ -2,7 +2,7 @@ from .verutils import Version
 
 
 # These suffixes on a tag get special treatment when it comes to ordering
-# and matching.
+# and matching. Must be a tuple in ascending sort order
 SUPPORTED_PLATFORM_SUFFIXES = ("64", "32", "arm64")
 
 
@@ -124,6 +124,21 @@ def _split_platform(tag):
     return tag, ""
 
 
+def _platform_gt(x, y):
+    if not x:
+        return not y
+    if not y:
+        return True
+    try:
+        ix = SUPPORTED_PLATFORM_SUFFIXES.index(x)
+    except ValueError:
+        return True
+    try:
+        return ix > SUPPORTED_PLATFORM_SUFFIXES.index(y)
+    except ValueError:
+        return False
+
+
 def _sort_tag(tag):
     import re
     key = []
@@ -215,7 +230,7 @@ class CompanyTag:
         if self._sortkey != other._sortkey:
             return self._sortkey > other._sortkey
         if self.platform != other.platform:
-            return self.platform > other.platform
+            return _platform_gt(self.platform, other.platform)
         return False
 
     def matches_bound(self, other):
@@ -260,7 +275,7 @@ class CompanyTag:
         if self._sortkey != other._sortkey:
             return self._sortkey < other._sortkey
         if self.platform != other.platform:
-            return self.platform < other.platform
+            return not _platform_gt(self.platform, other.platform)
         return False
 
     def below_upper_bound(self, other):
