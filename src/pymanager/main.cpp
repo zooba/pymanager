@@ -549,11 +549,28 @@ wmain(int argc, wchar_t **argv)
     close_python();
 
     err = launch(executable.c_str(), args.c_str(), skip_argc, &exitCode);
-    if (err) {
-        fprintf(stderr, "FATAL ERROR: Failed to launch '%ls' (0x%08X)\n", executable.c_str(), err);
-        fprintf(stderr, "This may be a corrupt install or a system configuration issue.\n");
-    } else {
+
+    // TODO: Consider sharing print_error() with launcher.cpp
+    // This will ensure error messages are aligned whether we're launching
+    // through py.exe or through an alias.
+    switch (err) {
+    case 0:
         err = (int)exitCode;
+        break;
+    case ERROR_EXE_MACHINE_TYPE_MISMATCH:
+    case HRESULT_FROM_WIN32(ERROR_EXE_MACHINE_TYPE_MISMATCH):
+        fprintf(stderr,
+                "[FATAL ERROR] Executable '%ls' is for a different kind of "
+                "processor architecture.\n",
+                executable.c_str());
+        fprintf(stderr,
+                "Try using '-V:<version>' to select a different runtime, or use "
+                "'py install' to install one for your CPU.\n");
+        break;
+    default:
+        fprintf(stderr, "[FATAL ERROR] Failed to launch '%ls' (0x%08X)\n", executable.c_str(), err);
+        fprintf(stderr, "This may be a corrupt install or a system configuration issue.\n");
+        break;
     }
     return err;
 
