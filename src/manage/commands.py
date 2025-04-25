@@ -243,7 +243,7 @@ class BaseCommand:
     log_level = logging.INFO
     config_file = None
     confirm = True
-    default_tag = None
+    default_tag = "3"
     default_platform = None
     automatic_install = True
     include_unmanaged = True

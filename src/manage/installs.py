@@ -107,6 +107,7 @@ def get_installs(
                          "install" if len(um_installs) == 1 else "installs")
             installs.extend(um_installs)
 
+    print(*[_make_sort_key(i)[1].platform for i in installs], sep='\n')
     installs.sort(key=_make_sort_key)
 
     if virtual_env:
@@ -144,6 +145,8 @@ def get_matching_install_tags(
     # Installs are in the correct order, so we'll first collect all the matches.
     # If no tag is provided, we still expand out the list by all of 'run-for'
     if tag:
+        if isinstance(tag, str):
+            tag = tag_or_range(tag)
         LOGGER.debug("Filtering installs by tag = %s", tag)
     for i in installs:
         matched_any = False
@@ -201,7 +204,8 @@ def get_matching_install_tags(
         LOGGER.debug("windowed = %s matched %s %s", windowed,
                      len(best), "install" if len(best) == 1 else "installs")
 
-    # Filter for default_platform matches (by tag suffix). If none, keep them all
+    # Filter for default_platform matches (by tag suffix).
+    # If none or only prereleases, keep them all
     if default_platform:
         default_platform = default_platform.casefold()
         best2 = best
@@ -210,7 +214,7 @@ def get_matching_install_tags(
                 or t["tag"].casefold().endswith(default_platform)]
         LOGGER.debug("default_platform '%s' matched %s %s", default_platform,
                      len(best), "install" if len(best) == 1 else "installs")
-        if not best:
+        if not best or all(Version(i["sort-version"]).is_prerelease for i, t in best):
             LOGGER.debug("Reusing unfiltered list")
             best = best2
 
