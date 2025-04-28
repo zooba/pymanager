@@ -66,6 +66,7 @@ def select_package(index_downloader, tag, platform=None, *, urlopen=_urlopen, by
     tag may be a list of tags that are allowed to match exactly.
     """
 
+    LOGGER.debug("Selecting package with tag=%s and platform=%s", tag, platform)
     first_exc = None
     for index in index_downloader:
         try:
@@ -93,6 +94,8 @@ def select_package(index_downloader, tag, platform=None, *, urlopen=_urlopen, by
 
 
 def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_urlopen, urlretrieve=_urlretrieve):
+    LOGGER.debug("Starting download package %s to %s", sanitise_url(install["url"]), dest)
+
     if not cmd.force and dest.is_file():
         LOGGER.verbose("Download was found in the cache. (Pass --force to ignore cached downloads.)")
         try:
@@ -138,6 +141,7 @@ def download_package(cmd, install, dest, cache, *, on_progress=None, urlopen=_ur
 
 def validate_package(install, dest, *, delete=True):
     if "hash" in install:
+        LOGGER.debug("Starting hash validation of %s", dest)
         try:
             with open(dest, "rb") as f:
                 _multihash(f, install["hash"])
@@ -147,10 +151,15 @@ def validate_package(install, dest, *, delete=True):
             unlink(dest, "Deleting downloaded files is taking some time. " +
                          "Please continue to wait, or press Ctrl+C to abort.")
             raise HashMismatchError() from ex
+    else:
+        LOGGER.debug("Skipping hash validation of %s because there is no hash "
+                     "listed in the install data.", dest)
 
 
 def extract_package(package, prefix, calculate_dest=Path, *, on_progress=None, repair=False):
     import zipfile
+
+    LOGGER.debug("Starting extract of %s to %s", package, prefix)
 
     if not on_progress:
         def on_progress(*_): pass
@@ -520,9 +529,12 @@ def execute(cmd):
     if cmd.refresh:
         if cmd.args:
             LOGGER.warn("Ignoring arguments; --refresh always refreshes all installs.")
-        LOGGER.info("Refreshing install registrations.")
-        update_all_shortcuts(cmd)
-        LOGGER.debug("END install_command.execute")
+        if cmd.dry_run:
+            LOGGER.info("Skipping shortcut refresh due to --dry-run")
+        else:
+            LOGGER.info("Refreshing install registrations.")
+            update_all_shortcuts(cmd)
+            LOGGER.debug("END install_command.execute")
         return
 
     if cmd.force:
@@ -651,14 +663,14 @@ def execute(cmd):
                                 raise first_exc
                             # Reachable if all sources are blank
                             raise RuntimeError("All install sources failed, nothing can be updated.")
-                        if update:
-                            if update['sort-version'] > install['sort-version']:
-                                _install_one(cmd, source, update)
-                            else:
-                                LOGGER.verbose("%s is already up to date.", install['display-name'])
+                        if update and update["sort-version"] > install["sort-version"]:
+                            _install_one(cmd, source, update)
                         else:
-                            LOGGER.verbose("Could not find update for %s.",
-                                install['display-name'], install['id'])
+                            LOGGER.verbose(
+                                "No new version available for %s\\%s '%s'.",
+                                install["company"], install["tag"],
+                                install["display-name"],
+                            )
                     # Fallthrough is safe - cmd.tags is empty
                 else:
                     raise ArgumentError("Specify at least one tag to install, or 'default' for "
@@ -716,8 +728,11 @@ def execute(cmd):
                 cmd.download.name
             )
         else:
-            update_all_shortcuts(cmd)
-            print_cli_shortcuts(cmd)
+            if cmd.dry_run:
+                LOGGER.info("Skipping shortcut refresh due to --dry-run")
+            else:
+                update_all_shortcuts(cmd)
+                print_cli_shortcuts(cmd)
 
     finally:
         if cmd.automatic:

@@ -107,7 +107,6 @@ def get_installs(
                          "install" if len(um_installs) == 1 else "installs")
             installs.extend(um_installs)
 
-    print(*[_make_sort_key(i)[1].platform for i in installs], sep='\n')
     installs.sort(key=_make_sort_key)
 
     if virtual_env:

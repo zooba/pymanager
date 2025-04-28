@@ -231,4 +231,5 @@ class Index:
         if not prefer_prerelease:
             for i in self.find_all(tag_list, loose_company=loose_company, with_prerelease=True):
                 return i
+        LOGGER.debug("No install found for %s", tag_list)
         raise LookupError(tag)
