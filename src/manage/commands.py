@@ -16,6 +16,14 @@ from . import EXE_NAME
 from . import logging
 LOGGER = logging.LOGGER
 
+
+# Thinking about patching the sources to override this default?
+# Maybe you can just patch the default pymanager.json config file instead,
+# or check out the docs for administrative controls:
+#    https://docs.python.org/using/windows
+DEFAULT_SOURCE_URL = "https://www.python.org/ftp/python/index-windows.json"
+
+
 COPYRIGHT = f"""Python installation manager {__version__}
 Copyright (c) Python Software Foundation. All Rights Reserved.
 """
@@ -735,10 +743,7 @@ class InstallCommand(BaseCommand):
         super().__init__(args, root)
 
         if not self.source:
-            # HACK: For testing until we get a reasonable default feed
-            self.source = str(Path(root) / "./bundled/index.json")
-            if not Path(self.source).is_file():
-                raise ArgumentError("No source feed specified.")
+            self.source = DEFAULT_SOURCE_URL
         if "://" not in str(self.source):
             try:
                 self.source = Path(self.source).absolute().as_uri()
