@@ -541,7 +541,7 @@ wmain(int argc, wchar_t **argv)
 
     if (err) {
         // Most 'not found' errors have been handled above. These are internal
-        fprintf(stderr, "INTERNAL ERROR 0x%08X. Please report to https://github.com/zooba/pymanager\n", err);
+        fprintf(stderr, "INTERNAL ERROR 0x%08X. Please report to https://github.com/python/pymanager\n", err);
         goto error;
     }
 

@@ -1,23 +1,35 @@
-# pymanager
+# Python Install Manager
 
-Proof-of-concept for Python install manager app.
+This is the source code for the Python Install Manager app.
 
-See [the draft PEP text](https://github.com/zooba/pymanager/blob/pep/pep-draft.md)
-for additional information on how to use this.
+For information about how to use the Python install manager,
+including troubleshooting steps,
+please refer to the documentation at
+[docs.python.org/using/windows](https://docs.python.org/3.14/using/windows.html).
+
+The original PEP leading to this tool was
+[PEP 773](https://peps.python.org/pep-0773/).
+
 
 # Build
 
-To build and run locally:
+To build and run locally requires [`pymsbuild`](https://pypi.org/project/pymsbuild)
+and a Visual Studio installation that includes the C/C++ compilers.
 
 ```
 > python -m pip install pymsbuild
 > python -m pymsbuild
-> python scripts\generate-nuget-index.py python-manager\index.json
-> python-manager\py-manage.exe
+> python-manager\py.exe ...
 ```
 
-The `python-manager\\py-manage` executable is the main entry point. No aliases
-are created by a regular build, they are part of the MSIX installation process.
+Any modification to a source file requires rebuilding.
+The `.py` files are packaged into an extension module.
+However, see the following section on tests, as test runs do not require a full
+build.
+
+For additional output, set `%PYMANAGER_DEBUG%` to force debug-level output.
+This is the equivalent of passing `-vv`, though it also works for contexts that
+do not accept options (such as launching a runtime).
 
 # Tests
 
@@ -39,11 +51,10 @@ To produce an (almost) installer app package:
 
 ```
 > python -m pip install pymsbuild
-> python package.py
+> python make-all.py
 ```
 
-This will rebuild the project and produce MSIX and APPXSYM packages.
-Customization of output paths is future work.
+This will rebuild the project and produce MSIX, APPXSYM and MSI packages.
 
 You will need to sign the MSIX package before you can install it. This can be a
 self-signed certificate, but it must be added to your Trusted Publishers.
@@ -54,6 +65,22 @@ as if it was properly installed.
 
 # Contributions
 
-Please contribute in [the discussion](https://discuss.python.org/t/pre-pep-a-python-installation-manager-for-windows/74556)
-right now. This is only a prototype, and may change significantly before it is
-ever used for anything.
+Contributions are welcome under all the same conditions as for CPython.
+
+# Release Schedule
+
+As this project is currently considered to be in prerelease stage,
+the release schedule is "as needed".
+
+The release manager for the Python Install Manager on Windows is whoever is the
+build manager for Windows for CPython.
+
+# Copyright and License Information
+
+Copyright © 2025 Python Software Foundation.  All rights reserved.
+
+See the `LICENSE <https://github.com/python/pymanager/blob/main/LICENSE>`_ for
+information on the history of this software, terms & conditions for usage, and a
+DISCLAIMER OF ALL WARRANTIES.
+
+All trademarks referenced herein are property of their respective holders.

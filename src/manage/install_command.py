@@ -512,13 +512,13 @@ def _fatal_install_error(cmd, ex):
         LOGGER.info("Log file for this session: !Y!%s!W!", logfile)
         # TODO: Update issues URL to actual repository
         LOGGER.info("If you cannot resolve it yourself, please report the error with "
-                    "your log file at https://discuss.python.org/t/77900/ (during testing).")
+                    "your log file at https://github.com/python/pymanager")
     else:
         LOGGER.error("An error occurred. Please check any output above, "
                      "and try again with -vv for more information.")
         # TODO: Update issues URL to actual repository
         LOGGER.info("If you cannot resolve it yourself, please report the error with "
-                    "verbose output file at https://discuss.python.org/t/77900/ (during testing).")
+                    "verbose output file at https://github.com/python/pymanager")
     LOGGER.debug("TRACEBACK:", exc_info=True)
     raise SystemExit(getattr(ex, "winerror", getattr(ex, "errno", 0)) or 1) from ex
 

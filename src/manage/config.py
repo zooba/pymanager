@@ -127,7 +127,7 @@ def load_registry_config(key_path, schema):
         else:
             LOGGER.warn("Too many registry values were read from %s. " +
                         "This is very unexpected. Please check your configuration " +
-                        "or report an issue at https://github.com/zooba/pymanager.",
+                        "or report an issue at https://github.com/python/pymanager.",
                         key_path)
     resolve_config(cfg, key_path, _global_file().parent, schema=schema, error_unknown=True)
     return cfg

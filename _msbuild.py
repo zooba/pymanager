@@ -22,8 +22,8 @@ METADATA = {
     "Author-email": "steve.dower@python.org",
     "Project-url": [
         "Homepage, https://www.python.org/",
-        "Sources, https://github.com/zooba/pymanager",
-        "Issues, https://github.com/zooba/pymanager",
+        "Sources, https://github.com/python/pymanager",
+        "Issues, https://github.com/python/pymanager",
     ],
     "Summary": "Proof of concept for Python install manager app",
     "Description": File("README.md"),
